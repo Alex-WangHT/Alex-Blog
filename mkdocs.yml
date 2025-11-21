@@ -1,11 +1,13 @@
-site_name: Alex.Wang的技术随笔
+site_name: Alex的后院瓜田
 site_url: https://alex-wanght.github.io/Alex-Blog/ # 非常重要，请替换！
-site_description: 这是一个使用 Material for MkDocs 搭建的个人博客。
+site_description: 你好，欢迎来到Alex.Wang的后院瓜田！
 
 # --- 1. 主题与界面配置 ---
 theme:
   name: material
   language: zh
+  extra_css:
+    - extra.css
   icon:
     logo: material/book-open-page-variant # 页面左上角图标
   # 启用多颜色切换 (深色模式/浅色模式)
@@ -38,8 +40,10 @@ theme:
 plugins:
   - search:
       lang: zh # 启用中文搜索支持
+  - blog
   - section-index # 允许文件夹内的 index.md 文件成为导航项
 
 # --- 3. 导航结构 ---
 nav:
   - 🏠 首页: index.md
+  - 技术博客: blog/index.md
