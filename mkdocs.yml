@@ -48,7 +48,6 @@ markdown_extensions:
 plugins:
   - search:
       lang: zh # 启用中文搜索支持
-  - blog
 
 # --- 3. 导航结构 ---
 nav:
