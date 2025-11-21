@@ -44,7 +44,3 @@ plugins:
 # --- 3. 导航结构 ---
 nav:
   - 🏠 首页: index.md
-  - 📝 博客: blog/index.md # 这是博客插件自动生成的文章列表页
-  - 标签: blog/categories/index.md
-  - 归档: blog/archives/index.md
-  - 👤 关于我: about.md
