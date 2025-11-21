@@ -1,0 +1,50 @@
+site_name: Alex.Wang的技术随笔
+site_url: https://Alex-WangHT.github.io/AlexWang-Blog/ # 非常重要，请替换！
+site_description: 这是一个使用 Material for MkDocs 搭建的个人博客。
+
+# --- 1. 主题与界面配置 ---
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/book-open-page-variant # 页面左上角图标
+  # 启用多颜色切换 (深色模式/浅色模式)
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo # 主色
+      accent: indigo # 强调色
+      toggle:
+        icon: material/brightness-7 # 浅色模式图标
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4 # 深色模式图标
+        name: 切换到浅色模式
+  features: # 启用一些常用功能
+    - navigation.tabs
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+
+# --- 2. 插件配置（博客核心） ---
+plugins:
+  - search:
+      lang: zh # 启用中文搜索支持
+  - blog: # 启用 Material for MkDocs 博客插件
+  - section-index # 允许文件夹内的 index.md 文件成为导航项
+
+# --- 3. 导航结构 ---
+nav:
+  - 🏠 首页: index.md
+  - 📝 博客: blog/index.md # 这是博客插件自动生成的文章列表页
+  - 标签: blog/categories/index.md
+  - 归档: blog/archives/index.md
+  - 👤 关于我: about.md
