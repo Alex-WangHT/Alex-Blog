@@ -41,7 +41,6 @@ plugins:
   - search:
       lang: zh # 启用中文搜索支持
   - blog
-  - section-index # 允许文件夹内的 index.md 文件成为导航项
 
 # --- 3. 导航结构 ---
 nav:
