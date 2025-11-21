@@ -1,0 +1,25 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - main # 只有 main 分支有 push 时才触发部署
+    # 仅在 mkdocs.yml 或 docs 文件夹内容变化时触发
+    paths:
+      - '.github/workflows/ci.yml'
+      - 'mkdocs.yml'
+      - 'docs/**'
+
+permissions:
+  contents: write # 必须要有写入权限才能推送到 gh-pages 分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material pillow
+      - run: mkdocs gh-deploy --force
