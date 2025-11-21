@@ -1,25 +1,54 @@
-name: Deploy Docs
+name: Deploy Material for MkDocs Blog
 
+# ----------------------------------------------------
+# 触发机制：当 main 分支有推送时触发
+# ----------------------------------------------------
 on:
   push:
     branches:
-      - main # 只有 main 分支有 push 时才触发部署
-    # 仅在 mkdocs.yml 或 docs 文件夹内容变化时触发
+      - main
+    # 优化：仅在 mkdocs.yml 或 docs 文件夹内容变化时才触发
     paths:
-      - '.github/workflows/ci.yml'
       - 'mkdocs.yml'
       - 'docs/**'
+      - '.github/workflows/ci.yml'
 
+# ----------------------------------------------------
+# 权限：部署到 Pages 必须具备的写入权限
+# ----------------------------------------------------
 permissions:
-  contents: write # 必须要有写入权限才能推送到 gh-pages 分支
+  contents: write # 必须有，用于推送构建结果到 gh-pages 分支
+  pages: write    # 部署到 Pages 服务需要
+  id-token: write # 用于 GitHub Pages 的 OIDC 认证
 
+# ----------------------------------------------------
+# 部署任务
+# ----------------------------------------------------
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Code (检查代码)
+        uses: actions/checkout@v4
+        # 深度获取，以确保 mkdocs-material 插件的完整性
         with:
-          python-version: 3.x
-      - run: pip install mkdocs-material pillow
-      - run: mkdocs gh-deploy --force
+          fetch-depth: 0
+
+      - name: Setup Python (设置 Python 环境)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs and All Required Plugins (安装依赖 - 修复插件缺失问题)
+        run: |
+          pip install --upgrade pip
+          # 安装核心主题和所有必需的插件
+          pip install mkdocs-material pillow mkdocs-section-index
+          
+          # 如果您使用了其他插件，请在这里添加它们的包名！
+          # 例如：pip install mkdocs-section-index mkdocs-redirects mkdocs-git-revision-date-localized
+      
+      - name: Deploy MkDocs to GitHub Pages (部署)
+        # 推荐使用 mkdocs 官方的 gh-deploy 命令，因为它能处理所有构建和推送逻辑
+        run: mkdocs gh-deploy --force
