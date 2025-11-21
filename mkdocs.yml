@@ -37,6 +37,7 @@ theme:
     - header.autohide
 
 markdown_extensions:
+    - meta
     - admonition
     - attr_list
     - pymdownx.highlight
