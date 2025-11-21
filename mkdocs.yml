@@ -46,3 +46,4 @@ plugins:
 nav:
   - 🏠 首页: index.md
   - 技术博客: blog/index.md
+  - 关于: about.md
