@@ -36,6 +36,13 @@ theme:
     - search.share
     - header.autohide
 
+markdown_extensions:
+    - admonition
+    - attr_list
+    - pymdownx.highlight
+    - pymdownx.tasklist:
+        custom_checkbox: true
+
 # --- 2. 插件配置（博客核心） ---
 plugins:
   - search:
