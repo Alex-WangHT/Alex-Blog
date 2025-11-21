@@ -38,7 +38,6 @@ theme:
 plugins:
   - search:
       lang: zh # 启用中文搜索支持
-  - blog: # 启用 Material for MkDocs 博客插件
   - section-index # 允许文件夹内的 index.md 文件成为导航项
 
 # --- 3. 导航结构 ---
