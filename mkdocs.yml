@@ -36,12 +36,12 @@ theme:
 
 # --- 2. Markdown扩展配置 ---
 markdown_extensions:
-    - meta
-    - admonition
-    - attr_list
-    - pymdownx.highlight
-    - pymdownx.tasklist:
-        custom_checkbox: true
+  - meta
+  - admonition
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # --- 3. 插件配置（博客核心） ---
 plugins:
@@ -58,5 +58,4 @@ plugins:
 # --- 4. 导航结构 ---
 nav:
   - 🏠 首页: index.md
-  - 技术博客: 
-    - blog/index.md
+  - 技术博客: blog/index.md # 简化写法，但原先的嵌套写法也是可以的
