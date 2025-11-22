@@ -35,7 +35,7 @@ theme:
     - search.highlight
     - search.share
     - header.autohide
-
+# --- 2. Markdown扩展配置 ---
 markdown_extensions:
     - meta
     - admonition
@@ -44,12 +44,12 @@ markdown_extensions:
     - pymdownx.tasklist:
         custom_checkbox: true
 
-# --- 2. 插件配置（博客核心） ---
+# --- 3. 插件配置（博客核心） ---
 plugins:
   - search:
       lang: zh # 启用中文搜索支持
 
-# --- 3. 导航结构 ---
+# --- 4. 导航结构 ---
 nav:
   - 🏠 首页: index.md
   - 技术博客: blog/index.md
