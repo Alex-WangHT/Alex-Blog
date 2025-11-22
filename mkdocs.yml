@@ -36,12 +36,48 @@ theme:
 
 # --- 2. Markdown扩展配置 ---
 markdown_extensions:
-  - meta
-  - admonition
+  - abbr
   - attr_list
-  - pymdownx.highlight
-  - pymdownx.tasklist:
-      custom_checkbox: true
+  - admonition
+  # Admonitions
+  - pymdownx.details
+  - pymdownx.superfences
+  # Code Blocks
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences  
+  # Content tabs
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Data Tables
+  - tables 
+  # Emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # Formatting
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde  
+  # Images
+  - md_in_html
+  # List
+  - def_list
+  # MathJax Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  #Tooltips
+  - pymdownx.snippets
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # --- 3. 插件配置（博客核心） ---
 plugins:
