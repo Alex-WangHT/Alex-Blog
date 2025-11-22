@@ -45,10 +45,10 @@ markdown_extensions:
 
 # --- 3. 插件配置（博客核心） ---
 plugins:
-  - search:
-      lang: zh # 启用中文搜索支持
+  - blog
 
 # --- 4. 导航结构 ---
 nav:
   - 🏠 首页: index.md
-  - 技术博客: blog/index.md
+  - 技术博客: 
+    - blog/index.md
