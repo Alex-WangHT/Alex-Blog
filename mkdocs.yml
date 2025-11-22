@@ -49,7 +49,7 @@ plugins:
       # 您的文章应位于 docs/blog 目录下
       dir: blog 
       # 博客列表页的导航路径
-      archive: blog/index.md
+      archive_url: blog/index.md
       # 启用分类和作者等功能
       categories: true
       authors: true
