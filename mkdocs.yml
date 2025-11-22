@@ -47,7 +47,7 @@ markdown_extensions:
 plugins:
   - blog:
       # 您的文章应位于 docs/blog 目录下
-      dir: blog 
+      dir: blog/post
       # 博客列表页的导航路径
       archive_url: blog
       # 启用分类和作者等功能
