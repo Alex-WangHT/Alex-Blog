@@ -45,7 +45,15 @@ markdown_extensions:
 
 # --- 3. 插件配置（博客核心） ---
 plugins:
-  - blog
+  - blog:
+    # 您的文章应位于 docs/blog 目录下
+    dir: blog 
+    # 博客列表页的导航路径
+    archive: blog/index.md
+    # 启用分类和作者等功能
+    categories: true
+    authors: true
+  - search # 确保 search 插件也启用了
 
 # --- 4. 导航结构 ---
 nav:
