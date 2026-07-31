@@ -1,0 +1,35 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: base
+          auto-activate-base: true
+
+      - name: Install MkDocs and dependencies
+        shell: bash -l {0}
+        run: |
+          conda install -c conda-forge mkdocs-material -y
+          pip install pymdown-extensions
+
+      - name: Deploy to GitHub Pages
+        shell: bash -l {0}
+        run: |
+          mkdocs gh-deploy --force
