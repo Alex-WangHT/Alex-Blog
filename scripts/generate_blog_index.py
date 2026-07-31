@@ -4,8 +4,8 @@
 
 功能：
 1. 扫描 docs/ 下所有文章，提取 front matter
-2. 生成 docs/tech-blog/index.md（标题 + 文章列表，隐藏右侧目录）
-3. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表，隐藏右侧目录）
+2. 生成 docs/tech-blog/index.md（标题 + 技术分类文章列表，右侧 TOC 只显示技术分类）
+3. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表，右侧 TOC 只显示文章列表）
 4. 自动更新 mkdocs.yml 中的 nav 配置
 
 使用方式：
@@ -85,14 +85,11 @@ def get_relative_path_from_tag_page(art_path):
     return f'../../{art_path}'
 
 def generate_tech_blog_home(articles):
-    """生成技术博客主页：只保留标题和文章列表，隐藏右侧目录"""
+    """生成技术博客主页：标题 + 技术分类文章列表，右侧 TOC 只显示技术分类"""
     lines = [
-        '---',
-        'hide:',
-        '  - toc',
-        '---',
-        '',
         '# 技术博客',
+        '',
+        '## 技术分类',
         '',
     ]
 
@@ -113,16 +110,13 @@ def generate_tech_blog_home(articles):
     return '\n'.join(lines)
 
 def generate_tag_page(tag, articles):
-    """生成单个标签的页面，隐藏右侧目录"""
+    """生成单个标签的页面，右侧 TOC 只显示文章列表"""
     lines = [
-        '---',
-        'hide:',
-        '  - toc',
-        '---',
-        '',
         f'# 标签：#{tag}',
         '',
         f'以下是包含标签 **#{tag}** 的所有文章。',
+        '',
+        '## 文章列表',
         '',
     ]
     for art in sorted(articles, key=lambda x: x['date'] or '0000-00-00', reverse=True):
@@ -171,11 +165,12 @@ def generate_latest_posts(articles, max_count=10):
     return '\n'.join(lines)
 
 def update_mkdocs_nav(all_tags):
-    """更新 mkdocs.yml 中的 nav 配置"""
+    """更新 mkdocs.yml 中的 nav 配置（左侧栏只保留标签分类）"""
     content = MKDOCS_FILE.read_text(encoding='utf-8')
 
+    # 启用 navigation.indexes 后，父项自动链接到同目录 index.md
+    # 不需要在子菜单中显式列出 tech-blog/index.md
     tech_blog_nav = "  - 技术博客:\n"
-    tech_blog_nav += "    - tech-blog/index.md\n"
     tech_blog_nav += "    - 标签分类:\n"
     for tag in sorted(all_tags, key=str.lower):
         tech_blog_nav += f'      - "#{tag}": tech-blog/tags/{tag}.md\n'

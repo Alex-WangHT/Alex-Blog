@@ -30,6 +30,7 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
+    - navigation.indexes
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
@@ -47,7 +48,6 @@ plugins:
 # 导航菜单（不再单独显示"首页"，点击 Alex Blog 标题即可返回）
 nav:
   - 技术博客:
-    - tech-blog/index.md
     - 标签分类:
       - "#Python": tech-blog/tags/Python.md
       - "#ROS2": tech-blog/tags/ROS2.md

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/tech-blog/index.md",
+                "file": "docs/electronics/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -199,7 +199,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "abe5958ca3ae71a0",
+  "active": "1063f6604bd2c54a",
   "lastOpenFiles": [
     "site/search/search_index.json",
     "site/search",
@@ -212,20 +212,20 @@
     "site/tech-blog/tags/机器人/index.html",
     "site/tech-blog/tags/机器人",
     "site/tech-blog/tags/数学/index.html",
-    "site/assets/images/favicon.png",
+    "docs/tech-blog/ros2-intro.md",
+    "docs/tech-blog/slam-motion-model.md",
+    "docs/tech-blog/tags/ROS2.md",
+    "docs/tech-blog/tags/Python.md",
     "docs/tech-blog/tags/数学.md",
+    "docs/tech-blog/tags/深度学习.md",
+    "docs/tech-blog/tags/机器人.md",
+    "docs/tech-blog/tags/概率论.md",
+    "docs/tech-blog/index.md",
+    "site/assets/images/favicon.png",
     "docs/tech-blog/tags/注意力机制.md",
     "docs/tech-blog/tags/Transformer.md",
-    "docs/tech-blog/tags/深度学习.md",
-    "docs/tech-blog/tags/概率论.md",
     "docs/tech-blog/tags/SLAM.md",
-    "docs/tech-blog/tags/Python.md",
-    "docs/tech-blog/tags/机器人.md",
-    "docs/tech-blog/tags/ROS2.md",
     "docs/tags.md",
-    "docs/tech-blog/index.md",
-    "docs/tech-blog/slam-motion-model.md",
-    "docs/tech-blog/ros2-intro.md",
     "docs/ai/transformer-attention.md",
     "docs/index.md",
     "docs/math/index.md",
