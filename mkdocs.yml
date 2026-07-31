@@ -44,6 +44,16 @@ extra_javascript:
 plugins:
   - search
 
+# 导航菜单
+nav:
+  - 首页: index.md
+  - 博客: blog/index.md
+  - 人工智能: ai/index.md
+  - 数学知识: math/index.md
+  - 物理知识: physics/index.md
+  - 控制理论: control/index.md
+  - 计算机知识: cs/index.md
+
 # GitHub Pages 部署设置 (部署到 gh-pages 分支)
 remote_branch: gh-pages
 remote_name: origin
