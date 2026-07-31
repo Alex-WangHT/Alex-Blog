@@ -46,7 +46,18 @@ plugins:
 
 # 导航菜单（不再单独显示"首页"，点击 Alex Blog 标题即可返回）
 nav:
-  - 技术博客: tech-blog/index.md
+  - 技术博客:
+    - tech-blog/index.md
+    - 标签分类:
+      - "#Python": tech-blog/tags/Python.md
+      - "#ROS2": tech-blog/tags/ROS2.md
+      - "#SLAM": tech-blog/tags/SLAM.md
+      - "#Transformer": tech-blog/tags/Transformer.md
+      - "#数学": tech-blog/tags/数学.md
+      - "#机器人": tech-blog/tags/机器人.md
+      - "#概率论": tech-blog/tags/概率论.md
+      - "#注意力机制": tech-blog/tags/注意力机制.md
+      - "#深度学习": tech-blog/tags/深度学习.md
   - 机器人: robot/index.md
   - 人工智能: ai/index.md
   - 控制理论: control/index.md
@@ -54,7 +65,6 @@ nav:
   - 电子设计: electronics/index.md
   - 数学知识: math/index.md
   - 物理知识: physics/index.md
-  - 标签索引: tags.md
 
 # GitHub Pages 部署设置 (部署到 gh-pages 分支)
 remote_branch: gh-pages

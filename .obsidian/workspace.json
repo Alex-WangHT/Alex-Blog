@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/math/index.md",
+                "file": "docs/tech-blog/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/math/index.md",
+                "file": "docs/tech-blog/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/math/index.md",
+                "file": "docs/tech-blog/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/math/index.md",
+                "file": "docs/tech-blog/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -200,37 +200,44 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1063f6604bd2c54a",
+  "active": "abe5958ca3ae71a0",
   "lastOpenFiles": [
     "site/search/search_index.json",
     "site/search",
-    "site/tech-blog/slam-motion-model/index.html",
-    "site/tech-blog/slam-motion-model",
-    "site/tech-blog/ros2-intro/index.html",
-    "site/tech-blog/ros2-intro",
-    "site/tech-blog/index.html",
-    "site/tech-blog",
-    "site/robot/index.html",
-    "site/robot",
-    "site/physics/index.html",
-    "_includes/latest_posts.md",
+    "site/tech-blog/tags/深度学习/index.html",
+    "site/tech-blog/tags/深度学习",
+    "site/tech-blog/tags/注意力机制/index.html",
+    "site/tech-blog/tags/注意力机制",
+    "site/tech-blog/tags/概率论/index.html",
+    "site/tech-blog/tags/概率论",
+    "site/tech-blog/tags/机器人/index.html",
+    "site/tech-blog/tags/机器人",
+    "site/tech-blog/tags/数学/index.html",
+    "site/assets/images/favicon.png",
+    "docs/tech-blog/tags/数学.md",
+    "docs/tech-blog/tags/注意力机制.md",
+    "docs/tech-blog/tags/Transformer.md",
+    "docs/tech-blog/tags/深度学习.md",
+    "docs/tech-blog/tags/概率论.md",
+    "docs/tech-blog/tags/SLAM.md",
+    "docs/tech-blog/tags/Python.md",
+    "docs/tech-blog/tags/机器人.md",
+    "docs/tech-blog/tags/ROS2.md",
     "docs/tags.md",
-    "docs/_includes/latest_posts.md",
+    "docs/tech-blog/index.md",
     "docs/tech-blog/slam-motion-model.md",
     "docs/tech-blog/ros2-intro.md",
     "docs/ai/transformer-attention.md",
-    "site/assets/images/favicon.png",
+    "docs/index.md",
+    "docs/math/index.md",
+    "_includes/latest_posts.md",
+    "docs/_includes/latest_posts.md",
     "docs/electronics/index.md",
     "docs/control/index.md",
     "docs/computer/index.md",
-    "docs/tech-blog/index.md",
     "docs/未命名.md",
     "docs/robot/index.md",
     "docs/cs/index.md",
-    "docs/physics/index.md",
-    "docs/math/index.md",
-    "docs/blog/index.md",
-    "docs/ai/index.md",
-    "docs/index.md"
+    "docs/physics/index.md"
   ]
 }
