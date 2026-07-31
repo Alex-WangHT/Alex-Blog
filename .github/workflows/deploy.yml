@@ -27,7 +27,11 @@ jobs:
         shell: bash -l {0}
         run: |
           conda install -c conda-forge mkdocs-material -y
-          pip install pymdown-extensions
+          pip install pymdown-extensions pyyaml
+
+      - name: Generate blog index and tags
+        shell: bash -l {0}
+        run: python scripts/generate_blog_index.py
 
       - name: Deploy to GitHub Pages
         shell: bash -l {0}

@@ -2,6 +2,8 @@
 
 这是一个基于 MkDocs + Material 主题的个人博客站点，支持 MathJax 数学公式渲染。
 
+--8<-- "_includes/latest_posts.md"
+
 ## 数学公式示例
 
 ### 行内公式 (Inline Math)
@@ -42,6 +44,26 @@ $$
 mkdocs.yml    # 配置文件
 docs/
     index.md          # 首页
+    tags.md           # 标签索引页
+    _includes/        # 自动生成的片段
+    tech-blog/        # 技术博客
+    robot/            # 机器人
+    ai/               # 人工智能
+    control/          # 控制理论
+    computer/         # 计算机
+    electronics/      # 电子设计
+    math/             # 数学知识
+    physics/          # 物理知识
     javascripts/      # 自定义 JS（MathJax 配置）
-        mathjax.js    # MathJax 配置：仅支持 $...$ 和 $$...$$
 ```
+
+> **写作规范**：每篇新文章请在文件开头添加 YAML front matter：
+> ```yaml
+> ---
+> title: "文章标题"
+> date: "2024-07-31"
+> tags: [标签1, 标签2]
+> description: "文章简介"
+> ---
+> ```
+> 然后运行 `python scripts/generate_blog_index.py` 更新首页和标签页。

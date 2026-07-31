@@ -6,33 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="从零推导 Self-Attention 的数学公式，理解 Q/K/V 的直觉含义。">
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/math/">
+      
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/transformer-attention/">
       
       
-        <link rel="prev" href="../electronics/">
-      
-      
-        <link rel="next" href="../physics/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>数学知识 - Alex Blog</title>
+        <title>Transformer 注意力机制数学推导 - Alex Blog</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#transformer" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数学知识
+              Transformer 注意力机制数学推导
             
           </span>
         </div>
@@ -223,7 +221,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tech-blog/" class="md-tabs__link">
+      <a href="../../tech-blog/" class="md-tabs__link">
         
   
   
@@ -242,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../robot/" class="md-tabs__link">
+      <a href="../../robot/" class="md-tabs__link">
         
   
   
@@ -261,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -280,7 +278,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../control/" class="md-tabs__link">
+      <a href="../../control/" class="md-tabs__link">
         
   
   
@@ -299,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../computer/" class="md-tabs__link">
+      <a href="../../computer/" class="md-tabs__link">
         
   
   
@@ -318,7 +316,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../electronics/" class="md-tabs__link">
+      <a href="../../electronics/" class="md-tabs__link">
         
   
   
@@ -335,11 +333,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../math/" class="md-tabs__link">
         
   
   
@@ -358,7 +354,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../physics/" class="md-tabs__link">
+      <a href="../../physics/" class="md-tabs__link">
         
   
   
@@ -377,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tags/" class="md-tabs__link">
+      <a href="../../tags/" class="md-tabs__link">
         
   
   
@@ -412,7 +408,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -442,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-blog/" class="md-nav__link">
+      <a href="../../tech-blog/" class="md-nav__link">
         
   
   
@@ -469,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../robot/" class="md-nav__link">
+      <a href="../../robot/" class="md-nav__link">
         
   
   
@@ -496,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -523,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control/" class="md-nav__link">
+      <a href="../../control/" class="md-nav__link">
         
   
   
@@ -550,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../computer/" class="md-nav__link">
+      <a href="../../computer/" class="md-nav__link">
         
   
   
@@ -577,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../electronics/" class="md-nav__link">
+      <a href="../../electronics/" class="md-nav__link">
         
   
   
@@ -601,19 +597,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../math/" class="md-nav__link">
         
   
   
@@ -629,7 +616,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -641,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../physics/" class="md-nav__link">
+      <a href="../../physics/" class="md-nav__link">
         
   
   
@@ -668,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         
   
   
@@ -708,6 +694,64 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaled-dot-product-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaled Dot-Product Attention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaled Dot-Product Attention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sqrtd_k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        缩放因子 \(\sqrt{d_k}\) 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-head-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Head Attention
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -726,11 +770,25 @@
   
 
 
-<h1 id="_1">数学知识</h1>
-<p>微积分、线性代数、概率统计、优化理论等数学基础笔记。</p>
+<h1 id="transformer">Transformer 注意力机制数学推导</h1>
+<p>Transformer 架构的核心是<strong>自注意力机制（Self-Attention）</strong>，它允许模型在处理序列时直接关注任意位置的信息。</p>
+<h2 id="_1">基本定义</h2>
+<p>给定输入序列的嵌入矩阵 <span class="arithmatex">\(X \in \mathbb{R}^{n \times d_{model}}\)</span>，通过三个线性投影得到 Query、Key、Value：</p>
+<div class="arithmatex">\[Q = X W_Q, \quad K = X W_K, \quad V = X W_V\]</div>
+<p>其中 <span class="arithmatex">\(W_Q, W_K \in \mathbb{R}^{d_{model} \times d_k}\)</span>，<span class="arithmatex">\(W_V \in \mathbb{R}^{d_{model} \times d_v}\)</span>。</p>
+<h2 id="scaled-dot-product-attention">Scaled Dot-Product Attention</h2>
+<p>注意力输出定义为：</p>
+<div class="arithmatex">\[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V\]</div>
+<h3 id="sqrtd_k">缩放因子 <span class="arithmatex">\(\sqrt{d_k}\)</span> 的作用</h3>
+<p>当 <span class="arithmatex">\(d_k\)</span> 较大时，<span class="arithmatex">\(QK^T\)</span> 的点积值会呈指数级增长，导致 softmax 进入梯度极小的饱和区。除以 <span class="arithmatex">\(\sqrt{d_k}\)</span> 可以保持方差稳定：</p>
+<div class="arithmatex">\[\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{d_k \cdot \sigma^2}{d_k} = \sigma^2\]</div>
+<h2 id="multi-head-attention">Multi-Head Attention</h2>
+<p>使用 <span class="arithmatex">\(h\)</span> 组不同的投影矩阵并行计算注意力：</p>
+<div class="arithmatex">\[\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h) W_O\]</div>
+<p>其中每个 head 的维度为 <span class="arithmatex">\(d_k = d_{model} / h\)</span>。</p>
 <hr />
 <blockquote>
-<p>暂无文章，敬请期待。</p>
+<p>后续将补充位置编码和 Layer Normalization 的详细推导。</p>
 </blockquote>
 
 
@@ -738,6 +796,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -781,12 +842,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
