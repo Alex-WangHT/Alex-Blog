@@ -8,12 +8,14 @@
 3. 为技术博客生成 docs/tech-blog/index.md（全部文章列表，作为博客主页）
 4. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表）
 5. 生成 _includes/latest_posts.md（首页最新文章列表）
-6. 自动更新 mkdocs.yml 中的 nav 配置
+6. 复制根目录 mathjax.js 到 docs/javascripts/
+7. 自动更新 mkdocs.yml 中的 nav 配置
 
 使用方式：
     python scripts/generate_blog_index.py
 """
 import re
+import shutil
 import yaml
 from pathlib import Path
 from collections import defaultdict
@@ -221,6 +223,18 @@ def update_mkdocs_nav(all_tags):
     else:
         print("⚠️  无法定位 nav 区域，请手动更新 mkdocs.yml")
 
+def copy_mathjax_config():
+    """将根目录的 mathjax.js 复制到 docs/javascripts/"""
+    js_dir = DOCS_DIR / 'javascripts'
+    js_dir.mkdir(exist_ok=True)
+    src = Path('mathjax.js')
+    dst = js_dir / 'mathjax.js'
+    if src.exists():
+        shutil.copy2(src, dst)
+        print("✅ 复制 MathJax 配置到 docs/javascripts/mathjax.js")
+    else:
+        print("⚠️  根目录 mathjax.js 未找到")
+
 def main():
     articles = scan_articles()
 
@@ -243,7 +257,10 @@ def main():
     INCLUDES_DIR.mkdir(exist_ok=True)
     (INCLUDES_DIR / 'latest_posts.md').write_text(latest_md, encoding='utf-8')
 
-    # 5. 更新 mkdocs.yml nav
+    # 5. 复制 MathJax 配置
+    copy_mathjax_config()
+
+    # 6. 更新 mkdocs.yml nav
     update_mkdocs_nav(all_tags)
 
     print(f"✅ 扫描到 {len(articles)} 篇文章")

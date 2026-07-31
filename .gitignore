@@ -12,3 +12,6 @@ docs/math/index.md
 docs/physics/index.md
 docs/tech-blog/tags/*.md
 _includes/
+
+# MathJax 配置（源文件在根目录，构建时自动复制到 docs/javascripts/）
+docs/javascripts/mathjax.js
