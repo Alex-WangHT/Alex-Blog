@@ -1,0 +1,14 @@
+# MkDocs 构建输出
+site/
+
+# 自动生成的文件（由 scripts/generate_blog_index.py 在 CI 中生成）
+docs/tech-blog/index.md
+docs/robot/index.md
+docs/ai/index.md
+docs/control/index.md
+docs/computer/index.md
+docs/electronics/index.md
+docs/math/index.md
+docs/physics/index.md
+docs/tech-blog/tags/*.md
+_includes/

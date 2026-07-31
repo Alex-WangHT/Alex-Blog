@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-自动生成博客系统：标签页 + 文章列表 + 动态导航
+自动生成博客系统：为所有分类生成 index.md + 标签页
 
 功能：
 1. 扫描 docs/ 下所有文章，提取 front matter
-2. 生成 docs/tech-blog/index.md（标题 + 技术分类文章列表，右侧 TOC 只显示技术分类）
-3. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表，右侧 TOC 只显示文章列表）
-4. 自动更新 mkdocs.yml 中的 nav 配置
+2. 为每个分类生成 docs/<cat>/index.md（该分类的文章列表）
+3. 为技术博客生成 docs/tech-blog/index.md（全部文章列表，作为博客主页）
+4. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表）
+5. 生成 _includes/latest_posts.md（首页最新文章列表）
+6. 自动更新 mkdocs.yml 中的 nav 配置
 
 使用方式：
     python scripts/generate_blog_index.py
@@ -84,8 +86,33 @@ def get_relative_path_from_tag_page(art_path):
         return art_path.replace('tech-blog/', '../')
     return f'../../{art_path}'
 
+def generate_category_index(cat_dir, cat_name, articles):
+    """生成某个分类的 index.md（只显示该分类的文章）"""
+    cat_articles = [a for a in articles if a['category_dir'] == cat_dir]
+
+    lines = [
+        f'# {cat_name}',
+        '',
+    ]
+
+    if cat_articles:
+        for art in cat_articles:
+            date_str = f" ({art['date']})" if art['date'] else ''
+            tags_str = ' '.join(f'`#{t}`' for t in art['tags']) if art['tags'] else ''
+            rel_path = art['path'].replace(f'{cat_dir}/', '')
+            lines.append(f"- **[{art['title']}]({rel_path})**{date_str}")
+            if tags_str:
+                lines.append(f"  {tags_str}")
+            if art['description']:
+                lines.append(f"  > {art['description']}")
+            lines.append('')
+    else:
+        lines.append('> 暂无文章，敬请期待。')
+
+    return '\n'.join(lines)
+
 def generate_tech_blog_home(articles):
-    """生成技术博客主页：标题 + 技术分类文章列表，右侧 TOC 只显示技术分类"""
+    """生成技术博客主页：显示全部文章（作为博客总览）"""
     lines = [
         '# 技术博客',
         '',
@@ -110,7 +137,7 @@ def generate_tech_blog_home(articles):
     return '\n'.join(lines)
 
 def generate_tag_page(tag, articles):
-    """生成单个标签的页面，右侧 TOC 只显示文章列表"""
+    """生成单个标签的页面"""
     lines = [
         f'# 标签：#{tag}',
         '',
@@ -168,8 +195,6 @@ def update_mkdocs_nav(all_tags):
     """更新 mkdocs.yml 中的 nav 配置（左侧栏只保留标签分类）"""
     content = MKDOCS_FILE.read_text(encoding='utf-8')
 
-    # 启用 navigation.indexes 后，父项自动链接到同目录 index.md
-    # 不需要在子菜单中显式列出 tech-blog/index.md
     tech_blog_nav = "  - 技术博客:\n"
     tech_blog_nav += "    - 标签分类:\n"
     for tag in sorted(all_tags, key=str.lower):
@@ -199,20 +224,31 @@ def update_mkdocs_nav(all_tags):
 def main():
     articles = scan_articles()
 
-    all_tags = generate_tag_pages(articles)
+    # 1. 为每个分类生成 index.md
+    for cat_dir, cat_name in CATEGORIES.items():
+        cat_path = DOCS_DIR / cat_dir
+        if cat_path.exists():
+            index_md = generate_category_index(cat_dir, cat_name, articles)
+            (cat_path / 'index.md').write_text(index_md, encoding='utf-8')
 
+    # 2. 技术博客主页（显示所有文章）
     tech_blog_home = generate_tech_blog_home(articles)
     (TECH_BLOG_DIR / 'index.md').write_text(tech_blog_home, encoding='utf-8')
 
+    # 3. 生成标签页面
+    all_tags = generate_tag_pages(articles)
+
+    # 4. 生成首页最新文章列表
     latest_md = generate_latest_posts(articles)
     INCLUDES_DIR.mkdir(exist_ok=True)
     (INCLUDES_DIR / 'latest_posts.md').write_text(latest_md, encoding='utf-8')
 
+    # 5. 更新 mkdocs.yml nav
     update_mkdocs_nav(all_tags)
 
     print(f"✅ 扫描到 {len(articles)} 篇文章")
+    print(f"✅ 生成分类主页: {len(CATEGORIES)} 个")
     print(f"✅ 生成标签页面: {len(all_tags)} 个")
-    print(f"✅ 更新技术博客主页: docs/tech-blog/index.md")
     print(f"✅ 更新首页文章列表: _includes/latest_posts.md")
     print(f"✅ 更新导航配置: mkdocs.yml")
 
