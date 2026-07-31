@@ -6,33 +6,31 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="推导移动机器人里程计运动模型的概率形式，为粒子滤波做准备。">
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/math/">
+      
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/tech-blog/slam-motion-model/">
       
       
-        <link rel="prev" href="../electronics/">
-      
-      
-        <link rel="next" href="../physics/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>数学知识 - Alex Blog</title>
+        <title>SLAM 中的概率运动模型 - Alex Blog</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#slam" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数学知识
+              SLAM 中的概率运动模型
             
           </span>
         </div>
@@ -223,7 +221,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tech-blog/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link">
         
   
   
@@ -242,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../robot/" class="md-tabs__link">
+      <a href="../../robot/" class="md-tabs__link">
         
   
   
@@ -261,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ai/" class="md-tabs__link">
+      <a href="../../ai/" class="md-tabs__link">
         
   
   
@@ -280,7 +278,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../control/" class="md-tabs__link">
+      <a href="../../control/" class="md-tabs__link">
         
   
   
@@ -299,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../computer/" class="md-tabs__link">
+      <a href="../../computer/" class="md-tabs__link">
         
   
   
@@ -318,7 +316,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../electronics/" class="md-tabs__link">
+      <a href="../../electronics/" class="md-tabs__link">
         
   
   
@@ -335,11 +333,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../math/" class="md-tabs__link">
         
   
   
@@ -358,7 +354,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../physics/" class="md-tabs__link">
+      <a href="../../physics/" class="md-tabs__link">
         
   
   
@@ -377,7 +373,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tags/" class="md-tabs__link">
+      <a href="../../tags/" class="md-tabs__link">
         
   
   
@@ -412,7 +408,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -442,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech-blog/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -469,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../robot/" class="md-nav__link">
+      <a href="../../robot/" class="md-nav__link">
         
   
   
@@ -496,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai/" class="md-nav__link">
+      <a href="../../ai/" class="md-nav__link">
         
   
   
@@ -523,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control/" class="md-nav__link">
+      <a href="../../control/" class="md-nav__link">
         
   
   
@@ -550,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../computer/" class="md-nav__link">
+      <a href="../../computer/" class="md-nav__link">
         
   
   
@@ -577,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../electronics/" class="md-nav__link">
+      <a href="../../electronics/" class="md-nav__link">
         
   
   
@@ -601,19 +597,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../math/" class="md-nav__link">
         
   
   
@@ -629,7 +616,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -641,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../physics/" class="md-nav__link">
+      <a href="../../physics/" class="md-nav__link">
         
   
   
@@ -668,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         
   
   
@@ -708,6 +694,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        里程计运动模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概率采样
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -726,11 +742,20 @@
   
 
 
-<h1 id="_1">数学知识</h1>
-<p>微积分、线性代数、概率统计、优化理论等数学基础笔记。</p>
+<h1 id="slam">SLAM 中的概率运动模型</h1>
+<p>在基于粒子滤波的 SLAM 算法（如 FastSLAM）中，准确的<strong>运动模型</strong>是采样有效粒子的关键。</p>
+<h2 id="_1">里程计运动模型</h2>
+<p>给定机器人上一时刻位姿 <span class="arithmatex">\(x_{t-1} = [x, y, \theta]^T\)</span> 和里程计读数 <span class="arithmatex">\(u_t = [\delta_{rot1}, \delta_{trans}, \delta_{rot2}]\)</span>，预测当前位姿：</p>
+<div class="arithmatex">\[\hat{x}_t = x_{t-1} + \delta_{trans} \cos(\theta + \delta_{rot1})\]</div>
+<div class="arithmatex">\[\hat{y}_t = y_{t-1} + \delta_{trans} \sin(\theta + \delta_{rot1})\]</div>
+<div class="arithmatex">\[\hat{\theta}_t = \theta_{t-1} + \delta_{rot1} + \delta_{rot2}\]</div>
+<h2 id="_2">概率采样</h2>
+<p>由于里程计存在噪声，真实位姿服从以预测值为中心的高斯分布：</p>
+<div class="arithmatex">\[x_t \sim \mathcal{N}(\hat{x}_t, \Sigma)\]</div>
+<p>其中协方差 <span class="arithmatex">\(\Sigma\)</span> 通常取对角矩阵，各分量与运动距离成正比。</p>
 <hr />
 <blockquote>
-<p>暂无文章，敬请期待。</p>
+<p>下一篇将介绍观测模型和 FastSLAM 算法原理。</p>
 </blockquote>
 
 
@@ -738,6 +763,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -781,12 +809,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
