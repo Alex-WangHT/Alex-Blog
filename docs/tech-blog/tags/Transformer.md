@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 标签：#Transformer
 
 以下是包含标签 **#Transformer** 的所有文章。

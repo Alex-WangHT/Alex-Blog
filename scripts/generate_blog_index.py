@@ -4,8 +4,8 @@
 
 功能：
 1. 扫描 docs/ 下所有文章，提取 front matter
-2. 生成 docs/tech-blog/index.md（标签云 + 全部文章）
-3. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表）
+2. 生成 docs/tech-blog/index.md（标题 + 文章列表，隐藏右侧目录）
+3. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表，隐藏右侧目录）
 4. 自动更新 mkdocs.yml 中的 nav 配置
 
 使用方式：
@@ -69,7 +69,6 @@ def scan_articles():
                 'category_dir': cat_dir,
                 'path': rel_path,
             })
-    # 按日期降序排列
     articles.sort(key=lambda x: x['date'] or '0000-00-00', reverse=True)
     return articles
 
@@ -86,29 +85,17 @@ def get_relative_path_from_tag_page(art_path):
     return f'../../{art_path}'
 
 def generate_tech_blog_home(articles):
-    """生成技术博客主页：标签云 + 全部文章"""
-    tags_dict = defaultdict(list)
-    for art in articles:
-        for tag in art['tags']:
-            tags_dict[tag].append(art)
-
+    """生成技术博客主页：只保留标题和文章列表，隐藏右侧目录"""
     lines = [
+        '---',
+        'hide:',
+        '  - toc',
+        '---',
+        '',
         '# 技术博客',
-        '',
-        '这里是技术相关的个人博客文章合集，记录学习、思考与实践经验。',
-        '',
-        '## 标签云',
         '',
     ]
 
-    sorted_tags = sorted(tags_dict.keys(), key=lambda t: (-len(tags_dict[t]), t.lower()))
-    for tag in sorted_tags:
-        count = len(tags_dict[tag])
-        lines.append(f"- **[#{tag}](tags/{tag}.md)** ({count})")
-    lines.append('')
-
-    lines.append('## 全部文章')
-    lines.append('')
     for art in articles:
         date_str = f" ({art['date']})" if art['date'] else ''
         tags_str = ' '.join(f'`#{t}`' for t in art['tags']) if art['tags'] else ''
@@ -126,8 +113,13 @@ def generate_tech_blog_home(articles):
     return '\n'.join(lines)
 
 def generate_tag_page(tag, articles):
-    """生成单个标签的页面"""
+    """生成单个标签的页面，隐藏右侧目录"""
     lines = [
+        '---',
+        'hide:',
+        '  - toc',
+        '---',
+        '',
         f'# 标签：#{tag}',
         '',
         f'以下是包含标签 **#{tag}** 的所有文章。',
@@ -197,7 +189,6 @@ def update_mkdocs_nav(all_tags):
   - 物理知识: physics/index.md
 """
 
-    # 安全替换：找到 nav: 和 # GitHub Pages 之间的内容
     nav_start = content.find('nav:')
     gh_start = content.find('\n# GitHub Pages')
     if nav_start != -1 and gh_start != -1:
