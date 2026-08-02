@@ -1487,7 +1487,9 @@ $$
 $$
 其中$x{\in}{\mathbb{R}<sup>n}$是状态向量，$u{\in}{\mathbb{R}</sup>m}$为控制输入，$d{\in}{\mathbb{R}<sup>l}$为扰动，$y{\in}{\mathbb{R}</sup>s}$为系统输出。$f(x),{g_1}(x),{g_2}(x),h(x)$都是只和$x$有关的非线性平滑函数，扰动我们是未知的。
 根据非线性系统的数学表达式，我们可以得到<strong>基本扰动观测器</strong>的形式如下：
-$$\dot{\hat{d}} = l(x)[\dot{x} - f(x) - g_1(x)u - g_2(x)\hat{d}]$$
+$$
+\dot{\hat{d}} = l(x)[\dot{x} - f(x) - g_1(x)u - g_2(x)\hat{d}]
+$$
 我们可以定义一个<strong>增强扰动观测器</strong>来估计慢变的扰动，这种类型的观测器定义如下：
 $$
 \begin{cases} 

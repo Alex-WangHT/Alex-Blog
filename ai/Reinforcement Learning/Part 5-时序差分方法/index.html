@@ -1496,9 +1496,13 @@
 <p class="admonition-title">Robbins-Monro算法</p>
 <p>罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^<em>$ 的迭代方法。
 在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
-$${\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k$$
+$$
+{\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k
+$$
 算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
-$$w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)$$
+$$
+w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)
+$$
 </em><em>关键要求:</em><em> 噪声 $\eta_k$ 必须是</em><em>无偏</em><em>的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 &lt; \infty$，以确保$w_k$ 最终收敛到 $w^</em>$。</p>
 </div>
 <div class="admonition tip">
@@ -1524,7 +1528,9 @@ $$}</p>
 <div class="admonition note">
 <p class="admonition-title">Dvoretzky定理</p>
 <p>考虑到一个随机过程：
-$${{\Delta}<em k="k">{k+1}}=(1-{{\alpha}</em>}}){{\Delta<em k="k">{k}}+{{\beta}</em>}}{{\eta<em k="k">{k}}$$
+$$
+{{\Delta}<em k="k">{k+1}}=(1-{{\alpha}</em>}}){{\Delta<em k="k">{k}}+{{\beta}</em>}}{{\eta<em k="k">{k}}
+$$
 其中${{{{\alpha}</em>}}}<em k="k">{k=1}<sup _infty="\infty">{\infty}$，${{{{\beta}<em k="1">{k}}}}</em></sup>}$，${{{{\eta</em>}}}<em k="k">{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
 如果满足以下条件，那么序列${{\Delta}</em>$基本上会收敛到0：
 - ${\sum_{k=1}}<sup _infty="\infty">{\infty}}{{\alpha}<em k="1">k}={\infty}$，${\sum</em></sup>}}{{\alpha<sup _infty="\infty">{2}<em k="1">k}{\lt}{\infty}$和${\sum</em></sup>$基本一致。
@@ -1573,7 +1579,9 @@ $$
 但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态$s$的状态值是未知的。其他状态都是已知的。
 但是更普遍的问题是：}}({s_{t_i+1}})<strong>我们待求解的状态值都是未知的</strong>。也就是说我们求解的目标就是求解每个状态$s{\in}{\mathcal{S}}$的状态值${{v}<em k_1="k+1">{\pi}}(s)$。那么刚才我们用到的使用随机拟合来求解策略$\pi$下的状态值就无法使用了。
 那么首先回顾一下第二章里提到过的用迭代法求解在指定策略${\pi}$下的贝尔曼方程的公式：
-$${v</em>(k=0,1,2,\dots,n)$$
+$$
+{v</em>(k=0,1,2,\dots,n)
+$$
 将该元素形式的迭代法方程写成类似于Bellman Expectation Equation的形式如下：
 $$
 \begin{align}

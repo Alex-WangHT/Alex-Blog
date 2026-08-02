@@ -1435,12 +1435,20 @@
 <p>在基于粒子滤波的 SLAM 算法（如 FastSLAM）中，准确的<strong>运动模型</strong>是采样有效粒子的关键。</p>
 <h2 id="_1">里程计运动模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>给定机器人上一时刻位姿 $x_{t-1} = [x, y, \theta]^T$ 和里程计读数 $u_t = [\delta_{rot1}, \delta_{trans}, \delta_{rot2}]$，预测当前位姿：</p>
-<p>$$\hat{x}<em t-1="t-1">t = x</em>)$$} + \delta_{trans} \cos(\theta + \delta_{rot1</p>
-<p>$$\hat{y}<em t-1="t-1">t = y</em>)$$} + \delta_{trans} \sin(\theta + \delta_{rot1</p>
-<p>$$\hat{\theta}<em t-1="t-1">t = \theta</em>$$} + \delta_{rot1} + \delta_{rot2</p>
+<p>$$
+\hat{x}<em t-1="t-1">t = x</em>)
+$$} + \delta_{trans} \cos(\theta + \delta_{rot1</p>
+<p>$$
+\hat{y}<em t-1="t-1">t = y</em>)
+$$} + \delta_{trans} \sin(\theta + \delta_{rot1</p>
+<p>$$
+\hat{\theta}<em t-1="t-1">t = \theta</em>
+$$} + \delta_{rot1} + \delta_{rot2</p>
 <h2 id="_2">概率采样<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>由于里程计存在噪声，真实位姿服从以预测值为中心的高斯分布：</p>
-<p>$$x_t \sim \mathcal{N}(\hat{x}_t, \Sigma)$$</p>
+<p>$$
+x_t \sim \mathcal{N}(\hat{x}_t, \Sigma)
+$$</p>
 <p>其中协方差 $\Sigma$ 通常取对角矩阵，各分量与运动距离成正比。</p>
 <hr />
 <blockquote>

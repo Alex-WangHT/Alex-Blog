@@ -1475,11 +1475,17 @@ $$
 <p>我们根据前面提到的刚体有限位移的Euler定理来描述如图所示的刚体定点运动，刚体$B$绕点$O$做定点运动，从$t_0$时刻到$t_1$时刻以单位向量$\vec{p}$为轴旋转$\theta$，$\vec{r}(t)$是刚体内任意一点$P$在任意时刻$t$相对于惯性参考坐标系${O}$的位置向量。为了方便表达，我们令$\vec{r}<em 0="0">{0}=\vec{r}(t</em>})$，$\vec{r<em 1="1">{1}=\vec{r}(t</em>)$。
 <img alt="Fig 1-1-10.png" src="../img/Fig%201-1-10.png" />
 首先我们将$\vec{r}<em 0="0">{0}$投影到向量$\vec{p}$上，投影的向量记作$\vec{u}$：
-$$\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}$$
+$$
+\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}
+$$
 我们利用向量$\vec{u}$和向量$\vec{r}</em>$：
-$$\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}$$
+$$
+\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}
+$$
 接下来我们可以构造与向量和向量都正交的向量$\vec{w}$：
-$$\vec{w}=\vec{p}{\times}{\vec{r}}$构造另外一个与向量$\vec{u}$正交的向量$\vec{v<em 1="1">{0}}$$
+$$
+\vec{w}=\vec{p}{\times}{\vec{r}}$构造另外一个与向量$\vec{u}$正交的向量$\vec{v<em 1="1">{0}}
+$$
 我们使用上面推导出来的三个互相正交的向量$\vec{u}$，$\vec{v}$，$\vec{w}$表达$\vec{r}</em>$如下：
 $$
 \begin{align}
@@ -1520,11 +1526,17 @@ $$</p>
 <p>我们根据前面提到的刚体有限位移的Euler定理来描述如图所示的刚体定点运动，刚体$B$绕点$O$做定点运动，从$t_0$时刻到$t_1$时刻以单位向量$\vec{p}$为轴旋转$\theta$，$\vec{r}(t)$是刚体内任意一点$P$在任意时刻$t$相对于惯性参考坐标系${O}$的位置向量。为了方便表达，我们令$\vec{r}<em 0="0">{0}=\vec{r}(t</em>})$，$\vec{r<em 1="1">{1}=\vec{r}(t</em>)$。
 【图1-1-1】
 首先我们将$\vec{r}<em 0="0">{0}$投影到向量$\vec{p}$上，投影的向量记作$\vec{u}$：
-$$\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}$$
+$$
+\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}
+$$
 我们利用向量$\vec{u}$和向量$\vec{r}</em>$：
-$$\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}$$
+$$
+\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}
+$$
 接下来我们可以构造与向量和向量都正交的向量$\vec{w}$：
-$$\vec{w}=\vec{\omega}{\times}{\vec{r}}$构造另外一个与向量$\vec{u}$正交的向量$\vec{v<em 1="1">{0}}$$
+$$
+\vec{w}=\vec{\omega}{\times}{\vec{r}}$构造另外一个与向量$\vec{u}$正交的向量$\vec{v<em 1="1">{0}}
+$$
 我们使用上面推导出来的三个互相正交的向量$\vec{u}$，$\vec{v}$，$\vec{w}$表达$\vec{r}</em>$如下：
 $$
 \begin{align}
@@ -1662,18 +1674,28 @@ $$
 <h3 id="2-1-2_1">2-1-2、质量几何<a class="headerlink" href="#2-1-2_1" title="Permanent link">&para;</a></h3>
 <h4 id="1_2">1、多刚体系统的质心<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h4>
 <p>对于由$n$个刚体组成的多刚体系统来说，已知每个刚体$B_i$的质量为$m_i$,，每个刚体的质心相对于惯性参考坐标系${O}$的原点位置向量为$\vec{r}<em v="1">{Ci}$。我们可以得到质心的定义：
-$${\vec{r}_C}=\frac{{\sum</em><sup n="n">{n}}{m_i}{\vec{r}<em v="1">{Ci}}}{{\sum</em></sup>$$}}{m_i}</p>
+$$
+{\vec{r}_C}=\frac{{\sum</em><sup n="n">{n}}{m_i}{\vec{r}<em v="1">{Ci}}}{{\sum</em></sup>
+$$}}{m_i}</p>
 <h4 id="2_2">2、刚体的转动惯量<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
 <p>对多刚体系统来说，绕某一个轴转动的转动惯量可以表示为
-$${J}={\sum_{v=1}<sup 2="2">{n}}{m_{v}}{{\rho}</sup><em v="v">{v}}$$
+$$
+{J}={\sum_{v=1}<sup 2="2">{n}}{m_{v}}{{\rho}</sup><em v="v">{v}}
+$$
 其中${{\rho}</em>}}$是刚体的质心${{P<em v="v">{v}}$到转动轴的垂直距离，${{m}</em>}}$是刚体内一点${{P<em v="v">{v}}$的质量。
 对于连续的刚体来说，转动惯量可以表示为
-$${J}={{\int}</em>$$}}{{\rho}^{2}}{{dm}_{v}</p>
+$$
+{J}={{\int}</em>
+$$}}{{\rho}^{2}}{{dm}_{v}</p>
 <h4 id="3_2">3、刚体的惯性矩<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h4>
 <p>如图所示，坐标系$Oxyz$的原点O在刚体中，点${{P}<em v="v">{v}}$在刚体中的坐标由${\vec{r}</em>}}$表示。刚体绕O点做定点运动，转动轴单位向量由${\vec{\omega<em v="v">{v}}$表示。由刚体动量矩的定义我们可以得到
-$${\vec{L}}={{\int}</em>}}{\vec{r}}{\times}{\vec{v}}{{dm<em v="v">{v}}$$
+$$
+{\vec{L}}={{\int}</em>}}{\vec{r}}{\times}{\vec{v}}{{dm<em v="v">{v}}
+$$
 由刚体绕着点$O$做定点运动并且角速度为$\vec{\omega}$，根据刚体转动的速度公式我们可以得到
-$${\vec{L}}={{\int}</em>}}{\vec{r}}{\times}{(}{\vec{\omega}}{\times}{\vec{r}}{)}{{dm<em v="v">{v}}$$
+$$
+{\vec{L}}={{\int}</em>}}{\vec{r}}{\times}{(}{\vec{\omega}}{\times}{\vec{r}}{)}{{dm<em v="v">{v}}
+$$
 根据矢量关系式我们可以得到
 $$
 {\vec{L}}
@@ -1681,7 +1703,9 @@ $$
 =({{\int}</em>}}({{r<sup>T}{{r}}{E}-{{r}}{{r}</sup>T})dm_v){\vec{\omega}}
 $$
 将上面式子写成
-$${\vec{L}}={J_O}{\vec{\omega}}$$
+$$
+{\vec{L}}={J_O}{\vec{\omega}}
+$$
 其中${J_O}$就是<strong>刚体的惯性矩</strong>。在刚体内的固连坐标系$Oxyz$中，惯性矩可写为：
 $$
 J_O
