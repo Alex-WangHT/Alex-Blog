@@ -112,7 +112,7 @@ $$
 $$
 
 !!! question "我们为什么要求解State Value？"
-	
+	求解State Value有利于帮助我们求解最佳策略
 
 
 
