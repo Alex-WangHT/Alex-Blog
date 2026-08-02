@@ -14,22 +14,28 @@
 | Chapter 8  | **Model-Free 细分 3：** **Value-Based (基于价值)**             | **Q-Learning**，**SARSA**，**DQN**，**DDQN**，**C51 (分布RL)**                    | 目标是学习最优的 **Q 函数**。绝大多数此类方法都基于 **TD** 思想。策略是从中学到的价值函数中**隐式导出**的。                                       |
 | Chapter 9  | **Model-Free 细分 4：** **Policy-Based (基于策略)**            | **策略梯度 (PG)**，**REINFORCE**，**GPRO**                                        | **直接优化**策略 $\pi(a\|s)$ 的参数。通常是 **On-Policy**，方差较大。                                                    |
 | Chapter 10 | **Model-Free 细分 5：** **Actor-Critic (行动者-评判者)**         | **A2C/A3C**，**DDPG**，**TD3**，**TRPO**，**PPO**，**SAC**                       | 结合了上述两种方法：**Actor** 学习策略，**Critic** 学习价值函数来**降低策略梯度的方差**。是现代深度强化学习（Deep Reinforcement Learning）的主流架构。 |
+
 需要注意的是，这些分类维度存在交叉关系：
 - **TD** 和 **蒙特卡洛** 描述的是**价值/回报的估计方法**。
 - **Value-Based** 和 **Policy-Based** 描述的是**学习的目标**。
 - **Actor-Critic** 是**架构**，它结合了 **Policy-Based** 的 Actor 和 **Value-Based** 的 Critic。
+
 # 一、强化学习基本名词
+
 ## 1.1-Agent
+
 > [!NOTE] Agent
 > **Agent(智能体)**是在环境中通过感知(perception)获取状态、通过决策(policy)选择动作、并通过执行(action)影响环境，进而获得奖励(reward)的实体。
 
 ## 1.2-State and State Space
 > [!NOTE] State
 > **State(状态)**指Agent在环境中能够观测并且量化的变量的集合。
+
  
 > [!NOTE] State Space
 > **State Space(状态空间)**指的是在环境中所有$n$个状态$s_i(i=1,2,\dots,n)$的集合，状态空间的表达式：
 > $${\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}$$
+
 ## 1.3-Action and Action Space
 > [!NOTE] Action
 > **Action(动作)**指Agent在特定状态${s_i}{\in}{\mathcal{S}}$可以执行的任意Action，这个过程我们一般用$a$来表示，一般来说任意的State${s_i}{\in}{\mathcal{S}}$有多个Action:
