@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/Rigid%20Body%20Dynamic%20Algorithms/">
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/Part%202-%E7%A9%BA%E9%97%B4%E5%90%91%E9%87%8F%E5%8F%8A%E5%85%B6%E6%80%A7%E8%B4%A8/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
     
     
       
-        <title>1-多刚体系统动力学的一般表达形式 - Alex Blog</title>
+        <title>Part 2 空间向量及其性质 - Alex Blog</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1-多刚体系统动力学的一般表达形式
+              Part 2 空间向量及其性质
             
           </span>
         </div>
@@ -933,8 +933,63 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    1-空间速度向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-" class="md-nav__link">
+    2.2-空间力向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-plucker" class="md-nav__link">
+    2.3-Plücker坐标，线矢量和自由矢量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-" class="md-nav__link">
+    2.4-坐标变换
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-" class="md-nav__link">
+    2.5-空间向量的标量积
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-" class="md-nav__link">
+    2.6-空间向量叉乘
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-" class="md-nav__link">
+    2.7-空间向量求导
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -951,183 +1006,279 @@
 
 
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/robot/Rigid Body Dynamic Algorithms/Rigid Body Dynamic Algorithms.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/robot/Rigid Body Dynamic Algorithms/Part 2-空间向量及其性质.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="1-">1-多刚体系统动力学的一般表达形式<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h1>
+  <h1>Part 2 空间向量及其性质</h1>
+
+<h2 id="1-">1-空间速度向量<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h2>
+<p>首先我们在空间中有一个刚体<span class="arithmatex">\(B\)</span>和空间内任意一点<span class="arithmatex">\(O_W\)</span>，我们以点<span class="arithmatex">\(O_W\)</span>为原点建立参考坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>，以刚体<span class="arithmatex">\(B\)</span>内任意一点<span class="arithmatex">\(O_B\)</span>为原点建立坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>如下：</p>
+<p>我们可以在坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>中表示刚体内一点<span class="arithmatex">\(P\)</span>的位置如下：</p>
+<div class="arithmatex">\[
+{^{W}{\vec{r}}_{P}}={^{W}{\vec{r}}_{BORG}}+{^{W}_{B}{R}}{^{B}{\vec{r}}_{P}}
+\]</div>
+<p>我们可以在坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>中得到点<span class="arithmatex">\(P\)</span>的瞬时速度如下：</p>
+<div class="arithmatex">\[
+\begin{align}
+{^{W}{\vec{v}}_{P}}&amp;={^{W}{\dot{\vec{r}}}_{BORG}}+{^{W}_{B}{\dot{R}}}{^{B}{\vec{r}}_{P}}\\
+&amp;={^{W}{\dot{\vec{r}}}_{BORG}}+{^{W}_{B}{\dot{R}}}({^{W}_{B}{R}^{T}}{^{W}_{B}{R}}){^{B}{\vec{r}}_{P}}\\
+&amp;={^{W}{\dot{\vec{r}}}_{BORG}}+({^{W}_{B}{\dot{R}}}{^{W}_{B}{R}^{T}})({^{W}_{B}{R}}{^{B}{\vec{r}}_{P}})\\
+&amp;={^{W}{\vec{v}}_{BORG}}+{^{W}{\vec{\omega}}_{B}}{\times}{^{W}{\vec{r}}_{{O_B}{P}}}
+\end{align}
+\]</div>
+<p>我们在理论力学的知识中学过：角速度是不变量。即刚体运动的角速度<strong>不依赖于</strong>刚体坐标系原点 <span class="arithmatex">\(O_B\)</span>的选取而改变。
+我们可以换个思路，如果我们在刚体<span class="arithmatex">\(B\)</span>的外面有一个能够随着刚体运动的点<span class="arithmatex">\(O_B\)</span>，该点<span class="arithmatex">\(O_B\)</span><strong>只随着刚体<span class="arithmatex">\(\boldsymbol{B}\)</span>平动</strong>，并且点<span class="arithmatex">\(O_B\)</span>和刚体内任意一点的距离都是恒定不变的，那么这个点<span class="arithmatex">\(O_B\)</span>也可以作为坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点。那么在坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>中的速度依然可以表示为：</p>
+<div class="arithmatex">\[
+\begin{align}
+{^{W}{\vec{v}}_{P}}={^{W}{\vec{v}}_{BORG}}+{^{W}{\vec{\omega}}_{B}}{\times}{^{W}{\vec{r}}_{{O_B}{P}}}
+\end{align}
+\]</div>
+<p>那么在刚体<span class="arithmatex">\(B\)</span>的本体坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>中的表述如下：</p>
+<div class="arithmatex">\[
+\begin{align}
+{^{B}{\vec{v}}_{P}}&amp;={^{B}{\vec{v}}_{BORG}}+{^{B}_{W}R}({^{W}{\vec{\omega}}_{B}}{\times}{^{W}{\vec{r}}_{{O_B}{P}}})\\
+&amp;={^{B}{\vec{v}}_{BORG}}+{^{B}{\vec{\omega}}_{B}}{\times}{^{B}{\vec{r}}_{P}}\\
+\end{align}
+\]</div>
+<p>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>中，如果我们用<span class="arithmatex">\({^{B}}{v}_{O}\)</span>表示<span class="arithmatex">\({^{B}{\vec{v}}_{BORG}}\)</span>，然后我们用<span class="arithmatex">\({^{B}}{\omega}\)</span>来表示<span class="arithmatex">\({^{B}{\vec{\omega}}_{B}}\)</span>，那么我们在刚体<span class="arithmatex">\(B\)</span>内部的任意一点<span class="arithmatex">\(P\)</span>的速度可以表示为：</p>
+<div class="arithmatex">\[
+{^{B}{\vec{v}}_{P}}={{^{B}}{v}_{O}}+{{^{B}}{\omega}}{\times}{^{B}{\vec{r}}_{P}}
+\]</div>
+<p>我们可以知道在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>中，我们的刚体<span class="arithmatex">\(B\)</span>上任意一点的速度都可以用角速度<span class="arithmatex">\({\omega}\)</span>和<span class="arithmatex">\({{v}_{O}}\)</span>一起表示。那么我们就可以使用如下的方式来一起表示：</p>
+<div class="arithmatex">\[
+{^{B}}{\hat{v}}=
+\begin{pmatrix}
+{^{B}}{\omega}\\
+{^{B}}{v_O}
+\end{pmatrix}
+{\in}{\mathbb{R}^{6}}
+\]</div>
+<p>这里就是刚体<span class="arithmatex">\(B\)</span>的<strong>空间速度向量</strong>。</p>
 <div class="admonition note">
-<p class="admonition-title">运动学的任务</p>
+<p class="admonition-title">空间速度向量</p>
+<p>Contents</p>
+</div>
+<h2 id="22-">2.2-空间力向量<a class="headerlink" href="#22-" title="Permanent link">&para;</a></h2>
+<p>在前面我们设定了<strong>空间速度向量</strong>，接下来我们在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>上表示刚体<span class="arithmatex">\(B\)</span>受到的力和力矩。我们假设有一个力<span class="arithmatex">\(f\)</span>施加在刚体上，并且力<span class="arithmatex">\(f\)</span>的方向沿着从刚体到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点<span class="arithmatex">\(O_B\)</span>的方向。与此同时刚体<span class="arithmatex">\(B\)</span>还受到过点<span class="arithmatex">\(O\)</span>的力矩<span class="arithmatex">\(n_O\)</span>的作用，那么对刚体上的任意一点<span class="arithmatex">\(P\)</span>来说，表示其力矩如下：</p>
+<div class="arithmatex">\[
+{\vec{n}}_{P}={\vec{n}}_{O}+{\vec{f}}{\times}{\vec{OP}}
+\]</div>
+<p>我们可以使用以下的方式来表示刚体<span class="arithmatex">\(B\)</span>的力：</p>
+<div class="arithmatex">\[
+{^{B}}{\hat{f}}=
+\begin{pmatrix}
+{^{B}}{n_O}\\
+{^{B}}{f}
+\end{pmatrix}
+{\in}{\mathbb{R}^{6}}
+\]</div>
+<p>这里就是刚体刚体<span class="arithmatex">\(B\)</span>的<strong>空间力向量</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">空间力向量</p>
+<p>Contents</p>
+</div>
+<h2 id="23-plucker">2.3-Plücker坐标，线矢量和自由矢量<a class="headerlink" href="#23-plucker" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">线矢量</p>
+<p>线矢量<span class="arithmatex">\(L\)</span>是一个依附在空间某一直线上的六维向量，含有<strong>主部（原部）</strong>和<strong>副部（对偶部）</strong>两个部分。主部是矢量的轴线<span class="arithmatex">\(\vec{l}\)</span>，也是空间直线的姿态向量。副部为该轴线相对原点的矢矩<span class="arithmatex">\(\vec{l_0}\)</span>，线矢量写作如下形式：</p>
+<div class="arithmatex">\[
+{\mathbf{L}}=
+\begin{pmatrix}
+{\vec{l}}\\
+{\vec{l_0}}
+\end{pmatrix}=
+\begin{pmatrix}
+{\vec{l}}\\
+{\vec{r}{\times}{\vec{l}}}
+\end{pmatrix} 
+\]</div>
+</div>
+<h2 id="24-">2.4-坐标变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
+<p>首先我们可以回顾一下空间坐标变换的表示——齐次矩阵**。
+我们有两个坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>和<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>如下：</p>
+<p>其中<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点坐标<span class="arithmatex">\(O_B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>中的位置表示我们可以表示为<span class="arithmatex">\({^W}{\vec{r}}{_{BORG}}\)</span>。如果我们表达空间中某一个点<span class="arithmatex">\(P\)</span>的坐标，我们用<span class="arithmatex">\({^B}{\vec{r}}{_{P}}\)</span>表示点<span class="arithmatex">\(P\)</span>相对于<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的位置，我们用<span class="arithmatex">\({^W_B}{R}\)</span>表示坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的旋转矩阵，那么我们用齐次坐标表示的矩阵转换如下：</p>
+<div class="arithmatex">\[
+{{^W_B}\mathbf{T}}=
+{
+\begin{pmatrix}
+{{^W_B}\mathbf{R}}&amp;{{^W}{\vec{r}}{_{BORG}}}\\
+{{\mathbf{0}}_{1{\times}3}}&amp;{1}
+\end{pmatrix}
+}
+\]</div>
+<p>这个就是针对空间三维坐标系的<strong>齐次变换矩阵</strong>。我们可以把从坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>到<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的变换看作<strong>平移</strong>和<strong>旋转</strong>两个过程组合后的结果：</p>
 <ul>
-<li><strong>前向动力学（Forward Dynamics）</strong>：根据刚体的受力求解刚体的加速度。</li>
-<li><strong>逆向动力学（Inverse Dynamics）</strong>：根据刚体的加速度求解刚体受力。</li>
+<li><strong>平移</strong>：首先是坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>沿着从坐标系原点<span class="arithmatex">\(O_W\)</span>出发的矢量<span class="arithmatex">\({\vec{r}}{_{BORG}}\)</span>进行平移，平移后的坐标系原点是<span class="arithmatex">\(O_B\)</span>，这个过程可以用下面的矩阵表示：</li>
+</ul>
+<div class="arithmatex">\[
+{
+\begin{pmatrix}
+{{\mathbf{E}}_{3\times3}}&amp;{{^W}{\vec{r}}{_{BORG}}}\\
+{{\mathbf{0}}_{1\times3}}&amp;{1}
+\end{pmatrix}
+}
+\]</div>
+<ul>
+<li><strong>旋转</strong>：在平移之后，我们以平移后的坐标系原点<span class="arithmatex">\(O_B\)</span>为定点进行坐标系的定点旋转，最终得到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>。这个过程可以用下面的矩阵表示：</li>
+</ul>
+<div class="arithmatex">\[
+{
+\begin{pmatrix}
+{{^W_B}\mathbf{R}}&amp;{{\mathbf{0}}_{3{\times}1}}\\
+{{\mathbf{0}}_{1{\times}3}}&amp;{1}
+\end{pmatrix}
+}
+\]</div>
+<p>那么这两个过程可以联合起来表示如下：</p>
+<div class="arithmatex">\[
+{{^W_B}\mathbf{T}}=
+{
+\begin{pmatrix}
+{{^W_B}\mathbf{R}}&amp;{{^W}{\vec{r}}{_{BORG}}}\\
+{{\mathbf{0}}_{1{\times}3}}&amp;{1}
+\end{pmatrix}
+}={
+\begin{pmatrix}
+{{^W_B}\mathbf{R}}&amp;{{\mathbf{0}}_{3{\times}1}}\\
+{{\mathbf{0}}_{1{\times}3}}&amp;{1}
+\end{pmatrix}
+}{
+\begin{pmatrix}
+{{\mathbf{E}}_{3\times3}}&amp;{{^W}{\vec{r}}{_{BORG}}}\\
+{{\mathbf{0}}_{1\times3}}&amp;{1}
+\end{pmatrix}
+}
+\]</div>
+<p>接下来，我们也可以类比上面的齐次坐标矩阵的推导方式来推导<strong>空间速度向量的空间速度向量变换矩阵</strong><span class="arithmatex">\({X}\)</span>：
+我们假设有一个空间速度向量，这个空间速度向量相对于固定的世界坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>的位置不变，这个空间速度向量在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的表示如下：</p>
+<div class="arithmatex">\[
+{^{B}}{\hat{m}}=
+\begin{pmatrix}
+{^{B}}{m}\\
+{^{B}}{m_O}
+\end{pmatrix}
+\]</div>
+<p>首先讨论以下坐标系的两种特殊情况：<strong>仅平移的情况</strong>和<strong>仅旋转的情况</strong>：
+- <strong>仅平移的情况</strong>：<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>沿着从坐标系原点<span class="arithmatex">\(O_B\)</span>为起点的向量<span class="arithmatex">\(\vec{r}\)</span>平移，平移后坐标系是<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>。首先我们在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>中表示刚体内任意一点<span class="arithmatex">\(P\)</span>的位置：</p>
+<p>$$
+{<sup>B}{\vec{v}}{_P}={</sup>B}{m}{<em BP="BP">O}+{<sup>B}{m}{\times}{</sup>B}{\vec{r}</em>
+$$
+然后我们在坐标系}<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>中表示该刚体内任意一点<span class="arithmatex">\(P\)</span>的位置：</p>
+<div class="arithmatex">\[
+{^C}{\vec{v}}{_P}={^C}{m}{_O}+{^C}{m}{\times}{^C}{\vec{r}_{CP}}
+\]</div>
+<p>由于坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>和<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>是平移，那么我们可以将上面的式子表示成如下形式：</p>
+<div class="arithmatex">\[
+\begin{align}{^B}{\vec{v}}{_P}&amp;={^B}{m}{_O}+{^B}{m}{\times}{^B}{\vec{r}_{CP}}\\&amp;={^B}{m}{_O}+{^B}{m}{\times}({{^B}{\vec{r}_{BP}}}-{{^B}{\vec{r}_{BC}}})\end{align}
+\]</div>
+<p>由于是平移，那么转换为：</p>
+<div class="arithmatex">\[
+{^{C}_{B}\mathbf{R}}={^{B}_{C}\mathbf{R}}={{\mathbf{E}}_{3\times3}}
+\]</div>
+<p>我们有以下等式成立：</p>
+<div class="arithmatex">\[
+\begin{matrix}{^B}{\vec{v}}{_P}={^C}{\vec{v}}{_P}={\vec{v}}{_P}\\{^{B}}{m}={^{C}}{m}={m}\\{^B}{\vec{r}_{BP}}={^C}{\vec{r}_{BP}}={\vec{r}_{BP}}\\{^B}{\vec{r}_{CP}}={^C}{\vec{r}_{CP}}={\vec{r}_{CP}}\\{^B}{\vec{r}_{BC}}={^C}{\vec{r}_{BC}}={\vec{r}_{BC}}\\\end{matrix}
+\]</div>
+<p>那么将前面的式子联立可以得到：</p>
+<div class="arithmatex">\[
+\begin{align}{^C}{m}{_O}+{m}{\times}({{\vec{r}_{BP}}}-{{\vec{r}_{BC}}})&amp;={^B}{m}{_O}+{m}{\times}{\vec{r}_{BP}}\\{^C}{m}{_O}-{m}{\times}{{\vec{r}_{BC}}}&amp;={^B}{m}{_O}\\{^C}{m}{_O}&amp;={^B}{m}{_O}+{m}{\times}{{\vec{r}_{BC}}}\\{^C}{m}{_O}&amp;={^B}{m}{_O}-{{\vec{r}_{BC}}}{\times}{m}\end{align}
+\]</div>
+<p>那么我们的空间速度向量在坐标系<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>可以表示为：</p>
+<div class="arithmatex">\[
+{^{C}}{\hat{m}}=
+\begin{pmatrix}
+{^{C}}{m}\\
+{^{C}}{m_O}
+\end{pmatrix}={
+\begin{pmatrix}
+{{\mathbf{E}}_{3\times3}}&amp;{0}\\
+{-[{^B}{r}{_{CORG}}]_{\times}}&amp;{{\mathbf{E}}_{3\times3}}
+\end{pmatrix}
+}{^{B}}{\hat{m}}
+\]</div>
+<p>对应的空间速度矢量的变换矩阵可以表示如下：</p>
+<div class="arithmatex">\[
+{{^C_B}\mathbf{X}}={
+\begin{pmatrix}
+{{\mathbf{E}}_{3\times3}}&amp;{0}\\
+{-[{^B}{r}{_{CORG}}]_{\times}}&amp;{{\mathbf{E}}_{3\times3}}
+\end{pmatrix}
+}
+\]</div>
+<ul>
+<li><strong>仅旋转的情况</strong>：<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>以点<span class="arithmatex">\(O_B\)</span>定点旋转一个角度后变成坐标系<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>，<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>和<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>的坐标系是重合的，那么坐标系<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>相对于<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的旋转矩阵记为<span class="arithmatex">\({_C^B}{R}\)</span>。那么我们的空间速度向量在坐标系<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>可以表示为：</li>
+</ul>
+<div class="arithmatex">\[
+{^{C}}{\hat{m}}=
+\begin{pmatrix}
+{^{C}}{m}\\
+{^{C}}{m_O}
+\end{pmatrix}={
+\begin{pmatrix}
+{{_B^C}\mathbf{R}}&amp;{0}\\
+{0}&amp;{{_B^C}\mathbf{R}}
+\end{pmatrix}
+}{^{B}}{\hat{m}}
+\]</div>
+<p>对应的空间速度矢量的变换矩阵可以表示如下：</p>
+<div class="arithmatex">\[
+{{^C_B}\mathbf{X}}={\begin{pmatrix}
+{{_B^C}\mathbf{R}}&amp;{0}\\
+{0}&amp;{{_B^C}\mathbf{R}}
+\end{pmatrix}}
+\]</div>
+<p>那么根据三维坐标系的坐标系变换，我们也可以将空间速度矢量的坐标转换看作是坐标系的先平移后旋转的一个过程，那么我们就可以将从坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>到<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>的更一般的空间速度矢量的转换矩阵如下：</p>
+<div class="arithmatex">\[
+{{^C_B}\mathbf{X}}={\begin{pmatrix}
+{{_B^C}\mathbf{R}}&amp;{0}\\
+{-{{_B^C}\mathbf{R}}{[^{B}{\vec{r}}{_{CORG}}}]_{\times}}&amp;{{_B^C}\mathbf{R}}
+\end{pmatrix}}
+\]</div>
+<p>这样，我们就得到了<strong>空间变换矩阵</strong>：</p>
+<div class="admonition note">
+<p class="admonition-title">空间变换矩阵(Spatial Transformation Matrix)</p>
+<p>假设有两个坐标系 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 和 <span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 。<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系相对于 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系的几何关系由旋转矩阵 <span class="arithmatex">\(\mathbf{R} = {^A_B \mathbf{R}}\)</span> 和位置向量 <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> (即<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span>原点在<span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span>中的位置) 确定。
+<strong>空间变换矩阵 <span class="arithmatex">\({{^A_B}\mathbf{X}}\)</span></strong> 用于将空间矢量从<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系转换到 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系， 的定义如下：
+$<span class="arithmatex">\({{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} &amp; {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} &amp; \mathbf{R} \end{pmatrix}\)</span>$
+其中：
+- <span class="arithmatex">\(\mathbf{R} = {^A_B\mathbf{ R}}\)</span> 是 <span class="arithmatex">\(3 \times 3\)</span> <strong>旋转矩阵</strong>。
+-  <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> 是 <span class="arithmatex">\(3 \times 1\)</span> <strong>位置向量</strong>
+- <span class="arithmatex">\([{p}]_{\times}\)</span> 是位置向量 <span class="arithmatex">\({p}\)</span> 对应的 <span class="arithmatex">\(3 \times 3\)</span> <strong>斜对称叉乘矩阵</strong>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">空间变换矩阵的性质</p>
+<p>Contents</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">空间变换矩阵的对偶形式</p>
+<p>Contents</p>
+</div>
+<h2 id="25-">2.5-空间向量的标量积<a class="headerlink" href="#25-" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">空间向量的标量积</p>
+<p>基于空间矢量我们定义标量积，这个标量积的其中一个参数为<strong>空间速度向量</strong>，另外一个参数是<strong>空间力向量</strong>。两者相乘的结果是一个<strong>表示能量，功率或者类似的物理量</strong>。
+我们给定一个空间速度向量<span class="arithmatex">\({\mathbf{m}}{\in}{{M}^{6}}\)</span>和一个空间力向量<span class="arithmatex">\({\mathbf{f}}{\in}{{F}^{6}}\)</span>，我们将这两个向量进行点乘运算，点乘运算可以表示为<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{m}}\)</span>，<strong>这两者等价</strong>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">空间向量的标量积的物理含义</p>
+<ul>
+<li>空间向量的标量积只有<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{m}}\)</span>才具有物理含义，这个运算表示的是刚体运动的功率，能量等类似物理量。</li>
+<li>运算<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{m}}\)</span>没有任何物理含义。</li>
 </ul>
 </div>
+<h2 id="26-">2.6-空间向量叉乘<a class="headerlink" href="#26-" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p class="admonition-title">刚体系统的运动方程表达</p>
-<p>刚体系统的运动方程可以写成以下的<strong>标准形式</strong>：
-$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}\)</span>$
-其中：
-- <span class="arithmatex">\({\mathbf{q}}\)</span>，<span class="arithmatex">\({\mathbf{\dot{q}}}\)</span>，<span class="arithmatex">\({\mathbf{\ddot{q}}}\)</span>代表刚体的位置，速度和加速度变量的矢量。
-- <span class="arithmatex">\({\boldsymbol{\tau}}\)</span>是作用力的矢量。
-- <span class="arithmatex">\({\mathbf{H}(\mathbf{q})}\)</span>是惯量项矩阵。
-- <span class="arithmatex">\({\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}\)</span>是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。</p>
+<p class="admonition-title">空间向量的叉乘</p>
+<p>Contents</p>
 </div>
-<h1 id="6-">6-闭环机器人动力学<a class="headerlink" href="#6-" title="Permanent link">&para;</a></h1>
-<h1 id="7-">7-接触动力学<a class="headerlink" href="#7-" title="Permanent link">&para;</a></h1>
-<h1 id="9-">9-刚体系统的正动力学求解<a class="headerlink" href="#9-" title="Permanent link">&para;</a></h1>
-<div class="admonition tip">
-<p class="admonition-title">内容概要</p>
-<p>机器人的正动力学，即为已知力求解加速度等信息。在这一章节中，我们主要介绍机器人的正动力学的两种算法：
-- <strong>惯量矩阵方法（Inertia Matrix Methods）</strong>：复合刚体算法(CRBA)就是基于惯量矩阵方法的正动力学求解算法
-- <strong>传播法（Propagation Methods）</strong>：(ABA)算法就是基于惯量矩阵方法的正动力学求解算法</p>
+<h2 id="27-">2.7-空间向量求导<a class="headerlink" href="#27-" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">空间向量的求导</p>
+<p>Contents</p>
 </div>
-<h2 id="91-crba">9.1-复合刚体算法(CRBA)求解正动力学<a class="headerlink" href="#91-crba" title="Permanent link">&para;</a></h2>
-<p>首先，求解复合刚体动力学的方程，就是求解以下几个矩阵：
-- 偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>
-- 惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>
-首先，在Chapter-8中，我们计算的逆动力学如下：
-$$
-\begin{align}
-\tau&amp;=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{\ddot{q}},\mathbf{f^x})
-\end{align}
-$$
-当<span class="arithmatex">\(,\mathbf{\ddot{q}}=0\)</span>的时候，我们有：
-$$
-\mathbf{C}=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
-$$
-也就是说对于偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>来说，只需要调用求解逆动力学的方式就能得到，然后我们就可以得到：
-$$
-{\mathbf{H}}{\mathbf{\ddot{q}}}=\mathbf{\tau}-ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
-$$
-（过渡）
-因此，求解正动力学的重中之重，是求解惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。接下来就要用<strong>复合刚体算法</strong>来求解矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。</p>
-<div class="admonition example">
-<p class="admonition-title">复合刚体算法的伪代码</p>
-<p>$$
-\begin{array}{@{}l@{\hspace{6em}}l@{}}
-\hline \[-0.8em]
-\begin{array}{l}
-\underline{\text{Basic Equations:}} \[0.8em]
-\boldsymbol{I}<em _in="\in" _mu_i_="\mu(i)" j="j">i^c
-=
-\boldsymbol{I}_i
-+
-\displaystyle\sum</em>
-\boldsymbol{I}_j^c \[1.2em]</p>
-<h1 id="boldsymbolh_ij">\boldsymbol{H}_{ij}<a class="headerlink" href="#boldsymbolh_ij" title="Permanent link">&para;</a></h1>
-<p>\left{
-\begin{array}{ll}
-\boldsymbol{S}_i^T
-\boldsymbol{I}_i^c
-\boldsymbol{S}_j
-&amp; \text{if } i \in \nu(j) \[0.25em]</p>
-<p>\boldsymbol{S}_i^T
-\boldsymbol{I}_j^c
-\boldsymbol{S}_j
-&amp; \text{if } j \in \nu(i) \[0.25em]</p>
-<p>\boldsymbol{0}
-&amp; \text{otherwise}
-\end{array}
-\right. \[2.2em]</p>
-<p>\underline{\text{Equations for Body-Coordinates}} \[-0.1em]
-\underline{\text{Algorithm:}} \[1em]</p>
-<h1 id="boldsymboli_ic">\boldsymbol{I}_i^c<a class="headerlink" href="#boldsymboli_ic" title="Permanent link">&para;</a></h1>
-<p>\boldsymbol{I}<em _in="\in" _mu_i_="\mu(i)" j="j">i
-+
-\displaystyle\sum</em>
-{}<sup _="*">i\boldsymbol{X}_j</sup>
-\boldsymbol{I}_j^c
-{}^j\boldsymbol{X}_i \[1.2em]</p>
-<h1 id="lambdajboldsymbolf_i">{}^{\lambda(j)}\boldsymbol{F}_i<a class="headerlink" href="#lambdajboldsymbolf_i" title="Permanent link">&para;</a></h1>
-<p>{}<sup _="*">{\lambda(j)}\boldsymbol{X}_j</sup>
-{}^j\boldsymbol{F}_i
-\qquad
-\left(
-{}^i\boldsymbol{F}_i
-=
-\boldsymbol{I}_i^c
-\boldsymbol{S}_i
-\right) \[1.2em]</p>
-<h1 id="boldsymbolh_ij_1">\boldsymbol{H}_{ij}<a class="headerlink" href="#boldsymbolh_ij_1" title="Permanent link">&para;</a></h1>
-<p>\left{
-\begin{array}{ll}
-{}<sup>j\boldsymbol{F}_i</sup>T
-\boldsymbol{S}_j
-&amp; \text{if } i \in \nu(j) \[0.25em]</p>
-<p>\boldsymbol{H}_{ji}^T
-&amp; \text{if } j \in \nu(i) \[0.25em]</p>
-<p>\boldsymbol{0}
-&amp; \text{otherwise}
-\end{array}
-\right.
-\end{array}
-&amp;
-\begin{array}{l}
-\underline{\text{Algorithm:}} \[0.6em]</p>
-<p>\boldsymbol{H} = \boldsymbol{0} \[0.35em]</p>
-<p>\mathbf{for} i = 1 \mathbf{to} N_B \mathbf{do} \[0.25em]
-\qquad
-\boldsymbol{I}_i^c
-=
-\boldsymbol{I}_i \[0.25em]
-\mathbf{end} \[0.45em]</p>
-<p>\mathbf{for} i = N_B \mathbf{to} 1 \mathbf{do} \[0.25em]
-\qquad
-\mathbf{if} \lambda(i) \neq 0 \mathbf{then} \[0.25em]
-\qquad\qquad
-\boldsymbol{I}<em _lambda_i_="\lambda(i)">{\lambda(i)}^c
-=
-\boldsymbol{I}</em>^c
-+
-{}<sup _="*">{\lambda(i)}\boldsymbol{X}_i</sup>
-\boldsymbol{I}<em _lambda_i_="\lambda(i)">i^c
-{}^i\boldsymbol{X}</em> \[0.25em]
-\qquad
-\mathbf{end} \[0.35em]</p>
-<p>\qquad
-\boldsymbol{F}
-=
-\boldsymbol{I}_i^c
-\boldsymbol{S}_i \[0.35em]</p>
-<p>\qquad
-\boldsymbol{H}_{ii}
-=
-\boldsymbol{S}_i^T
-\boldsymbol{F} \[0.35em]</p>
-<p>\qquad
-j = i \[0.35em]</p>
-<p>\qquad
-\mathbf{while} \lambda(j) \neq 0 \mathbf{do} \[0.25em]
-\qquad\qquad
-\boldsymbol{F}
-=
-{}<sup _="*">{\lambda(j)}\boldsymbol{X}_j</sup>
-\boldsymbol{F} \[0.25em]</p>
-<p>\qquad\qquad
-j = \lambda(j) \[0.25em]</p>
-<p>\qquad\qquad
-\boldsymbol{H}_{ij}
-=
-\boldsymbol{F}^T
-\boldsymbol{S}_j \[0.25em]</p>
-<p>\qquad\qquad
-\boldsymbol{H}<em ij="ij">{ji}
-=
-\boldsymbol{H}</em>^T \[0.25em]</p>
-<p>\qquad
-\mathbf{end} \[0.25em]</p>
-<p>\mathbf{end}
-\end{array}
-\[0.4em]
-\hline
-\end{array}
-$$</p>
-</div>
-<h2 id="92-aba">9.2-铰接体算法(ABA)求解正动力学<a class="headerlink" href="#92-aba" title="Permanent link">&para;</a></h2>
-<h1 id="10-">10-多刚体系统的混合动力学求解<a class="headerlink" href="#10-" title="Permanent link">&para;</a></h1>
 
 
 

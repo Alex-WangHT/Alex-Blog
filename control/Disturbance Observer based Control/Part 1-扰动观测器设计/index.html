@@ -1010,28 +1010,28 @@
 <h2 id="1-">1-扰动观测器工作原理<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h2>
 <h2 id="2-">2-线性扰动观测器设计<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h2>
 <h2 id="3-">3-非线性扰动观测器设计<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h2>
-<p>首先我们有非线性系统如下：
-$$
-\left{
+<p>首先我们有非线性系统如下：</p>
+<div class="arithmatex">\[
+\left\{
 {\begin{align}
-&amp; {\dot{x}}=f(x)+{g_1}(x)u+{g_2}(x)d\
+&amp; {\dot{x}}=f(x)+{g_1}(x)u+{g_2}(x)d\\
 &amp;y=h(x)
 \end{align}}
 \right.
-$$
-其中<span class="arithmatex">\(x{\in}{\mathbb{R}^n}\)</span>是状态向量，<span class="arithmatex">\(u{\in}{\mathbb{R}^m}\)</span>为控制输入，<span class="arithmatex">\(d{\in}{\mathbb{R}^l}\)</span>为扰动，<span class="arithmatex">\(y{\in}{\mathbb{R}^s}\)</span>为系统输出。<span class="arithmatex">\(f(x),{g_1}(x),{g_2}(x),h(x)\)</span>都是只和<span class="arithmatex">\(x\)</span>有关的非线性平滑函数，扰动我们是未知的。
-根据非线性系统的数学表达式，我们可以得到<strong>基本扰动观测器</strong>的形式如下：
-$$
+\]</div>
+<p>其中<span class="arithmatex">\(x{\in}{\mathbb{R}^n}\)</span>是状态向量，<span class="arithmatex">\(u{\in}{\mathbb{R}^m}\)</span>为控制输入，<span class="arithmatex">\(d{\in}{\mathbb{R}^l}\)</span>为扰动，<span class="arithmatex">\(y{\in}{\mathbb{R}^s}\)</span>为系统输出。<span class="arithmatex">\(f(x),{g_1}(x),{g_2}(x),h(x)\)</span>都是只和<span class="arithmatex">\(x\)</span>有关的非线性平滑函数，扰动我们是未知的。
+根据非线性系统的数学表达式，我们可以得到<strong>基本扰动观测器</strong>的形式如下：</p>
+<div class="arithmatex">\[
 \dot{\hat{d}} = l(x)[\dot{x} - f(x) - g_1(x)u - g_2(x)\hat{d}]
-$$
-我们可以定义一个<strong>增强扰动观测器</strong>来估计慢变的扰动，这种类型的观测器定义如下：
-$$
+\]</div>
+<p>我们可以定义一个<strong>增强扰动观测器</strong>来估计慢变的扰动，这种类型的观测器定义如下：</p>
+<div class="arithmatex">\[
 \begin{cases} 
-\dot{z} = -l(x)g_2(x)z - l(x)[g_2(x)p(x) + f(x) + g_1(x)u] \ 
+\dot{z} = -l(x)g_2(x)z - l(x)[g_2(x)p(x) + f(x) + g_1(x)u] \\ 
 \hat{d} = z + p(x) 
 \end{cases} 
-$$
-其中：
+\]</div>
+<p>其中：
 - <strong><span class="arithmatex">\(z\)</span></strong>: 观测器的内部状态变量。
 - <strong><span class="arithmatex">\(\hat{d}\)</span></strong>: 扰动的估计值（Disturbance estimate）。
 - <strong><span class="arithmatex">\(f(x), g_1(x), g_2(x)\)</span></strong>: 系统动力学模型中的已知非线性函数。

@@ -989,15 +989,15 @@
 <p>在前面我们已经分析贝尔曼最优公式以及贝尔曼最优公式的一些性质。我们在这里需要介绍贝尔曼最优公式的两种解法：<strong>值迭代</strong>和<strong>策略迭代</strong>。</p>
 <h2 id="4-1value-iteration">4-1.值迭代（Value Iteration）<a class="headerlink" href="#4-1value-iteration" title="Permanent link">&para;</a></h2>
 <p>我们初始化状态值<span class="arithmatex">\(v_0\)</span>，然后我们分为两步进行：
-第一步是<strong>策略更新（Policy Update）</strong>：首先我们根据给定的状态值<span class="arithmatex">\({v_{k}}\)</span>来计算在当前条件下的最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>：
-$$
-{{\pi}<em _pi="\pi">{k+1}}={\arg}{\max</em>)
-$$
-第二步是}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{k}<strong>数值更新（Value Update）</strong>：我们需要根据最优策略<span class="arithmatex">\({\pi}_{k+1}\)</span>和之前的状态值<span class="arithmatex">\(v_k\)</span>来计算当前条件下的状态值<span class="arithmatex">\({v}_{k+1}\)</span>：
-$$
-{v_{k+1}}={r_{{\pi}<em _pi="{\pi">{k+1}}}+{\gamma}{P</em><em k="k">{k+1}}}{v</em>
-$$
-该方法对应的伪代码如下：}</p>
+第一步是<strong>策略更新（Policy Update）</strong>：首先我们根据给定的状态值<span class="arithmatex">\({v_{k}}\)</span>来计算在当前条件下的最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>：</p>
+<div class="arithmatex">\[
+{{\pi}_{k+1}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{k}})
+\]</div>
+<p>第二步是<strong>数值更新（Value Update）</strong>：我们需要根据最优策略<span class="arithmatex">\({\pi}_{k+1}\)</span>和之前的状态值<span class="arithmatex">\(v_k\)</span>来计算当前条件下的状态值<span class="arithmatex">\({v}_{k+1}\)</span>：</p>
+<div class="arithmatex">\[
+{v_{k+1}}={r_{{\pi}_{k+1}}}+{\gamma}{P_{{\pi}_{k+1}}}{v_{k}}
+\]</div>
+<p>该方法对应的伪代码如下：</p>
 <div class="admonition example">
 <p class="admonition-title">值迭代方法的Python程序实现</p>
 <p>值迭代的Python程序实现如下：
@@ -1006,15 +1006,15 @@ $$
 </div>
 <h2 id="4-2policy-iteration">4-2.策略迭代（Policy Iteration）<a class="headerlink" href="#4-2policy-iteration" title="Permanent link">&para;</a></h2>
 <p>我们初始化策略<span class="arithmatex">\(\pi_0\)</span>，然后我们分为两步进行：
-第一步是<strong>策略评估（Policy Evaluation）</strong>：在这一步我们需要使用<strong>迭代法求解贝尔曼方程的方法</strong>，来计算在当前策略<span class="arithmatex">\({\pi}_{k}\)</span>下的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>。即：
-$$
-{v_{{\pi}<em _pi="{\pi">{k}}}={r</em><em _pi="{\pi">{k}}}+{\gamma}{P</em><em _pi="{\pi">{k}}}{v</em><em k_1="k+1">{k}}}
-$$
-第二步是<strong>策略增强（Policy Improvement）</strong>：在这里，我们使用类似于值迭代的方法，根据当前策略的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>来计算最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>。即：
-$$
-{{\pi}</em>)
-$$
-该方法对应的伪代码如下：}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{{\pi}_{k}}</p>
+第一步是<strong>策略评估（Policy Evaluation）</strong>：在这一步我们需要使用<strong>迭代法求解贝尔曼方程的方法</strong>，来计算在当前策略<span class="arithmatex">\({\pi}_{k}\)</span>下的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>。即：</p>
+<div class="arithmatex">\[
+{v_{{\pi}_{k}}}={r_{{\pi}_{k}}}+{\gamma}{P_{{\pi}_{k}}}{v_{{\pi}_{k}}}
+\]</div>
+<p>第二步是<strong>策略增强（Policy Improvement）</strong>：在这里，我们使用类似于值迭代的方法，根据当前策略的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>来计算最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>。即：</p>
+<div class="arithmatex">\[
+{{\pi}_{k+1}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{{\pi}_{k}}})
+\]</div>
+<p>该方法对应的伪代码如下：</p>
 <div class="admonition example">
 <p class="admonition-title">策略迭代方法的Python程序实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>

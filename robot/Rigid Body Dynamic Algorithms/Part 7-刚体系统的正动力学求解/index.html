@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/">
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/Part%207-%E5%88%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%AD%A3%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%B1%82%E8%A7%A3/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
     
     
       
-        <title>Rigid Body Dynamic Algorithms - Alex Blog</title>
+        <title>9-刚体系统的正动力学求解 - Alex Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -39,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rigid-body-dynamic-algorithms" class="md-skip">
+        <a href="#9-" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rigid Body Dynamic Algorithms
+              9-刚体系统的正动力学求解
             
           </span>
         </div>
@@ -208,7 +208,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tech-blog/tags/Python/" class="md-tabs__link">
+      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
         技术博客
       </a>
     </li>
@@ -220,15 +220,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link">
         机器人
       </a>
     </li>
@@ -244,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../ai/" class="md-tabs__link">
+      <a href="../../../ai/" class="md-tabs__link">
         人工智能
       </a>
     </li>
@@ -260,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../control/" class="md-tabs__link">
+      <a href="../../../control/" class="md-tabs__link">
         控制理论
       </a>
     </li>
@@ -273,7 +271,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../computer/index.md" class="md-tabs__link">
+    <a href="../../../computer/index.md" class="md-tabs__link">
       计算机
     </a>
   </li>
@@ -285,7 +283,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../electronics/index.md" class="md-tabs__link">
+    <a href="../../../electronics/index.md" class="md-tabs__link">
       电子设计
     </a>
   </li>
@@ -300,7 +298,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../math/" class="md-tabs__link">
+      <a href="../../../math/" class="md-tabs__link">
         数学知识
       </a>
     </li>
@@ -316,7 +314,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../physics/" class="md-tabs__link">
+      <a href="../../../physics/" class="md-tabs__link">
         物理知识
       </a>
     </li>
@@ -344,7 +342,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -445,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/Python/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
         #Python
       </a>
     </li>
@@ -459,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/ROS2/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
         #ROS2
       </a>
     </li>
@@ -473,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/SLAM/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
         #SLAM
       </a>
     </li>
@@ -487,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         #机器人
       </a>
     </li>
@@ -501,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
         #概率论
       </a>
     </li>
@@ -528,14 +526,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -557,7 +553,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">机器人</a>
+          <a href="../../">机器人</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -578,52 +574,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Rigid Body Dynamic Algorithms
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         Rigid Body Dynamic Algorithms
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    文章列表
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -635,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Robotics%20Vision%20and%20Control/" class="md-nav__link">
+      <a href="../../Robotics%20Vision%20and%20Control/" class="md-nav__link">
         Robotics Vision and Control
       </a>
     </li>
@@ -678,7 +633,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../ai/">人工智能</a>
+          <a href="../../../ai/">人工智能</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -701,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/Reinforcement%20Learning/" class="md-nav__link">
+      <a href="../../../ai/Reinforcement%20Learning/" class="md-nav__link">
         Reinforcement Learning
       </a>
     </li>
@@ -748,7 +703,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/">控制理论</a>
+          <a href="../../../control/">控制理论</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -771,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
+      <a href="../../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
         Disturbance Observer based Control
       </a>
     </li>
@@ -785,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../control/Morden%20Control%20Systems/" class="md-nav__link">
+      <a href="../../../control/Morden%20Control%20Systems/" class="md-nav__link">
         Morden Control Systems
       </a>
     </li>
@@ -807,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer/index.md" class="md-nav__link">
+      <a href="../../../computer/index.md" class="md-nav__link">
         计算机
       </a>
     </li>
@@ -822,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../electronics/index.md" class="md-nav__link">
+      <a href="../../../electronics/index.md" class="md-nav__link">
         电子设计
       </a>
     </li>
@@ -858,7 +813,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../math/">数学知识</a>
+          <a href="../../../math/">数学知识</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -881,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/Information%20Theory/" class="md-nav__link">
+      <a href="../../../math/Information%20Theory/" class="md-nav__link">
         Information Theory
       </a>
     </li>
@@ -924,7 +879,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../physics/">物理知识</a>
+          <a href="../../../physics/">物理知识</a>
           
             <label for="__nav_8">
               <span class="md-nav__icon md-icon"></span>
@@ -947,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+      <a href="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
         理论力学
       </a>
     </li>
@@ -988,8 +943,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    文章列表
+  <a href="#91-crba" class="md-nav__link">
+    9.1-复合刚体算法(CRBA)求解正动力学
   </a>
   
 </li>
@@ -1011,37 +966,162 @@
 
 
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/robot/Rigid Body Dynamic Algorithms/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/robot/Rigid Body Dynamic Algorithms/Part 7-刚体系统的正动力学求解.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="rigid-body-dynamic-algorithms">Rigid Body Dynamic Algorithms<a class="headerlink" href="#rigid-body-dynamic-algorithms" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文章列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><strong><a href="Part%202-%E7%A9%BA%E9%97%B4%E5%90%91%E9%87%8F%E5%8F%8A%E5%85%B6%E6%80%A7%E8%B4%A8/">Part 2-空间向量及其性质</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Part%203-%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E5%AD%A6%E5%92%8C%E5%88%9A%E4%BD%93%E5%8A%A8%E5%8A%9B%E5%AD%A6/">Part 3-刚体运动学和刚体动力学</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Part%204-%E5%8F%97%E7%BA%A6%E6%9D%9F%E5%88%9A%E4%BD%93%E5%8A%A8%E5%8A%9B%E5%AD%A6/">Part 4-受约束刚体动力学</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Part%205-%E5%A4%9A%E5%88%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1/">Part 5-多刚体系统建模</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Part%206-%E5%88%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%86%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%B1%82%E8%A7%A3/">Part 6-刚体系统的逆动力学求解</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Part%207-%E5%88%9A%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%AD%A3%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%B1%82%E8%A7%A3/">Part 7-刚体系统的正动力学求解</a></strong></p>
-</li>
-<li>
-<p><strong><a href="Rigid%20Body%20Dynamic%20Algorithms/">Rigid Body Dynamic Algorithms</a></strong></p>
-</li>
-</ul>
+<h1 id="9-">9-刚体系统的正动力学求解<a class="headerlink" href="#9-" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">内容概要</p>
+<p>机器人的正动力学，即为已知力求解加速度等信息。在这一章节中，我们主要介绍机器人的正动力学的两种算法：
+- <strong>惯量矩阵方法（Inertia Matrix Methods）</strong>：复合刚体算法(CRBA)就是基于惯量矩阵方法的正动力学求解算法
+- <strong>传播法（Propagation Methods）</strong>：(ABA)算法就是基于惯量矩阵方法的正动力学求解算法</p>
+</div>
+<h2 id="91-crba">9.1-复合刚体算法(CRBA)求解正动力学<a class="headerlink" href="#91-crba" title="Permanent link">&para;</a></h2>
+<p>首先，求解复合刚体动力学的方程，就是求解以下几个矩阵：
+- 偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>
+- 惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>
+首先，在Chapter-8中，我们计算的逆动力学如下：
+$$
+\begin{align}
+\tau&amp;=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{\ddot{q}},\mathbf{f^x})
+\end{align}
+$$
+当<span class="arithmatex">\(,\mathbf{\ddot{q}}=0\)</span>的时候，我们有：
+$$
+\mathbf{C}=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
+$$
+也就是说对于偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>来说，只需要调用求解逆动力学的方式就能得到，然后我们就可以得到：
+$$
+{\mathbf{H}}{\mathbf{\ddot{q}}}=\mathbf{\tau}-ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
+$$
+（过渡）
+因此，求解正动力学的重中之重，是求解惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。接下来就要用<strong>复合刚体算法</strong>来求解矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。</p>
+<div class="admonition example">
+<p class="admonition-title">复合刚体算法的伪代码</p>
+<p>$$
+\begin{array}{@{}l@{\hspace{6em}}l@{}}
+\hline \[-0.8em]
+\begin{array}{l}
+\underline{\text{Basic Equations:}} \[0.8em]
+\boldsymbol{I}<em _in="\in" _mu_i_="\mu(i)" j="j">i^c
+=
+\boldsymbol{I}_i
++
+\displaystyle\sum</em>
+\boldsymbol{I}_j^c \[1.2em]</p>
+<h1 id="boldsymbolh_ij">\boldsymbol{H}_{ij}<a class="headerlink" href="#boldsymbolh_ij" title="Permanent link">&para;</a></h1>
+<p>\left{
+\begin{array}{ll}
+\boldsymbol{S}_i^T
+\boldsymbol{I}_i^c
+\boldsymbol{S}_j
+&amp; \text{if } i \in \nu(j) \[0.25em]</p>
+<p>\boldsymbol{S}_i^T
+\boldsymbol{I}_j^c
+\boldsymbol{S}_j
+&amp; \text{if } j \in \nu(i) \[0.25em]</p>
+<p>\boldsymbol{0}
+&amp; \text{otherwise}
+\end{array}
+\right. \[2.2em]</p>
+<p>\underline{\text{Equations for Body-Coordinates}} \[-0.1em]
+\underline{\text{Algorithm:}} \[1em]</p>
+<h1 id="boldsymboli_ic">\boldsymbol{I}_i^c<a class="headerlink" href="#boldsymboli_ic" title="Permanent link">&para;</a></h1>
+<p>\boldsymbol{I}<em _in="\in" _mu_i_="\mu(i)" j="j">i
++
+\displaystyle\sum</em>
+{}<sup _="*">i\boldsymbol{X}_j</sup>
+\boldsymbol{I}_j^c
+{}^j\boldsymbol{X}_i \[1.2em]</p>
+<h1 id="lambdajboldsymbolf_i">{}^{\lambda(j)}\boldsymbol{F}_i<a class="headerlink" href="#lambdajboldsymbolf_i" title="Permanent link">&para;</a></h1>
+<p>{}<sup _="*">{\lambda(j)}\boldsymbol{X}_j</sup>
+{}^j\boldsymbol{F}_i
+\qquad
+\left(
+{}^i\boldsymbol{F}_i
+=
+\boldsymbol{I}_i^c
+\boldsymbol{S}_i
+\right) \[1.2em]</p>
+<h1 id="boldsymbolh_ij_1">\boldsymbol{H}_{ij}<a class="headerlink" href="#boldsymbolh_ij_1" title="Permanent link">&para;</a></h1>
+<p>\left{
+\begin{array}{ll}
+{}<sup>j\boldsymbol{F}_i</sup>T
+\boldsymbol{S}_j
+&amp; \text{if } i \in \nu(j) \[0.25em]</p>
+<p>\boldsymbol{H}_{ji}^T
+&amp; \text{if } j \in \nu(i) \[0.25em]</p>
+<p>\boldsymbol{0}
+&amp; \text{otherwise}
+\end{array}
+\right.
+\end{array}
+&amp;
+\begin{array}{l}
+\underline{\text{Algorithm:}} \[0.6em]</p>
+<p>\boldsymbol{H} = \boldsymbol{0} \[0.35em]</p>
+<p>\mathbf{for} i = 1 \mathbf{to} N_B \mathbf{do} \[0.25em]
+\qquad
+\boldsymbol{I}_i^c
+=
+\boldsymbol{I}_i \[0.25em]
+\mathbf{end} \[0.45em]</p>
+<p>\mathbf{for} i = N_B \mathbf{to} 1 \mathbf{do} \[0.25em]
+\qquad
+\mathbf{if} \lambda(i) \neq 0 \mathbf{then} \[0.25em]
+\qquad\qquad
+\boldsymbol{I}<em _lambda_i_="\lambda(i)">{\lambda(i)}^c
+=
+\boldsymbol{I}</em>^c
++
+{}<sup _="*">{\lambda(i)}\boldsymbol{X}_i</sup>
+\boldsymbol{I}<em _lambda_i_="\lambda(i)">i^c
+{}^i\boldsymbol{X}</em> \[0.25em]
+\qquad
+\mathbf{end} \[0.35em]</p>
+<p>\qquad
+\boldsymbol{F}
+=
+\boldsymbol{I}_i^c
+\boldsymbol{S}_i \[0.35em]</p>
+<p>\qquad
+\boldsymbol{H}_{ii}
+=
+\boldsymbol{S}_i^T
+\boldsymbol{F} \[0.35em]</p>
+<p>\qquad
+j = i \[0.35em]</p>
+<p>\qquad
+\mathbf{while} \lambda(j) \neq 0 \mathbf{do} \[0.25em]
+\qquad\qquad
+\boldsymbol{F}
+=
+{}<sup _="*">{\lambda(j)}\boldsymbol{X}_j</sup>
+\boldsymbol{F} \[0.25em]</p>
+<p>\qquad\qquad
+j = \lambda(j) \[0.25em]</p>
+<p>\qquad\qquad
+\boldsymbol{H}_{ij}
+=
+\boldsymbol{F}^T
+\boldsymbol{S}_j \[0.25em]</p>
+<p>\qquad\qquad
+\boldsymbol{H}<em ij="ij">{ji}
+=
+\boldsymbol{H}</em>^T \[0.25em]</p>
+<p>\qquad
+\mathbf{end} \[0.25em]</p>
+<p>\mathbf{end}
+\end{array}
+\[0.4em]
+\hline
+\end{array}
+$$</p>
+</div>
+<h2 id="92-aba">9.2-铰接体算法(ABA)求解正动力学<a class="headerlink" href="#92-aba" title="Permanent link">&para;</a></h2>
 
 
 
@@ -1057,42 +1137,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: 机器人" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              机器人
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../Robotics%20Vision%20and%20Control/" class="md-footer__link md-footer__link--next" aria-label="Next: Robotics Vision and Control" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Robotics Vision and Control
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1115,12 +1159,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
