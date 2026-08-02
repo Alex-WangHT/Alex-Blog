@@ -1,6 +1,5 @@
 // MathJax 3 配置
-// pymdownx.arithmatex (generic: true) 将 $...$ 输出为 \(...\)，$$...$$ 输出为 \[...\]
-// 因此 MathJax 必须同时支持这两种分隔符
+// 禁用 arithmatex 后，MathJax 直接在客户端处理 $...$ 和 $$...$$
 window.MathJax = {
   tex: {
     inlineMath: [
