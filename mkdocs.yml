@@ -66,17 +66,20 @@ extra_javascript:
 
 plugins:
   - search
-  - tags
+  - tags:
+      tags_file: tech-blog/tags.md
+  - blog:
+      blog_dir: tech-blog
+      post_date_format: yyyy-MM-dd
+      post_url_date_format: yyyy/MM/dd
+      archive: true
+      pagination_per_page: 10
 
 # 导航菜单
 nav:
   - 技术博客:
-    - 标签分类:
-      - "#Python": tech-blog/tags/Python.md
-      - "#ROS2": tech-blog/tags/ROS2.md
-      - "#SLAM": tech-blog/tags/SLAM.md
-      - "#机器人": tech-blog/tags/机器人.md
-      - "#概率论": tech-blog/tags/概率论.md
+    - 全部文章: tech-blog/index.md
+    - 标签索引: tech-blog/tags.md
   - 机器人:
     - 机器人: robot/index.md
     - Rigid Body Dynamic Algorithms: robot/Rigid Body Dynamic Algorithms/index.md
@@ -88,8 +91,10 @@ nav:
     - 控制理论: control/index.md
     - Disturbance Observer based Control: control/Disturbance Observer based Control/index.md
     - Morden Control Systems: control/Morden Control Systems/index.md
-  - 计算机: computer/index.md
-  - 电子设计: electronics/index.md
+  - 计算机:
+    - 计算机: computer/index.md
+  - 电子设计:
+    - 电子设计: electronics/index.md
   - 数学知识:
     - 数学知识: math/index.md
     - Information Theory: math/Information Theory/index.md

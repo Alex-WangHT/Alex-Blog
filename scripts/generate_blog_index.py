@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """
-自动生成博客系统：为所有分类生成 index.md + 标签页 + 导航配置
+自动生成博客系统：为所有分类生成 index.md + 导航配置
+
+技术博客（tech-blog）已迁移到 Material 官方 blog 插件：
+- 文章位于 docs/tech-blog/posts/，由 blog 插件生成索引/标签/分类/归档页
+- 本脚本仅扫描 tech-blog 文章用于首页"最新文章"列表
 
 功能：
 1. 扫描 docs/ 下所有文章（递归子目录），提取 front matter
-2. 为每个分类生成 docs/<cat>/index.md（按子目录分组，H2 标题）
-3. 为每个子目录生成 index.md（解决导入文件夹后 404 问题）
-4. 为技术博客生成 docs/tech-blog/index.md（全部文章列表）
-5. 生成 docs/tech-blog/tags/<tag>.md（各标签文章列表）
-6. 生成 _includes/latest_posts.md（首页最新文章列表）
-7. 复制根目录 mathjax.js 到 docs/javascripts/
-8. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）
-9. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
-10. 转换 Obsidian > [!NOTE] callout 为标准 admonition 语法
+2. 为每个分类生成 docs/<cat>/index.md（按子目录分组，H2 标题；tech-blog 除外）
+3. 为每个子目录生成 index.md（解决导入文件夹后 404 问题；tech-blog 除外）
+4. 生成 _includes/latest_posts.md（首页最新文章列表，含 tech-blog）
+5. 复制根目录 mathjax.js 到 docs/javascripts/
+6. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）
+7. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
+8. 转换 Obsidian > [!NOTE] callout 为标准 admonition 语法
 
 使用方式：
     python scripts/generate_blog_index.py
@@ -26,8 +28,6 @@ from collections import defaultdict
 DOCS_DIR = Path('docs')
 INCLUDES_DIR = Path('_includes')
 MKDOCS_FILE = Path('mkdocs.yml')
-TECH_BLOG_DIR = DOCS_DIR / 'tech-blog'
-TAGS_DIR = TECH_BLOG_DIR / 'tags'
 
 CATEGORIES = {
     'tech-blog': '技术博客',
@@ -211,10 +211,14 @@ def scan_articles():
             meta = parse_front_matter(content)
             if meta.get('draft'):
                 continue
+            # blog 插件的 date 是 {created: ..., updated: ...} 字典，统一取 created
+            date = meta.get('date', '')
+            if isinstance(date, dict):
+                date = date.get('created', '')
             rel_path = md_file.relative_to(DOCS_DIR).as_posix()
             articles.append({
                 'title': meta.get('title', md_file.stem),
-                'date': meta.get('date', ''),
+                'date': str(date) if date else '',
                 'tags': meta.get('tags', []),
                 'description': meta.get('description', ''),
                 'category': cat_name,
@@ -244,6 +248,8 @@ def generate_all_subdir_indices(articles):
     subdirs = defaultdict(list)
     for art in articles:
         path = Path(art['path'])
+        if path.parts[0] == 'tech-blog':
+            continue  # tech-blog 由官方 blog 插件托管
         if len(path.parts) > 2:
             subdirs[path.parent].append(art)
     for subdir, arts in subdirs.items():
@@ -253,18 +259,6 @@ def generate_all_subdir_indices(articles):
                 generate_subdir_index(subdir_path, arts), encoding='utf-8'
             )
     return len(subdirs)
-
-
-def get_relative_path_from_tech_blog(art_path):
-    if art_path.startswith('tech-blog/'):
-        return art_path.replace('tech-blog/', '')
-    return f'../{art_path}'
-
-
-def get_relative_path_from_tag_page(art_path):
-    if art_path.startswith('tech-blog/'):
-        return art_path.replace('tech-blog/', '../')
-    return f'../../{art_path}'
 
 
 def generate_category_index(cat_dir, cat_name, articles):
@@ -300,48 +294,6 @@ def generate_category_index(cat_dir, cat_name, articles):
     return '\n'.join(lines)
 
 
-def generate_tech_blog_home(articles):
-    lines = ['# 技术博客', '', '## 技术分类', '']
-    for art in articles:
-        date_str = f" ({art['date']})" if art['date'] else ''
-        tags_str = ' '.join(f'`#{t}`' for t in art['tags']) if art['tags'] else ''
-        rel_path = get_relative_path_from_tech_blog(art['path'])
-        lines.append(f"- **[{art['title']}]({rel_path})**{date_str} — *{art['category']}*")
-        if tags_str:
-            lines.append(f"  {tags_str}")
-        if art['description']:
-            lines.append(f"  > {art['description']}")
-        lines.append('')
-    if not articles:
-        lines.append('> 暂无文章，敬请期待。')
-    return '\n'.join(lines)
-
-
-def generate_tag_page(tag, articles):
-    lines = [f'# 标签：#{tag}', '', f'以下是包含标签 **#{tag}** 的所有文章。', '', '## 文章列表', '']
-    for art in sorted(articles, key=lambda x: x['date'] or '0000-00-00', reverse=True):
-        date_str = f" ({art['date']})" if art['date'] else ''
-        rel_path = get_relative_path_from_tag_page(art['path'])
-        lines.append(f"- **[{art['title']}]({rel_path})**{date_str} — *{art['category']}*")
-        if art['description']:
-            lines.append(f"  > {art['description']}")
-        lines.append('')
-    return '\n'.join(lines)
-
-
-def generate_tag_pages(articles):
-    TAGS_DIR.mkdir(exist_ok=True)
-    tags_dict = defaultdict(list)
-    for art in articles:
-        for tag in art['tags']:
-            tags_dict[tag].append(art)
-    for old_file in TAGS_DIR.glob('*.md'):
-        old_file.unlink()
-    for tag, arts in tags_dict.items():
-        (TAGS_DIR / f'{tag}.md').write_text(generate_tag_page(tag, arts), encoding='utf-8')
-    return sorted(tags_dict.keys(), key=str.lower)
-
-
 def generate_latest_posts(articles, max_count=10):
     if not articles:
         return '## 最新文章\n\n> 暂无文章，敬请期待。\n'
@@ -360,14 +312,14 @@ def generate_latest_posts(articles, max_count=10):
     return '\n'.join(lines)
 
 
-def update_mkdocs_nav(all_tags, articles):
+def update_mkdocs_nav(articles):
     """更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）"""
     content = MKDOCS_FILE.read_text(encoding='utf-8')
 
+    # tech-blog 由官方 blog 插件托管，nav 只保留插件索引页与标签索引页
     tech_blog_nav = "  - 技术博客:\n"
-    tech_blog_nav += "    - 标签分类:\n"
-    for tag in sorted(all_tags, key=str.lower):
-        tech_blog_nav += f'      - "#{tag}": tech-blog/tags/{tag}.md\n'
+    tech_blog_nav += "    - 全部文章: tech-blog/index.md\n"
+    tech_blog_nav += "    - 标签索引: tech-blog/tags.md\n"
 
     other_nav = ""
     for cat_dir, cat_name in CATEGORIES.items():
@@ -426,8 +378,10 @@ def main():
 
     articles = scan_articles()
 
-    # 1. 为每个分类生成 index.md
+    # 1. 为每个分类生成 index.md（tech-blog 由官方 blog 插件托管，跳过）
     for cat_dir, cat_name in CATEGORIES.items():
+        if cat_dir == 'tech-blog':
+            continue
         cat_path = DOCS_DIR / cat_dir
         if cat_path.exists():
             (cat_path / 'index.md').write_text(
@@ -437,29 +391,22 @@ def main():
     # 2. 为包含文章的子目录生成 index.md
     subdir_count = generate_all_subdir_indices(articles)
 
-    # 3. 技术博客主页
-    (TECH_BLOG_DIR / 'index.md').write_text(generate_tech_blog_home(articles), encoding='utf-8')
-
-    # 4. 生成标签页面
-    all_tags = generate_tag_pages(articles)
-
-    # 5. 生成首页最新文章列表
+    # 3. 生成首页最新文章列表（含 tech-blog 文章）
     latest_md = generate_latest_posts(articles)
     INCLUDES_DIR.mkdir(exist_ok=True)
     (INCLUDES_DIR / 'latest_posts.md').write_text(latest_md, encoding='utf-8')
 
-    # 6. 复制 MathJax 配置
+    # 4. 复制 MathJax 配置
     copy_mathjax_config()
 
-    # 7. 更新 mkdocs.yml nav（展开子目录）
-    update_mkdocs_nav(all_tags, articles)
+    # 5. 更新 mkdocs.yml nav（展开子目录）
+    update_mkdocs_nav(articles)
 
     print(f"✅ Callout 转换: {callout_count} 个文件")
     print(f"✅ WikiLink 转换: {wikilink_count} 个文件")
     print(f"✅ 扫描到 {len(articles)} 篇文章")
-    print(f"✅ 生成分类主页: {len(CATEGORIES)} 个")
+    print(f"✅ 生成分类主页: {len(CATEGORIES) - 1} 个（tech-blog 由 blog 插件托管）")
     print(f"✅ 生成子目录索引: {subdir_count} 个")
-    print(f"✅ 生成标签页面: {len(all_tags)} 个")
     print(f"✅ 更新首页文章列表: _includes/latest_posts.md")
     print(f"✅ 更新导航配置: mkdocs.yml")
 
