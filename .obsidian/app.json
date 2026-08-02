@@ -3,5 +3,6 @@
   "newFileFolderPath": "docs",
   "newLinkFormat": "relative",
   "attachmentFolderPath": "docs/assets",
-  "promptDelete": false
+  "promptDelete": false,
+  "alwaysUpdateLinks": true
 }
