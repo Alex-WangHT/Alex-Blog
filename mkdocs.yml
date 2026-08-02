@@ -3,15 +3,11 @@ site_url: https://alex-wanght.github.io/Alex-Blog/
 repo_url: https://github.com/Alex-WangHT/Alex-Blog
 repo_name: Alex-WangHT/Alex-Blog
 
-# 支持数学公式 (MathJax) + 注解 (Admonitions) + Obsidian 兼容扩展
+# MkDocs 标准配置：数学公式 (MathJax) + 注解 (Admonitions)
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences:
-      custom_fences:
-        - name: math
-          class: arithmatex
-          format: !!python/name:pymdownx.arithmatex.arithmatex_fenced_format
       custom_fences:
         - name: math
           class: arithmatex
@@ -38,6 +34,7 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
+  - meta
 
 theme:
   name: material
@@ -69,8 +66,9 @@ extra_javascript:
 
 plugins:
   - search
+  - tags
 
-# 导航菜单（不再单独显示"首页"，点击 Alex Blog 标题即可返回）
+# 导航菜单
 nav:
   - 技术博客:
     - 标签分类:

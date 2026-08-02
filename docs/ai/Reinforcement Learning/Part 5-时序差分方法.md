@@ -4,22 +4,16 @@
 !!! note "Robbins-Monro算法"
     罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^*$ 的迭代方法。
     在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
-    ```math
-    {\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k
-    ```
+    $${\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k$$
     算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
-    ```math
-    w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)
-    ```
+    $$w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)$$
     **关键要求:** 噪声 $\eta_k$ 必须是**无偏**的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 < \infty$，以确保$w_k$ 最终收敛到 $w^*$。
 
 
 !!! tip "Robbins-Monro算法和梯度下降(Gradient Decrease)"
     我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 ${f}{:}{{X{\rightarrow}Y}}$，已知一系列数据集 $({x}^{(i)},{y}^{(i)})$，其中 ${{x}{\in}{X}},{{y}{\in}{Y}}$。
     我们假定函数关系为 ${{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}$，其中 ${\theta}$ 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
-    ```math
-    J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
-    ```
+    $$J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}$$
 
 >**核心优化目标**
 >- 我们训练模型的问题转化为：**如何让损失函数 $J(\theta)$ 最小化**。
@@ -35,9 +29,7 @@
 
 !!! note "Dvoretzky定理"
     考虑到一个随机过程：
-    ```math
-    {{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}
-    ```
+    $${{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}$$
     其中${\{{{\alpha}_{k}}\}}_{k=1}^{\infty}$，${\{{{\beta}_{k}}\}}_{k=1}^{\infty}$，${\{{{\eta}_{k}}\}}_{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
     如果满足以下条件，那么序列${{\Delta}_{k}}$基本上会收敛到0：
     - ${\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}$，${\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}$和${\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}$基本一致。
