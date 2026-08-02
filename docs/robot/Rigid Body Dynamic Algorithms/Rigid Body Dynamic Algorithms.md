@@ -7,7 +7,9 @@
 
 !!! note "刚体系统的运动方程表达"
     刚体系统的运动方程可以写成以下的**标准形式**：
-    $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}$$
+    $$
+    {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}
+    $$
     其中：
     - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度变量的矢量。
     - ${\boldsymbol{\tau}}$是作用力的矢量。
@@ -194,7 +196,9 @@ $$
 !!! note "空间变换矩阵(Spatial Transformation Matrix)"
     假设有两个坐标系 $Frame{\{\mathcal{A}\}}$ 和 $Frame{\{\mathcal{B}\}}$ 。$Frame{\{\mathcal{B}\}}$ 坐标系相对于 $Frame{\{\mathcal{A}\}}$ 坐标系的几何关系由旋转矩阵 $\mathbf{R} = {^A_B \mathbf{R}}$ 和位置向量 ${p} = {^A\vec{p}_{BORG}}$ (即$Frame{\{\mathcal{B}\}}$原点在$Frame{\{\mathcal{A}\}}$中的位置) 确定。
     **空间变换矩阵 ${{^A_B}\mathbf{X}}$** 用于将空间矢量从$Frame{\{\mathcal{B}\}}$ 坐标系转换到 $Frame{\{\mathcal{A}\}}$ 坐标系， 的定义如下：
-    $${{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}$$
+    $$
+    {{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}
+    $$
     其中：
     - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
     -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
@@ -234,21 +238,29 @@ $$
 在经典力学中，我们通常将角速度 $\omega$ 和线速度 $v$ 分开处理。但在空间矢量代数中，这两者被合成为一个 **6 维矢量**，称为**空间速度（Spatial Velocity）**，通常记为 $\hat{v}$。
 ### (1)- 定义与构成
 对于刚体上的一点 $O$，其空间速度 $\hat{v}_O$ 定义为：
-$$\hat{v}_O = \begin{bmatrix} \omega \\ v_O \end{bmatrix} \in \mathbb{R}^6$$
+$$
+\hat{v}_O = \begin{bmatrix} \omega \\ v_O \end{bmatrix} \in \mathbb{R}^6
+$$
 - **角速度 $\omega$**：描述刚体整体的旋转。
 - **线速度 $v_O$**：描述刚体上选定参考点 $O$ 的瞬时平移速度。
 ### (2)-坐标变换
 如果你需要将速度从坐标系 $B$ 转换到坐标系 $A$，使用变换矩阵 ${^A_B X}$：
 
-$${}^A \hat{v} = {^A_B X}^B \hat{v}$$
+$$
+{}^A \hat{v} = {^A_B X}^B \hat{v}
+$$
 展开形式为：
-$$\begin{bmatrix} {}^A \omega \\ {}^A v_A \end{bmatrix} = \begin{bmatrix} \mathbf{E} & \mathbf{0} \\ -\mathbf{E} \mathbf{r}\times & \mathbf{E} \end{bmatrix} \begin{bmatrix} {}^B \omega \\ {}^B v_B \end{bmatrix}$$
+$$
+\begin{bmatrix} {}^A \omega \\ {}^A v_A \end{bmatrix} = \begin{bmatrix} \mathbf{E} & \mathbf{0} \\ -\mathbf{E} \mathbf{r}\times & \mathbf{E} \end{bmatrix} \begin{bmatrix} {}^B \omega \\ {}^B v_B \end{bmatrix}
+$$
 这里反映了一个关键物理事实：**线速度会随着参考点的改变而改变**（即 $v_A = \mathbf{E}(v_B - r \times \omega)$），而角速度在旋转变换下保持几何一致性。
 ## 3.2-刚体的空间加速度 (Spatial Acceleration)
 空间加速度描述了空间速度的变化率。然而，在旋转坐标系下，加速度的定义比速度稍微复杂一些。
 ### (1)- 经典空间加速度 (Classical Spatial Acceleration)
 最直接的定义是对空间速度直接求导：
-$$\hat{a} = \frac{d}{dt} \hat{v} = \begin{bmatrix} \dot{\omega} \\ \dot{v}_O \end{bmatrix}$$
+$$
+\hat{a} = \frac{d}{dt} \hat{v} = \begin{bmatrix} \dot{\omega} \\ \dot{v}_O \end{bmatrix}
+$$
 但在机器人学中，为了方便递归计算（如 RNEA 算法），通常使用**体坐标系下的加速度**。
 ### (2)- 空间加速度的组成
 对于一个在空间中运动的连杆，其加速度通常由两部分组成：
@@ -256,7 +268,9 @@ $$\hat{a} = \frac{d}{dt} \hat{v} = \begin{bmatrix} \dot{\omega} \\ \dot{v}_O \en
 2. **偏置加速度 (Bias Acceleration)**：由于旋转产生的向心加速度和科氏加速度（Coriolis acceleration）。
 
 在空间算子表示法中，连杆 $i$ 的加速度传递方程为：
-$${}^i \hat{a} = {}^i X_{i-1} {}^{i-1} \hat{a} + \mathbf{S}_i \ddot{q}_i + \hat{v}_i \times \mathbf{S}_i \dot{q}_i$$
+$$
+{}^i \hat{a} = {}^i X_{i-1} {}^{i-1} \hat{a} + \mathbf{S}_i \ddot{q}_i + \hat{v}_i \times \mathbf{S}_i \dot{q}_i
+$$
 - **${}^i X_{i-1} {}^{i-1} \hat{a}$**：基座/上一个连杆传来的加速度。
 - **$\mathbf{S}_i \ddot{q}_i$**：当前关节的加速度映射。
 - **$\hat{v}_i \times \mathbf{S}_i \dot{q}_i$**：速度相关的修正项（包含速度积项）。
@@ -315,7 +329,9 @@ $$
 其中${\boldsymbol{H}}={\boldsymbol{S}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{S}}$。
 ## 3.6-刚体的空间刚体惯量矩的逆
 我们定义$^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}$，矩阵$^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}$即为空间刚体惯量矩的逆，该矩阵定义如下：
-$${^{B}{\hat{\Phi}}} = \begin{pmatrix} I_B^{-1} & -I_B^{-1}[{^{B}{r}_{OC}}]_\times \\ [{^{B}{r}_{OC}}]_\times{I_B}^{-1} & \frac{1}{m}\mathbf{1} - [{^{B}{r}_{OC}}]_\times{I_B}^{-1}[{^{B}{r}_{OC}}]_\times \end{pmatrix}$$
+$$
+{^{B}{\hat{\Phi}}} = \begin{pmatrix} I_B^{-1} & -I_B^{-1}[{^{B}{r}_{OC}}]_\times \\ [{^{B}{r}_{OC}}]_\times{I_B}^{-1} & \frac{1}{m}\mathbf{1} - [{^{B}{r}_{OC}}]_\times{I_B}^{-1}[{^{B}{r}_{OC}}]_\times \end{pmatrix}
+$$
 ## 3.7-刚体的空间动力学方程
 我们已知刚体$B$的空间动量${\hat{h}}_{B}$如下：$${{\hat{h}}_{B}}={^{B}{\hat{I}}}{^{B}{\hat{v}}}$$我们对空间动量${\hat{h}}_{B}$求导如下，得到空间力${\hat{f}}_{B}$：
 $$
@@ -354,7 +370,9 @@ $$
 >	3. **力矩映射**：$\boldsymbol{\tau} = \sum_{i=1}^{n} \mathbf{J}_i^T \hat{f}_i$
 
 已知空间力$^{B}{\hat{f}}$，我们可以用下式求解刚体$B$的空间加速度${^{B}{\hat{a}}}$：
-$${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
+$$
+{^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}
+$$
 其中 ${\hat{b}}=^{B}{\Phi}{\hat{p}_B}$ 。
 # 4-带约束的刚体动力学
 ## 4.1-刚体的运动约束
@@ -411,7 +429,9 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 
 !!! note "带约束的刚体系统的动力学方程表达"
     带约束的刚体系统的动力学方程可以写成以下的**标准形式**：
-    $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}$$
+    $$
+    {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
+    $$
     其中：
     - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度。
     - ${\boldsymbol{\tau}}$是作用力的矢量，${\boldsymbol{\tau_c}}$是约束力的矢量
@@ -424,7 +444,9 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 
 !!! note "若尔当变分定理"
     对于受理想约束的系统，在给定时刻 $t$ 和给定位置 $\mathbf{r}$，系统的真实运动满足：主动力与惯性力在**虚速度**（速度变分 $\delta \mathbf{v}$）上所作的**虚功率**之和为零，其数学表达式为：
-    $$\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0$$
+    $$
+    \sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0
+    $$
 
 
 我们设约束力为$\boldsymbol{\tau_c}$，那么我们根据若尔当变分原理可以得到约束力的功率${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0$。我们分别使用显式约束和隐式约束来表示约束力${\boldsymbol{\tau_c}}$：
@@ -476,7 +498,9 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 
 !!! note "矢量子空间"
     假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
-    $${\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}$$
+    $$
+    {\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}
+    $$
     
 
 
@@ -526,16 +550,22 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
     
     以最常用的 **$Z-Y-X$ 顺规**（常用于航空航天的 Roll-Pitch-Yaw）为例，假设旋转角度分别为 $\phi$ (绕 $z$)、$\theta$ (绕 $y$)、$\psi$ (绕 $x$)：
     单个轴的旋转矩阵为：
-    $$R_z(\phi) = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\psi & -\sin\psi \\ 0 & \sin\psi & \cos\psi \end{bmatrix}$$
+    $$
+    R_z(\phi) = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\psi & -\sin\psi \\ 0 & \sin\psi & \cos\psi \end{bmatrix}
+    $$
     组合后的旋转矩阵 $R = R_z R_y R_x$：
-    $$R = \begin{bmatrix} c_\phi c_\theta & c_\phi s_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta & s_\phi s_\theta s_\psi + c_\phi c_\psi & s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta & c_\theta s_\psi & c_\theta c_\psi \end{bmatrix}$$
+    $$
+    R = \begin{bmatrix} c_\phi c_\theta & c_\phi s_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta & s_\phi s_\theta s_\psi + c_\phi c_\psi & s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta & c_\theta s_\psi & c_\theta c_\psi \end{bmatrix}
+    $$
     (注：$c$ 代表 $\cos$，$s$ 代表 $\sin$)
 
 
 !!! note "四元数"
     在使用欧拉角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入**四元数**来描述刚体的姿态。
     首先介绍一下四元数(Quaternions)，一个四元数$q$可以表示为一个实数和三个虚数单位$i$，$j$，$k$的线性组合：
-    $$q=a+bi+cj+dk$$
+    $$
+    q=a+bi+cj+dk
+    $$
     其中$a$，$b$，$c$，$d$是实数，$a$为实部，$bi+cj+dk$为虚部。四元数的矩阵分别表示左乘矩阵表示$L(q)$和右乘矩阵表示$R(q)$：
     $$ L(q) = 
     \begin{pmatrix} 
@@ -548,7 +578,9 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
     \end{pmatrix}
     $$
     如图所示，刚体在绕着过点$O$的旋转轴做定轴旋转运动，向量$\vec{n}$是旋转轴的方向向量，$\theta$是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：
-    $$\begin{align}q&=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}$$
+    $$
+    \begin{align}q&=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}
+    $$
     ![[Fig 1-1-9.png]]
 
 
@@ -569,15 +601,21 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 
 ### (5)-关节空间速度
 我们定义关节空间速度是父连杆(Predecessor)在关节连接处的空间速度与子连杆(Successor)在关节连接处的空间速度之差：
-$$\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{v_s - v_p}$$
+$$
+\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{v_s - v_p}
+$$
 关节空间速度可以写为：
-$$\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q, t) \dot{q} + \sigma(q, t)}$$
+$$
+\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q, t) \dot{q} + \sigma(q, t)}
+$$
 其中：
 - $\boldsymbol{S}$是关节运动的子空间矩阵
 - $\boldsymbol{\sigma}$是关节运动的偏置速度，也就是当$\boldsymbol{q}=0$时的刚体速度
 - $\boldsymbol{q}$和$\boldsymbol{\dot{q}}$是关节的转动角度和转动角度变化率。
 如果矩阵$\boldsymbol{S}$不随时间而改变，我们可以将关节的空间速度直接写为：
-$$\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q) \dot{q}}$$
+$$
+\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q) \dot{q}}
+$$
 !!! example "以2-DOF平面机械臂来理解关节空间速度"
     
 
@@ -683,19 +721,29 @@ Modified D-H表达法常用于开链的机械臂结构的运动学几何描述�
 ## 5.3-多刚体运动学方程
 ### (1)-关节空间基向量的坐标变换
 我们定义空间中有一个坐标系${\mathcal{Frame}\{i\}}$，关节$i$的中心点即为坐标系${\mathcal{Frame}\{i\}}$的原点。并且关节$i$的关节运动子空间的基向量在坐标系${\mathcal{Frame}\{i\}}$中定义为$^{i}\mathbf{S}_i$。我们在另外的坐标系${\mathcal{Frame}\{W\}}$中可以得到关节$i$的空间基向量可以表示为
-$${{^{W}\mathbf{S}}_i}={{^{W}_i\mathbf{X}}}{{^{i}\mathbf{S}}_i}$$
+$$
+{{^{W}\mathbf{S}}_i}={{^{W}_i\mathbf{X}}}{{^{i}\mathbf{S}}_i}
+$$
 其中${{^{W}_i\mathbf{X}}}$是从${\mathcal{Frame}\{i\}}$到${\mathcal{Frame}\{W\}}$的空间坐标转换矩阵
 ### (2)-多刚体系统的速度表示
 我们定义刚体$i$的空间速度为$\boldsymbol{v}_i$，刚体关节$i$的空间速度$\boldsymbol{v}_{Ji}$。首先我们可以在坐标系${\mathcal{Frame}\{W\}}$定义刚体$\boldsymbol{v}_i$的速度如下：
-$${\boldsymbol{^{W}{v}}_i}=\boldsymbol{^{W}{v}}_{{\lambda}(i)}+\boldsymbol{^{W}{v}}_{Ji}$$
+$$
+{\boldsymbol{^{W}{v}}_i}=\boldsymbol{^{W}{v}}_{{\lambda}(i)}+\boldsymbol{^{W}{v}}_{Ji}
+$$
 我们默认$i=0$的时候，刚体$0$为固定基座，因此$\boldsymbol{v}_0=0$，那么上式可以写成如下形式：
-$$\boldsymbol{^{W}{v}}_i = \sum_{j \in \kappa(i)} \boldsymbol{^{W}{v}}_{\mathrm{J}j}$$
+$$
+\boldsymbol{^{W}{v}}_i = \sum_{j \in \kappa(i)} \boldsymbol{^{W}{v}}_{\mathrm{J}j}
+$$
 
 我们定义刚体$i$的速度如下：
-$${\boldsymbol{{^{W}{v}}_i}}={\boldsymbol{{{^{W}{J}}_{i}}(q)}}{\dot{\boldsymbol{q}}}$$
+$$
+{\boldsymbol{{^{W}{v}}_i}}={\boldsymbol{{{^{W}{J}}_{i}}(q)}}{\dot{\boldsymbol{q}}}
+$$
 ### (3)-多刚体系统的加速度表示
 我们在坐标系${\mathcal{Frame}\{W\}}$定义刚体$i$的加速度如下：
-$${\boldsymbol{{^{W}{a}}_i}}={\boldsymbol{{{^{W}\dot{J}}_{i}}(q)}}{\dot{\boldsymbol{q}}}+{\boldsymbol{{{^{W}{J}}_{i}}(q)}}{\ddot{\boldsymbol{q}}}$$
+$$
+{\boldsymbol{{^{W}{a}}_i}}={\boldsymbol{{{^{W}\dot{J}}_{i}}(q)}}{\dot{\boldsymbol{q}}}+{\boldsymbol{{{^{W}{J}}_{i}}(q)}}{\ddot{\boldsymbol{q}}}
+$$
 ## 5.4-多刚体动力学方程
 ### (1)-带空间约束的力学方程推导
 - **单独列出来n个刚体的独立动力学方程**：我们已知有$N_B$个刚体，其中每个刚体的独立表达式为${\boldsymbol{{f}}_i}={\boldsymbol{{I_i}{{a}}}_i}+{\boldsymbol{{p}}_i}$。那么我们先将这$N_B$个独立的刚体的表达式写作一整个表达式：$$\begin{bmatrix}
@@ -776,7 +824,9 @@ $$
 ## 5.6-多刚体系统的复合惯性矩
 在多体动力学中，**复合刚体惯量 $\boldsymbol{I}_i^c$** 指的是：假设刚体 $i$ 及其所有子孙节点（Descendants）所属的刚体全部“固连”在一起，形成一个单一的复合刚体时，该整体在空间中相对于刚体 $i$ 坐标系的等效空间惯量。
 根据 5.5 节中推导出的 $\boldsymbol{H}_{ij}$，我们可以定义复合刚体惯量矩阵 $\boldsymbol{I}_i^c$ 为：
-$${\boldsymbol{I}_i^c} = \sum_{k \in \nu(i)} \boldsymbol{\hat{I}}_k$$
+$$
+{\boldsymbol{I}_i^c} = \sum_{k \in \nu(i)} \boldsymbol{\hat{I}}_k
+$$
 其中 $\nu(i)$ 是以 $i$ 为根节点的子树中所有节点的集合。这意味着 $\boldsymbol{H}_{ij}$ 的计算可以简化为：
 - 若 $i$ 是 $j$ 的祖先（$i \in \kappa(j)$），则有：$$\boldsymbol{H}_{ij} = \boldsymbol{S}_i^T \left( \sum_{k \in \nu(j)} \boldsymbol{\hat{I}}_k \right) \boldsymbol{S}_j = \boldsymbol{S}_i^T \boldsymbol{I}_j^c \boldsymbol{S}_j$$
 - 利用对称性，若 $j$ 是 $i$ 的祖先，则 $\boldsymbol{H}_{ij} = \boldsymbol{H}_{ji}^T$。

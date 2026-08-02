@@ -4,9 +4,13 @@
 !!! note "Robbins-Monro算法"
     罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^*$ 的迭代方法。
     在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
-    $${\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k$$
+    $$
+    {\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k
+    $$
     算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
-    $$w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)$$
+    $$
+    w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)
+    $$
     **关键要求:** 噪声 $\eta_k$ 必须是**无偏**的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 < \infty$，以确保$w_k$ 最终收敛到 $w^*$。
 
 
@@ -31,7 +35,9 @@
 
 !!! note "Dvoretzky定理"
     考虑到一个随机过程：
-    $${{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}$$
+    $$
+    {{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}
+    $$
     其中${\{{{\alpha}_{k}}\}}_{k=1}^{\infty}$，${\{{{\beta}_{k}}\}}_{k=1}^{\infty}$，${\{{{\eta}_{k}}\}}_{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
     如果满足以下条件，那么序列${{\Delta}_{k}}$基本上会收敛到0：
     - ${\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}$，${\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}$和${\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}$基本一致。
@@ -81,7 +87,9 @@ $$
 但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态$s$的状态值是未知的。其他状态都是已知的。
 但是更普遍的问题是：**我们待求解的状态值都是未知的**。也就是说我们求解的目标就是求解每个状态$s{\in}{\mathcal{S}}$的状态值${{v}_{\pi}}(s)$。那么刚才我们用到的使用随机拟合来求解策略$\pi$下的状态值就无法使用了。
 那么首先回顾一下第二章里提到过的用迭代法求解在指定策略${\pi}$下的贝尔曼方程的公式：
-$${v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)$$
+$$
+{v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
+$$
 将该元素形式的迭代法方程写成类似于Bellman Expectation Equation的形式如下：
 $$
 \begin{align}

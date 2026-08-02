@@ -7,12 +7,18 @@
 
 !!! note "State Value"
     我们有如下形式的Trajectory：
-    $${S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}$$
+    $$
+    {S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}
+    $$
     我们计算这个策略对应轨迹的Return：
-    $$G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}$$
+    $$
+    G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}
+    $$
     由于在当前策略$s_t$执行的下一步动作不确定
     我们定义在时间$t$上，状态${s}{\in}{\{S\}}$的Return期望就是**State Value**：
-    $${{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}$$
+    $$
+    {{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}
+    $$
 
 
 首先我们将Return的公式写作如下形式：
@@ -59,7 +65,9 @@ $$
 
 
 我们设Agent在当前的环境中有一系列的State：
-$${s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)$$
+$$
+{s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)
+$$
 我们将每个状态的State Value写作${v_{\pi}}({s_i})(i=1,2,3,\dots)$。然后我们将Bellman等式写作如下形式：
 $$
 \begin{align}
@@ -240,9 +248,13 @@ $$
 
 !!! example "求解最大值"
     我们假设有两组数列，其中有一组数列$q_k=\{{q_1},{q_2},{q_3},{\dots},{q_k}\}$我们仅仅知道里面有最大值。另外一组数列$c_k=\{{c_1},{c_2},{c_3},{\dots},{c_k}\}$是未知的，我们只知道数列$c_k$的数列和：
-    $${\sum_{i=1}^{k}}c_i=1$$
+    $$
+    {\sum_{i=1}^{k}}c_i=1
+    $$
     那么我们需要求解当数列$c_k$满足什么条件的时候能够让下面的式子取得最大值：
-    $${\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}$$
+    $$
+    {\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}
+    $$
     我们只需要知道数列$q_k$的最大值$q_m$，然后我们让对应的$c_m=1$，其余项为0，那么我们的最大值就是${c_m}{\cdot}{q_m}$
 
 
