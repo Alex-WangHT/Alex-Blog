@@ -82,10 +82,8 @@ nav:
     - 控制理论: control/index.md
     - Disturbance Observer based Control: control/Disturbance Observer based Control/index.md
     - Morden Control Systems: control/Morden Control Systems/index.md
-  - 计算机:
-    - 计算机: computer/index.md
-  - 电子设计:
-    - 电子设计: electronics/index.md
+  - 计算机: computer/index.md
+  - 电子设计: electronics/index.md
   - 数学知识:
     - 数学知识: math/index.md
     - Information Theory: math/Information Theory/index.md
