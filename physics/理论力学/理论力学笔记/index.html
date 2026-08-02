@@ -1,0 +1,1066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6%E7%AC%94%E8%AE%B0/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>1.质点的运动学 - Alex Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alex Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.质点的运动学
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Alex-WangHT/Alex-Blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
+        技术博客
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../robot/" class="md-tabs__link">
+      机器人
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../ai/" class="md-tabs__link">
+      人工智能
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../control/" class="md-tabs__link">
+      控制理论
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../computer/index.md" class="md-tabs__link">
+      计算机
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../electronics/index.md" class="md-tabs__link">
+      电子设计
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../math/" class="md-tabs__link">
+      数学知识
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../" class="md-tabs__link">
+      物理知识
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Alex Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Alex-WangHT/Alex-Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          技术博客
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="技术博客" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          技术博客
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          标签分类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="标签分类" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          标签分类
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
+        #Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
+        #ROS2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
+        #SLAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/Transformer/" class="md-nav__link">
+        #Transformer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/%E6%95%B0%E5%AD%A6/" class="md-nav__link">
+        #数学
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+        #机器人
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
+        #概率论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        #注意力机制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech-blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        #深度学习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../robot/" class="md-nav__link">
+        机器人
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/" class="md-nav__link">
+        人工智能
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../control/" class="md-nav__link">
+        控制理论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../computer/index.md" class="md-nav__link">
+        计算机
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../electronics/index.md" class="md-nav__link">
+        电子设计
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/" class="md-nav__link">
+        数学知识
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        物理知识
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/physics/理论力学/理论力学笔记.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="1">1.质点的运动学</h1>
+<h1 id="2">2.质点系运动学一般基础</h1>
+<h2 id="2-1">2-1.质点系的约束</h2>
+<h2 id="2-2">2-2.虚位移和等时变分</h2>
+<h2 id="2-3">2-3.自由度，广义坐标，广义速度和广义加速度</h2>
+<h1 id="3">3.刚体运动学</h1>
+<h2 id="3-1">3-1.刚体位姿描述</h2>
+<h3 id="1-">(1)-旋转矩阵</h3>
+<p>![[Fig 1-1-1.png]]
+如图所示，刚体内部有以固定点<span class="arithmatex">\(O_B\)</span>为端点的固连在刚体B中的相互正交的单位向量<span class="arithmatex">\(\vec{x}_B\)</span>，<span class="arithmatex">\(\vec{y}_B\)</span>，<span class="arithmatex">\(\vec{z}_B\)</span>，点<span class="arithmatex">\(O_B\)</span>和向量<span class="arithmatex">\(\vec{x}_B\)</span>，<span class="arithmatex">\(\vec{y}_B\)</span>，<span class="arithmatex">\(\vec{z}_B\)</span>组成了刚体固连坐标系<span class="arithmatex">\(\{B\}\)</span>。向量<span class="arithmatex">\(\vec{x}_B\)</span>，<span class="arithmatex">\(\vec{y}_B\)</span>，<span class="arithmatex">\(\vec{z}_B\)</span>在参考坐标系<span class="arithmatex">\(\{O\}\)</span>中的表示为<span class="arithmatex">\(^{O}\vec{x}_B\)</span>，<span class="arithmatex">\(^{O}\vec{y}_B\)</span>，<span class="arithmatex">\(^{O}\vec{z}_B\)</span>。我们将这三个坐标写作矩阵<span class="arithmatex">\(^{O}{R}_B\)</span>：
+$$
+^{O}{R}_B=
+\begin{pmatrix}
+^{O}\vec{x}_B&amp;^{O}\vec{y}_B&amp;^{O}\vec{z}_B
+\end{pmatrix}
+$$
+矩阵<span class="arithmatex">\(^{O}{R}_B\)</span>即为刚体固连坐标系<span class="arithmatex">\(\{B\}\)</span>相对于参考坐标系<span class="arithmatex">\(\{O\}\)</span>的<strong>旋转矩阵</strong>。</p>
+<blockquote>
+<p>[!WARNING] 旋转矩阵的相对描述
+</p>
+</blockquote>
+<h3 id="2-">(2)-欧拉角和卡尔丹角</h3>
+<blockquote>
+<p>[!TIP] 欧拉角和卡尔丹角共同的问题：<strong>万向锁效应</strong>
+</p>
+</blockquote>
+<h3 id="3-">(3)-四元数</h3>
+<p>在使用欧拉角和卡尔丹角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入<strong>四元数</strong>来描述刚体的姿态。
+首先介绍一下四元数(Quaternions)，一个四元数<span class="arithmatex">\(q\)</span>可以表示为一个实数和三个虚数单位<span class="arithmatex">\(i\)</span>，<span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(k\)</span>的线性组合：
+$$
+q=a+bi+cj+dk
+$$
+其中<span class="arithmatex">\(a\)</span>，<span class="arithmatex">\(b\)</span>，<span class="arithmatex">\(c\)</span>，<span class="arithmatex">\(d\)</span>是实数，<span class="arithmatex">\(a\)</span>为实部，<span class="arithmatex">\(bi+cj+dk\)</span>为虚部。
+四元数的矩阵分别表示左乘矩阵表示<span class="arithmatex">\(L(q)\)</span>和右乘矩阵表示<span class="arithmatex">\(R(q)\)</span>：
+$$ L(q) = 
+\begin{pmatrix} 
+a &amp; -b &amp; -c &amp; -d \ 
+b &amp; a &amp; -d &amp; c \ 
+c &amp; d &amp; a &amp; -b \ 
+d &amp; -c &amp; b &amp; a 
+\end{pmatrix} 
+\quad
+R(q) = 
+\begin{pmatrix} 
+a &amp; -b &amp; -c &amp; -d \ 
+b &amp; a &amp; d &amp; -c \ 
+c &amp; -d &amp; a &amp; b \ 
+d &amp; c &amp; -b &amp; a 
+\end{pmatrix}
+$$
+四元数满足的运算包括<strong>加法，减法，乘法，共轭，范数和逆</strong>：
+- <strong>加法</strong>：如果 <span class="arithmatex">\(q_1 = w_1 + x_1i + y_1j + z_1k\)</span> 和 <span class="arithmatex">\(q_2 = w_2 + x_2i + y_2j + z_2k\)</span>，那么它们的和是：$$ q_1 + q_2 = (w_1 + w_2) + (x_1 + x_2)i + (y_1 + y_2)j + (z_1 + z_2)k $$
+- <strong>减法</strong>：如果 <span class="arithmatex">\(q_1 = w_1 + x_1i + y_1j + z_1k\)</span> 和 <span class="arithmatex">\(q_2 = w_2 + x_2i + y_2j + z_2k\)</span>，那么它们的差是：$$ q_1 - q_2 = (w_1 - w_2) + (x_1 - x_2)i + (y_1 - y_2)j + (z_1 - z_2)k $$
+- <strong>乘法</strong>：两个四元数<span class="arithmatex">\({q_1}\)</span>和<span class="arithmatex">\({q_2}\)</span>相乘分为左乘和右乘，左乘的形式如下：$<span class="arithmatex">\({{q_1}{\cdot}{q_2}}=L({q_1}){\mathbf{q_2}}\)</span><span class="arithmatex">\(右乘的形式如下：\)</span><span class="arithmatex">\({{q_2}{\cdot}{q_1}}=R({q_1}){\mathbf{q_2}}\)</span><span class="arithmatex">\(四元数的乘法满足结合律\)</span>({q_1}{\cdot}{q_2}){\cdot}{q_3}={q_1}{\cdot}({q_2}{\cdot}{q_3})<span class="arithmatex">\(和分配律\)</span>({q_1}+{q_2}){\cdot}{q_3}={q_1}{\cdot}{q_3}+{q_2}{\cdot}{q_3}$。
+- <strong>共轭</strong>：四元数 <span class="arithmatex">\(q = w + xi + yj + zk\)</span> 的共轭为： $$ q^<em> = w - xi - yj - zk $$
+- </em><em>范数</em><em>：四元数的范数是其大小的度量： $$ |q| = \sqrt{w^2 + x^2 + y^2 + z^2} $$ 范数的平方与共轭乘积的关系： $$ qq^</em> = w^2 + x^2 + y^2 + z^2 = |q|^2 $$
+- <strong>逆</strong>：四元数的逆 <span class="arithmatex">\(q^{-1}\)</span> 的计算公式为： $$ q^{-1} = \frac{q^*}{|q|^2} $$
+如图所示，刚体在绕着过点<span class="arithmatex">\(O\)</span>的旋转轴做定轴旋转运动，向量<span class="arithmatex">\(\vec{n}\)</span>是旋转轴的方向向量，<span class="arithmatex">\(\theta\)</span>是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：
+$$
+\begin{align}
+q&amp;=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\
+&amp;=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}<em>{x}}{i}+sin(\frac{\theta}{2}){{n}</em>{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}
+\end{align}
+$$
+![[Fig 1-1-9.png]]</p>
+<h4 id="4-">4-刚体有限位移的基本定理和有限转动张量</h4>
+<p>首先我们需要回顾一下<strong>刚体有限位移的基本定理</strong>：</p>
+<blockquote>
+<p>[!NOTE] 刚体有限位移的基本定理
+- <strong>Euler定理</strong>：刚体定点运动的任意位移都可以通过绕过该定点的某个轴的一次转动实现
+- <strong>Mozzi定理</strong>：刚体最一般的位移是螺旋位移。
+- <strong>Chasles定理</strong>：刚体最一般的位移可以分解为随任意选择的基点的平动位移和绕通过基点的某个轴的转动，选择刚体上不同的点作为基点，这种分解并不是唯一的。</p>
+</blockquote>
+<p>我们根据前面提到的刚体有限位移的Euler定理来描述如图所示的刚体定点运动，刚体<span class="arithmatex">\(B\)</span>绕点<span class="arithmatex">\(O\)</span>做定点运动，从<span class="arithmatex">\(t_0\)</span>时刻到<span class="arithmatex">\(t_1\)</span>时刻以单位向量<span class="arithmatex">\(\vec{p}\)</span>为轴旋转<span class="arithmatex">\(\theta\)</span>，<span class="arithmatex">\(\vec{r}(t)\)</span>是刚体内任意一点<span class="arithmatex">\(P\)</span>在任意时刻<span class="arithmatex">\(t\)</span>相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>的位置向量。为了方便表达，我们令<span class="arithmatex">\(\vec{r}_{0}=\vec{r}(t_{0})\)</span>，<span class="arithmatex">\(\vec{r}_{1}=\vec{r}(t_{1})\)</span>。
+![[Fig 1-1-10.png]]
+首先我们将<span class="arithmatex">\(\vec{r}_{0}\)</span>投影到向量<span class="arithmatex">\(\vec{p}\)</span>上，投影的向量记作<span class="arithmatex">\(\vec{u}\)</span>：
+$<span class="arithmatex">\(\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}\)</span>$
+我们利用向量<span class="arithmatex">\(\vec{u}\)</span>和向量<span class="arithmatex">\(\vec{r}_{0}\)</span>构造另外一个与向量<span class="arithmatex">\(\vec{u}\)</span>正交的向量<span class="arithmatex">\(\vec{v}\)</span>：
+$<span class="arithmatex">\(\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}\)</span>$
+接下来我们可以构造与向量和向量都正交的向量<span class="arithmatex">\(\vec{w}\)</span>：
+$<span class="arithmatex">\(\vec{w}=\vec{p}{\times}{\vec{r}_{0}}\)</span>$
+我们使用上面推导出来的三个互相正交的向量<span class="arithmatex">\(\vec{u}\)</span>，<span class="arithmatex">\(\vec{v}\)</span>，<span class="arithmatex">\(\vec{w}\)</span>表达<span class="arithmatex">\(\vec{r}_{1}\)</span>如下：
+$$
+\begin{align}
+\vec{r}<em>{1}
+&amp;=\vec{u}+{\vec{v^{'}}}\
+&amp;=\vec{u}+cos{\theta}\vec{v}+sin{\theta}{\vec{w}}\
+&amp;={\vec{r}</em>{0}}{cos{\theta}}+({1-cos{\theta}})({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}+sin{\theta}({\vec{p}{\times}{\vec{r}<em>{0}})}\
+&amp;=({I}{cos{\theta}}+({1-cos{\theta}}){p}{p}^{T}+sin{\theta}{[p{\times}]}){\vec{r}</em>{0}}
+\end{align}
+$$
+由旋转矩阵的定义我们可以得到下式：
+$$
+{R}={I}{cos{\theta}}+({1-cos{\theta}}){p}{p}^{T}+sin{\theta}{[p{\times}]}
+$$
+上式即刚体在定点运动时，在某一段时刻绕着单位矢量<span class="arithmatex">\(\vec{p}\)</span>做有限转动的<strong>罗德里格斯公式</strong>，其中<span class="arithmatex">\(\vec{p}\)</span>是刚体定点旋转的瞬时旋转轴的单位向量，<span class="arithmatex">\(\theta\)</span>为刚体绕轴<span class="arithmatex">\(\vec{p}\)</span>旋转的角度，<span class="arithmatex">\({[p{\times}]}\)</span>为矢量<span class="arithmatex">\(\vec{p}=({p_x},{p_y},{p_z})^{T}\)</span>的叉乘张量：
+$$
+{[p{\times}]}=
+\begin{pmatrix}
+{0}&amp;-{p_z}&amp;{p_y}\
+{p_z}&amp;0&amp;-{p_x}\
+-{p_y}&amp;{p_x}&amp;0\
+\end{pmatrix}
+$$
+由<span class="arithmatex">\({p}{p^T}=[{p}{\times}]^{2}\)</span>我们可以将罗德里格斯公式写成如下形式：
+$$
+{R}={I}{cos{\theta}}+sin{\theta}{[p{\times}]}+({1-cos{\theta}}){[{p}{\times}]^{2}}
+$$</p>
+<h2 id="3-2">3-2.刚体有限位移的基本定理</h2>
+<blockquote>
+<p>[!NOTE] 刚体有限位移的基本定理
+- <strong>Euler定理</strong>：刚体定点运动的任意位移都可以通过绕过该定点的某个轴的一次转动实现
+- <strong>Mozzi定理</strong>：刚体最一般的位移是螺旋位移。
+- <strong>Chasles定理</strong>：刚体最一般的位移可以分解为随任意选择的基点的平动位移和绕通过基点的某个轴的转动，选择刚体上不同的点作为基点，这种分解并不是唯一的。</p>
+</blockquote>
+<h3 id="3-3">3-3.刚体的瞬时运动</h3>
+<p>我们根据前面提到的刚体有限位移的Euler定理来描述如图所示的刚体定点运动，刚体<span class="arithmatex">\(B\)</span>绕点<span class="arithmatex">\(O\)</span>做定点运动，从<span class="arithmatex">\(t_0\)</span>时刻到<span class="arithmatex">\(t_1\)</span>时刻以单位向量<span class="arithmatex">\(\vec{p}\)</span>为轴旋转<span class="arithmatex">\(\theta\)</span>，<span class="arithmatex">\(\vec{r}(t)\)</span>是刚体内任意一点<span class="arithmatex">\(P\)</span>在任意时刻<span class="arithmatex">\(t\)</span>相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>的位置向量。为了方便表达，我们令<span class="arithmatex">\(\vec{r}_{0}=\vec{r}(t_{0})\)</span>，<span class="arithmatex">\(\vec{r}_{1}=\vec{r}(t_{1})\)</span>。
+【图1-1-1】
+首先我们将<span class="arithmatex">\(\vec{r}_{0}\)</span>投影到向量<span class="arithmatex">\(\vec{p}\)</span>上，投影的向量记作<span class="arithmatex">\(\vec{u}\)</span>：
+$<span class="arithmatex">\(\vec{u}=({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}\)</span>$
+我们利用向量<span class="arithmatex">\(\vec{u}\)</span>和向量<span class="arithmatex">\(\vec{r}_{0}\)</span>构造另外一个与向量<span class="arithmatex">\(\vec{u}\)</span>正交的向量<span class="arithmatex">\(\vec{v}\)</span>：
+$<span class="arithmatex">\(\vec{v}={\vec{r_0}}-({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}\)</span>$
+接下来我们可以构造与向量和向量都正交的向量<span class="arithmatex">\(\vec{w}\)</span>：
+$<span class="arithmatex">\(\vec{w}=\vec{\omega}{\times}{\vec{r}_{0}}\)</span>$
+我们使用上面推导出来的三个互相正交的向量<span class="arithmatex">\(\vec{u}\)</span>，<span class="arithmatex">\(\vec{v}\)</span>，<span class="arithmatex">\(\vec{w}\)</span>表达<span class="arithmatex">\(\vec{r}_{1}\)</span>如下：
+$$
+\begin{align}
+\vec{r}<em>{1}&amp;=\vec{u}+cos{\theta}\vec{v}+sin{\theta}{\vec{w}}\
+&amp;={\vec{r}</em>{0}}{cos{\theta}}+({1-cos{\theta}})({\vec{p}}{\cdot}{\vec{r_0}}){\vec{p}}+sin{\theta}({\vec{p}{\times}{\vec{r}<em>{0}})}\
+&amp;=({I}{cos{\theta}}+({1-cos{\theta}}){p}{p}^{T}+sin{\theta}{[p{\times}]}){\vec{r}</em>{0}}
+\end{align}
+$$
+由旋转矩阵的定义我们可以得到下式：
+$$
+{R}={I}{cos{\theta}}+({1-cos{\theta}}){p}{p}^{T}+sin{\theta}{[p{\times}]}
+$$
+上式即刚体在定点运动时，在某一段时刻绕着单位矢量<span class="arithmatex">\(\vec{p}\)</span>做有限转动的<strong>罗德里格斯公式</strong>，其中<span class="arithmatex">\(\vec{p}\)</span>是刚体定点旋转的瞬时旋转单位轴，<span class="arithmatex">\(\theta\)</span>为刚体绕轴<span class="arithmatex">\(\vec{p}\)</span>旋转的角度，<span class="arithmatex">\({[p{\times}]}\)</span>为矢量<span class="arithmatex">\(\vec{p}=({p_x},{p_y},{p_z})^{T}\)</span>的叉乘张量：
+$$
+{[p{\times}]}=
+\begin{pmatrix}
+{0}&amp;-{p_z}&amp;{p_y}\
+{p_z}&amp;0&amp;-{p_x}\
+-{p_y}&amp;{p_x}&amp;0\
+\end{pmatrix}
+$$
+由<span class="arithmatex">\({p}{p^T}=[{p}{\times}]^{2}\)</span>我们可以将罗德里格斯公式写成如下形式：
+$$
+{R}={I}{cos{\theta}}+sin{\theta}{[p{\times}]}+({1-cos{\theta}}){[{p}{\times}]^{2}}
+$$</p>
+<h4 id="2-_1">2-刚体定点运动的角速度和角加速度</h4>
+<p>我们假设在很短的时间<span class="arithmatex">\(\Delta{t}\)</span>内转动了一个很小的角度<span class="arithmatex">\(\Delta{\theta}\)</span>，即
+$$
+{\lim_{\Delta{t}{\to}{0}}}{\frac{\Delta{\theta}}{\Delta{t}}}=\dot{\theta}
+$$
+那么刚体定点运动的无穷小量可以写为：
+$$
+[{\omega}{\times}]=
+\begin{pmatrix}
+{0}&amp;-{\dot{\theta}}{p_z}&amp;{\dot{\theta}}{p_y}\
+{\dot{\theta}}{p_z}&amp;0&amp;-{\dot{\theta}}{p_x}\
+-{\dot{\theta}}{p_y}&amp;{\dot{\theta}}{p_x}&amp;0\
+\end{pmatrix}={[{\dot{\theta}}p{\times}]}
+$$
+根据上式我们可以得到刚体的角速度如下，其中<span class="arithmatex">\({\vec{p}}\)</span>是刚体定点旋转的瞬时旋转单位轴：
+$$
+\vec{\omega}={\dot{\theta}}{\vec{p}}
+$$
+对刚体角速度求导，得到加速度如下：
+$$
+\vec{\epsilon}=\dot{\vec{\omega}}={\ddot{\theta}}{\vec{p}}+{\dot{\theta}}{\dot{\vec{p}}}
+$$</p>
+<blockquote>
+<p>[!TIP] 刚体的角速度在刚体有限转动的不同表示下的描述
+- <strong>旋转矩阵</strong>
+- <strong>欧拉角和卡尔丹角</strong>
+- <strong>四元数</strong></p>
+<h2 id="tip">[!TIP] 关于旋转矩阵的一些推论</h2>
+<p>-
+</p>
+</blockquote>
+<h4 id="3-_1">3-刚体定点运动的线速度和线加速度</h4>
+<p>在刚体绕着定点转动的时候，刚体上的某一点在惯性参考坐标系上的绕着转动前的向量<span class="arithmatex">\(\vec{r}\)</span>和转动后的向量<span class="arithmatex">\(\vec{r}^{'}\)</span>的关系如下：
+$$
+\vec{r}^{'}=R\vec{r}={\vec{r}}+{[\omega{\times}]}{\vec{r}}
+$$
+即：
+$$
+\Delta{\vec{r}}=\vec{r}^{'}-\vec{r}={[\omega{\times}]}{\vec{r}}
+$$
+因为在很短的时间<span class="arithmatex">\(\Delta{t}{\to}{0}\)</span>运动的，因此我们可以得到刚体的某一点绕定点运动的线速度如下：
+$$
+\vec{v}=\dot{\vec{r}}={\vec{\omega}}{\times}{\vec{r}}
+$$
+对上面绕定点运动的线速度进行求导即可获得绕定点运动的加速度：
+$$
+\vec{a}=\ddot{\vec{r}}=\dot{\vec{\omega}}{\times}{\vec{r}}+{\vec{\omega}}{\times}{\dot{\vec{r}}}={\vec{\epsilon}}{\times}{\vec{r}}+{\vec{\omega}}{\times}({\vec{\omega}}{\times}{\vec{r}})
+$$</p>
+<h4 id="4-_1">4-刚体一般运动的描述</h4>
+<p>我们在理论力学里面有一个结论：<strong>刚体一般运动是由刚体平动和刚体绕某个点做定点运动合成得到的</strong>。那么根据这个结论，我们将刚体的一般运动分为刚体质心在空间的平动以及刚体绕着质心定点运动。
+刚体在空间相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>进行一般运动如上图所示，其中坐标系<span class="arithmatex">\(\{B\}\)</span>是刚体的固连坐标系，<span class="arithmatex">\(O_{C}\)</span>是刚体的质心。刚体内一点P在参考坐标系<span class="arithmatex">\(\{O\}\)</span>的位置表示如下：
+$$
+{^{O}}{\vec{r}}<em>{P}={^{O}}{\vec{r}}</em>{C}+{^{O}}{R}{<em>{B}}{^{B}}{\vec{\rho</em>{P}}}
+$$
+我们对上面的式子进行求导，可以得到刚体内某一点的线速度：
+$$
+{^{O}}{\vec{v}}<em>{P}={^{O}}{\dot{\vec{r}}}</em>{P}={^{O}}{\dot{\vec{r}}}<em>{C}+{^{O}}{\vec{\omega}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}}
+$$
+对上面的式子再次求导，我们可以得到刚体内某一点的加速度：
+$$
+{^{O}}{\vec{a}}<em>{P}={^{O}}{\ddot{\vec{r}}}</em>{P}={^{O}}{\ddot{\vec{r}}}<em>{C}+{^{O}}{\vec{\epsilon}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}}+{^{O}}{\vec{\omega}<em>{B}}{\times}({^{O}}{\vec{\omega}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}})
+$$</p>
+<blockquote>
+<p>[!TIP] 刚体各个运动类型的运动描述
+我们已知刚体的运动类型包括平动，定轴转动，平面运动，定点运动和一般运动五类，其中：
+- 定轴运动是定点运动的特例
+- 平面运动是一般运动的特例
+- 平动是平面运动的特例</p>
+</blockquote>
+<h1 id="4">4.刚体的复合运动</h1>
+<h2 id="4-1-">4-1.-多刚体的复合运动描述</h2>
+<p>【使用旋转矩阵的相关性质来证明角速度复合定理】
+【1.罗德里格斯推导角速度矩阵和旋转矩阵的关系】
+【2.罗德里格斯推导角速度矩阵与旋转矩阵的乘法】
+【3.用性质证明角速度合成定理】</p>
+<h1 id="_1">二、动力学</h1>
+<h2 id="2-1_1">2-1、动力学基础</h2>
+<h3 id="2-1-1">2-1-1、刚体动力学基础</h3>
+<h4 id="1_1">1、牛顿三大定律</h4>
+<h4 id="2_1">2、主动力和约束反力</h4>
+<h4 id="3_1">3、虚位移和虚功</h4>
+<h3 id="2-1-2">2-1-2、动量和动量矩</h3>
+<p>【图】
+如上图所示，由<span class="arithmatex">\(n\)</span>个刚体组成的多刚体系统，每个刚体的质量为<span class="arithmatex">\(m_i\)</span>,，每个刚体的质心相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>的原点位置向量为<span class="arithmatex">\(\vec{r}_i\)</span>，相对于惯性参考坐标系的速度为<span class="arithmatex">\(\vec{v}_i\)</span>。我们定义多刚体系统的动量<span class="arithmatex">\(\vec{p}\)</span>和动量矩<span class="arithmatex">\(\vec{L}\)</span>如下：
+$$
+{\vec{p}}={\sum_{i=1}^{n}}{m_i}{\vec{v}<em>{i}}
+\quad
+{\vec{L}}={\sum</em>{i=1}^{n}}{\vec{r}<em>{i}}{\times}{m_i}{\vec{v}</em>{i}}
+$$
+对动量等式两边时间求导，得到<strong>质点系动量定理</strong>：
+$$
+\frac{d{\vec{p}}}{dt}
+={\sum_{i=1}^{n}}{m_i}{\frac{d{\vec{v}<em>{i}}}{dt}}
+={\sum</em>{i=1}^{n}}{m_i}{\vec{w}<em>i}
+={\sum</em>{i=1}^{n}}{\vec{F}<em>{i}^{(e)}}+{\sum</em>{i=1}^{n}}{\vec{F}<em>{i}^{(i)}}
+=\vec{R}^{(e)}
+$$
+如果质点系动量的<span class="arithmatex">\(\vec{p}=const\)</span>，该多刚体动量系统是<strong>动量守恒</strong>的。
+对动量矩等式两边进行求导，得到<strong>质点系动量矩定理</strong>：
+$$
+\frac{d\vec{L}}{dt}
+={\sum</em>{i=1}^{n}}({\frac{d\vec{r}<em>{i}}{dt}}{\times}{m_i}{\vec{v}</em>{i}}+{{\vec{r}<em>{i}}{\times}{m_i}{\frac{d{\vec{v}</em>{i}}}{dt}}})
+={\sum_{i=1}^{n}}{{\vec{r}<em>{i}}{\times}({\vec{F}</em>{i}^{(i)}}+{\vec{F}_{i}^{(e)}})}
+=\vec{M}^{(e)}
+$$
+可见，多刚体系统对任意点的动量矩变化仅取决于外力系的主矩，内力系不能改变多刚体系统的动量矩。</p>
+<h3 id="2-1-2_1">2-1-2、质量几何</h3>
+<h4 id="1_2">1、多刚体系统的质心</h4>
+<p>对于由<span class="arithmatex">\(n\)</span>个刚体组成的多刚体系统来说，已知每个刚体<span class="arithmatex">\(B_i\)</span>的质量为<span class="arithmatex">\(m_i\)</span>,，每个刚体的质心相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>的原点位置向量为<span class="arithmatex">\(\vec{r}_{Ci}\)</span>。我们可以得到质心的定义：
+$<span class="arithmatex">\({\vec{r}_C}=\frac{{\sum_{v=1}^{n}}{m_i}{\vec{r}_{Ci}}}{{\sum_{v=1}^{n}}{m_i}}\)</span>$</p>
+<h4 id="2_2">2、刚体的转动惯量</h4>
+<p>对多刚体系统来说，绕某一个轴转动的转动惯量可以表示为
+$<span class="arithmatex">\({J}={\sum_{v=1}^{n}}{m_{v}}{{\rho}^{2}_{v}}\)</span>$
+其中<span class="arithmatex">\({{\rho}_{v}}\)</span>是刚体的质心<span class="arithmatex">\({{P}_{v}}\)</span>到转动轴的垂直距离，<span class="arithmatex">\({{m}_{v}}\)</span>是刚体内一点<span class="arithmatex">\({{P}_{v}}\)</span>的质量。
+对于连续的刚体来说，转动惯量可以表示为
+$<span class="arithmatex">\({J}={{\int}_{v}}{{\rho}^{2}}{{dm}_{v}}\)</span>$</p>
+<h4 id="3_2">3、刚体的惯性矩</h4>
+<p>如图所示，坐标系<span class="arithmatex">\(Oxyz\)</span>的原点O在刚体中，点<span class="arithmatex">\({{P}_{v}}\)</span>在刚体中的坐标由<span class="arithmatex">\({\vec{r}_{v}}\)</span>表示。刚体绕O点做定点运动，转动轴单位向量由<span class="arithmatex">\({\vec{\omega}_{v}}\)</span>表示。由刚体动量矩的定义我们可以得到
+$<span class="arithmatex">\({\vec{L}}={{\int}_{v}}{\vec{r}}{\times}{\vec{v}}{{dm}_{v}}\)</span>$
+由刚体绕着点<span class="arithmatex">\(O\)</span>做定点运动并且角速度为<span class="arithmatex">\(\vec{\omega}\)</span>，根据刚体转动的速度公式我们可以得到
+$<span class="arithmatex">\({\vec{L}}={{\int}_{v}}{\vec{r}}{\times}{(}{\vec{\omega}}{\times}{\vec{r}}{)}{{dm}_{v}}\)</span>$
+根据矢量关系式我们可以得到
+$$
+{\vec{L}}
+={{\int}<em>{v}}{\vec{r}}{\times}{(}{\vec{\omega}}{\times}{\vec{r}}{)}{{dm}</em>{v}}
+=({{\int}<em>{v}}({{r}^T}{{r}}{E}-{{r}}{{r}^T})dm_v){\vec{\omega}}
+$$
+将上面式子写成
+$<span class="arithmatex">\({\vec{L}}={J_O}{\vec{\omega}}\)</span>$
+其中<span class="arithmatex">\({J_O}\)</span>就是<strong>刚体的惯性矩</strong>。在刚体内的固连坐标系<span class="arithmatex">\(Oxyz\)</span>中，惯性矩可写为：
+$$
+J_O
+={
+\begin{pmatrix}
+J</em>{xx}&amp;-J_{xy}&amp;-J_{xz}\
+-J_{yx}&amp;J_{yy}&amp;-J_{yz}\
+-J_{zx}&amp;-J_{zy}&amp;J_{zz}\
+\end{pmatrix}
+}
+={
+\begin{pmatrix}
+{{\int_V}(y^2+z^2){\rho}{dv}}&amp;-{{\int_V}xy{\rho}{dv}}&amp;-{{\int_V}xz{\rho}{dv}}\
+-{{\int_V}xy{\rho}{dv}}&amp;{{\int_V}(x^2+z^2){\rho}{dv}}&amp;-{{\int_V}yz{\rho}{dv}}\
+-{{\int_V}xz{\rho}{dv}}&amp;-{{\int_V}yz{\rho}{dv}}&amp;{{\int_V}(x^2+y^2){\rho}{dv}}\
+\end{pmatrix}
+}
+$$</p>
+<h3 id="2-1-3-">2-1-3、牛顿-欧拉方程</h3>
+<p>在多体系统中，对于任意运动中的的刚体<span class="arithmatex">\(B_i\)</span>来说，运动都可以分解为质心<span class="arithmatex">\(O_{Ci}\)</span>的平动和刚体绕质心<span class="arithmatex">\(O_{Ci}\)</span>的转动。
+其中质心<span class="arithmatex">\(O_{Ci}\)</span>的平动由合外力决定，满足牛顿第二定律，因此用<strong>牛顿运动学方程</strong>描述：
+$$
+{\vec{F}^{ext}<em>i}={m_i}{\ddot{\vec{r}}</em>{Ci}}
+$$
+刚体绕质心<span class="arithmatex">\(O_{Ci}\)</span>的转动由合力矩决定，由<strong>欧拉方程</strong>描述：
+$$
+{\vec{M}^{ext}_i}
+={J_i}{\dot{\vec{\omega}}_i}+{\vec{\omega}_i}{\times}{J_i}{\vec{\omega}_i}
+$$
+两个方程统称为<strong>牛顿-欧拉方程</strong>。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
