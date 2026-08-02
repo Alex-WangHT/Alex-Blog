@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/index.md",
+                "file": "docs/ai/transformer-attention.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "transformer-attention"
+            }
+          },
+          {
+            "id": "309b736c318f1475",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/tech-blog/tags/数学.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "数学"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -199,8 +214,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "abe5958ca3ae71a0",
+  "active": "1063f6604bd2c54a",
   "lastOpenFiles": [
+    "docs/tech-blog/tags/深度学习.md",
+    "docs/tech-blog/tags/概率论.md",
+    "docs/tech-blog/ros2-intro.md",
+    "docs/tech-blog/index.md",
+    "docs/robot/index.md",
+    "docs/index.md",
+    "docs/math/Information Theory/Part 1-Probability, Entropy, and Inference.md",
+    "docs/ai/transformer-attention.md",
+    "docs/math/Information Theory",
+    "docs/ai/index.md",
+    "docs/computer/index.md",
     "docs/electronics/index.md",
     "site/search/search_index.json",
     "site/search",
@@ -211,31 +237,20 @@
     "site/tech-blog/tags/概率论/index.html",
     "site/tech-blog/tags/概率论",
     "site/tech-blog/tags/机器人/index.html",
-    "site/tech-blog/tags/机器人",
-    "docs/tech-blog/ros2-intro.md",
     "docs/tech-blog/slam-motion-model.md",
     "docs/tech-blog/tags/ROS2.md",
     "docs/tech-blog/tags/Python.md",
     "docs/tech-blog/tags/数学.md",
-    "docs/tech-blog/tags/深度学习.md",
     "docs/tech-blog/tags/机器人.md",
-    "docs/tech-blog/tags/概率论.md",
-    "docs/tech-blog/index.md",
     "site/assets/images/favicon.png",
     "docs/tech-blog/tags/注意力机制.md",
     "docs/tech-blog/tags/Transformer.md",
     "docs/tech-blog/tags/SLAM.md",
     "docs/tags.md",
-    "docs/ai/transformer-attention.md",
-    "docs/index.md",
     "docs/math/index.md",
     "_includes/latest_posts.md",
     "docs/_includes/latest_posts.md",
     "docs/control/index.md",
-    "docs/computer/index.md",
-    "docs/未命名.md",
-    "docs/robot/index.md",
-    "docs/cs/index.md",
-    "docs/physics/index.md"
+    "docs/cs/index.md"
   ]
 }
