@@ -1033,6 +1033,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#4-_1" class="md-nav__link">
+    (4)-球形关节的位姿描述方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#5-" class="md-nav__link">
     (5)-关节空间速度
   </a>
@@ -1084,45 +1091,101 @@
 <h1 id="4-">4-带约束的刚体动力学<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h1>
 <h2 id="41-">4.1-刚体的运动约束<a class="headerlink" href="#41-" title="Permanent link">&para;</a></h2>
 <h3 id="1-">(1)-刚体运动约束的显式表达和隐式表达<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h3>
-<p>刚体的运动约束的表达可以分为<strong>显式</strong>和<strong>隐式</strong>：
-- <strong>显式表达</strong>：显式表达的数学形式如下：$<span class="arithmatex">\({\boldsymbol{q}}={\boldsymbol{\gamma}}(\boldsymbol{y})\)</span><span class="arithmatex">\(其中\)</span>\boldsymbol{q}<span class="arithmatex">\(表示刚体的位置坐标，\)</span>\boldsymbol{y}<span class="arithmatex">\(表示表示系统的 **独立广义坐标**。那么由该显式约束我们可以得到含有速度和加速度的形式：\)</span><span class="arithmatex">\(\dot{\boldsymbol{q}} = \frac{\partial \boldsymbol{\gamma}}{\partial \boldsymbol{y}} \dot{\boldsymbol{y}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}{\quad}{{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}\)</span><span class="arithmatex">\(其中\)</span>\boldsymbol{G}<span class="arithmatex">\(为雅各比矩阵，\)</span>\boldsymbol{g}<span class="arithmatex">\(的定义如下：\)</span><span class="arithmatex">\({{\boldsymbol{g}}={\boldsymbol{\dot{G}}}}({\boldsymbol{y}}){{\boldsymbol{\dot{y}}}}\)</span>$
-- <strong>隐式表达</strong>：隐式表达的数学形式定义如下：$<span class="arithmatex">\({\boldsymbol{\phi}}({\boldsymbol{q}})=0\)</span><span _boldsymbol_q="\boldsymbol{q" class="arithmatex">\(这里的\)</span>}<span class="arithmatex">\(表示刚体的位置坐标，该方程在空间中定义了一个几何流形，**限制了刚体所有可能的位形（Position/Orientation）**，即刚体只能在满足该等式的空间内运动。我们可以将隐式约束求导，得到以下含有速度和加速度的形式：\)</span><span class="arithmatex">\({{\boldsymbol{K}}{\boldsymbol{\dot{q}}}={\boldsymbol{0}}}{\quad}{{\boldsymbol{K}}{\boldsymbol{\ddot{q}}}={\boldsymbol{k}}}\)</span><span class="arithmatex">\(其中：\)</span><span class="arithmatex">\({\boldsymbol{K}}={\frac{\partial{\boldsymbol{\phi}}}{\partial{\boldsymbol{q}}}}{\quad}{{\boldsymbol{k}}=-{\boldsymbol{\dot{K}}}{\boldsymbol{\dot{q}}}}\)</span>$</p>
+<p>刚体的运动约束的表达可以分为<strong>显式</strong>和<strong>隐式</strong>：</p>
+<ul>
+<li><strong>显式表达</strong>：显式表达的数学形式如下：</li>
+</ul>
+<div class="arithmatex">\[
+{\boldsymbol{q}}={\boldsymbol{\gamma}}(\boldsymbol{y})
+\]</div>
+<p>其中<span class="arithmatex">\(\boldsymbol{q}\)</span>表示刚体的位置坐标，<span class="arithmatex">\(\boldsymbol{y}\)</span>表示表示系统的 <strong>独立广义坐标</strong>。那么由该显式约束我们可以得到含有速度和加速度的形式：</p>
+<div class="arithmatex">\[
+\dot{\boldsymbol{q}} = \frac{\partial \boldsymbol{\gamma}}{\partial \boldsymbol{y}} \dot{\boldsymbol{y}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}{\quad}{{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}
+\]</div>
+<p>其中<span class="arithmatex">\(\boldsymbol{G}\)</span>为雅各比矩阵，<span class="arithmatex">\(\boldsymbol{g}\)</span>的定义如下：</p>
+<div class="arithmatex">\[
+{{\boldsymbol{g}}={\boldsymbol{\dot{G}}}}({\boldsymbol{y}}){{\boldsymbol{\dot{y}}}}
+\]</div>
+<ul>
+<li><strong>隐式表达</strong>：隐式表达的数学形式定义如下：</li>
+</ul>
+<div class="arithmatex">\[
+{\boldsymbol{\phi}}({\boldsymbol{q}})=0
+\]</div>
+<p>这里的<span class="arithmatex">\({\boldsymbol{q}}\)</span>表示刚体的位置坐标，该方程在空间中定义了一个几何流形，<strong>限制了刚体所有可能的位形（Position/Orientation）</strong>，即刚体只能在满足该等式的空间内运动。我们可以将隐式约束求导，得到以下含有速度和加速度的形式：</p>
+<div class="arithmatex">\[
+{{\boldsymbol{K}}{\boldsymbol{\dot{q}}}={\boldsymbol{0}}}{\quad}{{\boldsymbol{K}}{\boldsymbol{\ddot{q}}}={\boldsymbol{k}}}
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+{\boldsymbol{K}}={\frac{\partial{\boldsymbol{\phi}}}{\partial{\boldsymbol{q}}}}{\quad}{{\boldsymbol{k}}=-{\boldsymbol{\dot{K}}}{\boldsymbol{\dot{q}}}}
+\]</div>
 <h3 id="2-">(2)-刚体约束的分类<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h3>
-<p>我们在理论力学里面已经提到过约束的分类，这些分类都有一个特点：<strong>约束的类型都是类似于<span class="arithmatex">\({\boldsymbol{\phi}}({\boldsymbol{q}})=0\)</span>的隐式约束的形式</strong>，对于隐式约束形式 （或不等式形式），我们可以将其分为以下三大类：
-- <strong>单边约束 (Unilateral)与双边约束(Bilateral)</strong>：这是根据约束对系统运动方向的<strong>限制范围</strong>来划分的：
-    - <strong>单边约束 (Unilateral)</strong>：
-        * <strong>数学形式</strong>：<span class="arithmatex">\(f(q_1, q_2, \dots, q_n, t) \ge 0\)</span> （不等式约束）。
-        * <strong>物理意义</strong>：质点可以在某一区域内运动，但不能穿过边界，且在某些条件下可以脱离边界。
-        * <strong>例子</strong>：放在桌面上的小球 (<span class="arithmatex">\(z \ge 0\)</span>)，用软绳悬挂的单摆 (<span class="arithmatex">\(l \le L\)</span>)。
-    * <strong>双边约束 (Bilateral)</strong>：
-        * <strong>数学形式</strong>：<span class="arithmatex">\(f(q_1, q_2, \dots, q_n, t) = 0\)</span> （等式约束）。
-        * <strong>物理意义</strong>：质点必须在指定的曲面或曲线上运动，不能离开。
-        * <strong>例子</strong>：圆锥摆中的刚性细杆，滑块在固定的导轨上运动。
-- <strong>完整约束(Holonomic)与非完整约束(Non-holonomic)</strong>：这是根据约束方程是否限制了系统的<strong>位形空间（坐标可达性）</strong> 来划分的：
-    * <strong>完整约束 (Holonomic)</strong>：
-        * <strong>定义</strong>：只限制系统的位置坐标，其方程可表示为 <span class="arithmatex">\(f(\boldsymbol{q}, t) = 0\)</span>。如果约束包含速度但可以积分还原为坐标关系，也属于完整约束。
-        * <strong>特点</strong>：独立广义坐标的数目等于系统的自由度。
-    * <strong>非完整约束 (Non-holonomic)</strong>：
-        * <strong>定义</strong>：约束方程中含有不可积分的速度项，或者约束为单边约束（不等式）。
-        * <strong>例子</strong>：硬币在地面上纯滚动而不打滑。虽然它限制了瞬时速度方向，但并没有限制硬币最终能到达桌面的哪个位置。
-- <strong>稳定约束(Scleronomic)与不稳定约束(Rheonomic)</strong>：这是根据约束条件是否随<strong>时间显式变化</strong>来划分的：
-    - <strong>稳定约束 (Scleronomic Constraints)</strong>：
-        * <strong>定义</strong>：约束条件不随时间改变，约束方程中不显式包含时间 <span class="arithmatex">\(t\)</span>。 
-        * <strong>数学表达式</strong>： $<span class="arithmatex">\(\boldsymbol{\phi}(q_1, q_2, \dots, q_n) = 0\)</span>$
-        * <strong>物理直观</strong>：质点运动的轨道、容器或支座在空间中是固定不动的。 
-        * <strong>例子</strong>： 
-            * 固定在墙上的单摆（摆长 <span class="arithmatex">\(l\)</span> 不变）。 
-            * 小球在固定的碗内滚动。 
-            * 刚体各点之间的距离保持不变（<span class="arithmatex">\(|r_i - r_j| = d_{ij}\)</span>）
-    - <strong>不稳定约束 (Rheonomic Constraints)</strong>：
-        * <strong>定义</strong>：约束条件随时间显式变化，约束方程中显式包含时间 <span class="arithmatex">\(t\)</span>。 
-        * <strong>数学表达式</strong>： $<span class="arithmatex">\(\boldsymbol{\phi}(q_1, q_2, \dots, q_n, t) = 0\)</span>$
-        * <strong>物理直观</strong>：限制质点运动的物体本身就在运动或发生形变。 
-        * <strong>例子</strong>： 
-            * 单摆的悬点正在做周期性上下振动（悬点位置 <span class="arithmatex">\(y_0 = A \sin(\omega t)\)</span>）。 
-            * 质点在一段长度随时间不断增长的绳索上运动。 
-            * 小球在旋转的直杆上滑动。
-我们可以将不同的约束按照<strong>限制范围</strong>，<strong>坐标依赖</strong>和<strong>时间依赖</strong>三点来划分：</p>
+<p>我们在理论力学里面已经提到过约束的分类，这些分类都有一个特点：<strong>约束的类型都是类似于<span class="arithmatex">\({\boldsymbol{\phi}}({\boldsymbol{q}})=0\)</span>的隐式约束的形式</strong>，对于隐式约束形式 （或不等式形式），我们可以将其分为以下三大类：</p>
+<ul>
+<li><strong>单边约束 (Unilateral)与双边约束(Bilateral)</strong>：这是根据约束对系统运动方向的<strong>限制范围</strong>来划分的：<ul>
+<li><strong>单边约束 (Unilateral)</strong>：<ul>
+<li><strong>数学形式</strong>：<span class="arithmatex">\(f(q_1, q_2, \dots, q_n, t) \ge 0\)</span> （不等式约束）。</li>
+<li><strong>物理意义</strong>：质点可以在某一区域内运动，但不能穿过边界，且在某些条件下可以脱离边界。</li>
+<li><strong>例子</strong>：放在桌面上的小球 (<span class="arithmatex">\(z \ge 0\)</span>)，用软绳悬挂的单摆 (<span class="arithmatex">\(l \le L\)</span>)。</li>
+</ul>
+</li>
+<li><strong>双边约束 (Bilateral)</strong>：<ul>
+<li><strong>数学形式</strong>：<span class="arithmatex">\(f(q_1, q_2, \dots, q_n, t) = 0\)</span> （等式约束）。</li>
+<li><strong>物理意义</strong>：质点必须在指定的曲面或曲线上运动，不能离开。</li>
+<li><strong>例子</strong>：圆锥摆中的刚性细杆，滑块在固定的导轨上运动。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>完整约束(Holonomic)与非完整约束(Non-holonomic)</strong>：这是根据约束方程是否限制了系统的<strong>位形空间（坐标可达性）</strong> 来划分的：<ul>
+<li><strong>完整约束 (Holonomic)</strong>：<ul>
+<li><strong>定义</strong>：只限制系统的位置坐标，其方程可表示为 <span class="arithmatex">\(f(\boldsymbol{q}, t) = 0\)</span>。如果约束包含速度但可以积分还原为坐标关系，也属于完整约束。</li>
+<li><strong>特点</strong>：独立广义坐标的数目等于系统的自由度。</li>
+</ul>
+</li>
+<li><strong>非完整约束 (Non-holonomic)</strong>：<ul>
+<li><strong>定义</strong>：约束方程中含有不可积分的速度项，或者约束为单边约束（不等式）。</li>
+<li><strong>例子</strong>：硬币在地面上纯滚动而不打滑。虽然它限制了瞬时速度方向，但并没有限制硬币最终能到达桌面的哪个位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>稳定约束(Scleronomic)与不稳定约束(Rheonomic)</strong>：这是根据约束条件是否随<strong>时间显式变化</strong>来划分的：<ul>
+<li><strong>稳定约束 (Scleronomic Constraints)</strong>：<ul>
+<li><strong>定义</strong>：约束条件不随时间改变，约束方程中不显式包含时间 <span class="arithmatex">\(t\)</span>。 </li>
+<li><strong>数学表达式</strong>： 
+$$
+\boldsymbol{\phi}(q_1, q_2, \dots, q_n) = 0
+$$</li>
+<li><strong>物理直观</strong>：质点运动的轨道、容器或支座在空间中是固定不动的。 </li>
+<li><strong>例子</strong>： <ul>
+<li>固定在墙上的单摆（摆长 <span class="arithmatex">\(l\)</span> 不变）。 </li>
+<li>小球在固定的碗内滚动。 </li>
+<li>刚体各点之间的距离保持不变（<span class="arithmatex">\(|r_i - r_j| = d_{ij}\)</span>）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>不稳定约束 (Rheonomic Constraints)</strong>：<ul>
+<li><strong>定义</strong>：约束条件随时间显式变化，约束方程中显式包含时间 <span class="arithmatex">\(t\)</span>。 </li>
+<li><strong>数学表达式</strong>： 
+$$
+\boldsymbol{\phi}(q_1, q_2, \dots, q_n, t) = 0
+$$</li>
+<li><strong>物理直观</strong>：限制质点运动的物体本身就在运动或发生形变。 </li>
+<li><strong>例子</strong>： <ul>
+<li>单摆的悬点正在做周期性上下振动（悬点位置 <span class="arithmatex">\(y_0 = A \sin(\omega t)\)</span>）。 </li>
+<li>质点在一段长度随时间不断增长的绳索上运动。 </li>
+<li>小球在旋转的直杆上滑动。
+我们可以将不同的约束按照<strong>限制范围</strong>，<strong>坐标依赖</strong>和<strong>时间依赖</strong>三点来划分：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1153,39 +1216,86 @@
 <h3 id="1-_1">(1)-带约束力的刚体动力学方程<a class="headerlink" href="#1-_1" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">带约束的刚体系统的动力学方程表达</p>
-<p>带约束的刚体系统的动力学方程可以写成以下的<strong>标准形式</strong>：
-$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}\)</span>$
-其中：
-- <span class="arithmatex">\({\mathbf{q}}\)</span>，<span class="arithmatex">\({\mathbf{\dot{q}}}\)</span>，<span class="arithmatex">\({\mathbf{\ddot{q}}}\)</span>代表刚体的位置，速度和加速度。
-- <span class="arithmatex">\({\boldsymbol{\tau}}\)</span>是作用力的矢量，<span class="arithmatex">\({\boldsymbol{\tau_c}}\)</span>是约束力的矢量
-- <span class="arithmatex">\({\mathbf{H}(\mathbf{q})}\)</span>是惯量矩阵。
-- <span class="arithmatex">\({\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}\)</span>是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。</p>
+<p>带约束的刚体系统的动力学方程可以写成以下的<strong>标准形式</strong>：</p>
+<div class="arithmatex">\[
+{\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
+\]</div>
+<p>其中：</p>
+<ul>
+<li><span class="arithmatex">\({\mathbf{q}}\)</span>，<span class="arithmatex">\({\mathbf{\dot{q}}}\)</span>，<span class="arithmatex">\({\mathbf{\ddot{q}}}\)</span>代表刚体的位置，速度和加速度。</li>
+<li><span class="arithmatex">\({\boldsymbol{\tau}}\)</span>是作用力的矢量，<span class="arithmatex">\({\boldsymbol{\tau_c}}\)</span>是约束力的矢量</li>
+<li><span class="arithmatex">\({\mathbf{H}(\mathbf{q})}\)</span>是惯量矩阵。</li>
+<li><span class="arithmatex">\({\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}\)</span>是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。</li>
+</ul>
 </div>
 <h3 id="2-_1">(2)-约束力在不同约束下的表示<a class="headerlink" href="#2-_1" title="Permanent link">&para;</a></h3>
 <p>首先我们回顾一下<strong>若尔当变分定理</strong>：</p>
 <div class="admonition note">
 <p class="admonition-title">若尔当变分定理</p>
-<p>对于受理想约束的系统，在给定时刻 <span class="arithmatex">\(t\)</span> 和给定位置 <span class="arithmatex">\(\mathbf{r}\)</span>，系统的真实运动满足：主动力与惯性力在<strong>虚速度</strong>（速度变分 <span class="arithmatex">\(\delta \mathbf{v}\)</span>）上所作的<strong>虚功率</strong>之和为零，其数学表达式为：
-$<span class="arithmatex">\(\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0\)</span>$</p>
+<p>对于受理想约束的系统，在给定时刻 <span class="arithmatex">\(t\)</span> 和给定位置 <span class="arithmatex">\(\mathbf{r}\)</span>，系统的真实运动满足：主动力与惯性力在<strong>虚速度</strong>（速度变分 <span class="arithmatex">\(\delta \mathbf{v}\)</span>）上所作的<strong>虚功率</strong>之和为零，其数学表达式为：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0
+\]</div>
 </div>
 <p>我们设约束力为<span class="arithmatex">\(\boldsymbol{\tau_c}\)</span>，那么我们根据若尔当变分原理可以得到约束力的功率<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0\)</span>。我们分别使用显式约束和隐式约束来表示约束力<span class="arithmatex">\({\boldsymbol{\tau_c}}\)</span>：
-- <strong>显式约束</strong>：我们根据等式<span class="arithmatex">\(\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}\)</span>以及矢量点乘的交换性质<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0\)</span>可以得到：$${\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}={\boldsymbol{\dot{q}}}<sup T="T">{T}{\boldsymbol{\tau_c}}=\dot{\boldsymbol{y}}</sup>=0 $}\mathbf{G}(\boldsymbol{y})^{T}{\boldsymbol{\tau_c}<span class="arithmatex">\(那么对于任意的\)</span>\boldsymbol{y}<span class="arithmatex">\(来说我们都有：\)</span><span class="arithmatex">\(\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0\)</span>$
-- <strong>隐式约束</strong>：给定不含时间的隐式约束：$<span class="arithmatex">\(\boldsymbol{\phi}(\boldsymbol{q}) = 0\)</span><span class="arithmatex">\(对其求全导数，得到速度约束方程：\)</span><span class="arithmatex">\(\frac{d}{dt}\boldsymbol{\phi}(\boldsymbol{q}) = \frac{\partial \boldsymbol{\phi}}{\partial \boldsymbol{q}} \dot{\boldsymbol{q}} = \mathbf{K} \dot{\boldsymbol{q}} = 0\)</span>$其中 <span class="arithmatex">\(\mathbf{K}_{m \times n}\)</span> 便是系统的约束雅可比矩阵。在若尔当原理中，我们考虑的是在当前位形 <span class="arithmatex">\(\boldsymbol{q}\)</span> 和当前速度 <span class="arithmatex">\(\dot{\boldsymbol{q}}\)</span> 保持不变的情况下，对速度进行变分。受约束的虚速度 <span class="arithmatex">\(\delta \dot{\boldsymbol{q}}\)</span> 必须满足：$<span class="arithmatex">\(\mathbf{K} \delta \dot{\boldsymbol{q}} = 0\)</span>$这意味着虚速度 <span class="arithmatex">\(\delta \dot{\boldsymbol{q}}\)</span> 必须位于雅可比矩阵 <span class="arithmatex">\(\mathbf{K}\)</span> 的<strong>零空间（Null Space）</strong>，由若尔当原理我们可以知道：$<span class="arithmatex">\({\boldsymbol{\tau_c^{T}}}\delta \dot{\boldsymbol{q}} = 0\)</span><span class="arithmatex">\(根据线性代数中的引理（一个向量如果正交于另一个矩阵的零空间，则该向量必然属于该矩阵转置的列空间）：\)</span>\boldsymbol{\tau_c}$ 必须能表示为 <span class="arithmatex">\(\mathbf{K}\)</span> 转置矩阵的线性组合。因此，引入拉格朗日乘子向量 <span class="arithmatex">\(\boldsymbol{\lambda} = [\lambda_1, \dots, \lambda_m]^T\)</span>，得到：$<span class="arithmatex">\(\boldsymbol{\tau_c} = \mathbf{K}^T \boldsymbol{\lambda}\)</span>$</p>
+- <strong>显式约束</strong>：我们根据等式<span class="arithmatex">\(\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}\)</span>以及矢量点乘的交换性质<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0\)</span>可以得到：</p>
+<div class="arithmatex">\[
+{\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}={\boldsymbol{\dot{q}}}^{T}{\boldsymbol{\tau_c}}=\dot{\boldsymbol{y}}^{T}\mathbf{G}(\boldsymbol{y})^{T}{\boldsymbol{\tau_c}}=0 
+\]</div>
+<p>那么对于任意的<span class="arithmatex">\(\boldsymbol{y}\)</span>来说我们都有：</p>
+<div class="arithmatex">\[
+\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0
+\]</div>
+<ul>
+<li><strong>隐式约束</strong>：给定不含时间的隐式约束：</li>
+</ul>
+<div class="arithmatex">\[
+\boldsymbol{\phi}(\boldsymbol{q}) = 0
+\]</div>
+<p>对其求全导数，得到速度约束方程：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\boldsymbol{\phi}(\boldsymbol{q}) = \frac{\partial \boldsymbol{\phi}}{\partial \boldsymbol{q}} \dot{\boldsymbol{q}} = \mathbf{K} \dot{\boldsymbol{q}} = 0
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbf{K}_{m \times n}\)</span> 便是系统的约束雅可比矩阵。在若尔当原理中，我们考虑的是在当前位形 <span class="arithmatex">\(\boldsymbol{q}\)</span> 和当前速度 <span class="arithmatex">\(\dot{\boldsymbol{q}}\)</span> 保持不变的情况下，对速度进行变分。受约束的虚速度 <span class="arithmatex">\(\delta \dot{\boldsymbol{q}}\)</span> 必须满足：$<span class="arithmatex">\(\mathbf{K} \delta \dot{\boldsymbol{q}} = 0\)</span>$这意味着虚速度 <span class="arithmatex">\(\delta \dot{\boldsymbol{q}}\)</span> 必须位于雅可比矩阵 <span class="arithmatex">\(\mathbf{K}\)</span> 的<strong>零空间（Null Space）</strong>，由若尔当原理我们可以知道：</p>
+<div class="arithmatex">\[
+{\boldsymbol{\tau_c^{T}}}\delta \dot{\boldsymbol{q}} = 0
+\]</div>
+<p>根据线性代数中的引理（一个向量如果正交于另一个矩阵的零空间，则该向量必然属于该矩阵转置的列空间）：<span class="arithmatex">\(\boldsymbol{\tau_c}\)</span> 必须能表示为 <span class="arithmatex">\(\mathbf{K}\)</span> 转置矩阵的线性组合。因此，引入拉格朗日乘子向量 <span class="arithmatex">\(\boldsymbol{\lambda} = [\lambda_1, \dots, \lambda_m]^T\)</span>，得到：</p>
+<div class="arithmatex">\[
+\boldsymbol{\tau_c} = \mathbf{K}^T \boldsymbol{\lambda}
+\]</div>
 <h3 id="3-">(3)-不同约束形式下的刚体运动学方程<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>隐式约束</strong>：我们有约束方程如下：$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}\)</span><span class="arithmatex">\(其中\)</span>\boldsymbol{\tau_c} = \mathbf{K}^T \boldsymbol{\lambda}<span class="arithmatex">\(，并且带加速度项的约束如下：\)</span><span class="arithmatex">\(\mathbf{K} \dot{\boldsymbol{q}} = {\boldsymbol{k}}\)</span><span class="arithmatex">\(那么我们将约束联立可得如下动力学方程，该动力学方程即为在**隐式约束形式的动力学方程**：\)</span><span class="arithmatex">\(\begin{bmatrix}
-\boldsymbol{H} &amp; \boldsymbol{K}^{\mathrm{T}} \\
+<li><strong>隐式约束</strong>：我们有约束方程如下：</li>
+</ul>
+<div class="arithmatex">\[
+{\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
+\]</div>
+<p>其中<span class="arithmatex">\(\boldsymbol{\tau_c} = \mathbf{K}^T \boldsymbol{\lambda}\)</span>，并且带加速度项的约束如下：$<span class="arithmatex">\(\mathbf{K} \dot{\boldsymbol{q}} = {\boldsymbol{k}}\)</span>$那么我们将约束联立可得如下动力学方程，该动力学方程即为在<strong>隐式约束形式的动力学方程</strong>：</p>
+<p>$$
+\begin{bmatrix}
+\boldsymbol{H} &amp; \boldsymbol{K}^{\mathrm{T}} \
 \boldsymbol{K} &amp; 0
 \end{bmatrix}
 \begin{bmatrix}
-\ddot{\boldsymbol{q}} \\
+\ddot{\boldsymbol{q}} \
 -\boldsymbol{\lambda}
 \end{bmatrix} =
 \begin{bmatrix}
-\boldsymbol{\tau} - \boldsymbol{C} \\
+\boldsymbol{\tau} - \boldsymbol{C} \
 \boldsymbol{k}
-\end{bmatrix}\)</span>$其中</li>
-<li><strong>显式约束</strong>：我们有约束方程如下：$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}\)</span><span class="arithmatex">\(其中\)</span>\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0<span class="arithmatex">\(，并且带加速度项的约束如下：\)</span><span class="arithmatex">\({{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}\)</span><span class="arithmatex">\(我们联立可得以下的约束方程：\)</span><span class="arithmatex">\(\begin{bmatrix}
+\end{bmatrix}
+$$
+其中</p>
+<ul>
+<li><strong>显式约束</strong>：我们有约束方程如下：$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}\)</span><span class="arithmatex">\(其中\)</span>\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0$，并且带加速度项的约束如下：</li>
+</ul>
+<div class="arithmatex">\[
+{{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}
+\]</div>
+<p>我们联立可得以下的约束方程：</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
 \boldsymbol{H} &amp; -\boldsymbol{1} &amp; 0 \\
 -\boldsymbol{1} &amp; 0 &amp; \boldsymbol{G} \\
 0 &amp; \boldsymbol{G}^{\mathrm{T}} &amp; 0
@@ -1199,7 +1309,11 @@ $<span class="arithmatex">\(\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_
 \boldsymbol{\tau} - \boldsymbol{C }\\
 -\boldsymbol{g} \\
 0
-\end{bmatrix}\)</span><span class="arithmatex">\(将左侧的约束矩阵使用高斯消元法化简成上三角的形式，可以得到**显式约束形式的动力学方程**：\)</span><span class="arithmatex">\(\begin{bmatrix}
+\end{bmatrix}
+\]</div>
+<p>将左侧的约束矩阵使用高斯消元法化简成上三角的形式，可以得到<strong>显式约束形式的动力学方程</strong>：</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
 \boldsymbol{H} &amp; -\boldsymbol{1} &amp; 0 \\
 0 &amp; \boldsymbol{H}^{\mathrm{-1}} &amp; \boldsymbol{G} \\
 0 &amp; 0 &amp; -{\boldsymbol{G}^{\mathrm{T}}}{\boldsymbol{H}}{\boldsymbol{G}}
@@ -1212,8 +1326,20 @@ $<span class="arithmatex">\(\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_
 \begin{bmatrix}
 \boldsymbol{\tau} - \boldsymbol{C }\\
 {\boldsymbol{H}}^{-1}(\boldsymbol{\tau} - \boldsymbol{C}) - \boldsymbol{g} \\ -\boldsymbol{G}^{\mathrm{T}}(\boldsymbol{\tau} - \boldsymbol{C} - \boldsymbol{Hg})
-\end{bmatrix}\)</span><span class="arithmatex">\(我们可以从最后一项中得到一个表达式：\)</span><span class="arithmatex">\(\boldsymbol{G}^{\mathrm{T}}\boldsymbol{HG} \boldsymbol{\ddot{y}} = \boldsymbol{G}^{\mathrm{T}}(\boldsymbol{\tau} - \boldsymbol{C} - \boldsymbol{Hg})\)</span><span class="arithmatex">\(化简成如下形式，我们就得到了显式约束的：\)</span><span class="arithmatex">\(\boldsymbol{H_G \ddot{y}} + \boldsymbol{C_G} = \boldsymbol{u}\)</span><span class="arithmatex">\(其中\)</span><span class="arithmatex">\({{\boldsymbol{u}}={\boldsymbol{G}^{\mathrm{T}}}{\boldsymbol{\tau}}}{\quad}\boldsymbol{H_G} = \boldsymbol{G^{\mathrm{T}}HG} {\quad} \boldsymbol{C_G} = \boldsymbol{G^{\mathrm{T}}(C + Hg)}\)</span>$</li>
-</ul>
+\end{bmatrix}
+\]</div>
+<p>我们可以从最后一项中得到一个表达式：</p>
+<div class="arithmatex">\[
+\boldsymbol{G}^{\mathrm{T}}\boldsymbol{HG} \boldsymbol{\ddot{y}} = \boldsymbol{G}^{\mathrm{T}}(\boldsymbol{\tau} - \boldsymbol{C} - \boldsymbol{Hg})
+\]</div>
+<p>化简成如下形式，我们就得到了显式约束的：</p>
+<div class="arithmatex">\[
+\boldsymbol{H_G \ddot{y}} + \boldsymbol{C_G} = \boldsymbol{u}
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+{{\boldsymbol{u}}={\boldsymbol{G}^{\mathrm{T}}}{\boldsymbol{\tau}}}{\quad}\boldsymbol{H_G} = \boldsymbol{G^{\mathrm{T}}HG} {\quad} \boldsymbol{C_G} = \boldsymbol{G^{\mathrm{T}}(C + Hg)}
+\]</div>
 <h2 id="43-">4.3-刚体的关节约束<a class="headerlink" href="#43-" title="Permanent link">&para;</a></h2>
 <h3 id="1-_2">(1)-矢量子空间的相关知识概念<a class="headerlink" href="#1-_2" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
@@ -1304,43 +1430,15 @@ $<span class="arithmatex">\({\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mat
 <td style="text-align: left;"><span class="arithmatex">\(\mathbf{1}_{6 \times 6}\)</span></td>
 <td style="text-align: left;">(空)</td>
 </tr>
-<tr>
-<td style="text-align: left;"><strong>Notes:</strong></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">* <span class="arithmatex">\(c_1 = \cos(q_1)\)</span>, <span class="arithmatex">\(s_1 = \sin(q_1)\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">* <span class="arithmatex">\(^{s}X_{p} = \text{rot}(\mathbf{E}) \text{xlt}(\mathbf{r})\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">### (4)-球形关节的位姿描述方式</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">球形关节具有定点旋转的三个自由度，我们一般用<strong>欧拉角</strong>和<strong>四元数</strong>来表示球形关节的位置：</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><span class="arithmatex">\(c_1 = \cos(q_1)\)</span>, <span class="arithmatex">\(s_1 = \sin(q_1)\)</span></li>
+<li><span class="arithmatex">\(^{s}X_{p} = \text{rot}(\mathbf{E}) \text{xlt}(\mathbf{r})\)</span></li>
+</ul>
+<h3 id="4-_1">(4)-球形关节的位姿描述方式<a class="headerlink" href="#4-_1" title="Permanent link">&para;</a></h3>
+<p>球形关节具有定点旋转的三个自由度，我们一般用<strong>欧拉角</strong>和<strong>四元数</strong>来表示球形关节的位置：</p>
 <div class="admonition note">
 <p class="admonition-title">欧拉角</p>
 <p>欧拉角（Euler Angles）是描述刚体在三维空间中取向的最直观方式。其核心思想是将一个复杂的旋转拆解为绕三个坐标轴的连续三次旋转。
@@ -1352,31 +1450,40 @@ $<span class="arithmatex">\({\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mat
 <li><strong>万向节锁 (Gimbal Lock)</strong>：当第二次旋转为 <span class="arithmatex">\(90^\circ\)</span> 时，第一轴与第三轴重合，丢失一个自由度。</li>
 </ul>
 <p>以最常用的 <strong><span class="arithmatex">\(Z-Y-X\)</span> 顺规</strong>（常用于航空航天的 Roll-Pitch-Yaw）为例，假设旋转角度分别为 <span class="arithmatex">\(\phi\)</span> (绕 <span class="arithmatex">\(z\)</span>)、<span class="arithmatex">\(\theta\)</span> (绕 <span class="arithmatex">\(y\)</span>)、<span class="arithmatex">\(\psi\)</span> (绕 <span class="arithmatex">\(x\)</span>)：
-单个轴的旋转矩阵为：
-$<span class="arithmatex">\(R_z(\phi) = \begin{bmatrix} \cos\phi &amp; -\sin\phi &amp; 0 \\ \sin\phi &amp; \cos\phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta \\ 0 &amp; 1 &amp; 0 \\ -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos\psi &amp; -\sin\psi \\ 0 &amp; \sin\psi &amp; \cos\psi \end{bmatrix}\)</span>$
-组合后的旋转矩阵 <span class="arithmatex">\(R = R_z R_y R_x\)</span>：
-$<span class="arithmatex">\(R = \begin{bmatrix} c_\phi c_\theta &amp; c_\phi s_\theta s_\psi - s_\phi c_\psi &amp; c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta &amp; s_\phi s_\theta s_\psi + c_\phi c_\psi &amp; s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta &amp; c_\theta s_\psi &amp; c_\theta c_\psi \end{bmatrix}\)</span>$
-(注：<span class="arithmatex">\(c\)</span> 代表 <span class="arithmatex">\(\cos\)</span>，<span class="arithmatex">\(s\)</span> 代表 <span class="arithmatex">\(\sin\)</span>)</p>
+单个轴的旋转矩阵为：</p>
+<div class="arithmatex">\[
+R_z(\phi) = \begin{bmatrix} \cos\phi &amp; -\sin\phi &amp; 0 \\ \sin\phi &amp; \cos\phi &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta \\ 0 &amp; 1 &amp; 0 \\ -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos\psi &amp; -\sin\psi \\ 0 &amp; \sin\psi &amp; \cos\psi \end{bmatrix}
+\]</div>
+<p>组合后的旋转矩阵 <span class="arithmatex">\(R = R_z R_y R_x\)</span>：</p>
+<div class="arithmatex">\[
+R = \begin{bmatrix} c_\phi c_\theta &amp; c_\phi s_\theta s_\psi - s_\phi c_\psi &amp; c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta &amp; s_\phi s_\theta s_\psi + c_\phi c_\psi &amp; s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta &amp; c_\theta s_\psi &amp; c_\theta c_\psi \end{bmatrix}
+\]</div>
+<p>(注：<span class="arithmatex">\(c\)</span> 代表 <span class="arithmatex">\(\cos\)</span>，<span class="arithmatex">\(s\)</span> 代表 <span class="arithmatex">\(\sin\)</span>)</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">四元数</p>
 <p>在使用欧拉角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入<strong>四元数</strong>来描述刚体的姿态。
-首先介绍一下四元数(Quaternions)，一个四元数<span class="arithmatex">\(q\)</span>可以表示为一个实数和三个虚数单位<span class="arithmatex">\(i\)</span>，<span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(k\)</span>的线性组合：
-$<span class="arithmatex">\(q=a+bi+cj+dk\)</span>$
-其中<span class="arithmatex">\(a\)</span>，<span class="arithmatex">\(b\)</span>，<span class="arithmatex">\(c\)</span>，<span class="arithmatex">\(d\)</span>是实数，<span class="arithmatex">\(a\)</span>为实部，<span class="arithmatex">\(bi+cj+dk\)</span>为虚部。四元数的矩阵分别表示左乘矩阵表示<span class="arithmatex">\(L(q)\)</span>和右乘矩阵表示<span class="arithmatex">\(R(q)\)</span>：
-$$ L(q) = 
+首先介绍一下四元数(Quaternions)，一个四元数<span class="arithmatex">\(q\)</span>可以表示为一个实数和三个虚数单位<span class="arithmatex">\(i\)</span>，<span class="arithmatex">\(j\)</span>，<span class="arithmatex">\(k\)</span>的线性组合：</p>
+<div class="arithmatex">\[
+q=a+bi+cj+dk
+\]</div>
+<p>其中<span class="arithmatex">\(a\)</span>，<span class="arithmatex">\(b\)</span>，<span class="arithmatex">\(c\)</span>，<span class="arithmatex">\(d\)</span>是实数，<span class="arithmatex">\(a\)</span>为实部，<span class="arithmatex">\(bi+cj+dk\)</span>为虚部。四元数的矩阵分别表示左乘矩阵表示<span class="arithmatex">\(L(q)\)</span>和右乘矩阵表示<span class="arithmatex">\(R(q)\)</span>：</p>
+<div class="arithmatex">\[ 
+L(q) = 
 \begin{pmatrix} 
-a &amp; -b &amp; -c &amp; -d \ b &amp; a &amp; -d &amp; c \ c &amp; d &amp; a &amp; -b \d &amp; -c &amp; b &amp; a
+a &amp; -b &amp; -c &amp; -d \\ b &amp; a &amp; -d &amp; c \\ c &amp; d &amp; a &amp; -b \\d &amp; -c &amp; b &amp; a
 \end{pmatrix} 
 \quad
 R(q) = 
 \begin{pmatrix} 
-a &amp; -b &amp; -c &amp; -d \ b &amp; a &amp; d &amp; -c \ c &amp; -d &amp; a &amp; b \d &amp; c &amp; -b &amp; a
+a &amp; -b &amp; -c &amp; -d \\ b &amp; a &amp; d &amp; -c \\ c &amp; -d &amp; a &amp; b \\d &amp; c &amp; -b &amp; a
 \end{pmatrix}
-$<span class="arithmatex">\(如图所示，刚体在绕着过点\)</span>O<span class="arithmatex">\(的旋转轴做定轴旋转运动，向量\)</span>\vec{n}<span class="arithmatex">\(是旋转轴的方向向量，\)</span>\theta<span class="arithmatex">\(是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：\)</span>$
-\begin{align}q&amp;=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\&amp;=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}<em y="y">{x}}{i}+sin(\frac{\theta}{2}){{n}</em>
-$$
-}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align<img alt="Fig 1-1-9" src="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/img/Fig%201-1-9.png" /></p>
+\]</div>
+<p>如图所示，刚体在绕着过点<span class="arithmatex">\(O\)</span>的旋转轴做定轴旋转运动，向量<span class="arithmatex">\(\vec{n}\)</span>是旋转轴的方向向量，<span class="arithmatex">\(\theta\)</span>是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：</p>
+<div class="arithmatex">\[
+\begin{align}q&amp;=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&amp;=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}
+\]</div>
+<p><img alt="Fig 1-1-9" src="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/img/Fig%201-1-9.png" /></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">四元数的运算性质</p>
@@ -1391,9 +1498,17 @@ $$
 <div class="admonition note">
 <p class="admonition-title">欧拉角和四元数之间的相互转换</p>
 <ol>
-<li>欧拉角 (Z-Y-X) <span class="arithmatex">\(\rightarrow\)</span> 四元数 设 <span class="arithmatex">\(\phi, \theta, \psi\)</span> 分别为 Roll, Pitch, Yaw，四元数 <span class="arithmatex">\(q = [w, x, y, z]\)</span>： $$ \begin{cases} w = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \ x = \sin\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} - \cos\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \ y = \cos\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} \ z = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} - \sin\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} \end{cases} $$ </li>
-<li>四元数 <span class="arithmatex">\(\rightarrow\)</span> 欧拉角 (Z-Y-X) $$ \begin{bmatrix} \phi \ \theta \ \psi \end{bmatrix} = \begin{bmatrix} \operatorname{atan2}(2(wx + yz), 1 - 2(x^2 + y^2)) \ \arcsin(2(wy - zx)) \ \operatorname{atan2}(2(wz + xy), 1 - 2(y^2 + z^2)) \end{bmatrix} $$</li>
+<li>欧拉角 (Z-Y-X) <span class="arithmatex">\(\rightarrow\)</span> 四元数 设 <span class="arithmatex">\(\phi, \theta, \psi\)</span> 分别为 Roll, Pitch, Yaw，四元数 <span class="arithmatex">\(q = [w, x, y, z]\)</span>： </li>
 </ol>
+<div class="arithmatex">\[ 
+\begin{cases} w = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ x = \sin\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} - \cos\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ y = \cos\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} \\ z = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} - \sin\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} \end{cases} 
+\]</div>
+<ol>
+<li>四元数 <span class="arithmatex">\(\rightarrow\)</span> 欧拉角 (Z-Y-X) </li>
+</ol>
+<div class="arithmatex">\[ 
+\begin{bmatrix} \phi \\ \theta \\ \psi \end{bmatrix} = \begin{bmatrix} \operatorname{atan2}(2(wx + yz), 1 - 2(x^2 + y^2)) \\ \arcsin(2(wy - zx)) \\ \operatorname{atan2}(2(wz + xy), 1 - 2(y^2 + z^2)) \end{bmatrix} 
+\]</div>
 </div>
 <h3 id="5-">(5)-关节空间速度<a class="headerlink" href="#5-" title="Permanent link">&para;</a></h3>
 <p>我们定义关节空间速度是父连杆(Predecessor)在关节连接处的空间速度与子连杆(Successor)在关节连接处的空间速度之差：
@@ -1404,53 +1519,59 @@ $$
 $$
 \boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q, t) \dot{q} + \sigma(q, t)}
 $$
-其中：
-- <span class="arithmatex">\(\boldsymbol{S}\)</span>是关节运动的子空间矩阵
-- <span class="arithmatex">\(\boldsymbol{\sigma}\)</span>是关节运动的偏置速度，也就是当<span class="arithmatex">\(\boldsymbol{q}=0\)</span>时的刚体速度
-- <span class="arithmatex">\(\boldsymbol{q}\)</span>和<span class="arithmatex">\(\boldsymbol{\dot{q}}\)</span>是关节的转动角度和转动角度变化率。
+其中：</p>
+<ul>
+<li><span class="arithmatex">\(\boldsymbol{S}\)</span>是关节运动的子空间矩阵</li>
+<li><span class="arithmatex">\(\boldsymbol{\sigma}\)</span>是关节运动的偏置速度，也就是当<span class="arithmatex">\(\boldsymbol{q}=0\)</span>时的刚体速度</li>
+<li><span class="arithmatex">\(\boldsymbol{q}\)</span>和<span class="arithmatex">\(\boldsymbol{\dot{q}}\)</span>是关节的转动角度和转动角度变化率。
 如果矩阵<span class="arithmatex">\(\boldsymbol{S}\)</span>不随时间而改变，我们可以将关节的空间速度直接写为：
 $$
 \boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q) \dot{q}}
-$$</p>
+$$</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">以2-DOF平面机械臂来理解关节空间速度</p>
 </div>
 <h3 id="6-">(6)-关节空间力<a class="headerlink" href="#6-" title="Permanent link">&para;</a></h3>
-<p>我们让关节的空间约束力所在的子空间<span class="arithmatex">\(\boldsymbol{T}={\boldsymbol{S}}^{\perp}\)</span>，并且定义关节的空间驱动力<span class="arithmatex">\(\boldsymbol{T}_a\)</span>满足<span class="arithmatex">\({\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}\)</span>，那么关节的空间力如下：
-$$
+<p>我们让关节的空间约束力所在的子空间<span class="arithmatex">\(\boldsymbol{T}={\boldsymbol{S}}^{\perp}\)</span>，并且定义关节的空间驱动力<span class="arithmatex">\(\boldsymbol{T}_a\)</span>满足<span class="arithmatex">\({\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}\)</span>，那么关节的空间力如下：</p>
+<div class="arithmatex">\[
 {\boldsymbol{f}_J}={\boldsymbol{T}_a}{\boldsymbol{\tau}}+{\boldsymbol{T}}{\boldsymbol{\lambda}}
-$$
-其中<span class="arithmatex">\({\boldsymbol{\tau}}\)</span>为关节驱动力向量，<span class="arithmatex">\({\boldsymbol{\lambda}}\)</span>为关节约束力向量。并且，子空间<span class="arithmatex">\(\boldsymbol{T}\)</span>和<span class="arithmatex">\(\boldsymbol{T}_a\)</span>需要满足以下性质：
-$$
+\]</div>
+<p>其中<span class="arithmatex">\({\boldsymbol{\tau}}\)</span>为关节驱动力向量，<span class="arithmatex">\({\boldsymbol{\lambda}}\)</span>为关节约束力向量。并且，子空间<span class="arithmatex">\(\boldsymbol{T}\)</span>和<span class="arithmatex">\(\boldsymbol{T}_a\)</span>需要满足以下性质：</p>
+<div class="arithmatex">\[
 \begin{align}
-{\boldsymbol{T}^{T}_a}{\boldsymbol{S}}=1\
+{\boldsymbol{T}^{T}_a}{\boldsymbol{S}}=1\\
 {\boldsymbol{T}^{T}}{\boldsymbol{S}}=0
 \end{align}
-$$
-我们令关节空间里的等式两边同时乘以<span class="arithmatex">\(\boldsymbol{S}^{T}\)</span>，那么我们可以得到：
-$$
+\]</div>
+<p>我们令关节空间里的等式两边同时乘以<span class="arithmatex">\(\boldsymbol{S}^{T}\)</span>，那么我们可以得到：</p>
+<div class="arithmatex">\[
 \begin{align}
-{\boldsymbol{S}<sup T="T">{T}}{\boldsymbol{f}_J}&amp;={\boldsymbol{S}</sup>\
+{\boldsymbol{S}^{T}}{\boldsymbol{f}_J}&amp;={\boldsymbol{S}^{T}}{\boldsymbol{T}_a}{\boldsymbol{\tau}}+{\boldsymbol{S}^{T}}{\boldsymbol{T}}{\boldsymbol{\lambda}}\\
 {\boldsymbol{S}^{T}}{\boldsymbol{f}_J}&amp;={\boldsymbol{\tau}}
 \end{align}
-$$}}{\boldsymbol{T}_a}{\boldsymbol{\tau}}+{\boldsymbol{S}^{T}}{\boldsymbol{T}}{\boldsymbol{\lambda}</p>
+\]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>因为在关节空间力两边同时乘以关节运动空间<span class="arithmatex">\({\boldsymbol{S}}\)</span>之后，关节空间的约束力一项等于0，因此在后续的建模中，我们只考虑到关节空间的作用力，不考虑关节空间的约束力。</p>
 </div>
 <h2 id="44-">4.4-受约束的刚体动力学方程<a class="headerlink" href="#44-" title="Permanent link">&para;</a></h2>
-<p>在一个受约束的刚体中，刚体<span class="arithmatex">\(i\)</span>受到以下几个力：
-- 父关节对当前连杆的作用力<span class="arithmatex">\({\boldsymbol{f}_{Bi}}\)</span>
-- 所有子连杆对当前连杆的反作用力<span class="arithmatex">\({\sum}{\boldsymbol{f}_j}\)</span>
-- 刚体的空间约束内力<span class="arithmatex">\({\boldsymbol{f}_{ci}}\)</span>
-- 刚体受到的来自外部的合力<span class="arithmatex">\({\boldsymbol{f}_{xi}}\)</span>（包括重力）
-那么我们可以列写出来刚体的空间运动方程如下：
-$$
-{\boldsymbol{f}<em ci="ci">{Bi}}+{\boldsymbol{f}</em>}}+{\boldsymbol{f<em j="j">{xi}}+{{\sum}{\boldsymbol{f}</em>\times^}}}={\boldsymbol{{{\hat{I}}}{{\hat{a}}}+{\hat{v<em> \hat{I} \hat{v}}}}
-$$
-等式两边同时减去外力项<span class="arithmatex">\(\boldsymbol{f}_{xi}\)</span>，可以得到：$$
-{\boldsymbol{f}<em ci="ci">{Bi}}+{\boldsymbol{f}</em>
-$}}+{{\sum}{\boldsymbol{f}_{j}}}={\boldsymbol{{{\hat{I}}}{{\hat{a}}}+{\hat{p}}}<span class="arithmatex">\(其中\)</span>\boldsymbol{\hat{p}}=\boldsymbol{{\hat{v}\times^</em> \hat{I} \hat{v}}-{f_{xi}}}$。</p>
+<p>在一个受约束的刚体中，刚体<span class="arithmatex">\(i\)</span>受到以下几个力：</p>
+<ul>
+<li>父关节对当前连杆的作用力<span class="arithmatex">\({\boldsymbol{f}_{Bi}}\)</span></li>
+<li>所有子连杆对当前连杆的反作用力<span class="arithmatex">\({\sum}{\boldsymbol{f}_j}\)</span></li>
+<li>刚体的空间约束内力<span class="arithmatex">\({\boldsymbol{f}_{ci}}\)</span></li>
+<li>刚体受到的来自外部的合力<span class="arithmatex">\({\boldsymbol{f}_{xi}}\)</span>（包括重力）
+那么我们可以列写出来刚体的空间运动方程如下：</li>
+</ul>
+<div class="arithmatex">\[
+{\boldsymbol{f}_{Bi}}+{\boldsymbol{f}_{ci}}+{\boldsymbol{f}_{xi}}+{{\sum}{\boldsymbol{f}_{j}}}={\boldsymbol{{{\hat{I}}}{{\hat{a}}}+{\hat{v}\times^* \hat{I} \hat{v}}}}
+\]</div>
+<p>等式两边同时减去外力项<span class="arithmatex">\(\boldsymbol{f}_{xi}\)</span>，可以得到：</p>
+<div class="arithmatex">\[
+{\boldsymbol{f}_{Bi}}+{\boldsymbol{f}_{ci}}+{{\sum}{\boldsymbol{f}_{j}}}={\boldsymbol{{{\hat{I}}}{{\hat{a}}}+{\hat{p}}}}
+\]</div>
+<p>其中<span class="arithmatex">\(\boldsymbol{\hat{p}}=\boldsymbol{{\hat{v}\times^* \hat{I} \hat{v}}-{f_{xi}}}\)</span>。</p>
 
 
 

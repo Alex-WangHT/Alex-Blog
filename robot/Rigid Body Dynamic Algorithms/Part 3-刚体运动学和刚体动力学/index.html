@@ -1057,125 +1057,129 @@
 <h2 id="1-spatial-velocity">1-刚体的空间速度 (Spatial Velocity)<a class="headerlink" href="#1-spatial-velocity" title="Permanent link">&para;</a></h2>
 <p>在经典力学中，我们通常将角速度 <span class="arithmatex">\(\omega\)</span> 和线速度 <span class="arithmatex">\(v\)</span> 分开处理。但在空间矢量代数中，这两者被合成为一个 <strong>6 维矢量</strong>，称为<strong>空间速度（Spatial Velocity）</strong>，通常记为 <span class="arithmatex">\(\hat{v}\)</span>。</p>
 <h3 id="1-">(1)- 定义与构成<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h3>
-<p>对于刚体上的一点 <span class="arithmatex">\(O\)</span>，其空间速度 <span class="arithmatex">\(\hat{v}_O\)</span> 定义为：
-$$
-\hat{v}_O = \begin{bmatrix} \omega \ v_O \end{bmatrix} \in \mathbb{R}^6
-$$
-- <strong>角速度 <span class="arithmatex">\(\omega\)</span></strong>：描述刚体整体的旋转。
-- <strong>线速度 <span class="arithmatex">\(v_O\)</span></strong>：描述刚体上选定参考点 <span class="arithmatex">\(O\)</span> 的瞬时平移速度。</p>
+<p>对于刚体上的一点 <span class="arithmatex">\(O\)</span>，其空间速度 <span class="arithmatex">\(\hat{v}_O\)</span> 定义为：</p>
+<div class="arithmatex">\[
+\hat{v}_O = 
+\begin{bmatrix} 
+\omega \\ 
+v_O 
+\end{bmatrix} \in \mathbb{R}^6
+\]</div>
+<ul>
+<li><strong>角速度 <span class="arithmatex">\(\omega\)</span></strong>：描述刚体整体的旋转。</li>
+<li><strong>线速度 <span class="arithmatex">\(v_O\)</span></strong>：描述刚体上选定参考点 <span class="arithmatex">\(O\)</span> 的瞬时平移速度。</li>
+</ul>
 <h3 id="2-">(2)-坐标变换<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h3>
 <p>如果你需要将速度从坐标系 <span class="arithmatex">\(B\)</span> 转换到坐标系 <span class="arithmatex">\(A\)</span>，使用变换矩阵 <span class="arithmatex">\({^A_B X}\)</span>：</p>
-<p>$$
+<div class="arithmatex">\[
 {}^A \hat{v} = {^A_B X}^B \hat{v}
-$$
-展开形式为：
-$$
-\begin{bmatrix} {}^A \omega \ {}^A v_A \end{bmatrix} = \begin{bmatrix} \mathbf{E} &amp; \mathbf{0} \ -\mathbf{E} \mathbf{r}\times &amp; \mathbf{E} \end{bmatrix} \begin{bmatrix} {}^B \omega \ {}^B v_B \end{bmatrix}
-$$
-这里反映了一个关键物理事实：<strong>线速度会随着参考点的改变而改变</strong>（即 <span class="arithmatex">\(v_A = \mathbf{E}(v_B - r \times \omega)\)</span>），而角速度在旋转变换下保持几何一致性。</p>
+\]</div>
+<p>展开形式为：</p>
+<div class="arithmatex">\[
+\begin{bmatrix} {}^A \omega \\ {}^A v_A \end{bmatrix} = \begin{bmatrix} \mathbf{E} &amp; \mathbf{0} \\ -\mathbf{E} \mathbf{r}\times &amp; \mathbf{E} \end{bmatrix} \begin{bmatrix} {}^B \omega \\ {}^B v_B \end{bmatrix}
+\]</div>
+<p>这里反映了一个关键物理事实：<strong>线速度会随着参考点的改变而改变</strong>（即 <span class="arithmatex">\(v_A = \mathbf{E}(v_B - r \times \omega)\)</span>），而角速度在旋转变换下保持几何一致性。</p>
 <h2 id="2-spatial-acceleration">2-刚体的空间加速度 (Spatial Acceleration)<a class="headerlink" href="#2-spatial-acceleration" title="Permanent link">&para;</a></h2>
 <p>空间加速度描述了空间速度的变化率。然而，在旋转坐标系下，加速度的定义比速度稍微复杂一些。</p>
 <h3 id="1-classical-spatial-acceleration">(1)- 经典空间加速度 (Classical Spatial Acceleration)<a class="headerlink" href="#1-classical-spatial-acceleration" title="Permanent link">&para;</a></h3>
-<p>最直接的定义是对空间速度直接求导：
-$$
-\hat{a} = \frac{d}{dt} \hat{v} = \begin{bmatrix} \dot{\omega} \ \dot{v}_O \end{bmatrix}
-$$
-但在机器人学中，为了方便递归计算（如 RNEA 算法），通常使用<strong>体坐标系下的加速度</strong>。</p>
+<p>最直接的定义是对空间速度直接求导：</p>
+<div class="arithmatex">\[
+\hat{a} = \frac{d}{dt} \hat{v} = \begin{bmatrix} \dot{\omega} \\ \dot{v}_O \end{bmatrix}
+\]</div>
+<p>但在机器人学中，为了方便递归计算（如 RNEA 算法），通常使用<strong>体坐标系下的加速度</strong>。</p>
 <h3 id="2-_1">(2)- 空间加速度的组成<a class="headerlink" href="#2-_1" title="Permanent link">&para;</a></h3>
 <p>对于一个在空间中运动的连杆，其加速度通常由两部分组成：
 1. <strong>主动加速度</strong>：由关节驱动产生的加速度。
 2. <strong>偏置加速度 (Bias Acceleration)</strong>：由于旋转产生的向心加速度和科氏加速度（Coriolis acceleration）。</p>
-<p>在空间算子表示法中，连杆 <span class="arithmatex">\(i\)</span> 的加速度传递方程为：
-$$
+<p>在空间算子表示法中，连杆 <span class="arithmatex">\(i\)</span> 的加速度传递方程为：</p>
+<div class="arithmatex">\[
 {}^i \hat{a} = {}^i X_{i-1} {}^{i-1} \hat{a} + \mathbf{S}_i \ddot{q}_i + \hat{v}_i \times \mathbf{S}_i \dot{q}_i
-$$
-- <strong><span class="arithmatex">\({}^i X_{i-1} {}^{i-1} \hat{a}\)</span></strong>：基座/上一个连杆传来的加速度。
-- <strong><span class="arithmatex">\(\mathbf{S}_i \ddot{q}_i\)</span></strong>：当前关节的加速度映射。
-- <strong><span class="arithmatex">\(\hat{v}_i \times \mathbf{S}_i \dot{q}_i\)</span></strong>：速度相关的修正项（包含速度积项）。</p>
+\]</div>
+<ul>
+<li><strong><span class="arithmatex">\({}^i X_{i-1} {}^{i-1} \hat{a}\)</span></strong>：基座/上一个连杆传来的加速度。</li>
+<li><strong><span class="arithmatex">\(\mathbf{S}_i \ddot{q}_i\)</span></strong>：当前关节的加速度映射。</li>
+<li><strong><span class="arithmatex">\(\hat{v}_i \times \mathbf{S}_i \dot{q}_i\)</span></strong>：速度相关的修正项（包含速度积项）。</li>
+</ul>
 <h2 id="3-">3-刚体的空间刚体动量<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h2>
-<p>首先我们已知刚体<span class="arithmatex">\(B\)</span>的质心为刚体内一点<span class="arithmatex">\(C\)</span>，点<span class="arithmatex">\(C\)</span>的质心速度在坐标系坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>表示如下：
-$$
+<p>首先我们已知刚体<span class="arithmatex">\(B\)</span>的质心为刚体内一点<span class="arithmatex">\(C\)</span>，点<span class="arithmatex">\(C\)</span>的质心速度在坐标系坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>表示如下：</p>
+<div class="arithmatex">\[
 \begin{align}
-{<sup B="B">{B}{\vec{v}}_{C}}&amp;={{</sup>}}{v<em C="C">{O}}+{{<sup B="B">{B}}{\omega}}{\times}{</sup>}{\vec{r}</em>\
-&amp;={{}<sup B="B">{B}}{v}_{O}}+{</sup>}{\vec{r}<em O="O">{CO}}{\times}{{^{B}}{\omega}}\
+{^{B}{\vec{v}}_{C}}&amp;={{^{B}}{v}_{O}}+{{^{B}}{\omega}}{\times}{^{B}{\vec{r}}_{C}}\\
+&amp;={{^{B}}{v}_{O}}+{^{B}{\vec{r}}_{CO}}{\times}{{^{B}}{\omega}}\\
 \end{align}
-$$
-已知刚体<span class="arithmatex">\(B\)</span>的质量是<span class="arithmatex">\(m_B\)</span>，刚体<span class="arithmatex">\(B\)</span>关于质心的惯性张量为<span class="arithmatex">\(I_B\)</span>。首先我们可以求得刚体的动量<span class="arithmatex">\(P_B\)</span>如下：
-$$
-P_B={m_B}{<sup B="B">{B}{\vec{r}}_{CO}}{\times}{{</sup>}}{\omega}}+{m_B}{{^{B}}{v</em>
-$$
-然后我们求刚体}<span class="arithmatex">\(B\)</span>的角动量<span class="arithmatex">\(L_B\)</span>如下：
-$$
+\]</div>
+<p>已知刚体<span class="arithmatex">\(B\)</span>的质量是<span class="arithmatex">\(m_B\)</span>，刚体<span class="arithmatex">\(B\)</span>关于质心的惯性张量为<span class="arithmatex">\(I_B\)</span>。首先我们可以求得刚体的动量<span class="arithmatex">\(P_B\)</span>如下：</p>
+<div class="arithmatex">\[
+P_B={m_B}{^{B}{\vec{r}}_{CO}}{\times}{{^{B}}{\omega}}+{m_B}{{^{B}}{v}_{O}}
+\]</div>
+<p>然后我们求刚体<span class="arithmatex">\(B\)</span>的角动量<span class="arithmatex">\(L_B\)</span>如下：</p>
+<div class="arithmatex">\[
 \begin{align}
-L_B={I_B}{{<sup B="B">{B}}{\omega}}+{m_B}{</sup>}{\vec{r}<em O="O">{OC}}{\times}{({<sup B="B">{B}{\vec{r}}_{CO}}{\times}{{</sup>{}}{\omega}})}+{m_B<sup B="B">{B}{\vec{r}}_{OC}}{\times}{{</sup>}}{v</em>
+L_B={I_B}{{^{B}}{\omega}}+{m_B}{^{B}{\vec{r}}_{OC}}{\times}{({^{B}{\vec{r}}_{CO}}{\times}{{^{B}}{\omega}})}+{m_B}{^{B}{\vec{r}}_{OC}}{\times}{{^{B}}{v}_{O}}
 \end{align}
-$$
-我们可以定义刚体}<span class="arithmatex">\(B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>：
-$$
-{\hat{h}<em OC="OC">{B}}
-={\begin{pmatrix}{L_B}\ {P_B}\end{pmatrix}}
-={\begin{pmatrix}{{I_B}{{<sup B="B">{B}}{\omega}}+{m_B}{</sup>}{\vec{r}</em>{({}}{\times<sup B="B">{B}{\vec{r}}_{CO}}{\times}{{</sup>{}}{\omega}})}+{m_B<sup B="B">{B}{\vec{r}}_{OC}}{\times}{{</sup>}}{v<em O="O">{O}}}\{{m_B}{<sup B="B">{B}{\vec{r}}_{CO}}{\times}{{</sup>}}{\omega}}+{m_B}{{^{B}}{v</em>
-$$}}}\ \end{pmatrix}</p>
+\]</div>
+<p>我们可以定义刚体<span class="arithmatex">\(B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>：</p>
+<div class="arithmatex">\[
+{\hat{h}_{B}}
+={\begin{pmatrix}{L_B}\\ {P_B}\end{pmatrix}}
+={\begin{pmatrix}{{I_B}{{^{B}}{\omega}}+{m_B}{^{B}{\vec{r}}_{OC}}{\times}{({^{B}{\vec{r}}_{CO}}{\times}{{^{B}}{\omega}})}+{m_B}{^{B}{\vec{r}}_{OC}}{\times}{{^{B}}{v}_{O}}}\\{{m_B}{^{B}{\vec{r}}_{CO}}{\times}{{^{B}}{\omega}}+{m_B}{{^{B}}{v}_{O}}}\\ \end{pmatrix}}
+\]</div>
 <h2 id="4-">4-刚体的空间刚体惯量矩<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h2>
-<p>我们将刚体<span class="arithmatex">\(B\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>写成矩阵<span class="arithmatex">\({^{B}{\hat{I}}}{\in}{\mathbb{R}^{6\times6}}\)</span>和空间速度<span class="arithmatex">\({^{B}}{\hat{v}}\)</span>相乘表示形式：
-$$
+<p>我们将刚体<span class="arithmatex">\(B\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>写成矩阵<span class="arithmatex">\({^{B}{\hat{I}}}{\in}{\mathbb{R}^{6\times6}}\)</span>和空间速度<span class="arithmatex">\({^{B}}{\hat{v}}\)</span>相乘表示形式：</p>
+<div class="arithmatex">\[
 \begin{align}
-{{\hat{h}}<em _times="\times">{B}}={<sup B="B">{B}{\hat{I}}}{</sup>
-={\begin{pmatrix}{I_B}-{m_B}{[{}{\hat{v}}<sup 2="2">{B}{\vec{r}}_{CO}}]</sup></em>[{}}&amp;-{{m_B<sup B="B">{B}{\vec{r}}<em _times="\times">{CO}}]</em>[{}}\{{m_B</sup>}{\vec{r}<em _times="\times">{CO}}]</em>}}&amp;{{m_B}{\boldsymbol{1<em CO="CO">{3{\times}{3}}}}\end{pmatrix}}{\begin{pmatrix}{^{B}}{\omega}\ {^{B}}{v_O}
+{{\hat{h}}_{B}}={^{B}{\hat{I}}}{^{B}{\hat{v}}}
+={\begin{pmatrix}{I_B}-{m_B}{[{^{B}{\vec{r}}_{CO}}]^{2}_{\times}}&amp;-{{m_B}[{^{B}{\vec{r}}_{CO}}]_{\times}}\\{{m_B}[{^{B}{\vec{r}}_{CO}}]_{\times}}&amp;{{m_B}{\boldsymbol{1}_{3{\times}{3}}}}\end{pmatrix}}{\begin{pmatrix}{^{B}}{\omega}\\ {^{B}}{v_O}
 \end{pmatrix}}
 \end{align}
-$$
-其中矩阵<span class="arithmatex">\({^{B}{\hat{I}}}\)</span>即为刚体<span class="arithmatex">\(B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>下定义的空间惯量矩：
-$$
-{<sup B="B">{B}{\hat{I}}}={\begin{pmatrix}{I_B}-{m_B}{[{</sup>}{\vec{r}</em>]}<sup B="B">{2}_{\times}}&amp;-{{m_B}[{</sup>}{\vec{r}<em _times="\times">{CO}}]</em>}}\{{m_B}[{^{B}{\vec{r}<em _times="\times">{CO}}]</em>
-$$}}&amp;{{m_B}{\boldsymbol{1}_{3{\times}{3}}}}\end{pmatrix}</p>
+\]</div>
+<p>其中矩阵<span class="arithmatex">\({^{B}{\hat{I}}}\)</span>即为刚体<span class="arithmatex">\(B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>下定义的空间惯量矩：</p>
+<div class="arithmatex">\[
+{^{B}{\hat{I}}}={\begin{pmatrix}{I_B}-{m_B}{[{^{B}{\vec{r}}_{CO}}]^{2}_{\times}}&amp;-{{m_B}[{^{B}{\vec{r}}_{CO}}]_{\times}}\\{{m_B}[{^{B}{\vec{r}}_{CO}}]_{\times}}&amp;{{m_B}{\boldsymbol{1}_{3{\times}{3}}}}\end{pmatrix}}
+\]</div>
 <h2 id="5-">5-刚体的动能<a class="headerlink" href="#5-" title="Permanent link">&para;</a></h2>
-<p>根据柯尼希定理，刚体的动能表示如下：
-$$
-T={\frac{1}{2}}{m}{\cdot}({{<sup>{B}}{v_C</sup>T}}){\cdot}({{<sup B="B">{B}}{v_C}})+{\frac{1}{2}}{{{{</sup>}}{\omega<sup B="B">T}}{\cdot}{I_B}{\cdot}{{</sup>
-$$
-其中质心速度}}{\omega}}<span class="arithmatex">\(v_C = v_O + \omega \times r_{CO}\)</span>
-改写成空间速度和空间惯量的表达式如下：
-$$
+<p>根据柯尼希定理，刚体的动能表示如下：</p>
+<div class="arithmatex">\[
+T={\frac{1}{2}}{m}{\cdot}({{^{B}}{v_C^T}}){\cdot}({{^{B}}{v_C}})+{\frac{1}{2}}{{{{^{B}}{\omega}^T}}{\cdot}{I_B}{\cdot}{{^{B}}{\omega}}}
+\]</div>
+<p>其中质心速度<span class="arithmatex">\(v_C = v_O + \omega \times r_{CO}\)</span>
+改写成空间速度和空间惯量的表达式如下：</p>
+<div class="arithmatex">\[
 \begin{align}
-{T}&amp;={\frac{1}{2}}{{\boldsymbol{\hat{v}}}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{\hat{v}}}\
-&amp;={\frac{1}{2}}{\boldsymbol{q}<sup>T}{{\boldsymbol{S}</sup>T}{\boldsymbol{\hat{I}}}{\boldsymbol{S}}}{\boldsymbol{q}}
-\
+{T}&amp;={\frac{1}{2}}{{\boldsymbol{\hat{v}}}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{\hat{v}}}\\
+&amp;={\frac{1}{2}}{\boldsymbol{q}^T}{{\boldsymbol{S}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{S}}}{\boldsymbol{q}}
+\\
 &amp;={\frac{1}{2}}{\boldsymbol{q}^T}{\boldsymbol{H}}{\boldsymbol{q}}
 \end{align}
-$$
-其中<span class="arithmatex">\({\boldsymbol{H}}={\boldsymbol{S}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{S}}\)</span>。</p>
+\]</div>
+<p>其中<span class="arithmatex">\({\boldsymbol{H}}={\boldsymbol{S}^T}{\boldsymbol{\hat{I}}}{\boldsymbol{S}}\)</span>。</p>
 <h2 id="6-">6-刚体的空间刚体惯量矩的逆<a class="headerlink" href="#6-" title="Permanent link">&para;</a></h2>
-<p>我们定义<span class="arithmatex">\(^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}\)</span>，矩阵<span class="arithmatex">\(^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}\)</span>即为空间刚体惯量矩的逆，该矩阵定义如下：
-$$
-{^{B}{\hat{\Phi}}} = \begin{pmatrix} I_B^{-1} &amp; -I_B<sup B="B">{-1}[{</sup>}{r<em>{OC}}]</em>\times \ [{<sup -1="-1">{B}{r}<em>{OC}}]</em>\times{I_B}</sup> - [{} &amp; \frac{1}{m}\mathbf{1<sup -1="-1">{B}{r}<em>{OC}}]</em>\times{I_B}</sup>}[{^{B}{r<em>{OC}}]</em>\times \end{pmatrix}
-$$</p>
+<p>我们定义<span class="arithmatex">\(^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}\)</span>，矩阵<span class="arithmatex">\(^{B}{\hat{\Phi}}={^{B}{\hat{I}}}^{-1}\)</span>即为空间刚体惯量矩的逆，该矩阵定义如下：</p>
+<div class="arithmatex">\[
+{^{B}{\hat{\Phi}}} = \begin{pmatrix} I_B^{-1} &amp; -I_B^{-1}[{^{B}{r}_{OC}}]_\times \\ [{^{B}{r}_{OC}}]_\times{I_B}^{-1} &amp; \frac{1}{m}\mathbf{1} - [{^{B}{r}_{OC}}]_\times{I_B}^{-1}[{^{B}{r}_{OC}}]_\times \end{pmatrix}
+\]</div>
 <h2 id="7-">7-刚体的空间动力学方程<a class="headerlink" href="#7-" title="Permanent link">&para;</a></h2>
-<p>我们已知刚体<span class="arithmatex">\(B\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>如下：$<span class="arithmatex">\({{\hat{h}}_{B}}={^{B}{\hat{I}}}{^{B}{\hat{v}}}\)</span><span _hat_h="\hat{h" class="arithmatex">\(我们对空间动量\)</span>}<em B="B">{B}<span _hat_f="\hat{f" class="arithmatex">\(求导如下，得到空间力\)</span>}</em>$：
-$$
+<p>我们已知刚体<span class="arithmatex">\(B\)</span>的空间动量<span class="arithmatex">\({\hat{h}}_{B}\)</span>如下：$<span class="arithmatex">\({{\hat{h}}_{B}}={^{B}{\hat{I}}}{^{B}{\hat{v}}}\)</span><span _hat_h="\hat{h" class="arithmatex">\(我们对空间动量\)</span>}<em B="B">{B}<span _hat_f="\hat{f" class="arithmatex">\(求导如下，得到空间力\)</span>}</em>$：</p>
+<div class="arithmatex">\[
 \begin{align}
-{{\hat{f}}_{B}}&amp;={\frac{d{\hat{h}_B}}{dt}}\
-&amp;={<sup B="B">{B}{\hat{I}}}{</sup>{}{\hat{a}}}+({\frac{d}{dt}<sup B="B">{B}{\hat{I}}}){</sup>\
-&amp;={}{\hat{v}}<sup B="B">{B}{\hat{I}}}{</sup>+({}{\hat{a}}<sup>{B}{\hat{v}}}{\times</sup><em>}{<sup B="B">{B}{\hat{I}}}-{</sup>{}{\hat{I}}<sup B="B">{B}{\hat{v}}}{\times}){</sup>\
-&amp;={}{\hat{v}}<sup B="B">{B}{\hat{I}}}{</sup>+{}{\hat{a}}<sup>{B}{\hat{v}}}{\times</sup></em>}{<sup B="B">{B}{\hat{I}}}{</sup>
+{{\hat{f}}_{B}}&amp;={\frac{d{\hat{h}_B}}{dt}}\\
+&amp;={^{B}{\hat{I}}}{^{B}{\hat{a}}}+({\frac{d}{dt}}{^{B}{\hat{I}}}){^{B}{\hat{v}}}\\
+&amp;={^{B}{\hat{I}}}{^{B}{\hat{a}}}+({^{B}{\hat{v}}}{\times^*}{^{B}{\hat{I}}}-{^{B}{\hat{I}}}{^{B}{\hat{v}}}{\times}){^{B}{\hat{v}}}\\
+&amp;={^{B}{\hat{I}}}{^{B}{\hat{a}}}+{^{B}{\hat{v}}}{\times^*}{^{B}{\hat{I}}}{^{B}{\hat{v}}}
 \end{align}
-$$
-那么我们就能得到刚体的空间动力学方程：
-$$
+\]</div>
+<p>那么我们就能得到刚体的空间动力学方程：</p>
+<div class="arithmatex">\[
 \begin{align}
 {^{B}{\hat{f}}}
-&amp;={}{\hat{v}}<sup B="B">{B}{\hat{I}}}{</sup>+{}{\hat{a}}<sup>{B}{\hat{v}}}{\times</sup><em>}{<sup B="B">{B}{\hat{I}}}{</sup>\
-&amp;={}{\hat{v}}<sup B="B">{B}{\hat{I}}}{</sup>
+&amp;={^{B}{\hat{I}}}{^{B}{\hat{a}}}+{^{B}{\hat{v}}}{\times^*}{^{B}{\hat{I}}}{^{B}{\hat{v}}}\\
+&amp;={^{B}{\hat{I}}}{^{B}{\hat{a}}}+{^{B}{\hat{p}}}
 \end{align}
-$$
-其中 }{\hat{a}}}+{^{B}{\hat{p}}<span class="arithmatex">\(\hat{p}_B = \hat{v}_B \times^* \hat{I}_B \hat{v}_B\)</span> 称为</em><em>偏置力</em>*。</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(\hat{p}_B = \hat{v}_B \times^* \hat{I}_B \hat{v}_B\)</span> 称为<strong>偏置力</strong>。</p>
 <div class="admonition tip">
 <p class="admonition-title">刚体动力学方程不同形式之间的对比与联系</p>
-</div>
-<blockquote>
-<ul>
-<li><strong>刚体动力学方程对比</strong>：空间向量形式 vs. 关节空间标准形式</li>
-</ul>
+<p><strong>刚体动力学方程对比</strong>：空间向量形式 vs. 关节空间标准形式</p>
 <table>
 <thead>
 <tr>
@@ -1215,34 +1219,20 @@ $$
 <td style="text-align: left;">动力学算法的底层物理推导与递归实现（如 RNEA）</td>
 <td style="text-align: left;">控制律设计、仿真、轨迹规划及系统稳定性分析</td>
 </tr>
-<tr>
-<td style="text-align: left;">-  <strong>数学联系（映射关系）</strong>:关节空间的形式本质上是空间动力学方程通过<strong>雅可比矩阵 <span class="arithmatex">\(J\)</span></strong> 进行投影和聚合的结果：</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">1. <strong>运动学映射</strong>：<span class="arithmatex">\(\hat{v}_i = \mathbf{J}_i(\mathbf{q})\dot{\mathbf{q}}\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">2. <strong>惯性映射</strong>：<span class="arithmatex">\(\mathbf{H}(\mathbf{q}) = \sum_{i=1}^{n} \mathbf{J}_i^T \hat{I}_i \mathbf{J}_i\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">3. <strong>力矩映射</strong>：<span class="arithmatex">\(\boldsymbol{\tau} = \sum_{i=1}^{n} \mathbf{J}_i^T \hat{f}_i\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
-</blockquote>
-<p>已知空间力<span class="arithmatex">\(^{B}{\hat{f}}\)</span>，我们可以用下式求解刚体<span class="arithmatex">\(B\)</span>的空间加速度<span class="arithmatex">\({^{B}{\hat{a}}}\)</span>：
-$$
-{<sup B="B">{B}{\hat{a}}}={</sup>
-$$
-其中 }{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}<span class="arithmatex">\({\hat{b}}=^{B}{\Phi}{\hat{p}_B}\)</span> 。</p>
+<p><strong>数学联系（映射关系）</strong>:关节空间的形式本质上是空间动力学方程通过<strong>雅可比矩阵 <span class="arithmatex">\(J\)</span></strong> 进行投影和聚合的结果：</p>
+<ol>
+<li><strong>运动学映射</strong>：<span class="arithmatex">\(\hat{v}_i = \mathbf{J}_i(\mathbf{q})\dot{\mathbf{q}}\)</span></li>
+<li><strong>惯性映射</strong>：<span class="arithmatex">\(\mathbf{H}(\mathbf{q}) = \sum_{i=1}^{n} \mathbf{J}_i^T \hat{I}_i \mathbf{J}_i\)</span></li>
+<li><strong>力矩映射</strong>：<span class="arithmatex">\(\boldsymbol{\tau} = \sum_{i=1}^{n} \mathbf{J}_i^T \hat{f}_i\)</span></li>
+</ol>
+</div>
+<p>已知空间力<span class="arithmatex">\(^{B}{\hat{f}}\)</span>，我们可以用下式求解刚体<span class="arithmatex">\(B\)</span>的空间加速度<span class="arithmatex">\({^{B}{\hat{a}}}\)</span>：</p>
+<div class="arithmatex">\[
+{^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}
+\]</div>
+<p>其中 <span class="arithmatex">\({\hat{b}}=^{B}{\Phi}{\hat{p}_B}\)</span> 。</p>
 
 
 
