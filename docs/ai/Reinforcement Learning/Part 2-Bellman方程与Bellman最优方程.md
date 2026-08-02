@@ -128,17 +128,23 @@ $$
     {v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
     $$
     我们可以证明为什么能够迭代法能够在$n$步之后实现满足误差范围的$v_{\pi}$，首先我们令：
+
     $$
     {\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)
     $$
+
     代入上面的迭代式子，我们可以得到：
+
     $$
     \begin{align}{{\delta}_{k+1}}&={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&={\gamma}{P}{{\delta}_{k}}\end{align}
     $$
+
     然后我们从$k=0$开始迭代，我们最终得到：
+
     $$
     {{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}
     $$
+    
     那么随着迭代次数$k$的不断增大，$\delta$也逐渐趋近于0。因此迭代方法能够实现对任意初始值$v_0$，只要迭代次数$k$足够多，结果一定收敛到$v_{\pi}$。
 
 !!! tip "State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比"
