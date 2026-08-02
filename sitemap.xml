@@ -16,6 +16,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/math/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/math/Information%20Theory/Part%201-Probability%2C%20Entropy%2C%20and%20Inference/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/tech-blog/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
