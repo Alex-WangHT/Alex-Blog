@@ -7,9 +7,9 @@
 
 !!! note "刚体系统的运动方程表达"
     刚体系统的运动方程可以写成以下的**标准形式**：
-    $$
+    ```math
     {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}
-    $$
+    ```
     其中：
     - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度变量的矢量。
     - ${\boldsymbol{\tau}}$是作用力的矢量。
@@ -196,9 +196,9 @@ $$
 !!! note "空间变换矩阵(Spatial Transformation Matrix)"
     假设有两个坐标系 $Frame{\{\mathcal{A}\}}$ 和 $Frame{\{\mathcal{B}\}}$ 。$Frame{\{\mathcal{B}\}}$ 坐标系相对于 $Frame{\{\mathcal{A}\}}$ 坐标系的几何关系由旋转矩阵 $\mathbf{R} = {^A_B \mathbf{R}}$ 和位置向量 ${p} = {^A\vec{p}_{BORG}}$ (即$Frame{\{\mathcal{B}\}}$原点在$Frame{\{\mathcal{A}\}}$中的位置) 确定。
     **空间变换矩阵 ${{^A_B}\mathbf{X}}$** 用于将空间矢量从$Frame{\{\mathcal{B}\}}$ 坐标系转换到 $Frame{\{\mathcal{A}\}}$ 坐标系， 的定义如下：
-    $$
+    ```math
     {{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}
-    $$
+    ```
     其中：
     - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
     -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
@@ -429,9 +429,9 @@ $$
 
 !!! note "带约束的刚体系统的动力学方程表达"
     带约束的刚体系统的动力学方程可以写成以下的**标准形式**：
-    $$
+    ```math
     {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
-    $$
+    ```
     其中：
     - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度。
     - ${\boldsymbol{\tau}}$是作用力的矢量，${\boldsymbol{\tau_c}}$是约束力的矢量
@@ -444,9 +444,9 @@ $$
 
 !!! note "若尔当变分定理"
     对于受理想约束的系统，在给定时刻 $t$ 和给定位置 $\mathbf{r}$，系统的真实运动满足：主动力与惯性力在**虚速度**（速度变分 $\delta \mathbf{v}$）上所作的**虚功率**之和为零，其数学表达式为：
-    $$
+    ```math
     \sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0
-    $$
+    ```
 
 
 我们设约束力为$\boldsymbol{\tau_c}$，那么我们根据若尔当变分原理可以得到约束力的功率${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0$。我们分别使用显式约束和隐式约束来表示约束力${\boldsymbol{\tau_c}}$：
@@ -498,9 +498,9 @@ $$
 
 !!! note "矢量子空间"
     假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
-    $$
+    ```math
     {\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}
-    $$
+    ```
     
 
 
@@ -550,22 +550,22 @@ $$
     
     以最常用的 **$Z-Y-X$ 顺规**（常用于航空航天的 Roll-Pitch-Yaw）为例，假设旋转角度分别为 $\phi$ (绕 $z$)、$\theta$ (绕 $y$)、$\psi$ (绕 $x$)：
     单个轴的旋转矩阵为：
-    $$
+    ```math
     R_z(\phi) = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\psi & -\sin\psi \\ 0 & \sin\psi & \cos\psi \end{bmatrix}
-    $$
+    ```
     组合后的旋转矩阵 $R = R_z R_y R_x$：
-    $$
+    ```math
     R = \begin{bmatrix} c_\phi c_\theta & c_\phi s_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta & s_\phi s_\theta s_\psi + c_\phi c_\psi & s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta & c_\theta s_\psi & c_\theta c_\psi \end{bmatrix}
-    $$
+    ```
     (注：$c$ 代表 $\cos$，$s$ 代表 $\sin$)
 
 
 !!! note "四元数"
     在使用欧拉角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入**四元数**来描述刚体的姿态。
     首先介绍一下四元数(Quaternions)，一个四元数$q$可以表示为一个实数和三个虚数单位$i$，$j$，$k$的线性组合：
-    $$
+    ```math
     q=a+bi+cj+dk
-    $$
+    ```
     其中$a$，$b$，$c$，$d$是实数，$a$为实部，$bi+cj+dk$为虚部。四元数的矩阵分别表示左乘矩阵表示$L(q)$和右乘矩阵表示$R(q)$：
     $$ L(q) = 
     \begin{pmatrix} 
@@ -576,9 +576,9 @@ $$
     \begin{pmatrix} 
     a & -b & -c & -d \\ b & a & d & -c \\ c & -d & a & b \\d & c & -b & a
     \end{pmatrix}
-    $$
+    ```math
     如图所示，刚体在绕着过点$O$的旋转轴做定轴旋转运动，向量$\vec{n}$是旋转轴的方向向量，$\theta$是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：
-    $$
+    ```
     \begin{align}q&=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}
     $$
     ![[Fig 1-1-9.png]]
