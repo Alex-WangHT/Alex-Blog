@@ -2414,7 +2414,8 @@ v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\
 <p>上式结果就是<strong>贝尔曼方程</strong>的一般形式。</p>
 <div class="admonition note">
 <p class="admonition-title">Bellman Equation</p>
-<div class="arithmatex">\[v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\\]</div>
+<div class="arithmatex">\[v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
+\]</div>
 </div>
 <p>我们设Agent在当前的环境中有一系列的State：
 $$
@@ -2472,32 +2473,32 @@ r_{\pi}={
 \]</div>
 <div class="admonition question">
 <p class="admonition-title">我们为什么要求解State Value？</p>
+</div>
 <p>因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：</p>
 <ul>
 <li><strong>矩阵求解</strong>：这是State Value的Closed form解，我们已知状态转移矩阵<span class="arithmatex">\(P\)</span>，每个状态的回报期望值矩阵<span class="arithmatex">\(R_{\pi}\)</span>和折扣系数<span class="arithmatex">\({\gamma}\)</span>。我们可以通过矩阵求逆的形式求解：
-$$
-{v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}
-s$$
-这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。</li>
+    $$
+    {v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}
+    s$$
+    这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。</li>
 <li><strong>迭代求解</strong>：迭代求解是先预设一个State Value矩阵的初始值<span class="arithmatex">\({v_{0}}\)</span>，使用下面的迭代方式直到第<span class="arithmatex">\(n\)</span>步求出最终的状态值矩阵：
-$$
-{v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
-$$
-我们可以证明为什么能够迭代法能够在<span class="arithmatex">\(n\)</span>步之后实现满足误差范围的<span class="arithmatex">\(v_{\pi}\)</span>，首先我们令：</li>
+    $$
+    {v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
+    $$
+    我们可以证明为什么能够迭代法能够在<span class="arithmatex">\(n\)</span>步之后实现满足误差范围的<span class="arithmatex">\(v_{\pi}\)</span>，首先我们令：
+    $$
+    {\delta}<em k="k">{k}=v</em>(k=0,1,2,\dots,n)
+    $$
+    代入上面的迭代式子，我们可以得到：
+    $$
+    \begin{align}{{\delta}}-v_{\pi}{\quad<em>{k+1}}&amp;={r</em>\pi}+{\gamma}{P}({{\delta}<em _pi="\pi">{k}}+{v</em>}})-{v_{\pi}}\&amp;={r_\pi}+{\gamma}{P}{{\delta<em _pi="\pi">{k}}-(I-{\gamma}{P}){{v}</em>}}\&amp;={\gamma}{P}{{\delta<em k_1="k+1">{k}}\end{align}
+    $$
+    然后我们从<span class="arithmatex">\(k=0\)</span>开始迭代，我们最终得到：
+    $$
+    {{\delta}</em>
+    $$
+    那么随着迭代次数}}=({\gamma}{P})^{k+1}{{\delta}_{0}<span class="arithmatex">\(k\)</span>的不断增大，<span class="arithmatex">\(\delta\)</span>也逐渐趋近于0。因此迭代方法能够实现对任意初始值<span class="arithmatex">\(v_0\)</span>，只要迭代次数<span class="arithmatex">\(k\)</span>足够多，结果一定收敛到<span class="arithmatex">\(v_{\pi}\)</span>。</li>
 </ul>
-<div class="arithmatex">\[
-{\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)
-\]</div>
-<p>代入上面的迭代式子，我们可以得到：</p>
-<div class="arithmatex">\[
-\begin{align}{{\delta}_{k+1}}&amp;={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&amp;={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&amp;={\gamma}{P}{{\delta}_{k}}\end{align}
-\]</div>
-<p>然后我们从<span class="arithmatex">\(k=0\)</span>开始迭代，我们最终得到：</p>
-<div class="arithmatex">\[
-{{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}
-\]</div>
-<p>那么随着迭代次数<span class="arithmatex">\(k\)</span>的不断增大，<span class="arithmatex">\(\delta\)</span>也逐渐趋近于0。因此迭代方法能够实现对任意初始值<span class="arithmatex">\(v_0\)</span>，只要迭代次数<span class="arithmatex">\(k\)</span>足够多，结果一定收敛到<span class="arithmatex">\(v_{\pi}\)</span>。</p>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比</p>
 <p>从算法复杂度的角度来评判当前的算法复杂度
