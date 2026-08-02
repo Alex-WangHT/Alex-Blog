@@ -2538,10 +2538,12 @@
 <div class="admonition note">
 <p class="admonition-title">广义策略迭代（Generalized Policy Iteration）</p>
 <p><strong>广义策略迭代（Generalized Policy Iteration）</strong> 是强化学习中的一个<strong>核心思想和元结构</strong>，它描述了最优策略 <span class="arithmatex">\(\pi^*\)</span> 和最优价值函数 <span class="arithmatex">\(V^*\)</span> 是如何通过<strong>策略评估 (Policy Evaluation, PE)</strong> 和<strong>策略改进 (Policy Improvement, PI)</strong> 这两个过程的<strong>持续交替和同步进行</strong>来实现收敛的。
-广义策略迭代包括策略评估和策略迭代这两个核心机制：
-- <strong>策略评估 (PE):</strong> 使价值函数 <span class="arithmatex">\(V\)</span> 与当前策略 <span class="arithmatex">\(\pi\)</span> 保持一致（<span class="arithmatex">\(v \approx v_{\pi}\)</span>）。
-- <strong>策略改进 (PI):</strong> 根据 <span class="arithmatex">\(V\)</span> 贪婪地选择动作，从而得到一个改进的策略 <span class="arithmatex">\(\pi'\)</span> (<span class="arithmatex">\(\pi' \ge \pi\)</span>）。
-这两个过程互相驱动，共同收敛到最优解。大多数基于价值函数的强化学习算法（如策略迭代、值迭代、Q-Learning 等）都属于 GPI 的具体实现。</p>
+广义策略迭代包括策略评估和策略迭代这两个核心机制：</p>
+<ul>
+<li><strong>策略评估 (PE):</strong> 使价值函数 <span class="arithmatex">\(V\)</span> 与当前策略 <span class="arithmatex">\(\pi\)</span> 保持一致（<span class="arithmatex">\(v \approx v_{\pi}\)</span>）。</li>
+<li><strong>策略改进 (PI):</strong> 根据 <span class="arithmatex">\(V\)</span> 贪婪地选择动作，从而得到一个改进的策略 <span class="arithmatex">\(\pi'\)</span> (<span class="arithmatex">\(\pi' \ge \pi\)</span>）。</li>
+</ul>
+<p>这两个过程互相驱动，共同收敛到最优解。大多数基于价值函数的强化学习算法（如策略迭代、值迭代、Q-Learning 等）都属于 GPI 的具体实现。</p>
 </div>
 
 
