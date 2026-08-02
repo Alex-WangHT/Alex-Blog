@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/">
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/Part%202-Bellman%E6%96%B9%E7%A8%8B%E4%B8%8EBellman%E6%9C%80%E4%BC%98%E6%96%B9%E7%A8%8B/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
     
     
       
-        <title>强化学习的大体知识架构 - Alex Blog</title>
+        <title>二、贝尔曼方程(Bellman Equation) - Alex Blog</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#bellman-equation" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              强化学习的大体知识架构
+              二、贝尔曼方程(Bellman Equation)
             
           </span>
         </div>
@@ -423,14 +423,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_1_1">
@@ -493,34 +485,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tech-blog/tags/Transformer/" class="md-nav__link">
-        #Transformer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../tech-blog/tags/%E6%95%B0%E5%AD%A6/" class="md-nav__link">
-        #数学
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         #机器人
       </a>
@@ -537,34 +501,6 @@
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
         #概率论
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../tech-blog/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
-        #注意力机制
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../tech-blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
-        #深度学习
       </a>
     </li>
   
@@ -689,8 +625,6 @@
           
         
           
-        
-          
             
           
         
@@ -714,20 +648,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../transformer-attention/" class="md-nav__link">
-        Transformer 注意力机制数学推导
-      </a>
-    </li>
-  
-
             
           
             
@@ -1028,191 +948,12 @@
                 
                   
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/强化学习的数学原理.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/Part 2-Bellman方程与Bellman最优方程.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">强化学习的大体知识架构</h1>
-<p>![[Fig 0.png]]</p>
-<p>强化学习，起始于<strong>Bellman Equation</strong>，也就是大名鼎鼎的<strong>贝尔曼方程</strong>。</p>
-<h1 id="_2">每个章节对应的相关强化学习算法</h1>
-<p>为了方便对每个章节和算法的快速学习，我们做一个表格来总结不同算法的本质基础和特征。有利于在从第四章开始进行算法的分析，也有利于对算法的深刻理解。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">对应的章节</th>
-<th style="text-align: left;">算法的本质基础</th>
-<th style="text-align: left;">强化学习算法</th>
-<th style="text-align: left;">核心性质/补充说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Chapter 4</td>
-<td style="text-align: left;"><strong>Model-Based</strong> (基于模型)</td>
-<td style="text-align: left;"><strong>动态规划 (DP)</strong>，<strong>Dyna-Q</strong>，<strong>Model-Based RL (MBRL)</strong></td>
-<td style="text-align: left;">显式建模环境的<strong>转移函数</strong>和<strong>奖励函数</strong>。<strong>DP</strong> 通常不需要经验数据（纯规划）。</td>
-</tr>
-<tr>
-<td style="text-align: left;">Chapter 5</td>
-<td style="text-align: left;"><strong>Model-Free 细分 1：</strong> <strong>蒙特卡洛 (Monte Carlo)</strong></td>
-<td style="text-align: left;"><strong>REINFORCE</strong> (作为策略梯度)，<strong>MC Control</strong> (如 <span class="arithmatex">\(\epsilon\)</span>-greedy MC)</td>
-<td style="text-align: left;">使用<strong>完整的回报</strong>（整个回合结束后的累计奖励）来更新价值或策略。<strong>高方差，无偏差</strong>。</td>
-</tr>
-<tr>
-<td style="text-align: left;">Chapter 7</td>
-<td style="text-align: left;"><strong>Model-Free 细分 2：</strong> <strong>时序差分 (Temporal-Difference, TD)</strong></td>
-<td style="text-align: left;"><strong>TD(0)</strong>，<strong>TD(<span class="arithmatex">\(\lambda\)</span>)</strong>，<strong>SARSA(<span class="arithmatex">\(\lambda\)</span>)</strong>，<strong>Q-Learning</strong> (作为 TD 的应用)</td>
-<td style="text-align: left;">使用<strong>自举 (Bootstrapping)</strong> 思想，用估计的未来价值来更新当前价值。<strong>低方差，有偏差</strong>。</td>
-</tr>
-<tr>
-<td style="text-align: left;">Chapter 8</td>
-<td style="text-align: left;"><strong>Model-Free 细分 3：</strong> <strong>Value-Based (基于价值)</strong></td>
-<td style="text-align: left;"><strong>Q-Learning</strong>，<strong>SARSA</strong>，<strong>DQN</strong>，<strong>DDQN</strong>，<strong>C51 (分布RL)</strong></td>
-<td style="text-align: left;">目标是学习最优的 <strong>Q 函数</strong>。绝大多数此类方法都基于 <strong>TD</strong> 思想。策略是从中学到的价值函数中<strong>隐式导出</strong>的。</td>
-</tr>
-<tr>
-<td style="text-align: left;">Chapter 9</td>
-<td style="text-align: left;"><strong>Model-Free 细分 4：</strong> <strong>Policy-Based (基于策略)</strong></td>
-<td style="text-align: left;"><strong>策略梯度 (PG)</strong>，<strong>REINFORCE</strong>，<strong>GPRO</strong></td>
-<td style="text-align: left;"><strong>直接优化</strong>策略 <span class="arithmatex">\(\pi(a\|s)\)</span> 的参数。通常是 <strong>On-Policy</strong>，方差较大。</td>
-</tr>
-<tr>
-<td style="text-align: left;">Chapter 10</td>
-<td style="text-align: left;"><strong>Model-Free 细分 5：</strong> <strong>Actor-Critic (行动者-评判者)</strong></td>
-<td style="text-align: left;"><strong>A2C/A3C</strong>，<strong>DDPG</strong>，<strong>TD3</strong>，<strong>TRPO</strong>，<strong>PPO</strong>，<strong>SAC</strong></td>
-<td style="text-align: left;">结合了上述两种方法：<strong>Actor</strong> 学习策略，<strong>Critic</strong> 学习价值函数来<strong>降低策略梯度的方差</strong>。是现代深度强化学习（Deep Reinforcement Learning）的主流架构。</td>
-</tr>
-<tr>
-<td style="text-align: left;">需要注意的是，这些分类维度存在交叉关系：</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">- <strong>TD</strong> 和 <strong>蒙特卡洛</strong> 描述的是<strong>价值/回报的估计方法</strong>。</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">- <strong>Value-Based</strong> 和 <strong>Policy-Based</strong> 描述的是<strong>学习的目标</strong>。</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">- <strong>Actor-Critic</strong> 是<strong>架构</strong>，它结合了 <strong>Policy-Based</strong> 的 Actor 和 <strong>Value-Based</strong> 的 Critic。</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;"># 一、强化学习基本名词</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">## 1.1-Agent</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">&gt; [!NOTE] Agent</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: left;">&gt; <strong>Agent(智能体)</strong>是在环境中通过感知(perception)获取状态、通过决策(policy)选择动作、并通过执行(action)影响环境，进而获得奖励(reward)的实体。</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="12-state-and-state-space">1.2-State and State Space</h2>
-<blockquote>
-<p>[!NOTE] State
-<strong>State(状态)</strong>指Agent在环境中能够观测并且量化的变量的集合。</p>
-<p>[!NOTE] State Space
-<strong>State Space(状态空间)</strong>指的是在环境中所有<span class="arithmatex">\(n\)</span>个状态<span class="arithmatex">\(s_i(i=1,2,\dots,n)\)</span>的集合，状态空间的表达式：
-$<span class="arithmatex">\({\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}\)</span>$</p>
-</blockquote>
-<h2 id="13-action-and-action-space">1.3-Action and Action Space</h2>
-<blockquote>
-<p>[!NOTE] Action
-<strong>Action(动作)</strong>指Agent在特定状态<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>可以执行的任意Action，这个过程我们一般用<span class="arithmatex">\(a\)</span>来表示，一般来说任意的State<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>有多个Action:
-$<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$</p>
-<p>[!NOTE] Action Space
-对于在状态空间中的任意状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>来说，在这个状态能够执行的所有的Acton：
-$<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$
-的集合定义为状态<span class="arithmatex">\(s_i\)</span>的<strong>Action Space(动作空间)</strong>：
-$<span class="arithmatex">\(\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}\)</span>$</p>
-</blockquote>
-<h2 id="14-state-transition">1.4-State transition</h2>
-<blockquote>
-<p>[!NOTE] State transition
-<strong>State transition(状态转移)</strong>指的是状态集合<span class="arithmatex">\(\{S\}\)</span>中的状态<span class="arithmatex">\(s_i\)</span>通过动作集合<span class="arithmatex">\(\{A(s_i)\}\)</span>中的某个动作<span class="arithmatex">\(a_k\)</span>转移到另外的状态<span class="arithmatex">\(s_j\)</span>的过程：
-$$
-{s_i}{\xrightarrow{a_k}}{s_j}
-$$</p>
-</blockquote>
-<h2 id="15-policy">1.5-Policy</h2>
-<blockquote>
-<p>[!NOTE] Policy
-<strong>Policy(策略)</strong> 代表着在环境中的任意给定状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>下，采取动作<span class="arithmatex">\(a_k{\in}{\{{\mathcal{A}}(s_i)\}}\)</span>的可能性。Policy可以用以下的形式来表达：
-- <strong>函数形式：</strong> 将策略<span class="arithmatex">\({\pi}\)</span>看作一种函数，函数的输入变量为状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，输出变量为在当前需要采取的动作<span class="arithmatex">\({a}{\in}{\mathcal{A}}\{s\}\)</span>，该函数表达如下：$<span class="arithmatex">\({a}={\pi}({s})\)</span><span class="arithmatex">\(这种形式可以用于离散或者连续的状态集合\)</span>\mathcal{S}<span class="arithmatex">\(，以及离散或者连续的动作集合\)</span>{\mathcal{A}}<span class="arithmatex">\(。
-- **条件概率形式：** 在当前状态\)</span>s{\in}{\mathcal{S}}<span class="arithmatex">\(的情况下，执行动作\)</span>a_k{\in}{{{\mathcal{A}}(s_i)}}<span class="arithmatex">\(的概率\)</span>{\pi}({a_k}|{s})$。这种形式大多数情况下用于离散的动作序列。</p>
-</blockquote>
-<p>强化学习的主要目标，是为了<strong>学习到全局最优的策略<span class="arithmatex">\({\pi}^{*}\)</span></strong>，我们有<strong>Value-Based</strong>和<strong>Policy-Based</strong>两个方式去学习最优策略<span class="arithmatex">\({\pi}^{*}\)</span>。</p>
-<blockquote>
-<p>[!NOTE] Value-Based方法和Policy-Based方法
-- <strong>Value-Based方法</strong>：
-  - 核心思想：首先学习价值函数（Value Function）
-  - 最优策略是通过<strong>Greedy策略</strong>，也就是在当前的状态下选择能够带来最高价值的动作来间接确定。
-- <strong>Policy-Based方法</strong>：
-  - 核心思想：直接学习和优化策略函数<span class="arithmatex">\({\pi}({s})\)</span>和<span class="arithmatex">\({\pi}({a}|{s})\)</span>，使之能最大化期望回报。
-  - 例如：Policy Gradient，Actor-Critic策略。</p>
-</blockquote>
-<h2 id="16-reward">1.6-Reward</h2>
-<blockquote>
-<p>[!NOTE] Reward
-<strong>Reward(奖励)</strong>代表着Agent在某个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>下，通过执行动作<span class="arithmatex">\(a_i{\in}{{\mathcal{A}}(s_i)}\)</span>转移到其他状态<span class="arithmatex">\(s’{\in}{\mathcal{S}}\)</span>获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。</p>
-</blockquote>
-<p>在现实生活中，环境是随机的。因此在相同状态执行相同动作，获得的回报也不一定相同，因此，获得回报是个概率性时间
-（在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态<span class="arithmatex">\(s\)</span>，执行动作<span class="arithmatex">\(a\)</span>的时候，获取收益<span class="arithmatex">\(r\)</span>的概率可以表示为<span class="arithmatex">\(p(r|s,a)\)</span>。）</p>
-<h2 id="17-trajectoryepisode">1.7-Trajectory和Episode</h2>
-<blockquote>
-<p>[!NOTE] Trajectory
-<strong>Trajectory(轨迹)</strong>是在固定策略 <span class="arithmatex">\(\pi\)</span> 与环境转移概率 <span class="arithmatex">\(P(s′|s,a)\)</span> 下，Agent 依次产生的一段状态-动作-奖励链：
-$$
-{s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}
-$$</p>
-</blockquote>
-<h2 id="18-return">1.8-Return</h2>
-<blockquote>
-<p>[!NOTE] Return
-<strong>Return(回报)</strong>是Agent从当前时间<span class="arithmatex">\(t\)</span>所在的状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>开始，在任意一条可能的Trajectory上从<span class="arithmatex">\(t+1\)</span>时刻开始获得的所有未来奖励的总和。</p>
-</blockquote>
-<p>（直接Return相加只适用于有限步数的，我们更多地使用无限步数的Return，那么所有的Return是无限的，就区分不出来哪个策略是好的或者坏的，我们需要使用一种衰减来让Agent实现策略是可以分辨出好坏的，那么对于没有结束的过程的Return，我们使用Discount Return来实现可量化的Return评估）</p>
-<blockquote>
-<p>[!NOTE] Discount Return
-<strong>Discount Return(折扣回报)</strong></p>
-<p>[!question] 为什么在强化学习里面用的最多的是Discount Return
-Contents</p>
-</blockquote>
-<h2 id="19-markov-decision-processes">1.9-Markov Decision Processes</h2>
-<p>（<strong>未来总回报的价值</strong>只取决于智能体<strong>当前所处的状态</strong>，与过去的历史轨迹无关，这正是MDP的核心马尔可夫性质。因此，智能体为了最大化未来的回报，只需要根据<strong>当前状态</strong>来做出最优决策，从而极大地简化了复杂的学习问题。）
-（从我们的Trajectory Chain我们可以发现我们得到的是一系列的）</p>
-<blockquote>
-<p>[!NOTE] Markov decision processes(重点理解)
-<strong>Markov decision processes(马尔科夫决策过程)</strong>指的是Agent未来的State只与当前时间<span class="arithmatex">\(t\)</span>的State和从<span class="arithmatex">\(t+1\)</span>时刻开始的未来状态有关，与从<span class="arithmatex">\(t-1\)</span>之前的历史状态无关。</p>
-</blockquote>
 <h1 id="bellman-equation">二、贝尔曼方程(Bellman Equation)</h1>
 <p>首先我们的Agent面对的状态以及各个状态对应的不同动作及其回报如图所示：</p>
 <p>我们
@@ -1492,291 +1233,6 @@ $$
 对于求解最优解，我们有两种方式来求解：<strong>价值迭代</strong>和<strong>策略迭代</strong>。</p>
 <h3 id="3-3-2">3-3-2.最优策略的贝尔曼优化方程的结果对应最优状态值</h3>
 <p>我们已经证明了贝尔曼最优方程是能够通过收缩映射定理能够求最优解的，那么我们需要证明一件事情，那就是<strong>Optimal State Value和Optimal Policy</strong>是否是一一对应的，也就是说我们的最优策略是否一定对应最优解。</p>
-<h1 id="_3">四、值迭代和策略迭代</h1>
-<p>在前面我们已经分析贝尔曼最优公式以及贝尔曼最优公式的一些性质。我们在这里需要介绍贝尔曼最优公式的两种解法：<strong>值迭代</strong>和<strong>策略迭代</strong>。</p>
-<h2 id="4-1value-iteration">4-1.值迭代（Value Iteration）</h2>
-<p>我们初始化状态值<span class="arithmatex">\(v_0\)</span>，然后我们分为两步进行：
-第一步是<strong>策略更新（Policy Update）</strong>：首先我们根据给定的状态值<span class="arithmatex">\({v_{k}}\)</span>来计算在当前条件下的最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>：
-$$
-{{\pi}<em>{k+1}}={\arg}{\max</em>{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{k}})
-$$
-第二步是<strong>数值更新（Value Update）</strong>：我们需要根据最优策略<span class="arithmatex">\({\pi}_{k+1}\)</span>和之前的状态值<span class="arithmatex">\(v_k\)</span>来计算当前条件下的状态值<span class="arithmatex">\({v}_{k+1}\)</span>：
-$$
-{v_{k+1}}={r_{{\pi}<em>{k+1}}}+{\gamma}{P</em>{{\pi}<em>{k+1}}}{v</em>{k}}
-$$
-该方法对应的伪代码如下：</p>
-<blockquote>
-<p>[!EXAMPLE] 值迭代方法的Python程序实现
-值迭代的Python程序实现如下：
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="4-2policy-iteration">4-2.策略迭代（Policy Iteration）</h2>
-<p>我们初始化策略<span class="arithmatex">\(\pi_0\)</span>，然后我们分为两步进行：
-第一步是<strong>策略评估（Policy Evaluation）</strong>：在这一步我们需要使用<strong>迭代法求解贝尔曼方程的方法</strong>，来计算在当前策略<span class="arithmatex">\({\pi}_{k}\)</span>下的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>。即：
-$$
-{v_{{\pi}<em>{k}}}={r</em>{{\pi}<em>{k}}}+{\gamma}{P</em>{{\pi}<em>{k}}}{v</em>{{\pi}<em>{k}}}
-$$
-第二步是<strong>策略增强（Policy Improvement）</strong>：在这里，我们使用类似于值迭代的方法，根据当前策略的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>来计算最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>。即：
-$$
-{{\pi}</em>{k+1}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{{\pi}_{k}}})
-$$
-该方法对应的伪代码如下：</p>
-<blockquote>
-<p>[!EXAMPLE] 策略迭代方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="4-3truncated-policy-iteration">4-3.截断策略迭代（Truncated Policy Iteration）</h2>
-<p>在前面提到的策略迭代方法中，我们的Policy</p>
-<blockquote>
-<p>[!EXAMPLE] 截断策略迭代方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
-</code></pre></div></p>
-</blockquote>
-<p>我们可以发现一个事情，也就是说当</p>
-<blockquote>
-<p>[!TIP] 截断策略迭代，值迭代与策略迭代之间的关系
-- <strong>截断策略迭代</strong>：
-- <strong>值迭代</strong>：
-- <strong>策略迭代</strong>：</p>
-</blockquote>
-<p>其实，截断策略迭代也是<strong>广义策略迭代（Generalized Policy Iteration）</strong> 的一种形式，广义策略迭代的定义如下：</p>
-<blockquote>
-<p>[!NOTE] 广义策略迭代（Generalized Policy Iteration）
-<strong>广义策略迭代（Generalized Policy Iteration）</strong> 是强化学习中的一个<strong>核心思想和元结构</strong>，它描述了最优策略 <span class="arithmatex">\(\pi^*\)</span> 和最优价值函数 <span class="arithmatex">\(V^*\)</span> 是如何通过<strong>策略评估 (Policy Evaluation, PE)</strong> 和<strong>策略改进 (Policy Improvement, PI)</strong> 这两个过程的<strong>持续交替和同步进行</strong>来实现收敛的。</p>
-<p>广义策略迭代包括策略评估和策略迭代这两个核心机制：</p>
-<ul>
-<li><strong>策略评估 (PE):</strong> 使价值函数 <span class="arithmatex">\(V\)</span> 与当前策略 <span class="arithmatex">\(\pi\)</span> 保持一致（<span class="arithmatex">\(v \approx v_{\pi}\)</span>）。</li>
-<li><strong>策略改进 (PI):</strong> 根据 <span class="arithmatex">\(V\)</span> 贪婪地选择动作，从而得到一个改进的策略 <span class="arithmatex">\(\pi'\)</span> (<span class="arithmatex">\(\pi' \ge \pi\)</span>）。</li>
-</ul>
-<p>这两个过程互相驱动，共同收敛到最优解。大多数基于价值函数的强化学习算法（如策略迭代、值迭代、Q-Learning 等）都属于 GPI 的具体实现。</p>
-</blockquote>
-<h1 id="_4">五、蒙特卡洛方法</h1>
-<h2 id="5-1">5-1.大数定理和蒙特卡洛采样</h2>
-<p>首先介绍一下<strong>大数定理</strong>：</p>
-<blockquote>
-<p>[!NOTE] 大数定理
-设 <span class="arithmatex">\(X_1, X_2, \ldots, X_n\)</span> 是独立同分布（i.i.d.）的随机变量序列，且它们具有有限的期望值（或均值）<span class="arithmatex">\(\mu\)</span>:
-$<span class="arithmatex">\(E[X_i] = \mu\)</span>$
-定义这 <span class="arithmatex">\(n\)</span> 个随机变量的样本均值 <span class="arithmatex">\(\bar{X}_n\)</span> 为：
-$<span class="arithmatex">\(\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\)</span>$
-<strong>大数定理</strong>断言：随着样本数量 <span class="arithmatex">\(n\)</span> 趋于无穷大，样本均值 <span class="arithmatex">\(\bar{X}_n\)</span> 将<strong>收敛</strong>于期望值 <span class="arithmatex">\(\mu\)</span>。</p>
-</blockquote>
-<p>假设我们开始扔硬币，每次扔完硬币之后，我们都记录下来扔的是正面还是反面，记正面为1，反面为0。在第k次扔硬币的时候，我们都会将前面k次所有的结果取平均值。我们会发现随着我们扔硬币次数k的不断增加，我们前面k次扔硬币的平均值也会回归到扔硬币对应数学期望值。这就是大数定理。</p>
-<h2 id="5-2mc-based">5-2.MC-Based算法</h2>
-<p><strong>蒙特卡洛 (MC-Based) 算法</strong>通过<strong>完整的试验 (Episode)</strong> 进行学习。在每个试验结束后，算法会计算<strong>实际获得的</strong>总回报 <span class="arithmatex">\(G_t\)</span> 作为状态-动作对 <span class="arithmatex">\((s, a)\)</span> 价值的样本，并用它来<strong>更新</strong> <span class="arithmatex">\(Q(s, a)\)</span> 的估计值。由于它使用实际回报而非对未来状态的估计（不自举），因此学习过程具备低偏差性。随后，算法根据更新后的 <span class="arithmatex">\(Q\)</span> 值，通过<strong>贪婪 (Greedy) 策略</strong>来改进当前的行动策略 <span class="arithmatex">\(\pi(s) = \arg\max_a Q(s, a)\)</span>，并结合 <span class="arithmatex">\(\epsilon\)</span>-贪婪机制来确保对环境的持续探索，如此往复，直至 <span class="arithmatex">\(Q\)</span> 值和策略收敛到最优。</p>
-<blockquote>
-<p>[!EXAMPLE] MC Based算法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="5-3mc-exploring">5-3.MC-Exploring算法</h2>
-<p>前面提到的<strong>MC-Based算法</strong>提供了一个很简单的方式去理解在Model-Free的情况下如何求解Action-Value。
-但是MC-Based这种方法有一个致命的缺点，就是我从某一个键值对<span class="arithmatex">\(({s},{a})\)</span>开始遍历一整个Episode之后才能返回一个Action-Value。这样大大降低了采样效率。
-假设我们根据策略<span class="arithmatex">\(\pi\)</span>有以下的一个采样的Episode：
-$$
-{s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}
-$$
-我们可以像如下所示这样将上面的Episode分解成多个子Episode，每个子Episode可以看作是一个新的Episode。在走完第一个状态-动作对<span class="arithmatex">\((s_1,a_2)\)</span>之后，我们以下一个状态-动作对<span class="arithmatex">\((s_2,a_4)\)</span>为起点的Episode作为一个新的Episode来看待。这些Episode能够用来估计更多的Action-Value。这样我们能够更有效地利用整个Episode的样本。
-$$
-\begin{align}
-{s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[original episode starting from}(s_1,a_2)]}\
-{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[subepisode starting from}(s_2,a_4)]}\
-{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[subepisode starting from}(s_1,a_2)]}\
-{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[subepisode starting from}(s_3,a_3)]}\
-{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[subepisode starting from}(s_6,a_4)]}\
-{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[subepisode starting from}(s_5,a_3)]}\
-\end{align}
-$$</p>
-<blockquote>
-<p>[!NOTE] 一次访问策略和多次访问策略
-- <strong>一次访问策略(first-visit strategy)</strong>：一次访问策略就是说，在策略评估步骤中，收集从相同状态-动作对开始的所有事件，然后使用这些事件的平均回报近似动作值。
-- <strong>多次访问策略(every-visit strategy)</strong>：</p>
-</blockquote>
-<p>（引入MC-Exploring算法）</p>
-<blockquote>
-<p>[!EXAMPLE] MC Exploring算法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="5-4mc-epsilon-greedy">5-4.MC <span class="arithmatex">\({\epsilon}\)</span>-greedy算法</h2>
-<p>接下来我们来讨论一下探索性和利用性：</p>
-<blockquote>
-<p>[!NOTE] Expectation和Exploitation
-Contents</p>
-<p>[!EXAMPLE] MC <span class="arithmatex">\({\epsilon}\)</span>-greedy算法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h1 id="_5">六、时序差分方法</h1>
-<h2 id="6-1robbins-monrodvoretzky">6-1.Robbins-Monro算法和Dvoretzky定理</h2>
-<h3 id="6-1-1robbins-monro">6-1-1.Robbins-Monro算法和均值估计</h3>
-<blockquote>
-<p>[!NOTE] Robbins-Monro算法
-罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 <span class="arithmatex">\(g(w) = 0\)</span> 的根 <span class="arithmatex">\(w^*\)</span> 的迭代方法。
-在第 <span class="arithmatex">\(k\)</span> 步，我们只能观测到带有随机噪声 <span class="arithmatex">\(\eta_k\)</span> 的梯度估计值：
-$<span class="arithmatex">\({\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k\)</span>$
-算法使用一个递减的步长 <span class="arithmatex">\(\gamma_k\)</span> 来更新估计值：
-$<span class="arithmatex">\(w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)\)</span>$
-<strong>关键要求:</strong> 噪声 <span class="arithmatex">\(\eta_k\)</span> 必须是<strong>无偏</strong>的（<span class="arithmatex">\(E[\eta_k | w_k] = 0\)</span>），并且步长序列<span class="arithmatex">\(\gamma_k\)</span> 需满足 <span class="arithmatex">\(\sum \gamma_k = \infty\)</span> 和 <span class="arithmatex">\(\sum \gamma_k^2 &lt; \infty\)</span>，以确保<span class="arithmatex">\(w_k\)</span> 最终收敛到 <span class="arithmatex">\(w^*\)</span>。</p>
-<p>[!TIP] Robbins-Monro算法和梯度下降(Gradient Decrease)
-我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 <span class="arithmatex">\({f}{:}{{X{\rightarrow}Y}}\)</span>，已知一系列数据集 <span class="arithmatex">\(({x}^{(i)},{y}^{(i)})\)</span>，其中 <span class="arithmatex">\({{x}{\in}{X}},{{y}{\in}{Y}}\)</span>。
-我们假定函数关系为 <span class="arithmatex">\({{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}\)</span>，其中 <span class="arithmatex">\({\theta}\)</span> 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
-$$
-J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
-$$
-<strong>核心优化目标</strong>
-- 我们训练模型的问题转化为：<strong>如何让损失函数 <span class="arithmatex">\(J(\theta)\)</span> 最小化</strong>。
-- 这等价于寻找最优参数 <span class="arithmatex">\({\theta}^{*}\)</span>，使得损失函数的梯度（<strong>驻点</strong>）为零    $<span class="arithmatex">\({{\nabla}_{\theta}}J(\theta^{*})=0\)</span>$</p>
-<p><strong>优化方法（随机逼近）</strong>
-- 解决 <span class="arithmatex">\(\nabla_{\theta}J=0\)</span> 的问题，通常采用<strong>梯度下降 (Gradient Descent)</strong> 算法族。
-- 特别地，对于大规模数据集，我们使用<strong>随机梯度下降 (SGD)</strong>，它通过<strong>小批量数据</strong> <span class="arithmatex">\(\mathcal{B}\)</span> 计算梯度的<strong>无偏估计</strong> <span class="arithmatex">\(\hat{\nabla}_{\theta} J\)</span>，然后迭代更新参数。
-- SGD 的迭代更新公式可以被视为Robbins-Monro 算法在极小化损失函数（寻找零点）问题上的特定应用：$<span class="arithmatex">\({{\theta}_{k+1}}={{\theta}_{k}}-{\alpha_k}{\hat{\nabla}_{\theta}}J(\theta_k; \mathcal{B})\)</span>$
-- 其中，<span class="arithmatex">\({\alpha_k}\)</span> 是<strong>学习率（步长）</strong>，它通常会随着训练轮次 <span class="arithmatex">\(k\)</span> 的增加而衰减。</p>
-</blockquote>
-<h3 id="6-1-2dvoretzky">6-1-2.Dvoretzky定理</h3>
-<p><strong>Dvoretzky定理</strong>是随机逼近领域的经典结果。这个定理可以用来分析RM算法和许多强化学习算法的收敛性。</p>
-<blockquote>
-<p>[!NOTE] Dvoretzky定理
-考虑到一个随机过程：
-$<span class="arithmatex">\({{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}\)</span>$
-其中<span class="arithmatex">\({\{{{\alpha}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\beta}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\eta}_{k}}\}}_{k=1}^{\infty}\)</span>都是随机序列，对任意的<span class="arithmatex">\(k\)</span>都存在<span class="arithmatex">\({{\alpha}_k}{\geq}{0}\)</span>和<span class="arithmatex">\({{\beta}_k}{\geq}{0}\)</span>。
-如果满足以下条件，那么序列<span class="arithmatex">\({{\Delta}_{k}}\)</span>基本上会收敛到0：
-- <span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}\)</span>，<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}\)</span>和<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}\)</span>基本一致。
-- <span class="arithmatex">\({\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0\)</span>和<span class="arithmatex">\({\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C\)</span>基本上确定。</p>
-<p>其中：$<span class="arithmatex">\({\mathcal{H}_k}=\{{{\Delta}_{k}},{{\Delta}_{k-1}},{\dots},{{\eta}_{k-1}},{\dots},{{\alpha}_{k-1}},{\dots},{{\beta}_{k-1}},{\dots}\}\)</span>$ </p>
-</blockquote>
-<h2 id="6-2">6-2.使用时序差分方法求解状态值</h2>
-<p>假设我们有一个策略:<span class="arithmatex">\({\pi}\)</span>，但是我们不知道任何模型和概率的先验知识的情况下，需要我们通过策略<span class="arithmatex">\({\pi}\)</span>来估计当前策略:<span class="arithmatex">\({\pi}\)</span>下每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({v_{\pi}}(s)\)</span>。
-首先我们从贝尔曼方程的定义出发：
-$$
-\begin{align}
-{v_{\pi}}({s})&amp;={\mathbb{E}}[{R_{t+1}}+{\gamma}{G_{t+1}}|{S_t}={s}]\
-&amp;={\mathbb{E}}[{R_{t+1}}|{S_t}={s}]+{\gamma}{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]\
-&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}+{\gamma}{\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}
-\end{align}
-$$
-其中：
-$$
-\begin{align}
-{\mathbb{E}}[{R_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}\
-{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}
-\end{align}
-$$
-我们根据<span class="arithmatex">\({\sum_{{a_t}{\in}{\mathcal{A}\{s\}}}}{\pi}{({a_t}|{s})}{p({{s_{t+1}}}|{s},{a_t})}={{{P}_{\pi}}({{s_{t+1}}}|{s})}\)</span>可以将<span class="arithmatex">\({\mathbb{E}}[{G_{t+1}}|{S_t}={s}]\)</span>写成如下形式：
-$$
-\begin{align}
-{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}\
-&amp;={\sum_{{s_{t+1}}{\in}{{S}}}}{{{P}<em>{\pi}}({{s</em>{t+1}}}|{s})}{v_{\pi}({s_{t+1}})}\
-&amp;={\mathbb{E}}[{v_{\pi}}({S_{t+1}})|{S_t}={s}]
-\end{align}
-$$
-那么我们的贝尔曼方程就能写成如下的形式，这个形式我们称之为<strong>贝尔曼期望方程(Bellman Expectation Function)</strong>：
-$$
-\begin{align}
-{v_{\pi}}({s})={\mathbb{E}}[{R}<em>{t+1}+{\gamma}{v</em>{\pi}}({S_{t+1}})|{S_t}={s}]
-\end{align}
-$$
-我们可以像之前的Monte-Carlo方法一样，根据已知的策略<span class="arithmatex">\(\pi\)</span>来生成<span class="arithmatex">\(N\)</span>个长度为<span class="arithmatex">\(T\)</span>（<span class="arithmatex">\(N\)</span>和<span class="arithmatex">\(T\)</span>是足够大的正整数）的Episodes，在这些Episodes中，我们假设一共经过了<span class="arithmatex">\(n\)</span>次状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>。我们记经过状态的时刻为<span class="arithmatex">\(t_i(i=1,2{\dots},n)\)</span>。我们在<span class="arithmatex">\(t_i\)</span>时刻到达状态<span class="arithmatex">\(s\)</span>后，<span class="arithmatex">\(t_i+1\)</span>时刻的状态<span class="arithmatex">\(s_{t_i+1}\)</span>是随机的。获取的状态值采样即为<span class="arithmatex">\({{r}_{t_i+1}}+{\gamma}{{v_{\pi}}({s_{t_i+1}})}\)</span>，根据大数定律我们在<span class="arithmatex">\(t_n\)</span>时刻的时候，我们估计的状态值如下：$$
-\begin{align}
-{v_{t_n}}(s)={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em>{t_i+1}}+{\gamma}{{v</em>{\pi}}({s_{t_i+1}})})
-\end{align}
-$<span class="arithmatex">\(当\)</span>n$足够大的时候，根据大数定律，我们有：
-$$
-{{v_{\pi}}(s)}={\mathbb{E}}[R_{t+1}+{\gamma}{v_{\pi}}(S_{t+1})|S_t=s]{\approx}{{v_{t_n}}(s)}={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em>{t_i+1}}+{\gamma}{{v</em>{\pi}}({s_{t_i+1}})})
-$$
-但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态<span class="arithmatex">\(s\)</span>的状态值是未知的。其他状态都是已知的。
-但是更普遍的问题是：<strong>我们待求解的状态值都是未知的</strong>。也就是说我们求解的目标就是求解每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({{v}_{\pi}}(s)\)</span>。那么刚才我们用到的使用随机拟合来求解策略<span class="arithmatex">\(\pi\)</span>下的状态值就无法使用了。
-那么首先回顾一下第二章里提到过的用迭代法求解在指定策略<span class="arithmatex">\({\pi}\)</span>下的贝尔曼方程的公式：
-$<span class="arithmatex">\({v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)\)</span>$
-将该元素形式的迭代法方程写成类似于Bellman Expectation Equation的形式如下：
-$$
-\begin{align}
-{v_{k+1}}(s)&amp;={r_{\pi}}(s)+{\gamma}{\sum_{{s_{t+1}}{\in}{{S}}}}{{P_{\pi}}({{s_{t+1}}}|{s})}{v_{k}({s_{t+1}})}\
-&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{{S}}}}{{P_{\pi}}({{s_{t+1}}}|{s})}{v_{k}({s_{t+1}})}\
-&amp;={{\mathbb{E}}[{R_{t+1}}|{S_t}={s}]}+{\gamma}{{\mathbb{E}}[{v_k}(S_{t+1})|{S_t}={s}]}\
-&amp;={\mathbb{E}}[{R_{t+1}}+{\gamma}{v_k}(S_{t+1})|{S_t}={s}]{\quad}(k=0,1,2,\dots,n)
-\end{align}
-$$
-后面根据Robbins-Monro方法求解该方程如下：
-$$
-{v_{k+1}}(s)={v_{k}}(s)-{{\alpha}<em>{k}}(s)[{v</em>{k}}(s)-({r_{t+1}}+{\gamma}{v_k}(s_{t+
-1}))]
-$$
-上面公式的<span class="arithmatex">\(k\)</span>代表了我们经过状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的次数，我们每经过一次状态<span class="arithmatex">\(s\)</span>，那么状态<span class="arithmatex">\(s\)</span>对应的状态值<span class="arithmatex">\(v(s)\)</span>就更新一次。
-那么我们改写一下：当我们按照策略<span class="arithmatex">\(\pi\)</span>生成的轨迹，在时间<span class="arithmatex">\(t\)</span>时刻经过状态<span class="arithmatex">\(s_t{\in}{\mathcal{S}}\)</span>的时候，我们的状态值按照如下形式更新：
-$$
-\begin{align}
-{v_{t+1}}(s_t)&amp;={v_{t}}(s_t)-{{\alpha}<em>{t}}(s_t)[{v</em>{t}}(s_t)-({r_{t+1}}+{\gamma}{v_t}(s_{t+1}))]\
-{v_{t+1}}(s)&amp;={v_{t}}(s)&amp;{({\forall}s{\neq}s_t)}
-\end{align}
-$$
-那么我们就推导出来了<strong>时序差分算法（Temporal Difference Algorithm）</strong>：</p>
-<blockquote>
-<p>[!NOTE] 时序差分算法（Temporal Difference Algorithm）
-</p>
-</blockquote>
-<p>我们将时序差分算法拆解如下：
-$$
-{\underbrace{v_{t+1}(s_t)}<em>{\text{new estimate}}}={\underbrace{v_t(s_t)}</em>{\text{current estimate}}}-{{\alpha}<em>{t}}(s_t)[{\underbrace{{v</em>{t}}(s_t)-{\overbrace{({r_{t+1}}+{\gamma}{v_t}(s_{t+1}))}^{\text{TD target}}}}_{\text{TD error } \delta_t}}]
-$$
-根据拆解，可以分成这四个部分：
-- 新的估计(new estimate)：
-- 当前估计(current estimate)：
-- TD Target：
-- TD Error：</p>
-<blockquote>
-<p>[!TIP] 时序差分算法的收敛性证明
-对于时序差分算法最终收敛到<span class="arithmatex">\(v_{\pi}(s)\)</span>的证明，我们可以使用<strong>Dvoretzky定理</strong>来进行证明。</p>
-<p>[!EXAMPLE] 值函数时序差分方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="6-3sarsa">6-3.SARSA方法</h2>
-<blockquote>
-<p>[!TIP] 关于SARSA的公式推导与证明
-- SARSA公式推导：我们首先知道了Action Value的表达形式：$$
-\begin{align}
-{{q}<em>{\pi}}{({s},{a})}
-&amp;={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\
-&amp;={\sum</em>{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{v_{\pi}({s_{t+1}})}\
-&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{\sum_{{a_{t+1}}{\in}{\mathcal{A}{{s_{t+1}}}}}}{\pi}({a_{t+1}}|{s_{t+1}}){{q_{\pi}}({s_{t+1}},{a_{t+1}})}\
-&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{\sum_{{a_{t+1}}{\in}{\mathcal{A}{{s_{t+1}}}}}}{{{P}<em>{\pi}}({{s</em>{t+1}}},{a_{t+1}}|{s},{a})}{{q_{\pi}}({s_{t+1}},{a_{t+1}})}\
-&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\mathbb{E}}[{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]\
-&amp;={\mathbb{E}}[R+{\gamma}{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]
-\end{align}
-$$然后我们可以根据Robbins-Monro方法求解得到关于Action-Value的迭代求解公式。推导方法和前面提到的求解State-Value的TD算法一样。
-- 关于SARSA的收敛性证明，也可以按照<strong>Dvoretzky定理</strong>来进行证明。</p>
-<p>[!EXAMPLE] SARSA时序差分方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="6-4n-step-sarsa">6-4.n-step SARSA方法</h2>
-<blockquote>
-<p>[!EXAMPLE] n-step SARSA时序差分方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h2 id="6-5q-learning">6-5.Q-Learning方法</h2>
-<blockquote>
-<p>[!NOTE] On-Policy和Off-Policy
-- <strong>On-Policy</strong>：
-- <strong>Off-Policy</strong>：</p>
-<p>[!NOTE] Online Learning和Offline Learning
-- <strong>Online Learning</strong>：
-- <strong>Offline Learning</strong>：</p>
-<p>[!TIP] On-Policy，Off-Policy，Online Learning和Offline Learning之间的关系
-Contents</p>
-<p>[!EXAMPLE] Q-Learning方法的Python程序实现
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>
-</code></pre></div></p>
-</blockquote>
-<h1 id="_6">七、值函数方法</h1>
-<h2 id="7-1">7-1.从状态值表格到状态值方程</h2>
-<h2 id="7-2td">7-2.基于函数逼近的状态值TD学习</h2>
-<h2 id="7-3td">7-3.基于函数逼近的动作值的TD学习</h2>
-<h2 id="7-4deep-q-learning">7-4.Deep Q-learning</h2>
 
 
 

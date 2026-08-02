@@ -6,25 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="从零推导 Self-Attention 的数学公式，理解 Q/K/V 的直觉含义。">
       
       
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/Part%206-%E5%80%BC%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/">
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/transformer-attention/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
     
     
       
-        <title>Transformer 注意力机制数学推导 - Alex Blog</title>
+        <title>Part 6 值函数方法 - Alex Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -41,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transformer" class="md-skip">
+        <a href="#7-1" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Transformer 注意力机制数学推导
+              Part 6 值函数方法
             
           </span>
         </div>
@@ -210,7 +208,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tech-blog/tags/Python/" class="md-tabs__link">
+      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
         技术博客
       </a>
     </li>
@@ -228,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../robot/" class="md-tabs__link">
+      <a href="../../../robot/" class="md-tabs__link">
         机器人
       </a>
     </li>
@@ -238,15 +236,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link">
         人工智能
       </a>
     </li>
@@ -262,7 +258,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../control/" class="md-tabs__link">
+      <a href="../../../control/" class="md-tabs__link">
         控制理论
       </a>
     </li>
@@ -275,7 +271,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../computer/index.md" class="md-tabs__link">
+    <a href="../../../computer/index.md" class="md-tabs__link">
       计算机
     </a>
   </li>
@@ -287,7 +283,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../electronics/index.md" class="md-tabs__link">
+    <a href="../../../electronics/index.md" class="md-tabs__link">
       电子设计
     </a>
   </li>
@@ -302,7 +298,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../math/" class="md-tabs__link">
+      <a href="../../../math/" class="md-tabs__link">
         数学知识
       </a>
     </li>
@@ -318,7 +314,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../physics/" class="md-tabs__link">
+      <a href="../../../physics/" class="md-tabs__link">
         物理知识
       </a>
     </li>
@@ -346,7 +342,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
+    <a href="../../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -427,14 +423,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_1_1">
@@ -455,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/Python/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
         #Python
       </a>
     </li>
@@ -469,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/ROS2/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
         #ROS2
       </a>
     </li>
@@ -483,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/SLAM/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
         #SLAM
       </a>
     </li>
@@ -497,35 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/Transformer/" class="md-nav__link">
-        #Transformer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%95%B0%E5%AD%A6/" class="md-nav__link">
-        #数学
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         #机器人
       </a>
     </li>
@@ -539,36 +499,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
         #概率论
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
-        #注意力机制
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech-blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
-        #深度学习
       </a>
     </li>
   
@@ -621,7 +553,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../robot/">机器人</a>
+          <a href="../../../robot/">机器人</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -644,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/Rigid%20Body%20Dynamic%20Algorithms/" class="md-nav__link">
+      <a href="../../../robot/Rigid%20Body%20Dynamic%20Algorithms/" class="md-nav__link">
         Rigid Body Dynamic Algorithms
       </a>
     </li>
@@ -658,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../robot/Robotics%20Vision%20and%20Control/" class="md-nav__link">
+      <a href="../../../robot/Robotics%20Vision%20and%20Control/" class="md-nav__link">
         Robotics Vision and Control
       </a>
     </li>
@@ -678,22 +610,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
         
           
             
-          
-        
           
         
           
@@ -705,7 +633,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">人工智能</a>
+          <a href="../../">人工智能</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -726,91 +654,9 @@
               
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Transformer 注意力机制数学推导
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Transformer 注意力机制数学推导
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基本定义
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scaled-dot-product-attention" class="md-nav__link">
-    Scaled Dot-Product Attention
-  </a>
-  
-    <nav class="md-nav" aria-label="Scaled Dot-Product Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sqrtd_k" class="md-nav__link">
-    缩放因子 \(\sqrt{d_k}\) 的作用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multi-head-attention" class="md-nav__link">
-    Multi-Head Attention
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
   
     <li class="md-nav__item">
-      <a href="../Reinforcement%20Learning/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Reinforcement Learning
       </a>
     </li>
@@ -857,7 +703,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../control/">控制理论</a>
+          <a href="../../../control/">控制理论</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -880,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
+      <a href="../../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
         Disturbance Observer based Control
       </a>
     </li>
@@ -894,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../control/Morden%20Control%20Systems/" class="md-nav__link">
+      <a href="../../../control/Morden%20Control%20Systems/" class="md-nav__link">
         Morden Control Systems
       </a>
     </li>
@@ -916,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../computer/index.md" class="md-nav__link">
+      <a href="../../../computer/index.md" class="md-nav__link">
         计算机
       </a>
     </li>
@@ -931,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../electronics/index.md" class="md-nav__link">
+      <a href="../../../electronics/index.md" class="md-nav__link">
         电子设计
       </a>
     </li>
@@ -967,7 +813,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../math/">数学知识</a>
+          <a href="../../../math/">数学知识</a>
           
             <label for="__nav_7">
               <span class="md-nav__icon md-icon"></span>
@@ -990,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/Information%20Theory/" class="md-nav__link">
+      <a href="../../../math/Information%20Theory/" class="md-nav__link">
         Information Theory
       </a>
     </li>
@@ -1033,7 +879,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../physics/">物理知识</a>
+          <a href="../../../physics/">物理知识</a>
           
             <label for="__nav_8">
               <span class="md-nav__icon md-icon"></span>
@@ -1056,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+      <a href="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
         理论力学
       </a>
     </li>
@@ -1087,8 +933,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1097,35 +941,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    基本定义
+  <a href="#7-1" class="md-nav__link">
+    7-1.从状态值表格到状态值方程
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scaled-dot-product-attention" class="md-nav__link">
-    Scaled Dot-Product Attention
+  <a href="#7-2td" class="md-nav__link">
+    7-2.基于函数逼近的状态值TD学习
   </a>
-  
-    <nav class="md-nav" aria-label="Scaled Dot-Product Attention">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sqrtd_k" class="md-nav__link">
-    缩放因子 \(\sqrt{d_k}\) 的作用
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-head-attention" class="md-nav__link">
-    Multi-Head Attention
+  <a href="#7-3td" class="md-nav__link">
+    7-3.基于函数逼近的动作值的TD学习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-4deep-q-learning" class="md-nav__link">
+    7-4.Deep Q-learning
   </a>
   
 </li>
@@ -1144,32 +982,18 @@
                 
                   
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/transformer-attention.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/Part 6-值函数方法.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="transformer">Transformer 注意力机制数学推导</h1>
-<p>Transformer 架构的核心是<strong>自注意力机制（Self-Attention）</strong>，它允许模型在处理序列时直接关注任意位置的信息。</p>
-<h2 id="_1">基本定义</h2>
-<p>给定输入序列的嵌入矩阵 <span class="arithmatex">\(X \in \mathbb{R}^{n \times d_{model}}\)</span>，通过三个线性投影得到 Query、Key、Value：</p>
-<div class="arithmatex">\[Q = X W_Q, \quad K = X W_K, \quad V = X W_V\]</div>
-<p>其中 <span class="arithmatex">\(W_Q, W_K \in \mathbb{R}^{d_{model} \times d_k}\)</span>，<span class="arithmatex">\(W_V \in \mathbb{R}^{d_{model} \times d_v}\)</span>。</p>
-<h2 id="scaled-dot-product-attention">Scaled Dot-Product Attention</h2>
-<p>注意力输出定义为：</p>
-<div class="arithmatex">\[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V\]</div>
-<h3 id="sqrtd_k">缩放因子 <span class="arithmatex">\(\sqrt{d_k}\)</span> 的作用</h3>
-<p>当 <span class="arithmatex">\(d_k\)</span> 较大时，<span class="arithmatex">\(QK^T\)</span> 的点积值会呈指数级增长，导致 softmax 进入梯度极小的饱和区。除以 <span class="arithmatex">\(\sqrt{d_k}\)</span> 可以保持方差稳定：</p>
-<div class="arithmatex">\[\text{Var}\left(\frac{q \cdot k}{\sqrt{d_k}}\right) = \frac{d_k \cdot \sigma^2}{d_k} = \sigma^2\]</div>
-<h2 id="multi-head-attention">Multi-Head Attention</h2>
-<p>使用 <span class="arithmatex">\(h\)</span> 组不同的投影矩阵并行计算注意力：</p>
-<div class="arithmatex">\[\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h) W_O\]</div>
-<p>其中每个 head 的维度为 <span class="arithmatex">\(d_k = d_{model} / h\)</span>。</p>
-<hr />
-<blockquote>
-<p>后续将补充位置编码和 Layer Normalization 的详细推导。</p>
-</blockquote>
+  <h1>Part 6 值函数方法</h1>
+
+<h2 id="7-1">7-1.从状态值表格到状态值方程</h2>
+<h2 id="7-2td">7-2.基于函数逼近的状态值TD学习</h2>
+<h2 id="7-3td">7-3.基于函数逼近的动作值的TD学习</h2>
+<h2 id="7-4deep-q-learning">7-4.Deep Q-learning</h2>
 
 
 
@@ -1185,42 +1009,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: 人工智能" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              人工智能
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../Reinforcement%20Learning/" class="md-footer__link md-footer__link--next" aria-label="Next: Reinforcement Learning" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Reinforcement Learning
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1243,12 +1031,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

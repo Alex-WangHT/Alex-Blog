@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/tech-blog/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+        <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/Part%205-%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E6%96%B9%E6%B3%95/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
     
     
       
-        <title>#注意力机制 - Alex Blog</title>
+        <title>Part 5 时序差分方法 - Alex Blog</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1robbins-monrodvoretzky" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              #注意力机制
+              Part 5 时序差分方法
             
           </span>
         </div>
@@ -197,8 +197,6 @@
         
   
   
-    
-  
 
 
   
@@ -210,7 +208,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Python/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
         技术博客
       </a>
     </li>
@@ -244,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../ai/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link">
         人工智能
       </a>
     </li>
@@ -373,14 +371,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -405,27 +401,17 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
       
       
       
-        
-          
-        
-          
-        
-          
-        
-          
         
           
         
@@ -457,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Python/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
         #Python
       </a>
     </li>
@@ -471,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ROS2/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
         #ROS2
       </a>
     </li>
@@ -485,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SLAM/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
         #SLAM
       </a>
     </li>
@@ -499,35 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Transformer/" class="md-nav__link">
-        #Transformer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%95%B0%E5%AD%A6/" class="md-nav__link">
-        #数学
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         #机器人
       </a>
     </li>
@@ -541,77 +499,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
         #概率论
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          #注意力机制
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        #注意力机制
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文章列表
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
-        #深度学习
       </a>
     </li>
   
@@ -736,8 +625,6 @@
           
         
           
-        
-          
             
           
         
@@ -746,7 +633,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../ai/">人工智能</a>
+          <a href="../../">人工智能</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -769,21 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ai/transformer-attention/" class="md-nav__link">
-        Transformer 注意力机制数学推导
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ai/Reinforcement%20Learning/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Reinforcement Learning
       </a>
     </li>
@@ -1060,8 +933,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1070,8 +941,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文章列表
+  <a href="#1robbins-monrodvoretzky" class="md-nav__link">
+    1.Robbins-Monro算法和Dvoretzky定理
+  </a>
+  
+    <nav class="md-nav" aria-label="1.Robbins-Monro算法和Dvoretzky定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1robbins-monro" class="md-nav__link">
+    1-1.Robbins-Monro算法和均值估计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2dvoretzky" class="md-nav__link">
+    1-2.Dvoretzky定理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.使用时序差分方法求解状态值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3sarsa" class="md-nav__link">
+    3.SARSA方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4n-step-sarsa" class="md-nav__link">
+    4.n-step SARSA方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5q-learning" class="md-nav__link">
+    5.Q-Learning方法
   </a>
   
 </li>
@@ -1090,21 +1009,176 @@
                 
                   
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/tech-blog/tags/注意力机制.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/Part 5-时序差分方法.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="_1">标签：#注意力机制</h1>
-<p>以下是包含标签 <strong>#注意力机制</strong> 的所有文章。</p>
-<h2 id="_2">文章列表</h2>
-<ul>
-<li><strong><a href="../../../ai/transformer-attention/">Transformer 注意力机制数学推导</a></strong> (2024-07-20) — <em>人工智能</em><blockquote>
-<p>从零推导 Self-Attention 的数学公式，理解 Q/K/V 的直觉含义。</p>
+  <h1>Part 5 时序差分方法</h1>
+
+<h2 id="1robbins-monrodvoretzky">1.Robbins-Monro算法和Dvoretzky定理</h2>
+<h3 id="1-1robbins-monro">1-1.Robbins-Monro算法和均值估计</h3>
+<blockquote>
+<p>[!NOTE] Robbins-Monro算法
+罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 <span class="arithmatex">\(g(w) = 0\)</span> 的根 <span class="arithmatex">\(w^*\)</span> 的迭代方法。
+在第 <span class="arithmatex">\(k\)</span> 步，我们只能观测到带有随机噪声 <span class="arithmatex">\(\eta_k\)</span> 的梯度估计值：
+$<span class="arithmatex">\({\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k\)</span>$
+算法使用一个递减的步长 <span class="arithmatex">\(\gamma_k\)</span> 来更新估计值：
+$<span class="arithmatex">\(w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)\)</span>$
+<strong>关键要求:</strong> 噪声 <span class="arithmatex">\(\eta_k\)</span> 必须是<strong>无偏</strong>的（<span class="arithmatex">\(E[\eta_k | w_k] = 0\)</span>），并且步长序列<span class="arithmatex">\(\gamma_k\)</span> 需满足 <span class="arithmatex">\(\sum \gamma_k = \infty\)</span> 和 <span class="arithmatex">\(\sum \gamma_k^2 &lt; \infty\)</span>，以确保<span class="arithmatex">\(w_k\)</span> 最终收敛到 <span class="arithmatex">\(w^*\)</span>。</p>
+<p>[!TIP] Robbins-Monro算法和梯度下降(Gradient Decrease)
+我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 <span class="arithmatex">\({f}{:}{{X{\rightarrow}Y}}\)</span>，已知一系列数据集 <span class="arithmatex">\(({x}^{(i)},{y}^{(i)})\)</span>，其中 <span class="arithmatex">\({{x}{\in}{X}},{{y}{\in}{Y}}\)</span>。
+我们假定函数关系为 <span class="arithmatex">\({{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}\)</span>，其中 <span class="arithmatex">\({\theta}\)</span> 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
+$$
+J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
+$$
+<strong>核心优化目标</strong>
+- 我们训练模型的问题转化为：<strong>如何让损失函数 <span class="arithmatex">\(J(\theta)\)</span> 最小化</strong>。
+- 这等价于寻找最优参数 <span class="arithmatex">\({\theta}^{*}\)</span>，使得损失函数的梯度（<strong>驻点</strong>）为零    $<span class="arithmatex">\({{\nabla}_{\theta}}J(\theta^{*})=0\)</span>$</p>
+<p><strong>优化方法（随机逼近）</strong>
+- 解决 <span class="arithmatex">\(\nabla_{\theta}J=0\)</span> 的问题，通常采用<strong>梯度下降 (Gradient Descent)</strong> 算法族。
+- 特别地，对于大规模数据集，我们使用<strong>随机梯度下降 (SGD)</strong>，它通过<strong>小批量数据</strong> <span class="arithmatex">\(\mathcal{B}\)</span> 计算梯度的<strong>无偏估计</strong> <span class="arithmatex">\(\hat{\nabla}_{\theta} J\)</span>，然后迭代更新参数。
+- SGD 的迭代更新公式可以被视为Robbins-Monro 算法在极小化损失函数（寻找零点）问题上的特定应用：$<span class="arithmatex">\({{\theta}_{k+1}}={{\theta}_{k}}-{\alpha_k}{\hat{\nabla}_{\theta}}J(\theta_k; \mathcal{B})\)</span>$
+- 其中，<span class="arithmatex">\({\alpha_k}\)</span> 是<strong>学习率（步长）</strong>，它通常会随着训练轮次 <span class="arithmatex">\(k\)</span> 的增加而衰减。</p>
 </blockquote>
-</li>
-</ul>
+<h3 id="1-2dvoretzky">1-2.Dvoretzky定理</h3>
+<p><strong>Dvoretzky定理</strong>是随机逼近领域的经典结果。这个定理可以用来分析RM算法和许多强化学习算法的收敛性。</p>
+<blockquote>
+<p>[!NOTE] Dvoretzky定理
+考虑到一个随机过程：
+$<span class="arithmatex">\({{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}\)</span>$
+其中<span class="arithmatex">\({\{{{\alpha}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\beta}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\eta}_{k}}\}}_{k=1}^{\infty}\)</span>都是随机序列，对任意的<span class="arithmatex">\(k\)</span>都存在<span class="arithmatex">\({{\alpha}_k}{\geq}{0}\)</span>和<span class="arithmatex">\({{\beta}_k}{\geq}{0}\)</span>。
+如果满足以下条件，那么序列<span class="arithmatex">\({{\Delta}_{k}}\)</span>基本上会收敛到0：
+- <span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}\)</span>，<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}\)</span>和<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}\)</span>基本一致。
+- <span class="arithmatex">\({\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0\)</span>和<span class="arithmatex">\({\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C\)</span>基本上确定。</p>
+<p>其中：$<span class="arithmatex">\({\mathcal{H}_k}=\{{{\Delta}_{k}},{{\Delta}_{k-1}},{\dots},{{\eta}_{k-1}},{\dots},{{\alpha}_{k-1}},{\dots},{{\beta}_{k-1}},{\dots}\}\)</span>$ </p>
+</blockquote>
+<h2 id="2">2.使用时序差分方法求解状态值</h2>
+<p>假设我们有一个策略:<span class="arithmatex">\({\pi}\)</span>，但是我们不知道任何模型和概率的先验知识的情况下，需要我们通过策略<span class="arithmatex">\({\pi}\)</span>来估计当前策略:<span class="arithmatex">\({\pi}\)</span>下每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({v_{\pi}}(s)\)</span>。
+首先我们从贝尔曼方程的定义出发：
+$$
+\begin{align}
+{v_{\pi}}({s})&amp;={\mathbb{E}}[{R_{t+1}}+{\gamma}{G_{t+1}}|{S_t}={s}]\
+&amp;={\mathbb{E}}[{R_{t+1}}|{S_t}={s}]+{\gamma}{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]\
+&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}+{\gamma}{\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}
+\end{align}
+$$
+其中：
+$$
+\begin{align}
+{\mathbb{E}}[{R_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}\
+{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}
+\end{align}
+$$
+我们根据<span class="arithmatex">\({\sum_{{a_t}{\in}{\mathcal{A}\{s\}}}}{\pi}{({a_t}|{s})}{p({{s_{t+1}}}|{s},{a_t})}={{{P}_{\pi}}({{s_{t+1}}}|{s})}\)</span>可以将<span class="arithmatex">\({\mathbb{E}}[{G_{t+1}}|{S_t}={s}]\)</span>写成如下形式：
+$$
+\begin{align}
+{\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}\
+&amp;={\sum_{{s_{t+1}}{\in}{{S}}}}{{{P}<em>{\pi}}({{s</em>{t+1}}}|{s})}{v_{\pi}({s_{t+1}})}\
+&amp;={\mathbb{E}}[{v_{\pi}}({S_{t+1}})|{S_t}={s}]
+\end{align}
+$$
+那么我们的贝尔曼方程就能写成如下的形式，这个形式我们称之为<strong>贝尔曼期望方程(Bellman Expectation Function)</strong>：
+$$
+\begin{align}
+{v_{\pi}}({s})={\mathbb{E}}[{R}<em>{t+1}+{\gamma}{v</em>{\pi}}({S_{t+1}})|{S_t}={s}]
+\end{align}
+$$
+我们可以像之前的Monte-Carlo方法一样，根据已知的策略<span class="arithmatex">\(\pi\)</span>来生成<span class="arithmatex">\(N\)</span>个长度为<span class="arithmatex">\(T\)</span>（<span class="arithmatex">\(N\)</span>和<span class="arithmatex">\(T\)</span>是足够大的正整数）的Episodes，在这些Episodes中，我们假设一共经过了<span class="arithmatex">\(n\)</span>次状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>。我们记经过状态的时刻为<span class="arithmatex">\(t_i(i=1,2{\dots},n)\)</span>。我们在<span class="arithmatex">\(t_i\)</span>时刻到达状态<span class="arithmatex">\(s\)</span>后，<span class="arithmatex">\(t_i+1\)</span>时刻的状态<span class="arithmatex">\(s_{t_i+1}\)</span>是随机的。获取的状态值采样即为<span class="arithmatex">\({{r}_{t_i+1}}+{\gamma}{{v_{\pi}}({s_{t_i+1}})}\)</span>，根据大数定律我们在<span class="arithmatex">\(t_n\)</span>时刻的时候，我们估计的状态值如下：$$
+\begin{align}
+{v_{t_n}}(s)={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em>{t_i+1}}+{\gamma}{{v</em>{\pi}}({s_{t_i+1}})})
+\end{align}
+$<span class="arithmatex">\(当\)</span>n$足够大的时候，根据大数定律，我们有：
+$$
+{{v_{\pi}}(s)}={\mathbb{E}}[R_{t+1}+{\gamma}{v_{\pi}}(S_{t+1})|S_t=s]{\approx}{{v_{t_n}}(s)}={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em>{t_i+1}}+{\gamma}{{v</em>{\pi}}({s_{t_i+1}})})
+$$
+但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态<span class="arithmatex">\(s\)</span>的状态值是未知的。其他状态都是已知的。
+但是更普遍的问题是：<strong>我们待求解的状态值都是未知的</strong>。也就是说我们求解的目标就是求解每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({{v}_{\pi}}(s)\)</span>。那么刚才我们用到的使用随机拟合来求解策略<span class="arithmatex">\(\pi\)</span>下的状态值就无法使用了。
+那么首先回顾一下第二章里提到过的用迭代法求解在指定策略<span class="arithmatex">\({\pi}\)</span>下的贝尔曼方程的公式：
+$<span class="arithmatex">\({v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)\)</span>$
+将该元素形式的迭代法方程写成类似于Bellman Expectation Equation的形式如下：
+$$
+\begin{align}
+{v_{k+1}}(s)&amp;={r_{\pi}}(s)+{\gamma}{\sum_{{s_{t+1}}{\in}{{S}}}}{{P_{\pi}}({{s_{t+1}}}|{s})}{v_{k}({s_{t+1}})}\
+&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{r{\in}{{R}}}}p(r|{s},{a_t}){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{{S}}}}{{P_{\pi}}({{s_{t+1}}}|{s})}{v_{k}({s_{t+1}})}\
+&amp;={{\mathbb{E}}[{R_{t+1}}|{S_t}={s}]}+{\gamma}{{\mathbb{E}}[{v_k}(S_{t+1})|{S_t}={s}]}\
+&amp;={\mathbb{E}}[{R_{t+1}}+{\gamma}{v_k}(S_{t+1})|{S_t}={s}]{\quad}(k=0,1,2,\dots,n)
+\end{align}
+$$
+后面根据Robbins-Monro方法求解该方程如下：
+$$
+{v_{k+1}}(s)={v_{k}}(s)-{{\alpha}<em>{k}}(s)[{v</em>{k}}(s)-({r_{t+1}}+{\gamma}{v_k}(s_{t+
+1}))]
+$$
+上面公式的<span class="arithmatex">\(k\)</span>代表了我们经过状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的次数，我们每经过一次状态<span class="arithmatex">\(s\)</span>，那么状态<span class="arithmatex">\(s\)</span>对应的状态值<span class="arithmatex">\(v(s)\)</span>就更新一次。
+那么我们改写一下：当我们按照策略<span class="arithmatex">\(\pi\)</span>生成的轨迹，在时间<span class="arithmatex">\(t\)</span>时刻经过状态<span class="arithmatex">\(s_t{\in}{\mathcal{S}}\)</span>的时候，我们的状态值按照如下形式更新：
+$$
+\begin{align}
+{v_{t+1}}(s_t)&amp;={v_{t}}(s_t)-{{\alpha}<em>{t}}(s_t)[{v</em>{t}}(s_t)-({r_{t+1}}+{\gamma}{v_t}(s_{t+1}))]\
+{v_{t+1}}(s)&amp;={v_{t}}(s)&amp;{({\forall}s{\neq}s_t)}
+\end{align}
+$$
+那么我们就推导出来了<strong>时序差分算法（Temporal Difference Algorithm）</strong>：</p>
+<blockquote>
+<p>[!NOTE] 时序差分算法（Temporal Difference Algorithm）
+</p>
+</blockquote>
+<p>我们将时序差分算法拆解如下：
+$$
+{\underbrace{v_{t+1}(s_t)}<em>{\text{new estimate}}}={\underbrace{v_t(s_t)}</em>{\text{current estimate}}}-{{\alpha}<em>{t}}(s_t)[{\underbrace{{v</em>{t}}(s_t)-{\overbrace{({r_{t+1}}+{\gamma}{v_t}(s_{t+1}))}^{\text{TD target}}}}_{\text{TD error } \delta_t}}]
+$$
+根据拆解，可以分成这四个部分：
+- 新的估计(new estimate)：
+- 当前估计(current estimate)：
+- TD Target：
+- TD Error：</p>
+<blockquote>
+<p>[!TIP] 时序差分算法的收敛性证明
+对于时序差分算法最终收敛到<span class="arithmatex">\(v_{\pi}(s)\)</span>的证明，我们可以使用<strong>Dvoretzky定理</strong>来进行证明。</p>
+<p>[!EXAMPLE] 值函数时序差分方法的Python程序实现
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
+</code></pre></div></p>
+</blockquote>
+<h2 id="3sarsa">3.SARSA方法</h2>
+<blockquote>
+<p>[!TIP] 关于SARSA的公式推导与证明
+- SARSA公式推导：我们首先知道了Action Value的表达形式：$$
+\begin{align}
+{{q}<em>{\pi}}{({s},{a})}
+&amp;={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\
+&amp;={\sum</em>{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{v_{\pi}({s_{t+1}})}\
+&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{\sum_{{a_{t+1}}{\in}{\mathcal{A}{{s_{t+1}}}}}}{\pi}({a_{t+1}}|{s_{t+1}}){{q_{\pi}}({s_{t+1}},{a_{t+1}})}\
+&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{\sum_{{a_{t+1}}{\in}{\mathcal{A}{{s_{t+1}}}}}}{{{P}<em>{\pi}}({{s</em>{t+1}}},{a_{t+1}}|{s},{a})}{{q_{\pi}}({s_{t+1}},{a_{t+1}})}\
+&amp;={\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\mathbb{E}}[{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]\
+&amp;={\mathbb{E}}[R+{\gamma}{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]
+\end{align}
+$$然后我们可以根据Robbins-Monro方法求解得到关于Action-Value的迭代求解公式。推导方法和前面提到的求解State-Value的TD算法一样。
+- 关于SARSA的收敛性证明，也可以按照<strong>Dvoretzky定理</strong>来进行证明。</p>
+<p>[!EXAMPLE] SARSA时序差分方法的Python程序实现
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
+</code></pre></div></p>
+</blockquote>
+<h2 id="4n-step-sarsa">4.n-step SARSA方法</h2>
+<blockquote>
+<p>[!EXAMPLE] n-step SARSA时序差分方法的Python程序实现
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
+</code></pre></div></p>
+</blockquote>
+<h2 id="5q-learning">5.Q-Learning方法</h2>
+<blockquote>
+<p>[!NOTE] On-Policy和Off-Policy
+- <strong>On-Policy</strong>：
+- <strong>Off-Policy</strong>：</p>
+<p>[!NOTE] Online Learning和Offline Learning
+- <strong>Online Learning</strong>：
+- <strong>Offline Learning</strong>：</p>
+<p>[!TIP] On-Policy，Off-Policy，Online Learning和Offline Learning之间的关系
+Contents</p>
+<p>[!EXAMPLE] Q-Learning方法的Python程序实现
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>
+</code></pre></div></p>
+</blockquote>
 
 
 
@@ -1120,42 +1194,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-footer__link md-footer__link--prev" aria-label="Previous: #概率论" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              #概率论
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-footer__link md-footer__link--next" aria-label="Next: #深度学习" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              #深度学习
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
