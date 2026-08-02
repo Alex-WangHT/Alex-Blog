@@ -3,8 +3,10 @@ site_url: https://alex-wanght.github.io/Alex-Blog/
 repo_url: https://github.com/Alex-WangHT/Alex-Blog
 repo_name: Alex-WangHT/Alex-Blog
 
-# 支持数学公式 (MathJax)
+# 支持数学公式 (MathJax) + 注解 (Admonitions)
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight:
