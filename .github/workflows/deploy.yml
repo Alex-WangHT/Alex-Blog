@@ -31,8 +31,7 @@ jobs:
       - name: Install MkDocs and dependencies
         shell: bash -l {0}
         run: |
-          conda install -c conda-forge mkdocs-material -y
-          pip install pymdown-extensions pyyaml
+          pip install mkdocs-material pymdown-extensions pyyaml
 
       - name: Generate blog index and tags
         shell: bash -l {0}
