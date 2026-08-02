@@ -37,21 +37,29 @@
  
 !!! note "State Space"
     **State Space(状态空间)**指的是在环境中所有$n$个状态$s_i(i=1,2,\dots,n)$的集合，状态空间的表达式：
-    $${\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}$$
+    $$
+    {\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}
+    $$
 
 
 ## 1.3-Action and Action Space
 
 !!! note "Action"
     **Action(动作)**指Agent在特定状态${s_i}{\in}{\mathcal{S}}$可以执行的任意Action，这个过程我们一般用$a$来表示，一般来说任意的State${s_i}{\in}{\mathcal{S}}$有多个Action:
-    $$a_k{\quad}(k=1,2,\dots)$$
+    $$
+    a_k{\quad}(k=1,2,\dots)
+    $$
 
 
 !!! note "Action Space"
     对于在状态空间中的任意状态$s_i{\in}{\mathcal{S}}$来说，在这个状态能够执行的所有的Acton：
-    $$a_k{\quad}(k=1,2,\dots)$$
+    $$
+    a_k{\quad}(k=1,2,\dots)
+    $$
     的集合定义为状态$s_i$的**Action Space(动作空间)**：
-    $$\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}$$
+    $$
+    \{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}
+    $$
 
 
 ## 1.4-State transition
@@ -67,7 +75,10 @@
 
 !!! note "Policy"
     **Policy(策略)** 代表着在环境中的任意给定状态${s}{\in}{\mathcal{S}}$下，采取动作$a_k{\in}{\{{\mathcal{A}}(s_i)\}}$的可能性。Policy可以用以下的形式来表达：
-    - **函数形式：** 将策略${\pi}$看作一种函数，函数的输入变量为状态$s{\in}{\mathcal{S}}$，输出变量为在当前需要采取的动作${a}{\in}{\mathcal{A}}\{s\}$，该函数表达如下：$${a}={\pi}({s})$$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以及离散或者连续的动作集合${\mathcal{A}}$。
+    - **函数形式：** 将策略${\pi}$看作一种函数，函数的输入变量为状态$s{\in}{\mathcal{S}}$，输出变量为在当前需要采取的动作${a}{\in}{\mathcal{A}}\{s\}$，该函数表达如下：
+    $$
+    {a}={\pi}({s})
+    $$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以及离散或者连续的动作集合${\mathcal{A}}$。
     - **条件概率形式：** 在当前状态$s{\in}{\mathcal{S}}$的情况下，执行动作$a_k{\in}{\{{\mathcal{A}}(s_i)\}}$的概率${\pi}({a_k}|{s})$。这种形式大多数情况下用于离散的动作序列。
 
 
