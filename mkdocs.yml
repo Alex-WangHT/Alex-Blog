@@ -66,14 +66,17 @@ extra_javascript:
 
 plugins:
   - search
-  - tags:
-      tags_file: tech-blog/tags.md
+  - tags
   - blog:
       blog_dir: tech-blog
       post_date_format: yyyy-MM-dd
       post_url_date_format: yyyy/MM/dd
       archive: true
       pagination_per_page: 10
+
+# 构建期虚拟生成分类/子目录落地页（重定向到第一篇文章），不写入 docs/
+hooks:
+  - scripts/hook_section_landing.py
 
 # 导航菜单
 nav:
@@ -82,23 +85,52 @@ nav:
     - 标签索引: tech-blog/tags.md
   - 机器人:
     - 机器人: robot/index.md
-    - Rigid Body Dynamic Algorithms: robot/Rigid Body Dynamic Algorithms/index.md
-    - Robotics Vision and Control: robot/Robotics Vision and Control/index.md
+    - Rigid Body Dynamic Algorithms:
+      - Rigid Body Dynamic Algorithms: robot/Rigid Body Dynamic Algorithms/index.md
+      - Part 1-多刚体系统动力学的一般表达形式: robot/Rigid Body Dynamic Algorithms/Part 1-多刚体系统动力学的一般表达形式.md
+      - Part 2-空间向量及其性质: robot/Rigid Body Dynamic Algorithms/Part 2-空间向量及其性质.md
+      - Part 3-刚体运动学和刚体动力学: robot/Rigid Body Dynamic Algorithms/Part 3-刚体运动学和刚体动力学.md
+      - Part 4-受约束刚体动力学: robot/Rigid Body Dynamic Algorithms/Part 4-受约束刚体动力学.md
+      - Part 5-多刚体系统建模: robot/Rigid Body Dynamic Algorithms/Part 5-多刚体系统建模.md
+      - Part 6-刚体系统的逆动力学求解: robot/Rigid Body Dynamic Algorithms/Part 6-刚体系统的逆动力学求解.md
+      - Part 7-刚体系统的正动力学求解: robot/Rigid Body Dynamic Algorithms/Part 7-刚体系统的正动力学求解.md
+    - Robotics Vision and Control:
+      - Robotics Vision and Control: robot/Robotics Vision and Control/index.md
+      - Robotics Vision and Control读书笔记: robot/Robotics Vision and Control/Robotics Vision and Control读书笔记.md
   - 人工智能:
     - 人工智能: ai/index.md
-    - Reinforcement Learning: ai/Reinforcement Learning/index.md
+    - Reinforcement Learning:
+      - Reinforcement Learning: ai/Reinforcement Learning/index.md
+      - Part 1-强化学习基础: ai/Reinforcement Learning/Part 1-强化学习基础.md
+      - Part 2-Bellman方程与Bellman最优方程: ai/Reinforcement Learning/Part 2-Bellman方程与Bellman最优方程.md
+      - Part 3-数值迭代和策略迭代: ai/Reinforcement Learning/Part 3-数值迭代和策略迭代.md
+      - Part 4-蒙特卡罗方法: ai/Reinforcement Learning/Part 4-蒙特卡罗方法.md
+      - Part 5-时序差分方法: ai/Reinforcement Learning/Part 5-时序差分方法.md
+      - Part 6-值函数方法: ai/Reinforcement Learning/Part 6-值函数方法.md
   - 控制理论:
     - 控制理论: control/index.md
-    - Disturbance Observer based Control: control/Disturbance Observer based Control/index.md
-    - Morden Control Systems: control/Morden Control Systems/index.md
-  - 计算机: computer/index.md
-  - 电子设计: electronics/index.md
+    - Disturbance Observer based Control:
+      - Disturbance Observer based Control: control/Disturbance Observer based Control/index.md
+      - Part 1-扰动观测器设计: control/Disturbance Observer based Control/Part 1-扰动观测器设计.md
+      - Part.2-基于扰动观测器的控制: control/Disturbance Observer based Control/Part.2-基于扰动观测器的控制.md
+    - Morden Control Systems:
+      - Morden Control Systems: control/Morden Control Systems/index.md
+      - Morden Control Systems: control/Morden Control Systems/Morden Control Systems.md
+  - 计算机:
+    - 计算机: computer/index.md
+  - 电子设计:
+    - 电子设计: electronics/index.md
   - 数学知识:
     - 数学知识: math/index.md
-    - Information Theory: math/Information Theory/index.md
+    - Information Theory:
+      - Information Theory: math/Information Theory/index.md
+      - Part 1-Probability, Entropy, and Inference: math/Information Theory/Part 1-Probability, Entropy, and Inference.md
   - 物理知识:
     - 物理知识: physics/index.md
-    - 理论力学: physics/理论力学/index.md
+    - 理论力学:
+      - 理论力学: physics/理论力学/index.md
+      - Untitled: physics/理论力学/Untitled.md
+      - 理论力学笔记: physics/理论力学/理论力学笔记.md
 
 # GitHub Pages 部署设置 (部署到 gh-pages 分支)
 remote_branch: gh-pages

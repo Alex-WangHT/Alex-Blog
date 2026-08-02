@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
 """
-自动生成博客系统：为所有分类生成 index.md + 导航配置
+自动维护博客站点：首页最新文章列表 + 完整导航树
 
-技术博客（tech-blog）已迁移到 Material 官方 blog 插件：
-- 文章位于 docs/tech-blog/posts/，由 blog 插件生成索引/标签/分类/归档页
-- 本脚本仅扫描 tech-blog 文章用于首页"最新文章"列表
+技术博客（tech-blog）由 Material 官方 blog 插件托管；
+各分类/子目录的落地页（点击后跳转到第一篇文章）由
+scripts/hook_section_landing.py 在构建期虚拟生成，本脚本不写入 docs/。
 
 功能：
 1. 扫描 docs/ 下所有文章（递归子目录），提取 front matter
-2. 为每个分类生成 docs/<cat>/index.md（按子目录分组，H2 标题；tech-blog 除外）
-3. 为每个子目录生成 index.md（解决导入文件夹后 404 问题；tech-blog 除外）
-4. 生成 _includes/latest_posts.md（首页最新文章列表，含 tech-blog）
-5. 复制根目录 mathjax.js 到 docs/javascripts/
-6. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）
-7. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
-8. 转换 Obsidian > [!NOTE] callout 为标准 admonition 语法
+2. 生成 _includes/latest_posts.md（首页最新文章列表，含 tech-blog）
+3. 复制根目录 mathjax.js 到 docs/javascripts/
+4. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏显示完整文章树）
+5. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
+6. 转换 Obsidian > [!NOTE] callout 为标准 admonition 语法
 
 使用方式：
     python scripts/generate_blog_index.py
@@ -229,71 +227,6 @@ def scan_articles():
     return articles
 
 
-def generate_subdir_index(subdir_path: Path, articles_in_subdir):
-    """为单个子目录生成 index.md"""
-    subdir_name = subdir_path.name
-    lines = [f'# {subdir_name}', '', '## 文章列表', '']
-    for art in sorted(articles_in_subdir, key=lambda x: x['date'] or '0000-00-00', reverse=True):
-        date_str = f" ({art['date']})" if art['date'] else ''
-        rel_path = Path(art['path']).name
-        lines.append(f"- **[{art['title']}]({rel_path})**{date_str}")
-        if art['description']:
-            lines.append(f"  > {art['description']}")
-        lines.append('')
-    return '\n'.join(lines)
-
-
-def generate_all_subdir_indices(articles):
-    """为所有包含文章的子目录生成 index.md"""
-    subdirs = defaultdict(list)
-    for art in articles:
-        path = Path(art['path'])
-        if path.parts[0] == 'tech-blog':
-            continue  # tech-blog 由官方 blog 插件托管
-        if len(path.parts) > 2:
-            subdirs[path.parent].append(art)
-    for subdir, arts in subdirs.items():
-        subdir_path = DOCS_DIR / subdir
-        if subdir_path.exists():
-            (subdir_path / 'index.md').write_text(
-                generate_subdir_index(subdir_path, arts), encoding='utf-8'
-            )
-    return len(subdirs)
-
-
-def generate_category_index(cat_dir, cat_name, articles):
-    """生成分类 index.md：按子目录分组，每个子目录/文件作为 H2 标题"""
-    cat_articles = [a for a in articles if a['category_dir'] == cat_dir]
-    lines = [f'# {cat_name}', '']
-    if not cat_articles:
-        lines.append('> 暂无文章，敬请期待。')
-        return '\n'.join(lines)
-
-    groups = defaultdict(list)
-    for art in cat_articles:
-        path = Path(art['path'])
-        if len(path.parts) == 2:
-            groups[art['title']].append(art)
-        else:
-            groups[path.parts[1]].append(art)
-
-    for group_name in sorted(groups.keys(), key=str.lower):
-        arts = groups[group_name]
-        lines.append(f'## {group_name}')
-        lines.append('')
-        for art in sorted(arts, key=lambda x: x['date'] or '0000-00-00', reverse=True):
-            date_str = f" ({art['date']})" if art['date'] else ''
-            tags_str = ' '.join(f'`#{t}`' for t in art['tags']) if art['tags'] else ''
-            rel_path = art['path'].replace(f'{cat_dir}/', '')
-            lines.append(f"- **[{art['title']}]({rel_path})**{date_str}")
-            if tags_str:
-                lines.append(f"  {tags_str}")
-            if art['description']:
-                lines.append(f"  > {art['description']}")
-            lines.append('')
-    return '\n'.join(lines)
-
-
 def generate_latest_posts(articles, max_count=10):
     if not articles:
         return '## 最新文章\n\n> 暂无文章，敬请期待。\n'
@@ -312,8 +245,51 @@ def generate_latest_posts(articles, max_count=10):
     return '\n'.join(lines)
 
 
+def _yaml_quote(text: str) -> str:
+    """标题含 YAML 特殊字符时加引号"""
+    if any(c in text for c in ':#"\'') or text != text.strip():
+        return '"' + text.replace('"', '\\"') + '"'
+    return text
+
+
+def build_nav_tree(dir_path: Path, level: int) -> str:
+    """递归生成某个目录的 nav 子树：文章全部列出，子目录展开为分区。
+
+    level: 缩进层级（每级 2 空格），目录自身的 index.md 由调用方处理。
+    """
+    indent = '  ' * level
+    nav = ""
+
+    # 1. 直接文章文件
+    for md_file in sorted(dir_path.glob('*.md'), key=lambda p: p.name.lower()):
+        if md_file.name == 'index.md':
+            continue
+        meta = parse_front_matter(md_file.read_text(encoding='utf-8'))
+        title = _yaml_quote(meta.get('title', md_file.stem))
+        rel_path = md_file.relative_to(DOCS_DIR).as_posix()
+        nav += f"{indent}- {title}: {rel_path}\n"
+
+    # 2. 递归子目录（含 .md 的内容目录）
+    for subdir in sorted(dir_path.iterdir(), key=lambda p: p.name.lower()):
+        if not subdir.is_dir() or subdir.name in ('tags', 'img'):
+            continue
+        if not list(subdir.rglob('*.md')):
+            continue
+        rel = subdir.relative_to(DOCS_DIR).as_posix()
+        name = _yaml_quote(subdir.name)
+        nav += f"{indent}- {name}:\n"
+        nav += f"{indent}  - {name}: {rel}/index.md\n"
+        nav += build_nav_tree(subdir, level + 1)
+
+    return nav
+
+
 def update_mkdocs_nav(articles):
-    """更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）"""
+    """更新 mkdocs.yml 中的 nav 配置（左侧栏显示完整文章树）。
+
+    各目录的 index.md 由 scripts/hook_section_landing.py 在构建期虚拟生成
+    （重定向到该目录第一篇文章），docs/ 目录保持纯净。
+    """
     content = MKDOCS_FILE.read_text(encoding='utf-8')
 
     # tech-blog 由官方 blog 插件托管，nav 只保留插件索引页与标签索引页
@@ -332,21 +308,7 @@ def update_mkdocs_nav(articles):
 
         other_nav += f"  - {cat_name}:\n"
         other_nav += f"    - {cat_name}: {cat_dir}/index.md\n"
-
-        for md_file in sorted(cat_path.glob('*.md')):
-            if md_file.name == 'index.md':
-                continue
-            file_content = md_file.read_text(encoding='utf-8')
-            meta = parse_front_matter(file_content)
-            title = meta.get('title', md_file.stem)
-            rel_path = md_file.relative_to(DOCS_DIR).as_posix()
-            other_nav += f'    - {title}: {rel_path}\n'
-
-        for subdir in sorted(cat_path.iterdir()):
-            if not subdir.is_dir() or subdir.name in ('tags', 'img'):
-                continue
-            if list(subdir.rglob('*.md')):
-                other_nav += f'    - {subdir.name}: {cat_dir}/{subdir.name}/index.md\n'
+        other_nav += build_nav_tree(cat_path, 2)
 
     nav_start = content.find('nav:')
     gh_start = content.find('\n# GitHub Pages')
@@ -378,37 +340,23 @@ def main():
 
     articles = scan_articles()
 
-    # 1. 为每个分类生成 index.md（tech-blog 由官方 blog 插件托管，跳过）
-    for cat_dir, cat_name in CATEGORIES.items():
-        if cat_dir == 'tech-blog':
-            continue
-        cat_path = DOCS_DIR / cat_dir
-        if cat_path.exists():
-            (cat_path / 'index.md').write_text(
-                generate_category_index(cat_dir, cat_name, articles), encoding='utf-8'
-            )
-
-    # 2. 为包含文章的子目录生成 index.md
-    subdir_count = generate_all_subdir_indices(articles)
-
-    # 3. 生成首页最新文章列表（含 tech-blog 文章）
+    # 1. 生成首页最新文章列表（含 tech-blog 文章）
     latest_md = generate_latest_posts(articles)
     INCLUDES_DIR.mkdir(exist_ok=True)
     (INCLUDES_DIR / 'latest_posts.md').write_text(latest_md, encoding='utf-8')
 
-    # 4. 复制 MathJax 配置
+    # 2. 复制 MathJax 配置
     copy_mathjax_config()
 
-    # 5. 更新 mkdocs.yml nav（展开子目录）
+    # 3. 更新 mkdocs.yml nav（左侧栏完整文章树；
+    #    各目录 index.md 落地页由 scripts/hook_section_landing.py 构建期虚拟生成）
     update_mkdocs_nav(articles)
 
     print(f"✅ Callout 转换: {callout_count} 个文件")
     print(f"✅ WikiLink 转换: {wikilink_count} 个文件")
     print(f"✅ 扫描到 {len(articles)} 篇文章")
-    print(f"✅ 生成分类主页: {len(CATEGORIES) - 1} 个（tech-blog 由 blog 插件托管）")
-    print(f"✅ 生成子目录索引: {subdir_count} 个")
     print(f"✅ 更新首页文章列表: _includes/latest_posts.md")
-    print(f"✅ 更新导航配置: mkdocs.yml")
+    print(f"✅ 更新导航配置: mkdocs.yml（完整文章树）")
 
 
 if __name__ == '__main__':

@@ -1,13 +1,10 @@
 # MkDocs 构建输出
 site/
 
-# 自动生成的分类索引（由 scripts/generate_blog_index.py 在 CI 中生成）
-docs/**/index.md
-!docs/index.md
-docs/tech-blog/tags/*.md
+# 首页最新文章列表（由 scripts/generate_blog_index.py 生成）
 _includes/
 
-# MathJax 配置（源文件在根目录，构建时自动复制到 docs/javascripts/）
+# MathJax 配置（源文件在根目录，脚本自动复制到 docs/javascripts/）
 docs/javascripts/mathjax.js
 
 # 编辑器配置（本地环境，不入库）

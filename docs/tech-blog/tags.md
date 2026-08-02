@@ -2,4 +2,4 @@
 
 以下按标签汇总全站文章：
 
-[TAGS]
+<!-- material/tags -->
