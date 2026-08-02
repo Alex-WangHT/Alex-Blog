@@ -8,16 +8,8 @@ docs/tech-blog/tags/*.md
 _includes/
 
 # MathJax 配置（源文件在根目录，构建时自动复制到 docs/javascripts/）
-docs/tech-blog/index.md
-docs/robot/index.md
-docs/ai/index.md
-docs/control/index.md
-docs/computer/index.md
-docs/electronics/index.md
-docs/math/index.md
-docs/physics/index.md
-docs/tech-blog/tags/*.md
-_includes/
-
-# MathJax 配置（源文件在根目录，构建时自动复制到 docs/javascripts/）
 docs/javascripts/mathjax.js
+
+# 编辑器配置（本地环境，不入库）
+.obsidian/
+.vscode/
