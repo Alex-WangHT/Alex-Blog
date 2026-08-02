@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
@@ -26,7 +31,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/control/Disturbance%20Observer%20based%20Control/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/control/Disturbance%20Observer%20based%20Control/Disturbance%20Observer%20based%20Control/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/control/Morden%20Control%20Systems/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -41,12 +56,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/math/Information%20Theory/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/math/Information%20Theory/Part%201-Probability%2C%20Entropy%2C%20and%20Inference/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/physics/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -66,7 +91,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://alex-wanght.github.io/Alex-Blog/robot/Rigid%20Body%20Dynamic%20Algorithms/Rigid%20Body%20Dynamic%20Algorithms/</loc>
+         <lastmod>2026-08-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://alex-wanght.github.io/Alex-Blog/robot/Robotics%20Vision%20and%20Control/</loc>
          <lastmod>2026-08-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
