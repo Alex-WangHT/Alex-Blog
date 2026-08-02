@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1494,51 +1588,59 @@
 <h3 id="1-1robbins-monro">1-1.Robbins-Monro算法和均值估计<a class="headerlink" href="#1-1robbins-monro" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Robbins-Monro算法</p>
-<p>罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^<em>$ 的迭代方法。
-在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
-$$
+<p>罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 <span class="arithmatex">\(g(w) = 0\)</span> 的根 <span class="arithmatex">\(w^*\)</span> 的迭代方法。
+在第 <span class="arithmatex">\(k\)</span> 步，我们只能观测到带有随机噪声 <span class="arithmatex">\(\eta_k\)</span> 的梯度估计值：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 {\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k
-$$
-算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
-$$
+</script>
+</div>
+算法使用一个递减的步长 <span class="arithmatex">\(\gamma_k\)</span> 来更新估计值：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)
-$$
-</em><em>关键要求:</em><em> 噪声 $\eta_k$ 必须是</em><em>无偏</em><em>的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 &lt; \infty$，以确保$w_k$ 最终收敛到 $w^</em>$。</p>
+</script>
+</div>
+<strong>关键要求:</strong> 噪声 <span class="arithmatex">\(\eta_k\)</span> 必须是<strong>无偏</strong>的（<span class="arithmatex">\(E[\eta_k | w_k] = 0\)</span>），并且步长序列<span class="arithmatex">\(\gamma_k\)</span> 需满足 <span class="arithmatex">\(\sum \gamma_k = \infty\)</span> 和 <span class="arithmatex">\(\sum \gamma_k^2 &lt; \infty\)</span>，以确保<span class="arithmatex">\(w_k\)</span> 最终收敛到 <span class="arithmatex">\(w^*\)</span>。</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Robbins-Monro算法和梯度下降(Gradient Decrease)</p>
-<p>我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 ${f}{:}{{X{\rightarrow}Y}}$，已知一系列数据集 $({x}<sup _i_="(i)">{(i)},{y}</sup>$。
-我们假定函数关系为 ${{\hat{y}}})$，其中 ${{x}{\in}{X}},{{y}{\in}{Y}<sup _i_="(i)">{(i)}}={f}{({x}</sup>$ 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
-$$
-J={\frac{1}{N}}{\sum_{i=1}},{\theta})}$，其中 ${\theta<sup _i_="(i)">{N}}{{{(}{{{y}}</sup>}}-f({x<sup 2="2">{(i)},{\theta}){)}}</sup>
-$$}</p>
+<p>我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 <span class="arithmatex">\({f}{:}{{X{\rightarrow}Y}}\)</span>，已知一系列数据集 <span class="arithmatex">\(({x}^{(i)},{y}^{(i)})\)</span>，其中 <span class="arithmatex">\({{x}{\in}{X}},{{y}{\in}{Y}}\)</span>。
+我们假定函数关系为 <span class="arithmatex">\({{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}\)</span>，其中 <span class="arithmatex">\({\theta}\)</span> 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
+J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
+</script>
+</div></p>
 </div>
 <blockquote>
 <p><strong>核心优化目标</strong>
-- 我们训练模型的问题转化为：<strong>如何让损失函数 $J(\theta)$ 最小化</strong>。
-- 这等价于寻找最优参数 ${\theta}^{<em>}$，使得损失函数的梯度（</em><em>驻点</em><em>）为零    $${{\nabla}_{\theta}}J(\theta^{</em>})=0$$</p>
+- 我们训练模型的问题转化为：<strong>如何让损失函数 <span class="arithmatex">\(J(\theta)\)</span> 最小化</strong>。
+- 这等价于寻找最优参数 <span class="arithmatex">\({\theta}^{*}\)</span>，使得损失函数的梯度（<strong>驻点</strong>）为零    $<span class="arithmatex">\({{\nabla}_{\theta}}J(\theta^{*})=0\)</span>$</p>
 <p><strong>优化方法（随机逼近）</strong>
-- 解决 $\nabla_{\theta}J=0$ 的问题，通常采用<strong>梯度下降 (Gradient Descent)</strong> 算法族。
-- 特别地，对于大规模数据集，我们使用<strong>随机梯度下降 (SGD)</strong>，它通过<strong>小批量数据</strong> $\mathcal{B}$ 计算梯度的<strong>无偏估计</strong> $\hat{\nabla}<em k_1="k+1">{\theta} J$，然后迭代更新参数。
-- SGD 的迭代更新公式可以被视为Robbins-Monro 算法在极小化损失函数（寻找零点）问题上的特定应用：$${{\theta}</em>}}={{\theta<em _theta="\theta">{k}}-{\alpha_k}{\hat{\nabla}</em>)$$
-- 其中，${\alpha_k}$ 是}}J(\theta_k; \mathcal{B<strong>学习率（步长）</strong>，它通常会随着训练轮次 $k$ 的增加而衰减。</p>
+- 解决 <span class="arithmatex">\(\nabla_{\theta}J=0\)</span> 的问题，通常采用<strong>梯度下降 (Gradient Descent)</strong> 算法族。
+- 特别地，对于大规模数据集，我们使用<strong>随机梯度下降 (SGD)</strong>，它通过<strong>小批量数据</strong> <span class="arithmatex">\(\mathcal{B}\)</span> 计算梯度的<strong>无偏估计</strong> <span class="arithmatex">\(\hat{\nabla}_{\theta} J\)</span>，然后迭代更新参数。
+- SGD 的迭代更新公式可以被视为Robbins-Monro 算法在极小化损失函数（寻找零点）问题上的特定应用：$<span class="arithmatex">\({{\theta}_{k+1}}={{\theta}_{k}}-{\alpha_k}{\hat{\nabla}_{\theta}}J(\theta_k; \mathcal{B})\)</span>$
+- 其中，<span class="arithmatex">\({\alpha_k}\)</span> 是<strong>学习率（步长）</strong>，它通常会随着训练轮次 <span class="arithmatex">\(k\)</span> 的增加而衰减。</p>
 </blockquote>
 <h3 id="1-2dvoretzky">1-2.Dvoretzky定理<a class="headerlink" href="#1-2dvoretzky" title="Permanent link">&para;</a></h3>
 <p><strong>Dvoretzky定理</strong>是随机逼近领域的经典结果。这个定理可以用来分析RM算法和许多强化学习算法的收敛性。</p>
 <div class="admonition note">
 <p class="admonition-title">Dvoretzky定理</p>
 <p>考虑到一个随机过程：
-$$
-{{\Delta}<em k="k">{k+1}}=(1-{{\alpha}</em>}}){{\Delta<em k="k">{k}}+{{\beta}</em>}}{{\eta<em k="k">{k}}
-$$
-其中${{{{\alpha}</em>}}}<em k="k">{k=1}<sup _infty="\infty">{\infty}$，${{{{\beta}<em k="1">{k}}}}</em></sup>}$，${{{{\eta</em>}}}<em k="k">{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
-如果满足以下条件，那么序列${{\Delta}</em>$基本上会收敛到0：
-- ${\sum_{k=1}}<sup _infty="\infty">{\infty}}{{\alpha}<em k="1">k}={\infty}$，${\sum</em></sup>}}{{\alpha<sup _infty="\infty">{2}<em k="1">k}{\lt}{\infty}$和${\sum</em></sup>$基本一致。
-- ${\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0$和${\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C$基本上确定。}}{{\beta}_k}{\lt}{\infty</p>
-<p>其中：$${\mathcal{H}<em k="k">k}={{{\Delta}</em>}},{{\Delta<em k-1="k-1">{k-1}},{\dots},{{\eta}</em>}},{\dots},{{\alpha<em k-1="k-1">{k-1}},{\dots},{{\beta}</em>}$$ }},{\dots</p>
+<div class="arithmatex">
+<script type="math/tex; mode=display">
+{{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}
+</script>
+</div>
+其中<span class="arithmatex">\({\{{{\alpha}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\beta}_{k}}\}}_{k=1}^{\infty}\)</span>，<span class="arithmatex">\({\{{{\eta}_{k}}\}}_{k=1}^{\infty}\)</span>都是随机序列，对任意的<span class="arithmatex">\(k\)</span>都存在<span class="arithmatex">\({{\alpha}_k}{\geq}{0}\)</span>和<span class="arithmatex">\({{\beta}_k}{\geq}{0}\)</span>。
+如果满足以下条件，那么序列<span class="arithmatex">\({{\Delta}_{k}}\)</span>基本上会收敛到0：
+- <span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}\)</span>，<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}\)</span>和<span class="arithmatex">\({\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}\)</span>基本一致。
+- <span class="arithmatex">\({\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0\)</span>和<span class="arithmatex">\({\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C\)</span>基本上确定。</p>
+<p>其中：$<span class="arithmatex">\({\mathcal{H}_k}=\{{{\Delta}_{k}},{{\Delta}_{k-1}},{\dots},{{\eta}_{k-1}},{\dots},{{\alpha}_{k-1}},{\dots},{{\beta}_{k-1}},{\dots}\}\)</span>$ </p>
 </div>
 <h2 id="2">2.使用时序差分方法求解状态值<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>假设我们有一个策略:${\pi}$，但是我们不知道任何模型和概率的先验知识的情况下，需要我们通过策略${\pi}$来估计当前策略:${\pi}$下每个状态$s{\in}{\mathcal{S}}$的状态值${v_{\pi}}(s)$。
+<p>假设我们有一个策略:<span class="arithmatex">\({\pi}\)</span>，但是我们不知道任何模型和概率的先验知识的情况下，需要我们通过策略<span class="arithmatex">\({\pi}\)</span>来估计当前策略:<span class="arithmatex">\({\pi}\)</span>下每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({v_{\pi}}(s)\)</span>。
 首先我们从贝尔曼方程的定义出发：
 $$
 \begin{align}
@@ -1554,11 +1656,11 @@ $$
 {\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}
 \end{align}
 $$
-我们根据${\sum_{{a_t}{\in}{\mathcal{A}{s}}}}{\pi}{({a_t}|{s})}{p({{s_{t+1}}}|{s},{a_t})}={{{P}<em t_1="t+1">{\pi}}({{s</em>]$写成如下形式：
+我们根据<span class="arithmatex">\({\sum_{{a_t}{\in}{\mathcal{A}\{s\}}}}{\pi}{({a_t}|{s})}{p({{s_{t+1}}}|{s},{a_t})}={{{P}_{\pi}}({{s_{t+1}}}|{s})}\)</span>可以将<span class="arithmatex">\({\mathbb{E}}[{G_{t+1}}|{S_t}={s}]\)</span>写成如下形式：
 $$
 \begin{align}
 {\mathbb{E}}[{G_{t+1}}|{S_t}={s}]&amp;={\sum_{{a_t}{\in}{A{{s}}}}}{\pi}{({a_t}|{s})}{\sum_{{s_{t+1}}{\in}{{S}}}}{p({{s_{t+1}}}|{s},{a_t})}{v_{\pi}({s_{t+1}})}\
-&amp;={\sum_{{s_{t+1}}{\in}{{S}}}}{{{P}}}}|{s})}$可以将${\mathbb{E}}[{G_{t+1}}|{S_t}={s<em t_1="t+1">{\pi}}({{s</em>\
+&amp;={\sum_{{s_{t+1}}{\in}{{S}}}}{{{P}<em t_1="t+1">{\pi}}({{s</em>\
 &amp;={\mathbb{E}}[{v_{\pi}}({S_{t+1}})|{S_t}={s}]
 \end{align}
 $$
@@ -1568,19 +1670,19 @@ $$
 {v_{\pi}}({s})={\mathbb{E}}[{R}<em _pi="\pi">{t+1}+{\gamma}{v</em>]
 \end{align}
 $$
-我们可以像之前的Monte-Carlo方法一样，根据已知的策略$\pi$来生成$N$个长度为$T$（$N$和$T$是足够大的正整数）的Episodes，在这些Episodes中，我们假设一共经过了$n$次状态$s{\in}{\mathcal{S}}$。我们记经过状态的时刻为$t_i(i=1,2{\dots},n)$。我们在$t_i$时刻到达状态$s$后，$t_i+1$时刻的状态$s_{t_i+1}$是随机的。获取的状态值采样即为${{r}}}({S_{t+1}})|{S_t}={s<em _pi="\pi">{t_i+1}}+{\gamma}{{v</em>$，根据大数定律我们在$t_n$时刻的时候，我们估计的状态值如下：$$
+我们可以像之前的Monte-Carlo方法一样，根据已知的策略}}({S_{t+1}})|{S_t}={s<span class="arithmatex">\(\pi\)</span>来生成<span class="arithmatex">\(N\)</span>个长度为<span class="arithmatex">\(T\)</span>（<span class="arithmatex">\(N\)</span>和<span class="arithmatex">\(T\)</span>是足够大的正整数）的Episodes，在这些Episodes中，我们假设一共经过了<span class="arithmatex">\(n\)</span>次状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>。我们记经过状态的时刻为<span class="arithmatex">\(t_i(i=1,2{\dots},n)\)</span>。我们在<span class="arithmatex">\(t_i\)</span>时刻到达状态<span class="arithmatex">\(s\)</span>后，<span class="arithmatex">\(t_i+1\)</span>时刻的状态<span class="arithmatex">\(s_{t_i+1}\)</span>是随机的。获取的状态值采样即为<span class="arithmatex">\({{r}_{t_i+1}}+{\gamma}{{v_{\pi}}({s_{t_i+1}})}\)</span>，根据大数定律我们在<span class="arithmatex">\(t_n\)</span>时刻的时候，我们估计的状态值如下：$$
 \begin{align}
-{v_{t_n}}(s)={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}}}({s_{t_i+1}})<em _pi="\pi">{t_i+1}}+{\gamma}{{v</em>)
+{v_{t_n}}(s)={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em _pi="\pi">{t_i+1}}+{\gamma}{{v</em>)
 \end{align}
-$$当$n$足够大的时候，根据大数定律，我们有：
+$}}({s_{t_i+1}})<span class="arithmatex">\(当\)</span>n$足够大的时候，根据大数定律，我们有：
 $$
-{{v_{\pi}}(s)}={\mathbb{E}}[R_{t+1}+{\gamma}{v_{\pi}}(S_{t+1})|S_t=s]{\approx}{{v_{t_n}}(s)}={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}}}({s_{t_i+1}})<em _pi="\pi">{t_i+1}}+{\gamma}{{v</em>)
+{{v_{\pi}}(s)}={\mathbb{E}}[R_{t+1}+{\gamma}{v_{\pi}}(S_{t+1})|S_t=s]{\approx}{{v_{t_n}}(s)}={\frac{1}{n}}{\sum_{i=1}^{n}}({{r}<em _pi="\pi">{t_i+1}}+{\gamma}{{v</em>)
 $$
-但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态$s$的状态值是未知的。其他状态都是已知的。
-但是更普遍的问题是：}}({s_{t_i+1}})<strong>我们待求解的状态值都是未知的</strong>。也就是说我们求解的目标就是求解每个状态$s{\in}{\mathcal{S}}$的状态值${{v}<em k_1="k+1">{\pi}}(s)$。那么刚才我们用到的使用随机拟合来求解策略$\pi$下的状态值就无法使用了。
-那么首先回顾一下第二章里提到过的用迭代法求解在指定策略${\pi}$下的贝尔曼方程的公式：
+但是，上面使用到的例子是一个理想化的例子：当前环境中，仅状态}}({s_{t_i+1}})<span class="arithmatex">\(s\)</span>的状态值是未知的。其他状态都是已知的。
+但是更普遍的问题是：<strong>我们待求解的状态值都是未知的</strong>。也就是说我们求解的目标就是求解每个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的状态值<span class="arithmatex">\({{v}_{\pi}}(s)\)</span>。那么刚才我们用到的使用随机拟合来求解策略<span class="arithmatex">\(\pi\)</span>下的状态值就无法使用了。
+那么首先回顾一下第二章里提到过的用迭代法求解在指定策略<span class="arithmatex">\({\pi}\)</span>下的贝尔曼方程的公式：
 $$
-{v</em>(k=0,1,2,\dots,n)
+{v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
 $$
 将该元素形式的迭代法方程写成类似于Bellman Expectation Equation的形式如下：
 $$
@@ -1593,14 +1695,14 @@ $$
 $$
 后面根据Robbins-Monro方法求解该方程如下：
 $$
-{v_{k+1}}(s)={v_{k}}(s)-{{\alpha}}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad<em k="k">{k}}(s)[{v</em>(s_{t+
+{v_{k+1}}(s)={v_{k}}(s)-{{\alpha}<em k="k">{k}}(s)[{v</em>(s_{t+
 1}))]
 $$
-上面公式的$k$代表了我们经过状态$s{\in}{\mathcal{S}}$的次数，我们每经过一次状态$s$，那么状态$s$对应的状态值$v(s)$就更新一次。
-那么我们改写一下：当我们按照策略$\pi$生成的轨迹，在时间$t$时刻经过状态$s_t{\in}{\mathcal{S}}$的时候，我们的状态值按照如下形式更新：
+上面公式的}}(s)-({r_{t+1}}+{\gamma}{v_k<span class="arithmatex">\(k\)</span>代表了我们经过状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的次数，我们每经过一次状态<span class="arithmatex">\(s\)</span>，那么状态<span class="arithmatex">\(s\)</span>对应的状态值<span class="arithmatex">\(v(s)\)</span>就更新一次。
+那么我们改写一下：当我们按照策略<span class="arithmatex">\(\pi\)</span>生成的轨迹，在时间<span class="arithmatex">\(t\)</span>时刻经过状态<span class="arithmatex">\(s_t{\in}{\mathcal{S}}\)</span>的时候，我们的状态值按照如下形式更新：
 $$
 \begin{align}
-{v_{t+1}}(s_t)&amp;={v_{t}}(s_t)-{{\alpha}}}(s)-({r_{t+1}}+{\gamma}{v_k<em t="t">{t}}(s_t)[{v</em>))]\
+{v_{t+1}}(s_t)&amp;={v_{t}}(s_t)-{{\alpha}<em t="t">{t}}(s_t)[{v</em>))]\
 {v_{t+1}}(s)&amp;={v_{t}}(s)&amp;{({\forall}s{\neq}s_t)}
 \end{align}
 $$
@@ -1619,7 +1721,7 @@ $$
 - TD Error：}}(s_t)-{\overbrace{({r_{t+1}}+{\gamma}{v_t}(s_{t+1}))}^{\text{TD target}}}}_{\text{TD error } \delta_t}</p>
 <div class="admonition tip">
 <p class="admonition-title">时序差分算法的收敛性证明</p>
-<p>对于时序差分算法最终收敛到$v_{\pi}(s)$的证明，我们可以使用<strong>Dvoretzky定理</strong>来进行证明。</p>
+<p>对于时序差分算法最终收敛到<span class="arithmatex">\(v_{\pi}(s)\)</span>的证明，我们可以使用<strong>Dvoretzky定理</strong>来进行证明。</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">值函数时序差分方法的Python程序实现</p>

@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1442,12 +1536,12 @@
 
 <p>在前面我们已经分析贝尔曼最优公式以及贝尔曼最优公式的一些性质。我们在这里需要介绍贝尔曼最优公式的两种解法：<strong>值迭代</strong>和<strong>策略迭代</strong>。</p>
 <h2 id="4-1value-iteration">4-1.值迭代（Value Iteration）<a class="headerlink" href="#4-1value-iteration" title="Permanent link">&para;</a></h2>
-<p>我们初始化状态值$v_0$，然后我们分为两步进行：
-第一步是<strong>策略更新（Policy Update）</strong>：首先我们根据给定的状态值${v_{k}}$来计算在当前条件下的最优策略${{\pi}<em k_1="k+1">{k+1}}$：
+<p>我们初始化状态值<span class="arithmatex">\(v_0\)</span>，然后我们分为两步进行：
+第一步是<strong>策略更新（Policy Update）</strong>：首先我们根据给定的状态值<span class="arithmatex">\({v_{k}}\)</span>来计算在当前条件下的最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>：
 $$
-{{\pi}</em>)
+{{\pi}<em _pi="\pi">{k+1}}={\arg}{\max</em>)
 $$
-第二步是}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{k}<strong>数值更新（Value Update）</strong>：我们需要根据最优策略${\pi}<em k_1="k+1">{k+1}$和之前的状态值$v_k$来计算当前条件下的状态值${v}</em>$：
+第二步是}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{k}<strong>数值更新（Value Update）</strong>：我们需要根据最优策略<span class="arithmatex">\({\pi}_{k+1}\)</span>和之前的状态值<span class="arithmatex">\(v_k\)</span>来计算当前条件下的状态值<span class="arithmatex">\({v}_{k+1}\)</span>：
 $$
 {v_{k+1}}={r_{{\pi}<em _pi="{\pi">{k+1}}}+{\gamma}{P</em><em k="k">{k+1}}}{v</em>
 $$
@@ -1459,16 +1553,16 @@ $$
 </code></pre></div></p>
 </div>
 <h2 id="4-2policy-iteration">4-2.策略迭代（Policy Iteration）<a class="headerlink" href="#4-2policy-iteration" title="Permanent link">&para;</a></h2>
-<p>我们初始化策略$\pi_0$，然后我们分为两步进行：
-第一步是<strong>策略评估（Policy Evaluation）</strong>：在这一步我们需要使用<strong>迭代法求解贝尔曼方程的方法</strong>，来计算在当前策略${\pi}<em _pi="{\pi">{k}$下的状态值${v}</em><em _pi="{\pi">{k}}$。即：
+<p>我们初始化策略<span class="arithmatex">\(\pi_0\)</span>，然后我们分为两步进行：
+第一步是<strong>策略评估（Policy Evaluation）</strong>：在这一步我们需要使用<strong>迭代法求解贝尔曼方程的方法</strong>，来计算在当前策略<span class="arithmatex">\({\pi}_{k}\)</span>下的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>。即：
 $$
-{v</em><em _pi="{\pi">{k}}}={r</em><em _pi="{\pi">{k}}}+{\gamma}{P</em><em _pi="{\pi">{k}}}{v</em><em _pi="{\pi">{k}}}
+{v_{{\pi}<em _pi="{\pi">{k}}}={r</em><em _pi="{\pi">{k}}}+{\gamma}{P</em><em _pi="{\pi">{k}}}{v</em><em k_1="k+1">{k}}}
 $$
-第二步是<strong>策略增强（Policy Improvement）</strong>：在这里，我们使用类似于值迭代的方法，根据当前策略的状态值${v}</em><em k_1="k+1">{k}}$来计算最优策略${{\pi}</em>$。即：
+第二步是<strong>策略增强（Policy Improvement）</strong>：在这里，我们使用类似于值迭代的方法，根据当前策略的状态值<span class="arithmatex">\({v}_{{\pi}_{k}}\)</span>来计算最优策略<span class="arithmatex">\({{\pi}_{k+1}}\)</span>。即：
 $$
-{{\pi}}<em _pi="\pi">{k+1}}={\arg}{\max</em>)
+{{\pi}</em>)
 $$
-该方法对应的伪代码如下：}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{{\pi}_{k}}</p>
+该方法对应的伪代码如下：}}={\arg}{\max_{\pi}}({r_{\pi}}+{\gamma}{P_{\pi}}{v_{{\pi}_{k}}</p>
 <div class="admonition example">
 <p class="admonition-title">策略迭代方法的Python程序实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
@@ -1493,11 +1587,11 @@ $$
 <p>其实，截断策略迭代也是<strong>广义策略迭代（Generalized Policy Iteration）</strong> 的一种形式，广义策略迭代的定义如下：</p>
 <div class="admonition note">
 <p class="admonition-title">广义策略迭代（Generalized Policy Iteration）</p>
-<p><strong>广义策略迭代（Generalized Policy Iteration）</strong> 是强化学习中的一个<strong>核心思想和元结构</strong>，它描述了最优策略 $\pi^<em>$ 和最优价值函数 $V^</em>$ 是如何通过<strong>策略评估 (Policy Evaluation, PE)</strong> 和<strong>策略改进 (Policy Improvement, PI)</strong> 这两个过程的<strong>持续交替和同步进行</strong>来实现收敛的。</p>
+<p><strong>广义策略迭代（Generalized Policy Iteration）</strong> 是强化学习中的一个<strong>核心思想和元结构</strong>，它描述了最优策略 <span class="arithmatex">\(\pi^*\)</span> 和最优价值函数 <span class="arithmatex">\(V^*\)</span> 是如何通过<strong>策略评估 (Policy Evaluation, PE)</strong> 和<strong>策略改进 (Policy Improvement, PI)</strong> 这两个过程的<strong>持续交替和同步进行</strong>来实现收敛的。</p>
 <p>广义策略迭代包括策略评估和策略迭代这两个核心机制：</p>
 <ul>
-<li><strong>策略评估 (PE):</strong> 使价值函数 $V$ 与当前策略 $\pi$ 保持一致（$v \approx v_{\pi}$）。</li>
-<li><strong>策略改进 (PI):</strong> 根据 $V$ 贪婪地选择动作，从而得到一个改进的策略 $\pi'$ ($\pi' \ge \pi$）。</li>
+<li><strong>策略评估 (PE):</strong> 使价值函数 <span class="arithmatex">\(V\)</span> 与当前策略 <span class="arithmatex">\(\pi\)</span> 保持一致（<span class="arithmatex">\(v \approx v_{\pi}\)</span>）。</li>
+<li><strong>策略改进 (PI):</strong> 根据 <span class="arithmatex">\(V\)</span> 贪婪地选择动作，从而得到一个改进的策略 <span class="arithmatex">\(\pi'\)</span> (<span class="arithmatex">\(\pi' \ge \pi\)</span>）。</li>
 </ul>
 <p>这两个过程互相驱动，共同收敛到最优解。大多数基于价值函数的强化学习算法（如策略迭代、值迭代、Q-Learning 等）都属于 GPI 的具体实现。</p>
 </div>

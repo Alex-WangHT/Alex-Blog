@@ -1,5 +1,6 @@
 // MathJax 3 配置
-// 禁用 arithmatex 后，MathJax 直接在客户端处理 $...$ 和 $$...$$
+// 支持 arithmatex generic 输出的 \( \) 和 \[ \]
+// 以及 math/tex script 标签（由 fenced code block 生成）
 window.MathJax = {
   tex: {
     inlineMath: [
@@ -16,6 +17,15 @@ window.MathJax = {
   options: {
     renderActions: {
       addMenu: []
+    }
+  },
+  startup: {
+    pageReady() {
+      // 将 arithmatex 遗留的 math/tex script 标签转换为 MathJax 3 格式
+      document.querySelectorAll('script[type^="math/tex"]').forEach(script => {
+        script.type = script.type.replace('math/tex', 'text/tex');
+      });
+      return MathJax.startup.defaultPageReady();
     }
   }
 };

@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1519,49 +1613,58 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">State Space</p>
-<p><strong>State Space(状态空间)</strong>指的是在环境中所有$n$个状态$s_i(i=1,2,\dots,n)$的集合，状态空间的表达式：
-$$
-{\mathcal{S}}={{s}<em i="1">{i}}</em>
-$$}^{n</p>
+<p><strong>State Space(状态空间)</strong>指的是在环境中所有<span class="arithmatex">\(n\)</span>个状态<span class="arithmatex">\(s_i(i=1,2,\dots,n)\)</span>的集合，状态空间的表达式：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
+{\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}
+</script>
+</div></p>
 </div>
 <h2 id="13-action-and-action-space">1.3-Action and Action Space<a class="headerlink" href="#13-action-and-action-space" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Action</p>
-<p><strong>Action(动作)</strong>指Agent在特定状态${s_i}{\in}{\mathcal{S}}$可以执行的任意Action，这个过程我们一般用$a$来表示，一般来说任意的State${s_i}{\in}{\mathcal{S}}$有多个Action:
-$$
+<p><strong>Action(动作)</strong>指Agent在特定状态<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>可以执行的任意Action，这个过程我们一般用<span class="arithmatex">\(a\)</span>来表示，一般来说任意的State<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>有多个Action:
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 a_k{\quad}(k=1,2,\dots)
-$$</p>
+</script>
+</div></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Action Space</p>
-<p>对于在状态空间中的任意状态$s_i{\in}{\mathcal{S}}$来说，在这个状态能够执行的所有的Acton：
-$$
+<p>对于在状态空间中的任意状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>来说，在这个状态能够执行的所有的Acton：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 a_k{\quad}(k=1,2,\dots)
-$$
-的集合定义为状态$s_i$的<strong>Action Space(动作空间)</strong>：
-$$
-{{\mathcal{A}}(s_i)}={a_1,a_2,\dots,a_m}
-$$</p>
+</script>
+</div>
+的集合定义为状态<span class="arithmatex">\(s_i\)</span>的<strong>Action Space(动作空间)</strong>：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
+\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}
+</script>
+</div></p>
 </div>
 <h2 id="14-state-transition">1.4-State transition<a class="headerlink" href="#14-state-transition" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">State transition</p>
-<p><strong>State transition(状态转移)</strong>指的是状态集合${S}$中的状态$s_i$通过动作集合${A(s_i)}$中的某个动作$a_k$转移到另外的状态$s_j$的过程：
-$$
+<p><strong>State transition(状态转移)</strong>指的是状态集合<span class="arithmatex">\(\{S\}\)</span>中的状态<span class="arithmatex">\(s_i\)</span>通过动作集合<span class="arithmatex">\(\{A(s_i)\}\)</span>中的某个动作<span class="arithmatex">\(a_k\)</span>转移到另外的状态<span class="arithmatex">\(s_j\)</span>的过程：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 {s_i}{\xrightarrow{a_k}}{s_j}
-$$</p>
+</script>
+</div></p>
 </div>
 <h2 id="15-policy">1.5-Policy<a class="headerlink" href="#15-policy" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Policy</p>
-<p><strong>Policy(策略)</strong> 代表着在环境中的任意给定状态${s}{\in}{\mathcal{S}}$下，采取动作$a_k{\in}{{{\mathcal{A}}(s_i)}}$的可能性。Policy可以用以下的形式来表达：
-- <strong>函数形式：</strong> 将策略${\pi}$看作一种函数，函数的输入变量为状态$s{\in}{\mathcal{S}}$，输出变量为在当前需要采取的动作${a}{\in}{\mathcal{A}}{s}$，该函数表达如下：
-$$
-{a}={\pi}({s})
-$$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以及离散或者连续的动作集合${\mathcal{A}}$。
-- <strong>条件概率形式：</strong> 在当前状态$s{\in}{\mathcal{S}}$的情况下，执行动作$a_k{\in}{{{\mathcal{A}}(s_i)}}$的概率${\pi}({a_k}|{s})$。这种形式大多数情况下用于离散的动作序列。</p>
+<p><strong>Policy(策略)</strong> 代表着在环境中的任意给定状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>下，采取动作<span class="arithmatex">\(a_k{\in}{\{{\mathcal{A}}(s_i)\}}\)</span>的可能性。Policy可以用以下的形式来表达：
+- <strong>函数形式：</strong> 将策略<span class="arithmatex">\({\pi}\)</span>看作一种函数，函数的输入变量为状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，输出变量为在当前需要采取的动作<span class="arithmatex">\({a}{\in}{\mathcal{A}}\{s\}\)</span>，该函数表达如下：
+<code>math
+{a}={\pi}({s})</code>这种形式可以用于离散或者连续的状态集合<span class="arithmatex">\(\mathcal{S}\)</span>，以及离散或者连续的动作集合<span class="arithmatex">\({\mathcal{A}}\)</span>。
+- <strong>条件概率形式：</strong> 在当前状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>的情况下，执行动作<span class="arithmatex">\(a_k{\in}{\{{\mathcal{A}}(s_i)\}}\)</span>的概率<span class="arithmatex">\({\pi}({a_k}|{s})\)</span>。这种形式大多数情况下用于离散的动作序列。</p>
 </div>
-<p>强化学习的主要目标，是为了*<em>学习到全局最优的策略${\pi}<sup>{<em>}$</em><em>，我们有</em><em>Value-Based</em><em>和</em><em>Policy-Based</em>*两个方式去学习最优策略${\pi}</sup>{</em>}$。</p>
+<p>强化学习的主要目标，是为了<strong>学习到全局最优的策略<span class="arithmatex">\({\pi}^{*}\)</span></strong>，我们有<strong>Value-Based</strong>和<strong>Policy-Based</strong>两个方式去学习最优策略<span class="arithmatex">\({\pi}^{*}\)</span>。</p>
 <div class="admonition note">
 <p class="admonition-title">Value-Based方法和Policy-Based方法</p>
 <ul>
@@ -1571,7 +1674,7 @@ $$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以�
 </ul>
 </li>
 <li><strong>Policy-Based方法</strong>：<ul>
-<li>核心思想：直接学习和优化策略函数${\pi}({s})$和${\pi}({a}|{s})$，使之能最大化期望回报。</li>
+<li>核心思想：直接学习和优化策略函数<span class="arithmatex">\({\pi}({s})\)</span>和<span class="arithmatex">\({\pi}({a}|{s})\)</span>，使之能最大化期望回报。</li>
 <li>例如：Policy Gradient，Actor-Critic策略。</li>
 </ul>
 </li>
@@ -1580,22 +1683,24 @@ $$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以�
 <h2 id="16-reward">1.6-Reward<a class="headerlink" href="#16-reward" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Reward</p>
-<p><strong>Reward(奖励)</strong>代表着Agent在某个状态$s{\in}{\mathcal{S}}$下，通过执行动作$a_i{\in}{{\mathcal{A}}(s_i)}$转移到其他状态$s’{\in}{\mathcal{S}}$获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。</p>
+<p><strong>Reward(奖励)</strong>代表着Agent在某个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>下，通过执行动作<span class="arithmatex">\(a_i{\in}{{\mathcal{A}}(s_i)}\)</span>转移到其他状态<span class="arithmatex">\(s’{\in}{\mathcal{S}}\)</span>获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。</p>
 </div>
 <p>在现实生活中，环境是随机的。因此在相同状态执行相同动作，获得的回报也不一定相同，因此，获得回报是个概率性时间
-（在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态$s$，执行动作$a$的时候，获取收益$r$的概率可以表示为$p(r|s,a)$。）</p>
+（在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态<span class="arithmatex">\(s\)</span>，执行动作<span class="arithmatex">\(a\)</span>的时候，获取收益<span class="arithmatex">\(r\)</span>的概率可以表示为<span class="arithmatex">\(p(r|s,a)\)</span>。）</p>
 <h2 id="17-trajectoryepisode">1.7-Trajectory和Episode<a class="headerlink" href="#17-trajectoryepisode" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Trajectory</p>
-<p><strong>Trajectory(轨迹)</strong>是在固定策略 $\pi$ 与环境转移概率 $P(s′|s,a)$ 下，Agent 依次产生的一段状态-动作-奖励链：
-$$
+<p><strong>Trajectory(轨迹)</strong>是在固定策略 <span class="arithmatex">\(\pi\)</span> 与环境转移概率 <span class="arithmatex">\(P(s′|s,a)\)</span> 下，Agent 依次产生的一段状态-动作-奖励链：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 {s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}
-$$</p>
+</script>
+</div></p>
 </div>
 <h2 id="18-return">1.8-Return<a class="headerlink" href="#18-return" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Return</p>
-<p><strong>Return(回报)</strong>是Agent从当前时间$t$所在的状态$s_i{\in}{\mathcal{S}}$开始，在任意一条可能的Trajectory上从$t+1$时刻开始获得的所有未来奖励的总和。</p>
+<p><strong>Return(回报)</strong>是Agent从当前时间<span class="arithmatex">\(t\)</span>所在的状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>开始，在任意一条可能的Trajectory上从<span class="arithmatex">\(t+1\)</span>时刻开始获得的所有未来奖励的总和。</p>
 </div>
 <p>（直接Return相加只适用于有限步数的，我们更多地使用无限步数的Return，那么所有的Return是无限的，就区分不出来哪个策略是好的或者坏的，我们需要使用一种衰减来让Agent实现策略是可以分辨出好坏的，那么对于没有结束的过程的Return，我们使用Discount Return来实现可量化的Return评估）</p>
 <div class="admonition note">
@@ -1611,7 +1716,7 @@ $$</p>
 （从我们的Trajectory Chain我们可以发现我们得到的是一系列的）</p>
 <div class="admonition note">
 <p class="admonition-title">Markov decision processes(重点理解)</p>
-<p><strong>Markov decision processes(马尔科夫决策过程)</strong>指的是Agent未来的State只与当前时间$t$的State和从$t+1$时刻开始的未来状态有关，与从$t-1$之前的历史状态无关。</p>
+<p><strong>Markov decision processes(马尔科夫决策过程)</strong>指的是Agent未来的State只与当前时间<span class="arithmatex">\(t\)</span>的State和从<span class="arithmatex">\(t+1\)</span>时刻开始的未来状态有关，与从<span class="arithmatex">\(t-1\)</span>之前的历史状态无关。</p>
 </div>
 
 

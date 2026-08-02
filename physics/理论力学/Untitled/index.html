@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1464,11 +1558,11 @@
 
 <h1 id="1-2">1-2、刚体一般运动学方程<a class="headerlink" href="#1-2" title="Permanent link">&para;</a></h1>
 <h4 id="1-">1-刚体定点运动的无限小量<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h4>
-<p>我们假设在1-1的第四部分描述的刚体旋转了一个很小的角度$\Delta{\theta}{\to}{0}$，根据三角函数在原点附近的一阶泰勒展开$cos({\Delta{\theta}}){\sim}{1}$和$\sin({\Delta{\theta}}){\sim}{\Delta{\theta}}$，可以将罗德里格斯公式写成以下形式：
+<p>我们假设在1-1的第四部分描述的刚体旋转了一个很小的角度<span class="arithmatex">\(\Delta{\theta}{\to}{0}\)</span>，根据三角函数在原点附近的一阶泰勒展开<span class="arithmatex">\(cos({\Delta{\theta}}){\sim}{1}\)</span>和<span class="arithmatex">\(\sin({\Delta{\theta}}){\sim}{\Delta{\theta}}\)</span>，可以将罗德里格斯公式写成以下形式：
 $$
 {R}={I}+{\Delta{\theta}}{[p{\times}]}={I}+[{\omega}{\times}]
 $$
-我们在这里暂时将$[{{\omega}}{\times}]$记作刚体定点运动的无限小量，其中：
+我们在这里暂时将<span class="arithmatex">\([{{\omega}}{\times}]\)</span>记作刚体定点运动的无限小量，其中：
 $$
 [{\omega}{\times}]=
 \begin{pmatrix}
@@ -1478,7 +1572,7 @@ $$
 \end{pmatrix}
 $$</p>
 <h4 id="2-">2-刚体定点运动的角速度和角加速度<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h4>
-<p>我们假设在很短的时间$\Delta{t}$内转动了一个很小的角度$\Delta{\theta}$，即：
+<p>我们假设在很短的时间<span class="arithmatex">\(\Delta{t}\)</span>内转动了一个很小的角度<span class="arithmatex">\(\Delta{\theta}\)</span>，即：
 $$
 {\lim_{\Delta{t}{\to}{0}}}{\frac{\Delta{\theta}}{\Delta{t}}}=\dot{\theta}
 $$
@@ -1491,7 +1585,7 @@ $$
 -{\dot{\theta}}{p_y}&amp;{\dot{\theta}}{p_x}&amp;0\
 \end{pmatrix}={[{\dot{\theta}}p{\times}]}
 $$
-根据上式我们可以得到刚体的角速度如下，其中${\vec{p}}$是刚体定点旋转的瞬时旋转单位轴：
+根据上式我们可以得到刚体的角速度如下，其中<span class="arithmatex">\({\vec{p}}\)</span>是刚体定点旋转的瞬时旋转单位轴：
 $$
 \vec{\omega}={\dot{\theta}}{\vec{p}}
 $$
@@ -1502,13 +1596,13 @@ $$</p>
 <div class="admonition tip">
 <p class="admonition-title">刚体的角速度在刚体有限转动的不同表示下的描述</p>
 <ul>
-<li><strong>旋转矩阵</strong>：我们设旋转前刚体B的固连坐标系${B}$的基向量为$\vec{x}$，$\vec{y}$，$\vec{z}$，在以固连坐标系原点$O_B$做很短时间定点运动后的基向量为$\dot{\vec{x}}$，$\dot{\vec{y}}$，$\dot{\vec{z}}$。我们可以得到：$$\left{ \begin{align}&amp;{\dot{\vec{x}}}={[\omega{\times}]}{\vec{x}}\&amp;{\dot{\vec{y}}}={[\omega{\times}]}{\vec{y}}\&amp;{\dot{\vec{z}}}={[\omega{\times}]}{\vec{z}}\end{align}\right.$$根据旋转矩阵的定义我们可以得到：$$\dot{R}={[\omega{\times}]}{R}$$根据旋转矩阵正交的性质$R{R<sup>T}=I$我们可以得到：$${\dot{R}}{R</sup>T}={[\omega{\times}]}$$</li>
+<li><strong>旋转矩阵</strong>：我们设旋转前刚体B的固连坐标系<span class="arithmatex">\(\{B\}\)</span>的基向量为<span class="arithmatex">\(\vec{x}\)</span>，<span class="arithmatex">\(\vec{y}\)</span>，<span class="arithmatex">\(\vec{z}\)</span>，在以固连坐标系原点<span class="arithmatex">\(O_B\)</span>做很短时间定点运动后的基向量为<span class="arithmatex">\(\dot{\vec{x}}\)</span>，<span class="arithmatex">\(\dot{\vec{y}}\)</span>，<span class="arithmatex">\(\dot{\vec{z}}\)</span>。我们可以得到：$<span class="arithmatex">\(\left\{ \begin{align}&amp;{\dot{\vec{x}}}={[\omega{\times}]}{\vec{x}}\\&amp;{\dot{\vec{y}}}={[\omega{\times}]}{\vec{y}}\\&amp;{\dot{\vec{z}}}={[\omega{\times}]}{\vec{z}}\end{align}\right.\)</span><span class="arithmatex">\(根据旋转矩阵的定义我们可以得到：\)</span><span class="arithmatex">\(\dot{R}={[\omega{\times}]}{R}\)</span><span class="arithmatex">\(根据旋转矩阵正交的性质\)</span>R{R^T}=I<span class="arithmatex">\(我们可以得到：\)</span><span class="arithmatex">\({\dot{R}}{R^T}={[\omega{\times}]}\)</span>$</li>
 <li><strong>欧拉角和卡尔丹角</strong></li>
 <li><strong>四元数</strong></li>
 </ul>
 </div>
 <h4 id="3-">3-刚体定点运动的线速度和线加速度<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h4>
-<p>在刚体绕着定点转动的时候，刚体上的某一点在惯性参考坐标系上的绕着转动前的向量$\vec{r}$和转动后的向量$\vec{r}^{'}$的关系如下：
+<p>在刚体绕着定点转动的时候，刚体上的某一点在惯性参考坐标系上的绕着转动前的向量<span class="arithmatex">\(\vec{r}\)</span>和转动后的向量<span class="arithmatex">\(\vec{r}^{'}\)</span>的关系如下：
 $$
 \vec{r}^{'}=R\vec{r}={\vec{r}}+{[\omega{\times}]}{\vec{r}}
 $$
@@ -1516,7 +1610,7 @@ $$
 $$
 \Delta{\vec{r}}=\vec{r}^{'}-\vec{r}={[\omega{\times}]}{\vec{r}}
 $$
-因为在很短的时间$\Delta{t}{\to}{0}$运动的，因此我们可以得到刚体的某一点绕定点运动的线速度如下：
+因为在很短的时间<span class="arithmatex">\(\Delta{t}{\to}{0}\)</span>运动的，因此我们可以得到刚体的某一点绕定点运动的线速度如下：
 $$
 \vec{v}=\dot{\vec{r}}={\vec{\omega}}{\times}{\vec{r}}
 $$
@@ -1526,7 +1620,7 @@ $$
 $$</p>
 <h4 id="4-">4-刚体一般运动的描述<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h4>
 <p>我们在理论力学里面有一个结论：<strong>刚体一般运动是由刚体平动和刚体绕某个点做定点运动合成得到的</strong>。那么根据这个结论，我们将刚体的一般运动分为刚体质心在空间的平动以及刚体绕着质心定点运动。
-刚体在空间相对于惯性参考坐标系${O}$进行一般运动如上图所示，其中坐标系${B}$是刚体的固连坐标系，$O_{C}$是刚体的质心。刚体内一点P在参考坐标系${O}$的位置表示如下：
+刚体在空间相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>进行一般运动如上图所示，其中坐标系<span class="arithmatex">\(\{B\}\)</span>是刚体的固连坐标系，<span class="arithmatex">\(O_{C}\)</span>是刚体的质心。刚体内一点P在参考坐标系<span class="arithmatex">\(\{O\}\)</span>的位置表示如下：
 $$
 {<sup O="O">{O}}{\vec{r}}_{P}={</sup>}}{\vec{r}<em P="P">{C}+{<sup B="B">{O}}{R}{_{B}}{</sup>{\vec{\rho}</em>
 $$

@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1485,7 +1579,7 @@ $$
 \end{align}}
 \right.
 $$
-其中$x{\in}{\mathbb{R}<sup>n}$是状态向量，$u{\in}{\mathbb{R}</sup>m}$为控制输入，$d{\in}{\mathbb{R}<sup>l}$为扰动，$y{\in}{\mathbb{R}</sup>s}$为系统输出。$f(x),{g_1}(x),{g_2}(x),h(x)$都是只和$x$有关的非线性平滑函数，扰动我们是未知的。
+其中<span class="arithmatex">\(x{\in}{\mathbb{R}^n}\)</span>是状态向量，<span class="arithmatex">\(u{\in}{\mathbb{R}^m}\)</span>为控制输入，<span class="arithmatex">\(d{\in}{\mathbb{R}^l}\)</span>为扰动，<span class="arithmatex">\(y{\in}{\mathbb{R}^s}\)</span>为系统输出。<span class="arithmatex">\(f(x),{g_1}(x),{g_2}(x),h(x)\)</span>都是只和<span class="arithmatex">\(x\)</span>有关的非线性平滑函数，扰动我们是未知的。
 根据非线性系统的数学表达式，我们可以得到<strong>基本扰动观测器</strong>的形式如下：
 $$
 \dot{\hat{d}} = l(x)[\dot{x} - f(x) - g_1(x)u - g_2(x)\hat{d}]
@@ -1498,11 +1592,11 @@ $$
 \end{cases} 
 $$
 其中：
-- <strong>$z$</strong>: 观测器的内部状态变量。
-- <strong>$\hat{d}$</strong>: 扰动的估计值（Disturbance estimate）。
-- <strong>$f(x), g_1(x), g_2(x)$</strong>: 系统动力学模型中的已知非线性函数。
-- <strong>$p(x)$</strong>: 为自定义的非线性函数
-- <strong>$l(x)$</strong>: 观测器增益函数，满足 $$l(x) = \frac{\partial p(x)}{\partial x}$$
+- <strong><span class="arithmatex">\(z\)</span></strong>: 观测器的内部状态变量。
+- <strong><span class="arithmatex">\(\hat{d}\)</span></strong>: 扰动的估计值（Disturbance estimate）。
+- <strong><span class="arithmatex">\(f(x), g_1(x), g_2(x)\)</span></strong>: 系统动力学模型中的已知非线性函数。
+- <strong><span class="arithmatex">\(p(x)\)</span></strong>: 为自定义的非线性函数
+- <strong><span class="arithmatex">\(l(x)\)</span></strong>: 观测器增益函数，满足 $<span class="arithmatex">\(l(x) = \frac{\partial p(x)}{\partial x}\)</span>$
 那么该增强观测器的框图如下：
 <img alt="增强非线性扰动观测器" src="../img/NDO-1.png" /></p>
 <div class="admonition note">

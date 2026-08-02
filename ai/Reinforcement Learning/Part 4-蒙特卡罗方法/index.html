@@ -316,17 +316,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../computer/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
   
   
     
   
   计算机
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -335,17 +338,20 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../electronics/" class="md-tabs__link">
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
   
   
     
   
   电子设计
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1101,9 +1107,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../computer/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1117,7 +1148,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1128,9 +1178,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../electronics/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1144,7 +1219,26 @@
   
   
 
-      </a>
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1422,7 +1516,7 @@
   <a href="#4mc-epsilon-greedy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.MC ${\epsilon}$-greedy算法
+        4.MC \({\epsilon}\)-greedy算法
       
     </span>
   </a>
@@ -1455,19 +1549,23 @@
 <p>首先介绍一下<strong>大数定理</strong>：</p>
 <div class="admonition note">
 <p class="admonition-title">大数定理</p>
-<p>设 $X_1, X_2, \ldots, X_n$ 是独立同分布（i.i.d.）的随机变量序列，且它们具有有限的期望值（或均值）$\mu$:
-$$
+<p>设 <span class="arithmatex">\(X_1, X_2, \ldots, X_n\)</span> 是独立同分布（i.i.d.）的随机变量序列，且它们具有有限的期望值（或均值）<span class="arithmatex">\(\mu\)</span>:
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 E[X_i] = \mu
-$$
-定义这 $n$ 个随机变量的样本均值 $\bar{X}<em i="1">n$ 为：
-$$
-\bar{X}_n = \frac{1}{n} \sum</em>^n X_i
-$$
-<strong>大数定理</strong>断言：随着样本数量 $n$ 趋于无穷大，样本均值 $\bar{X}_n$ 将<strong>收敛</strong>于期望值 $\mu$。</p>
+</script>
+</div>
+定义这 <span class="arithmatex">\(n\)</span> 个随机变量的样本均值 <span class="arithmatex">\(\bar{X}_n\)</span> 为：
+<div class="arithmatex">
+<script type="math/tex; mode=display">
+\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i
+</script>
+</div>
+<strong>大数定理</strong>断言：随着样本数量 <span class="arithmatex">\(n\)</span> 趋于无穷大，样本均值 <span class="arithmatex">\(\bar{X}_n\)</span> 将<strong>收敛</strong>于期望值 <span class="arithmatex">\(\mu\)</span>。</p>
 </div>
 <p>假设我们开始扔硬币，每次扔完硬币之后，我们都记录下来扔的是正面还是反面，记正面为1，反面为0。在第k次扔硬币的时候，我们都会将前面k次所有的结果取平均值。我们会发现随着我们扔硬币次数k的不断增加，我们前面k次扔硬币的平均值也会回归到扔硬币对应数学期望值。这就是大数定理。</p>
 <h2 id="2mc-based">2.MC-Based算法<a class="headerlink" href="#2mc-based" title="Permanent link">&para;</a></h2>
-<p><strong>蒙特卡洛 (MC-Based) 算法</strong>通过<strong>完整的试验 (Episode)</strong> 进行学习。在每个试验结束后，算法会计算<strong>实际获得的</strong>总回报 $G_t$ 作为状态-动作对 $(s, a)$ 价值的样本，并用它来<strong>更新</strong> $Q(s, a)$ 的估计值。由于它使用实际回报而非对未来状态的估计（不自举），因此学习过程具备低偏差性。随后，算法根据更新后的 $Q$ 值，通过<strong>贪婪 (Greedy) 策略</strong>来改进当前的行动策略 $\pi(s) = \arg\max_a Q(s, a)$，并结合 $\epsilon$-贪婪机制来确保对环境的持续探索，如此往复，直至 $Q$ 值和策略收敛到最优。</p>
+<p><strong>蒙特卡洛 (MC-Based) 算法</strong>通过<strong>完整的试验 (Episode)</strong> 进行学习。在每个试验结束后，算法会计算<strong>实际获得的</strong>总回报 <span class="arithmatex">\(G_t\)</span> 作为状态-动作对 <span class="arithmatex">\((s, a)\)</span> 价值的样本，并用它来<strong>更新</strong> <span class="arithmatex">\(Q(s, a)\)</span> 的估计值。由于它使用实际回报而非对未来状态的估计（不自举），因此学习过程具备低偏差性。随后，算法根据更新后的 <span class="arithmatex">\(Q\)</span> 值，通过<strong>贪婪 (Greedy) 策略</strong>来改进当前的行动策略 <span class="arithmatex">\(\pi(s) = \arg\max_a Q(s, a)\)</span>，并结合 <span class="arithmatex">\(\epsilon\)</span>-贪婪机制来确保对环境的持续探索，如此往复，直至 <span class="arithmatex">\(Q\)</span> 值和策略收敛到最优。</p>
 <div class="admonition example">
 <p class="admonition-title">MC Based算法的Python程序实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
@@ -1475,12 +1573,12 @@ $$
 </div>
 <h2 id="3mc-exploring">3.MC-Exploring算法<a class="headerlink" href="#3mc-exploring" title="Permanent link">&para;</a></h2>
 <p>前面提到的<strong>MC-Based算法</strong>提供了一个很简单的方式去理解在Model-Free的情况下如何求解Action-Value。
-但是MC-Based这种方法有一个致命的缺点，就是我从某一个键值对$({s},{a})$开始遍历一整个Episode之后才能返回一个Action-Value。这样大大降低了采样效率。
-假设我们根据策略$\pi$有以下的一个采样的Episode：
+但是MC-Based这种方法有一个致命的缺点，就是我从某一个键值对<span class="arithmatex">\(({s},{a})\)</span>开始遍历一整个Episode之后才能返回一个Action-Value。这样大大降低了采样效率。
+假设我们根据策略<span class="arithmatex">\(\pi\)</span>有以下的一个采样的Episode：
 $$
 {s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}
 $$
-我们可以像如下所示这样将上面的Episode分解成多个子Episode，每个子Episode可以看作是一个新的Episode。在走完第一个状态-动作对$(s_1,a_2)$之后，我们以下一个状态-动作对$(s_2,a_4)$为起点的Episode作为一个新的Episode来看待。这些Episode能够用来估计更多的Action-Value。这样我们能够更有效地利用整个Episode的样本。
+我们可以像如下所示这样将上面的Episode分解成多个子Episode，每个子Episode可以看作是一个新的Episode。在走完第一个状态-动作对<span class="arithmatex">\((s_1,a_2)\)</span>之后，我们以下一个状态-动作对<span class="arithmatex">\((s_2,a_4)\)</span>为起点的Episode作为一个新的Episode来看待。这些Episode能够用来估计更多的Action-Value。这样我们能够更有效地利用整个Episode的样本。
 $$
 \begin{align}
 {s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&amp;{\quad}{\text{[original episode starting from}(s_1,a_2)]}\
@@ -1504,14 +1602,14 @@ $$</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>
 </code></pre></div>
 </div>
-<h2 id="4mc-epsilon-greedy">4.MC ${\epsilon}$-greedy算法<a class="headerlink" href="#4mc-epsilon-greedy" title="Permanent link">&para;</a></h2>
+<h2 id="4mc-epsilon-greedy">4.MC <span class="arithmatex">\({\epsilon}\)</span>-greedy算法<a class="headerlink" href="#4mc-epsilon-greedy" title="Permanent link">&para;</a></h2>
 <p>接下来我们来讨论一下探索性和利用性：</p>
 <div class="admonition note">
 <p class="admonition-title">Expectation和Exploitation</p>
 <p>Contents</p>
 </div>
 <div class="admonition example">
-<p class="admonition-title">MC ${\epsilon}$-greedy算法的Python程序实现</p>
+<p class="admonition-title">MC <span class="arithmatex">\({\epsilon}\)</span>-greedy算法的Python程序实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
 </code></pre></div>
 </div>
