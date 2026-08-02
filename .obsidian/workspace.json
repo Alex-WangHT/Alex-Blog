@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/electronics/index.md",
+                "file": "docs/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -199,8 +199,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1063f6604bd2c54a",
+  "active": "abe5958ca3ae71a0",
   "lastOpenFiles": [
+    "docs/electronics/index.md",
     "site/search/search_index.json",
     "site/search",
     "site/tech-blog/tags/深度学习/index.html",
@@ -211,7 +212,6 @@
     "site/tech-blog/tags/概率论",
     "site/tech-blog/tags/机器人/index.html",
     "site/tech-blog/tags/机器人",
-    "site/tech-blog/tags/数学/index.html",
     "docs/tech-blog/ros2-intro.md",
     "docs/tech-blog/slam-motion-model.md",
     "docs/tech-blog/tags/ROS2.md",
@@ -231,7 +231,6 @@
     "docs/math/index.md",
     "_includes/latest_posts.md",
     "docs/_includes/latest_posts.md",
-    "docs/electronics/index.md",
     "docs/control/index.md",
     "docs/computer/index.md",
     "docs/未命名.md",
