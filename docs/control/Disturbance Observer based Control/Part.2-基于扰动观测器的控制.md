@@ -1,6 +1,7 @@
 
-> [!NOTE] 参考书目
-> - S. Li, J. Yang, W. H. Chen, and X. Chen, _Disturbance Observer-Based Control: Methods and Applications_.
+!!! note "参考书目"
+    - S. Li, J. Yang, W. H. Chen, and X. Chen, _Disturbance Observer-Based Control: Methods and Applications_.
+
 ## 1-基于扰动观测器的非线性系统设计
 首先我们有SISO非线性系统如下：
 $$
@@ -16,20 +17,25 @@ $$
 
 **首先，是关于扰动观测器的两个定理**：
 
-> [!NOTE] 定理1
-> Contents
+!!! note "定理1"
+    Contents
 
-> [!NOTE] 定理2
-> Contents
+
+!!! note "定理2"
+    Contents
+
 
 这两个定理告诉我们：扰动观测器能够收敛到信号
 **针对Matched Disturbance的NDOBC**
 
-> [!NOTE] 定理3
-> Contents
+!!! note "定理3"
+    Contents
+
 
 **针对Mismatched Disturbance的NDOBC**
-> [!NOTE] 定义：输入状态稳定性（ISS）
+!!! note "定义：输入状态稳定性（ISS）"
 
-> [!NOTE] 局部 ISS 的一个充分条件引理
+
+!!! note "局部 ISS 的一个充分条件引理"
+
 

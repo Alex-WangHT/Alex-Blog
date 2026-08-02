@@ -1,20 +1,22 @@
 ## 1.Robbins-Monro算法和Dvoretzky定理
 ### 1-1.Robbins-Monro算法和均值估计
 
-> [!NOTE] Robbins-Monro算法
-> 罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^*$ 的迭代方法。
-> 在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
-> $${\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k$$
-> 算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
-> $$w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)$$
-> **关键要求:** 噪声 $\eta_k$ 必须是**无偏**的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 < \infty$，以确保$w_k$ 最终收敛到 $w^*$。
+!!! note "Robbins-Monro算法"
+    罗宾斯-蒙罗（Robbins-Monro）算法是一种寻找方程 $g(w) = 0$ 的根 $w^*$ 的迭代方法。
+    在第 $k$ 步，我们只能观测到带有随机噪声 $\eta_k$ 的梯度估计值：
+    $${\hat{g}(w_k, \eta_k)} = g(w_k) + \eta_k$$
+    算法使用一个递减的步长 $\gamma_k$ 来更新估计值：
+    $$w_{k+1} = w_k - \gamma_k \hat{g}(w_k, \eta_k)$$
+    **关键要求:** 噪声 $\eta_k$ 必须是**无偏**的（$E[\eta_k | w_k] = 0$），并且步长序列$\gamma_k$ 需满足 $\sum \gamma_k = \infty$ 和 $\sum \gamma_k^2 < \infty$，以确保$w_k$ 最终收敛到 $w^*$。
 
-> [!TIP] Robbins-Monro算法和梯度下降(Gradient Decrease)
-> 我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 ${f}{:}{{X{\rightarrow}Y}}$，已知一系列数据集 $({x}^{(i)},{y}^{(i)})$，其中 ${{x}{\in}{X}},{{y}{\in}{Y}}$。
-> 我们假定函数关系为 ${{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}$，其中 ${\theta}$ 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
-> $$
-> J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
-> $$
+
+!!! tip "Robbins-Monro算法和梯度下降(Gradient Decrease)"
+    我们在机器学习或深度学习中训练神经网络，本质上是寻找一个函数映射 ${f}{:}{{X{\rightarrow}Y}}$，已知一系列数据集 $({x}^{(i)},{y}^{(i)})$，其中 ${{x}{\in}{X}},{{y}{\in}{Y}}$。
+    我们假定函数关系为 ${{\hat{y}}^{(i)}}={f}{({x}^{(i)},{\theta})}$，其中 ${\theta}$ 是神经网络的参数。我们通常用均方误差（MSE）等作为损失函数：
+    $$
+    J={\frac{1}{N}}{\sum_{i=1}^{N}}{{{(}{{{y}}^{(i)}}-f({x}^{(i)},{\theta}){)}}^{2}}
+    $$
+
 >**核心优化目标**
 >- 我们训练模型的问题转化为：**如何让损失函数 $J(\theta)$ 最小化**。
 >- 这等价于寻找最优参数 ${\theta}^{*}$，使得损失函数的梯度（**驻点**）为零    $${{\nabla}_{\theta}}J(\theta^{*})=0$$
@@ -27,15 +29,16 @@
 ### 1-2.Dvoretzky定理
 **Dvoretzky定理**是随机逼近领域的经典结果。这个定理可以用来分析RM算法和许多强化学习算法的收敛性。
 
-> [!NOTE] Dvoretzky定理
-> 考虑到一个随机过程：
-> $${{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}$$
-> 其中${\{{{\alpha}_{k}}\}}_{k=1}^{\infty}$，${\{{{\beta}_{k}}\}}_{k=1}^{\infty}$，${\{{{\eta}_{k}}\}}_{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
-> 如果满足以下条件，那么序列${{\Delta}_{k}}$基本上会收敛到0：
-> - ${\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}$，${\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}$和${\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}$基本一致。
-> - ${\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0$和${\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C$基本上确定。
-> 
-> 其中：$${\mathcal{H}_k}=\{{{\Delta}_{k}},{{\Delta}_{k-1}},{\dots},{{\eta}_{k-1}},{\dots},{{\alpha}_{k-1}},{\dots},{{\beta}_{k-1}},{\dots}\}$$ 
+!!! note "Dvoretzky定理"
+    考虑到一个随机过程：
+    $${{\Delta}_{k+1}}=(1-{{\alpha}_{k}}){{\Delta}_{k}}+{{\beta}_{k}}{{\eta}_{k}}$$
+    其中${\{{{\alpha}_{k}}\}}_{k=1}^{\infty}$，${\{{{\beta}_{k}}\}}_{k=1}^{\infty}$，${\{{{\eta}_{k}}\}}_{k=1}^{\infty}$都是随机序列，对任意的$k$都存在${{\alpha}_k}{\geq}{0}$和${{\beta}_k}{\geq}{0}$。
+    如果满足以下条件，那么序列${{\Delta}_{k}}$基本上会收敛到0：
+    - ${\sum_{k=1}^{\infty}}{{\alpha}_k}={\infty}$，${\sum_{k=1}^{\infty}}{{\alpha}^{2}_k}{\lt}{\infty}$和${\sum_{k=1}^{\infty}}{{\beta}_k}{\lt}{\infty}$基本一致。
+    - ${\mathbb{E}[{{\eta}_k|\mathcal{H}_k}]}=0$和${\mathbb{E}[{{\eta}^{2}_k|\mathcal{H}_k}]}{\leq}C$基本上确定。
+    
+    其中：$${\mathcal{H}_k}=\{{{\Delta}_{k}},{{\Delta}_{k-1}},{\dots},{{\eta}_{k-1}},{\dots},{{\alpha}_{k-1}},{\dots},{{\beta}_{k-1}},{\dots}\}$$ 
+
 ## 2.使用时序差分方法求解状态值
 假设我们有一个策略:${\pi}$，但是我们不知道任何模型和概率的先验知识的情况下，需要我们通过策略${\pi}$来估计当前策略:${\pi}$下每个状态$s{\in}{\mathcal{S}}$的状态值${v_{\pi}}(s)$。
 首先我们从贝尔曼方程的定义出发：
@@ -103,8 +106,9 @@ $$
 $$
 那么我们就推导出来了**时序差分算法（Temporal Difference Algorithm）**：
 
-> [!NOTE] 时序差分算法（Temporal Difference Algorithm）
-> 
+!!! note "时序差分算法（Temporal Difference Algorithm）"
+    
+
 
 我们将时序差分算法拆解如下：
 $$
@@ -116,49 +120,58 @@ $$
 - TD Target：
 - TD Error：
 
-> [!TIP] 时序差分算法的收敛性证明
-> 对于时序差分算法最终收敛到$v_{\pi}(s)$的证明，我们可以使用**Dvoretzky定理**来进行证明。
+!!! tip "时序差分算法的收敛性证明"
+    对于时序差分算法最终收敛到$v_{\pi}(s)$的证明，我们可以使用**Dvoretzky定理**来进行证明。
 
-> [!EXAMPLE] 值函数时序差分方法的Python程序实现
-> ```
-> ```
+
+!!! example "值函数时序差分方法的Python程序实现"
+    ```
+    ```
+
 ## 3.SARSA方法
 
-> [!TIP] 关于SARSA的公式推导与证明
-> - SARSA公式推导：我们首先知道了Action Value的表达形式：$$
-> \begin{align}
-> {{q}_{\pi}}{({s},{a})}
-> &={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\\
-> &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{v_{\pi}({s_{t+1}})}\\
-> &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{\sum_{{a_{t+1}}{\in}{\mathcal{A}\{{s_{t+1}}\}}}}{\pi}({a_{t+1}}|{s_{t+1}}){{q_{\pi}}({s_{t+1}},{a_{t+1}})}\\
-> &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{\sum_{{a_{t+1}}{\in}{\mathcal{A}\{{s_{t+1}}\}}}}{{{P}_{\pi}}({{s_{t+1}}},{a_{t+1}}|{s},{a})}{{q_{\pi}}({s_{t+1}},{a_{t+1}})}\\
-> &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\mathbb{E}}[{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]\\
-> &={\mathbb{E}}[R+{\gamma}{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]
-> \end{align}
-> $$然后我们可以根据Robbins-Monro方法求解得到关于Action-Value的迭代求解公式。推导方法和前面提到的求解State-Value的TD算法一样。
-> - 关于SARSA的收敛性证明，也可以按照**Dvoretzky定理**来进行证明。
+!!! tip "关于SARSA的公式推导与证明"
+    - SARSA公式推导：我们首先知道了Action Value的表达形式：$$
+    \begin{align}
+    {{q}_{\pi}}{({s},{a})}
+    &={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\\
+    &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{v_{\pi}({s_{t+1}})}\\
+    &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{p({{s_{t+1}}}|{s},{a})}{\cdot}{\sum_{{a_{t+1}}{\in}{\mathcal{A}\{{s_{t+1}}\}}}}{\pi}({a_{t+1}}|{s_{t+1}}){{q_{\pi}}({s_{t+1}},{a_{t+1}})}\\
+    &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s_{t+1}}{\in}{\mathcal{S}}}}{\sum_{{a_{t+1}}{\in}{\mathcal{A}\{{s_{t+1}}\}}}}{{{P}_{\pi}}({{s_{t+1}}},{a_{t+1}}|{s},{a})}{{q_{\pi}}({s_{t+1}},{a_{t+1}})}\\
+    &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\mathbb{E}}[{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]\\
+    &={\mathbb{E}}[R+{\gamma}{{q_{\pi}}({S_{t+1}},{A_{t+1}})}|{S_t=s},{A_t=a}]
+    \end{align}
+    $$然后我们可以根据Robbins-Monro方法求解得到关于Action-Value的迭代求解公式。推导方法和前面提到的求解State-Value的TD算法一样。
+    - 关于SARSA的收敛性证明，也可以按照**Dvoretzky定理**来进行证明。
 
-> [!EXAMPLE] SARSA时序差分方法的Python程序实现
-> ```
-> ```
+
+!!! example "SARSA时序差分方法的Python程序实现"
+    ```
+    ```
+
 ## 4.n-step SARSA方法
 
-> [!EXAMPLE] n-step SARSA时序差分方法的Python程序实现
-> ```
-> ```
+!!! example "n-step SARSA时序差分方法的Python程序实现"
+    ```
+    ```
+
 ## 5.Q-Learning方法
 
-> [!NOTE] On-Policy和Off-Policy
-> - **On-Policy**：
-> - **Off-Policy**：
+!!! note "On-Policy和Off-Policy"
+    - **On-Policy**：
+    - **Off-Policy**：
 
-> [!NOTE] Online Learning和Offline Learning
-> - **Online Learning**：
-> - **Offline Learning**：
 
-> [!TIP] On-Policy，Off-Policy，Online Learning和Offline Learning之间的关系
-> Contents
+!!! note "Online Learning和Offline Learning"
+    - **Online Learning**：
+    - **Offline Learning**：
 
-> [!EXAMPLE] Q-Learning方法的Python程序实现
-> ```
-> ```
+
+!!! tip "On-Policy，Off-Policy，Online Learning和Offline Learning之间的关系"
+    Contents
+
+
+!!! example "Q-Learning方法的Python程序实现"
+    ```
+    ```
+

@@ -5,14 +5,15 @@
 我们
 （为什么Return是非常重要的）
 
-> [!NOTE] State Value
-> 我们有如下形式的Trajectory：
-> $${S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}$$
-> 我们计算这个策略对应轨迹的Return：
-> $$G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}$$
-> 由于在当前策略$s_t$执行的下一步动作不确定
-> 我们定义在时间$t$上，状态${s}{\in}{\{S\}}$的Return期望就是**State Value**：
-> $${{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}$$
+!!! note "State Value"
+    我们有如下形式的Trajectory：
+    $${S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}$$
+    我们计算这个策略对应轨迹的Return：
+    $$G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}$$
+    由于在当前策略$s_t$执行的下一步动作不确定
+    我们定义在时间$t$上，状态${s}{\in}{\{S\}}$的Return期望就是**State Value**：
+    $${{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}$$
+
 
 首先我们将Return的公式写作如下形式：
 $$
@@ -51,10 +52,11 @@ v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\
 $$
 上式结果就是**贝尔曼方程**的一般形式。
 
-> [!NOTE] Bellman Equation
-> $$
-> v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
-> $$
+!!! note "Bellman Equation"
+    $$
+    v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
+    $$
+
 
 我们设Agent在当前的环境中有一系列的State：
 $${s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)$$
@@ -109,17 +111,19 @@ $$
 (I-{\gamma}{P}){v_{\pi}}={r_{\pi}}
 $$
 
-> [!question] 我们为什么要求解State Value？
-> 
+!!! question "我们为什么要求解State Value？"
+    
+
 
 因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：
 - **矩阵求解**：这是State Value的Closed form解，我们已知状态转移矩阵$P$，每个状态的回报期望值矩阵$R_{\pi}$和折扣系数${\gamma}$。我们可以通过矩阵求逆的形式求解：$${v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}$$这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
 - **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值${v_{0}}$，使用下面的迭代方式直到第$n$步求出最终的状态值矩阵：$${v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)$$我们可以证明为什么能够迭代法能够在$n$步之后实现满足误差范围的$v_{\pi}$，首先我们令：$${\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)$$代入上面的迭代式子，我们可以得到：$$\begin{align}{{\delta}_{k+1}}&={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&={\gamma}{P}{{\delta}_{k}}\end{align}$$然后我们从$k=0$开始迭代，我们最终得到：$${{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}$$那么随着迭代次数$k$的不断增大，$\delta$也逐渐趋近于0。因此迭代方法能够实现对任意初始值$v_0$，只要迭代次数$k$足够多，结果一定收敛到$v_{\pi}$。
 
-> [!TIP] State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比
-> 从算法复杂度的角度来评判当前的算法复杂度
-> - 使用Close Form求解State Value：我们假设有$n$个状态，我们矩阵求逆的算法复杂度是${O}({n^3})$。
-> - 使用Iteration Form来求解State Value：我们假设有$n$个状态，我们使用迭代方法求解矩阵的算法复杂度仅仅是$O({n^2})$
+!!! tip "State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比"
+    从算法复杂度的角度来评判当前的算法复杂度
+    - 使用Close Form求解State Value：我们假设有$n$个状态，我们矩阵求逆的算法复杂度是${O}({n^3})$。
+    - 使用Iteration Form来求解State Value：我们假设有$n$个状态，我们使用迭代方法求解矩阵的算法复杂度仅仅是$O({n^2})$
+
 
 （Action Value：我们选择最优的序列，看那个Action Value能达到最优解）
 我们在前面主要对State Value进行讨论，因为在强化学习中，State Value是至关重要的。
@@ -134,21 +138,24 @@ v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
 $$
 上式右侧的第二项我们称之为**Action Value**：
 
-> [!NOTE] Action Value
-> $$
-> \begin{align}
-> {{q}_{\pi}}{({s},{a})}
-> &={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\\
-> &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}
-> \end{align}
-> $$
+!!! note "Action Value"
+    $$
+    \begin{align}
+    {{q}_{\pi}}{({s},{a})}
+    &={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\\
+    &={\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}
+    \end{align}
+    $$
 
-> [!TIP] Action Value和State Value的求解关系
-> - 根据Action Value求解State Value
-> - 根据State Value求解Action Value
 
-> [!WARNING] 求解Action Value的出错点
-> Contents
+!!! tip "Action Value和State Value的求解关系"
+    - 根据Action Value求解State Value
+    - 根据State Value求解Action Value
+
+
+!!! warning "求解Action Value的出错点"
+    Contents
+
 
 (写成缩写的形式)
 首先我们根据Action Value的公式我们可以定义当处于状态$S_t=s$的时候，所有动作的Action Value矩阵$q_{\pi}$，当执行动作$A_t=a{\in}A(s)$的时候获取的收益矩阵${\tilde{r}}$，概率转移矩阵$P$和Policy矩阵${\pi}$如下：
@@ -192,18 +199,20 @@ $$
 $$
 这也就是贝尔曼方程的Action Value方式，对于此表达我们依然可以用Closed-Form方法和Iteration-Form方法求解，求解的方法本质上和State-Value的方法是一致的。
 
-> [!TIP] Action Value和State Value的对比
-> - 根据Action Value求解State Value
-> - 根据State Value求解Action Value
+!!! tip "Action Value和State Value的对比"
+    - 根据Action Value求解State Value
+    - 根据State Value求解Action Value
+
 
 # 三、贝尔曼优化方程(Bellman Optimal Equation)
 
 （Examples,我们为什么使用State Value？原因是State Value是能够评价哪个可能的Policy更好。）
 ## 3-1.最优状态值和最优策略
 
-> [!NOTE] Optimal State Value和Optimal Policy
-> 对于在任意状态中的State:$s{\in}{\{S\}}$来说，任意可能Policy的集合为${\mathbb{\Pi}}$。我们可以有如下的定义：
-> 对于${\forall}{\pi}{\in}{\mathbb{\Pi}}$，总是存在一个策略${\pi}^{*}$使得${{v}_{{\pi}^{*}}(s)}{\geq}{{v}_{\pi}(s)}$。我们称${{v}_{{\pi}^{*}}(s)}$为**Optimal State Value(最优状态值)**，对应的${\pi}^{*}$就是**Optimal Policy(最优策略)**。
+!!! note "Optimal State Value和Optimal Policy"
+    对于在任意状态中的State:$s{\in}{\{S\}}$来说，任意可能Policy的集合为${\mathbb{\Pi}}$。我们可以有如下的定义：
+    对于${\forall}{\pi}{\in}{\mathbb{\Pi}}$，总是存在一个策略${\pi}^{*}$使得${{v}_{{\pi}^{*}}(s)}{\geq}{{v}_{\pi}(s)}$。我们称${{v}_{{\pi}^{*}}(s)}$为**Optimal State Value(最优状态值)**，对应的${\pi}^{*}$就是**Optimal Policy(最优策略)**。
+
 
 ## 3-2.贝尔曼最优方程的两种表达形式
 ### 3-2-1.元素形式的贝尔曼最优方程
@@ -229,12 +238,13 @@ $$
 那么在元素形式中，我们有两个未知数$v(s)$和$\pi$，但是我们还需要求解State Value:$v(s)$的最大值。那么我们首先就需要从Policy:${\pi}$来入手求解元素形式的贝尔曼方程。
 首先我们看贝尔曼最优方程的元素形式，我们发现我们有策略:$\pi$和State Value:$v({s})$两个未知的变量。但是我们只求解其中一个变量$v({s})$的最大值。
 
-> [!EXAMPLE] 求解最大值
-> 我们假设有两组数列，其中有一组数列$q_k=\{{q_1},{q_2},{q_3},{\dots},{q_k}\}$我们仅仅知道里面有最大值。另外一组数列$c_k=\{{c_1},{c_2},{c_3},{\dots},{c_k}\}$是未知的，我们只知道数列$c_k$的数列和：
-> $${\sum_{i=1}^{k}}c_i=1$$
-> 那么我们需要求解当数列$c_k$满足什么条件的时候能够让下面的式子取得最大值：
-> $${\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}$$
-> 我们只需要知道数列$q_k$的最大值$q_m$，然后我们让对应的$c_m=1$，其余项为0，那么我们的最大值就是${c_m}{\cdot}{q_m}$
+!!! example "求解最大值"
+    我们假设有两组数列，其中有一组数列$q_k=\{{q_1},{q_2},{q_3},{\dots},{q_k}\}$我们仅仅知道里面有最大值。另外一组数列$c_k=\{{c_1},{c_2},{c_3},{\dots},{c_k}\}$是未知的，我们只知道数列$c_k$的数列和：
+    $${\sum_{i=1}^{k}}c_i=1$$
+    那么我们需要求解当数列$c_k$满足什么条件的时候能够让下面的式子取得最大值：
+    $${\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}$$
+    我们只需要知道数列$q_k$的最大值$q_m$，然后我们让对应的$c_m=1$，其余项为0，那么我们的最大值就是${c_m}{\cdot}{q_m}$
+
 
 那么对于贝尔曼最优方程的元素形式来说，我们只需要找到在任意状态$s{\in}{\{S\}}$对应的动作$a{\in}{A\{s\}}$中找到能够让${{q}_{\pi}}{({s},{a})}$取得最大值的${{q}_{\pi}}{({s},{{a}^{*}})}$对应的动作$a^{*}$，并且让这个最大值对应策略${\pi}{({a}^{*}|s)}=1$，其余项等于0，于是我们就可以得到$v({s})$的最大值如下：
 $$
@@ -254,24 +264,27 @@ $$
 {v}={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P_{\pi}}{v})
 $$
 矩阵形式的贝尔曼方程的意义就是为了证明贝尔曼方程是否具有唯一的最值。
-> [!question] 接下来要讨论什么问题？
-> - 是否存在最优解？
-> - 这个最优解是否是唯一的？
-> - 如何求解这个最优解？
-> - 贝尔曼最优方程的最优解是怎么和最优策略结合起来的?
+!!! question "接下来要讨论什么问题？"
+    - 是否存在最优解？
+    - 这个最优解是否是唯一的？
+    - 如何求解这个最优解？
+    - 贝尔曼最优方程的最优解是怎么和最优策略结合起来的?
+
 ## 3-3.Bellman最优方程的一些性质
 ### 3-3-1.Bellman最优方程存在唯一的最优解
 首先来介绍**不动点和收缩映射的定义**以及**收缩映射定理**：
 
-> [!NOTE] 不动点和收缩映射的定义
-> - **不动点**：对变量$x{\in}{\mathbb{R}^{n}}$和函数$f(x){\in}{\mathbb{R}^{n}}$来说，如果我们满足以下关系$$x^{*}=f(x^{*})$$那么$x^{*}$称为函数的**不动点**，这个方程也叫做不动点方程。
-> - **收缩映射**：一个映射 $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$ 被称为**收缩映射**，如果存在一个常数 $L \in [0, 1)$，使得对于任意两个点 $x, y \in \mathbb{R}^n$，都有： $$ \|f(x) - f(y)\| \le L\|x - y\| $$ 其中，$\|\cdot\|$ 表示欧几里得范数（距离）。
+!!! note "不动点和收缩映射的定义"
+    - **不动点**：对变量$x{\in}{\mathbb{R}^{n}}$和函数$f(x){\in}{\mathbb{R}^{n}}$来说，如果我们满足以下关系$$x^{*}=f(x^{*})$$那么$x^{*}$称为函数的**不动点**，这个方程也叫做不动点方程。
+    - **收缩映射**：一个映射 $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$ 被称为**收缩映射**，如果存在一个常数 $L \in [0, 1)$，使得对于任意两个点 $x, y \in \mathbb{R}^n$，都有： $$ \|f(x) - f(y)\| \le L\|x - y\| $$ 其中，$\|\cdot\|$ 表示欧几里得范数（距离）。
 
-> [!NOTE] 收缩映射定理
-> 对于任意一个具有$x=f(x)$形式的方程来说，其中${x}{\in}{\mathbb{R}^{n}}$，$f:{\mathbb{R}^{n}}{\rightarrow}{\mathbb{R}^{n}}$，如果$f$是收缩映射，那么遵守以下的性质：
-> - **存在性**：有且仅有一个不动点${x}^{*}$满足${{x}^{*}}=f({{x}^{*}})$
-> - **唯一性**：不动点${x}^{*}$是唯一的
-> - **算法**：设定一个初始的点${x}_{0}$，我们使用以下方式来进行迭代：$$x_{k+1}=f({x_{k}}){\quad}k{\in}{\mathbb{Z}}$$当$k{\rightarrow}{\infty}$的时候$x_k{\rightarrow}x^{*}$
+
+!!! note "收缩映射定理"
+    对于任意一个具有$x=f(x)$形式的方程来说，其中${x}{\in}{\mathbb{R}^{n}}$，$f:{\mathbb{R}^{n}}{\rightarrow}{\mathbb{R}^{n}}$，如果$f$是收缩映射，那么遵守以下的性质：
+    - **存在性**：有且仅有一个不动点${x}^{*}$满足${{x}^{*}}=f({{x}^{*}})$
+    - **唯一性**：不动点${x}^{*}$是唯一的
+    - **算法**：设定一个初始的点${x}_{0}$，我们使用以下方式来进行迭代：$$x_{k+1}=f({x_{k}}){\quad}k{\in}{\mathbb{Z}}$$当$k{\rightarrow}{\infty}$的时候$x_k{\rightarrow}x^{*}$
+
 
 接下来我们来证明**Bellman最优方程存在唯一的最优解**：
 - 首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：$$v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})$$因此我们的这个形式自然满足**不动点方程**的形式。

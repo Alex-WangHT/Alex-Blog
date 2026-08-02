@@ -12,6 +12,7 @@
 7. 复制根目录 mathjax.js 到 docs/javascripts/
 8. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）
 9. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
+10. 转换 Obsidian > [!NOTE] callout 为标准 admonition 语法
 
 使用方式：
     python scripts/generate_blog_index.py
@@ -38,6 +39,84 @@ CATEGORIES = {
     'math': '数学知识',
     'physics': '物理知识',
 }
+
+
+# ── Obsidian Callout → Admonition 转换 ───────────────────────────
+
+CALLOUT_RE = re.compile(r'^>\s*\[!\s*(\w+)\s*\]\s*(.*?)$')
+
+CALLOUT_TYPE_MAP = {
+    'note': 'note', 'tip': 'tip', 'warning': 'warning',
+    'danger': 'danger', 'question': 'question', 'info': 'info',
+    'important': 'important', 'success': 'success', 'failure': 'failure',
+    'example': 'example', 'abstract': 'abstract', 'summary': 'summary',
+    'quote': 'quote', 'bug': 'bug',
+}
+
+
+def convert_callouts(content: str) -> str:
+    """将 Obsidian 风格的 > [!NOTE] 引用块转换为标准 admonition 语法。"""
+    lines = content.split('\n')
+    out = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        m = CALLOUT_RE.match(line)
+        if not m:
+            out.append(line)
+            i += 1
+            continue
+
+        obs_type = m.group(1).strip().lower()
+        title = m.group(2).strip()
+        ad_type = CALLOUT_TYPE_MAP.get(obs_type, 'note')
+
+        # 收集 callout 内容行（> 开头的连续行）
+        body_lines = []
+        i += 1
+        while i < len(lines):
+            if lines[i].startswith('> '):
+                body_lines.append(lines[i][2:])
+                i += 1
+            elif lines[i] == '>':
+                body_lines.append('')
+                i += 1
+            else:
+                break
+
+        # 输出 admonition
+        if title:
+            out.append(f'!!! {ad_type} "{title}"')
+        else:
+            out.append(f'!!! {ad_type}')
+        for bl in body_lines:
+            out.append('    ' + bl)
+        out.append('')
+
+    return '\n'.join(out)
+
+
+def convert_callouts_in_file(md_file: Path):
+    """转换单个文件中的 Obsidian callout。"""
+    content = md_file.read_text(encoding='utf-8')
+    converted = convert_callouts(content)
+    if converted != content:
+        md_file.write_text(converted, encoding='utf-8')
+        return True
+    return False
+
+
+def convert_all_callouts():
+    """扫描 docs/ 下所有 .md，转换 Obsidian callout。"""
+    converted = 0
+    for md_file in DOCS_DIR.rglob('*.md'):
+        if md_file.name == 'index.md':
+            continue
+        if 'tags' in md_file.relative_to(DOCS_DIR).parts:
+            continue
+        if convert_callouts_in_file(md_file):
+            converted += 1
+    return converted
 
 
 # ── Obsidian WikiLink 转换 ───────────────────────────────────────
@@ -339,7 +418,10 @@ def copy_mathjax_config():
 
 
 def main():
-    # 0. 转换 Obsidian WikiLink 图片嵌入为标准 Markdown
+    # 0a. 转换 Obsidian callout 为 admonition
+    callout_count = convert_all_callouts()
+
+    # 0b. 转换 Obsidian WikiLink 图片嵌入为标准 Markdown
     wikilink_count = convert_all_wikilinks()
 
     articles = scan_articles()
@@ -372,6 +454,7 @@ def main():
     # 7. 更新 mkdocs.yml nav（展开子目录）
     update_mkdocs_nav(all_tags, articles)
 
+    print(f"✅ Callout 转换: {callout_count} 个文件")
     print(f"✅ WikiLink 转换: {wikilink_count} 个文件")
     print(f"✅ 扫描到 {len(articles)} 篇文章")
     print(f"✅ 生成分类主页: {len(CATEGORIES)} 个")

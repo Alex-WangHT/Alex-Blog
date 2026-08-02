@@ -1,17 +1,19 @@
 # 1-多刚体系统动力学的一般表达形式
 
-> [!NOTE] 运动学的任务
-> - **前向动力学（Forward Dynamics）**：根据刚体的受力求解刚体的加速度。
-> - **逆向动力学（Inverse Dynamics）**：根据刚体的加速度求解刚体受力。
+!!! note "运动学的任务"
+    - **前向动力学（Forward Dynamics）**：根据刚体的受力求解刚体的加速度。
+    - **逆向动力学（Inverse Dynamics）**：根据刚体的加速度求解刚体受力。
 
-> [!NOTE] 刚体系统的运动方程表达
-> 刚体系统的运动方程可以写成以下的**标准形式**：
-> $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}$$
-> 其中：
-> - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度变量的矢量。
-> - ${\boldsymbol{\tau}}$是作用力的矢量。
-> - ${\mathbf{H}(\mathbf{q})}$是惯量项矩阵。
-> - ${\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}$是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。
+
+!!! note "刚体系统的运动方程表达"
+    刚体系统的运动方程可以写成以下的**标准形式**：
+    $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}$$
+    其中：
+    - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度变量的矢量。
+    - ${\boldsymbol{\tau}}$是作用力的矢量。
+    - ${\mathbf{H}(\mathbf{q})}$是惯量项矩阵。
+    - ${\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}$是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。
+
 # 2-空间向量及其性质
 ## 2.1-空间速度向量
 首先我们在空间中有一个刚体$B$和空间内任意一点$O_W$，我们以点$O_W$为原点建立参考坐标系$Frame\{{\mathcal{W}}\}$，以刚体$B$内任意一点$O_B$为原点建立坐标系$Frame\{{\mathcal{B}}\}$如下：
@@ -58,8 +60,9 @@ $$
 $$
 这里就是刚体$B$的**空间速度向量**。
 
-> [!NOTE] 空间速度向量
-> Contents
+!!! note "空间速度向量"
+    Contents
+
 
 ## 2.2-空间力向量
 
@@ -78,25 +81,27 @@ $$
 $$
 这里就是刚体刚体$B$的**空间力向量**。
 
-> [!NOTE] 空间力向量
-> Contents
+!!! note "空间力向量"
+    Contents
+
 
 ## 2.3-Plücker坐标，线矢量和自由矢量
 
 
-> [!NOTE] 线矢量
-> 线矢量$L$是一个依附在空间某一直线上的六维向量，含有**主部（原部）**和**副部（对偶部）**两个部分。主部是矢量的轴线$\vec{l}$，也是空间直线的姿态向量。副部为该轴线相对原点的矢矩$\vec{l_0}$，线矢量写作如下形式：
-> $$
-> {\mathbf{L}}=
-> \begin{pmatrix}
-> {\vec{l}}\\
-> {\vec{l_0}}
-> \end{pmatrix}=
-> \begin{pmatrix}
-> {\vec{l}}\\
-> {\vec{r}{\times}{\vec{l}}}
-> \end{pmatrix} 
-> $$
+!!! note "线矢量"
+    线矢量$L$是一个依附在空间某一直线上的六维向量，含有**主部（原部）**和**副部（对偶部）**两个部分。主部是矢量的轴线$\vec{l}$，也是空间直线的姿态向量。副部为该轴线相对原点的矢矩$\vec{l_0}$，线矢量写作如下形式：
+    $$
+    {\mathbf{L}}=
+    \begin{pmatrix}
+    {\vec{l}}\\
+    {\vec{l_0}}
+    \end{pmatrix}=
+    \begin{pmatrix}
+    {\vec{l}}\\
+    {\vec{r}{\times}{\vec{l}}}
+    \end{pmatrix} 
+    $$
+
 ## 2.4-坐标变换
 首先我们可以回顾一下空间坐标变换的表示——齐次矩阵**。
 我们有两个坐标系$Frame\{{\mathcal{W}}\}$和$Frame\{{\mathcal{B}}\}$如下：
@@ -186,37 +191,44 @@ $$
 $$
 这样，我们就得到了**空间变换矩阵**：
 
-> [!NOTE] 空间变换矩阵(Spatial Transformation Matrix)
-> 假设有两个坐标系 $Frame{\{\mathcal{A}\}}$ 和 $Frame{\{\mathcal{B}\}}$ 。$Frame{\{\mathcal{B}\}}$ 坐标系相对于 $Frame{\{\mathcal{A}\}}$ 坐标系的几何关系由旋转矩阵 $\mathbf{R} = {^A_B \mathbf{R}}$ 和位置向量 ${p} = {^A\vec{p}_{BORG}}$ (即$Frame{\{\mathcal{B}\}}$原点在$Frame{\{\mathcal{A}\}}$中的位置) 确定。
-> **空间变换矩阵 ${{^A_B}\mathbf{X}}$** 用于将空间矢量从$Frame{\{\mathcal{B}\}}$ 坐标系转换到 $Frame{\{\mathcal{A}\}}$ 坐标系， 的定义如下：
-> $${{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}$$
-> 其中：
-> - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
-> -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
-> - $[{p}]_{\times}$ 是位置向量 ${p}$ 对应的 $3 \times 3$ **斜对称叉乘矩阵**。
+!!! note "空间变换矩阵(Spatial Transformation Matrix)"
+    假设有两个坐标系 $Frame{\{\mathcal{A}\}}$ 和 $Frame{\{\mathcal{B}\}}$ 。$Frame{\{\mathcal{B}\}}$ 坐标系相对于 $Frame{\{\mathcal{A}\}}$ 坐标系的几何关系由旋转矩阵 $\mathbf{R} = {^A_B \mathbf{R}}$ 和位置向量 ${p} = {^A\vec{p}_{BORG}}$ (即$Frame{\{\mathcal{B}\}}$原点在$Frame{\{\mathcal{A}\}}$中的位置) 确定。
+    **空间变换矩阵 ${{^A_B}\mathbf{X}}$** 用于将空间矢量从$Frame{\{\mathcal{B}\}}$ 坐标系转换到 $Frame{\{\mathcal{A}\}}$ 坐标系， 的定义如下：
+    $${{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}$$
+    其中：
+    - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
+    -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
+    - $[{p}]_{\times}$ 是位置向量 ${p}$ 对应的 $3 \times 3$ **斜对称叉乘矩阵**。
 
-> [!NOTE] 空间变换矩阵的性质
-> Contents
 
-> [!NOTE] 空间变换矩阵的对偶形式
-> Contents
+!!! note "空间变换矩阵的性质"
+    Contents
+
+
+!!! note "空间变换矩阵的对偶形式"
+    Contents
+
 ## 2.5-空间向量的标量积
 
-> [!NOTE] 空间向量的标量积
-> 基于空间矢量我们定义标量积，这个标量积的其中一个参数为**空间速度向量**，另外一个参数是**空间力向量**。两者相乘的结果是一个**表示能量，功率或者类似的物理量**。
-> 我们给定一个空间速度向量${\mathbf{m}}{\in}{{M}^{6}}$和一个空间力向量${\mathbf{f}}{\in}{{F}^{6}}$，我们将这两个向量进行点乘运算，点乘运算可以表示为${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$，**这两者等价**。
+!!! note "空间向量的标量积"
+    基于空间矢量我们定义标量积，这个标量积的其中一个参数为**空间速度向量**，另外一个参数是**空间力向量**。两者相乘的结果是一个**表示能量，功率或者类似的物理量**。
+    我们给定一个空间速度向量${\mathbf{m}}{\in}{{M}^{6}}$和一个空间力向量${\mathbf{f}}{\in}{{F}^{6}}$，我们将这两个向量进行点乘运算，点乘运算可以表示为${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$，**这两者等价**。
 
-> [!WARNING] 空间向量的标量积的物理含义
-> - 空间向量的标量积只有${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$才具有物理含义，这个运算表示的是刚体运动的功率，能量等类似物理量。
-> - 运算${\mathbf{f}}{\cdot}{\mathbf{f}}$或者${\mathbf{m}}{\cdot}{\mathbf{m}}$没有任何物理含义。
+
+!!! warning "空间向量的标量积的物理含义"
+    - 空间向量的标量积只有${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$才具有物理含义，这个运算表示的是刚体运动的功率，能量等类似物理量。
+    - 运算${\mathbf{f}}{\cdot}{\mathbf{f}}$或者${\mathbf{m}}{\cdot}{\mathbf{m}}$没有任何物理含义。
+
 ## 2.6-空间向量叉乘
 
-> [!NOTE] 空间向量的叉乘
-> Contents
+!!! note "空间向量的叉乘"
+    Contents
+
 ## 2.7-空间向量求导
 
-> [!NOTE] 空间向量的求导
-> Contents
+!!! note "空间向量的求导"
+    Contents
+
 # 3-刚体运动学和刚体动力学
 ## 3.1-刚体的空间速度 (Spatial Velocity)
 在经典力学中，我们通常将角速度 $\omega$ 和线速度 $v$ 分开处理。但在空间矢量代数中，这两者被合成为一个 **6 维矢量**，称为**空间速度（Spatial Velocity）**，通常记为 $\hat{v}$。
@@ -324,7 +336,8 @@ $$
 $$
 其中 $\hat{p}_B = \hat{v}_B \times^* \hat{I}_B \hat{v}_B$ 称为**偏置力**。
 
-> [!TIP] 刚体动力学方程不同形式之间的对比与联系
+!!! tip "刚体动力学方程不同形式之间的对比与联系"
+
 >- **刚体动力学方程对比**：空间向量形式 vs. 关节空间标准形式
 >
 >| 特性 | 空间动力学方程 (Spatial Form) | 关节空间标准形式 (Joint Space/Standard Form) |
@@ -396,21 +409,23 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 ## 4.2-带约束的刚体动力学
 ### (1)-带约束力的刚体动力学方程
 
-> [!NOTE] 带约束的刚体系统的动力学方程表达
-> 带约束的刚体系统的动力学方程可以写成以下的**标准形式**：
-> $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}$$
-> 其中：
-> - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度。
-> - ${\boldsymbol{\tau}}$是作用力的矢量，${\boldsymbol{\tau_c}}$是约束力的矢量
-> - ${\mathbf{H}(\mathbf{q})}$是惯量矩阵。
-> - ${\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}$是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。
+!!! note "带约束的刚体系统的动力学方程表达"
+    带约束的刚体系统的动力学方程可以写成以下的**标准形式**：
+    $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}$$
+    其中：
+    - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度。
+    - ${\boldsymbol{\tau}}$是作用力的矢量，${\boldsymbol{\tau_c}}$是约束力的矢量
+    - ${\mathbf{H}(\mathbf{q})}$是惯量矩阵。
+    - ${\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}$是力项的矢量，它表示科里奥利力和离心力，重力，以及作用在系统上的除τ中的力以外的任何其他力。
+
 
 ### (2)-约束力在不同约束下的表示
 首先我们回顾一下**若尔当变分定理**：
 
-> [!NOTE] 若尔当变分定理
-> 对于受理想约束的系统，在给定时刻 $t$ 和给定位置 $\mathbf{r}$，系统的真实运动满足：主动力与惯性力在**虚速度**（速度变分 $\delta \mathbf{v}$）上所作的**虚功率**之和为零，其数学表达式为：
-> $$\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0$$
+!!! note "若尔当变分定理"
+    对于受理想约束的系统，在给定时刻 $t$ 和给定位置 $\mathbf{r}$，系统的真实运动满足：主动力与惯性力在**虚速度**（速度变分 $\delta \mathbf{v}$）上所作的**虚功率**之和为零，其数学表达式为：
+    $$\sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0$$
+
 
 我们设约束力为$\boldsymbol{\tau_c}$，那么我们根据若尔当变分原理可以得到约束力的功率${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0$。我们分别使用显式约束和隐式约束来表示约束力${\boldsymbol{\tau_c}}$：
 - **显式约束**：我们根据等式$\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}$以及矢量点乘的交换性质${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0$可以得到：$${\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}={\boldsymbol{\dot{q}}}^{T}{\boldsymbol{\tau_c}}=\dot{\boldsymbol{y}}^{T}\mathbf{G}(\boldsymbol{y})^{T}{\boldsymbol{\tau_c}}=0 $$那么对于任意的$\boldsymbol{y}$来说我们都有：$$\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0$$
@@ -459,24 +474,28 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 ## 4.3-刚体的关节约束
 ### (1)-矢量子空间的相关知识概念
 
-> [!NOTE] 矢量子空间
-> 假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
-> $${\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}$$
-> 
+!!! note "矢量子空间"
+    假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
+    $${\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}$$
+    
 
-> [!NOTE] 向量分解
-> Contents
 
-> [!NOTE] 向量空间的正交补
-> Contents
+!!! note "向量分解"
+    Contents
+
+
+!!! note "向量空间的正交补"
+    Contents
+
 ### (2)-运动子空间和约束力子空间
 
-> [!NOTE] 矢量子空间在关节动力学的应用
-> - **空间运动学**：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间$S$的定义如下：
-> 	- 对隐式约束来说，关节运动的子空间$\boldsymbol{S}$就是隐式约束的Jacobians矩阵$\boldsymbol{K}$的零空间：$$\boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}$$
-> 	- 对显式约束来说，关节运动的子空间$\boldsymbol{S}$就是显式约束的Jacobians矩阵$\boldsymbol{G}$的列空间：$$\boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}$$
-> 	- 如果矩阵$\boldsymbol{K}_1$和$\boldsymbol{K}_2$表示同一个约束，那么$null(\boldsymbol{K}_1)=null(\boldsymbol{K}_2)=\boldsymbol{S}$。同理，如果矩阵$\boldsymbol{G}_1$和$\boldsymbol{G}_2$表示同一个约束，那么$range(\boldsymbol{G}_1)=range(\boldsymbol{G}_2)=\boldsymbol{S}$。
-> - **空间动力学**：我们定义关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$
+!!! note "矢量子空间在关节动力学的应用"
+    - **空间运动学**：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间$S$的定义如下：
+    	- 对隐式约束来说，关节运动的子空间$\boldsymbol{S}$就是隐式约束的Jacobians矩阵$\boldsymbol{K}$的零空间：$$\boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}$$
+    	- 对显式约束来说，关节运动的子空间$\boldsymbol{S}$就是显式约束的Jacobians矩阵$\boldsymbol{G}$的列空间：$$\boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}$$
+    	- 如果矩阵$\boldsymbol{K}_1$和$\boldsymbol{K}_2$表示同一个约束，那么$null(\boldsymbol{K}_1)=null(\boldsymbol{K}_2)=\boldsymbol{S}$。同理，如果矩阵$\boldsymbol{G}_1$和$\boldsymbol{G}_2$表示同一个约束，那么$range(\boldsymbol{G}_1)=range(\boldsymbol{G}_2)=\boldsymbol{S}$。
+    - **空间动力学**：我们定义关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$
+
 
 ### (3)-常见关节类型及其子空间
 常见的关节类型以及其对应的变换矩阵，关节位移向量，运动子空间矩阵和约束力子空间矩阵如下：
@@ -496,53 +515,57 @@ $${^{B}{\hat{a}}}={^{B}{\hat{\Phi}}}{^{B}{\hat{f}}}+{\hat{b}}$$
 ### (4)-球形关节的位姿描述方式
 球形关节具有定点旋转的三个自由度，我们一般用**欧拉角**和**四元数**来表示球形关节的位置：
 
-> [!NOTE] 欧拉角
-> 欧拉角（Euler Angles）是描述刚体在三维空间中取向的最直观方式。其核心思想是将一个复杂的旋转拆解为绕三个坐标轴的连续三次旋转。
-> 欧拉角通过三个角度（如 $\alpha, \beta, \gamma$）来定义物体坐标系相对于参考坐标系的姿态。
-> 
-> - **旋转顺序**：顺序至关重要（如 $Z-Y-X$ 或 $X-Y-Z$），不同的顺序会导致完全不同的最终姿态。
-> - **内在旋转 (Intrinsic)**：绕物体自身的动态轴旋转。
-> - **外在旋转 (Extrinsic)**：绕固定的参考坐标轴旋转。
-> - **万向节锁 (Gimbal Lock)**：当第二次旋转为 $90^\circ$ 时，第一轴与第三轴重合，丢失一个自由度。
-> 
-> 以最常用的 **$Z-Y-X$ 顺规**（常用于航空航天的 Roll-Pitch-Yaw）为例，假设旋转角度分别为 $\phi$ (绕 $z$)、$\theta$ (绕 $y$)、$\psi$ (绕 $x$)：
-> 单个轴的旋转矩阵为：
-> $$R_z(\phi) = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\psi & -\sin\psi \\ 0 & \sin\psi & \cos\psi \end{bmatrix}$$
-> 组合后的旋转矩阵 $R = R_z R_y R_x$：
-> $$R = \begin{bmatrix} c_\phi c_\theta & c_\phi s_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta & s_\phi s_\theta s_\psi + c_\phi c_\psi & s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta & c_\theta s_\psi & c_\theta c_\psi \end{bmatrix}$$
-> (注：$c$ 代表 $\cos$，$s$ 代表 $\sin$)
+!!! note "欧拉角"
+    欧拉角（Euler Angles）是描述刚体在三维空间中取向的最直观方式。其核心思想是将一个复杂的旋转拆解为绕三个坐标轴的连续三次旋转。
+    欧拉角通过三个角度（如 $\alpha, \beta, \gamma$）来定义物体坐标系相对于参考坐标系的姿态。
+    
+    - **旋转顺序**：顺序至关重要（如 $Z-Y-X$ 或 $X-Y-Z$），不同的顺序会导致完全不同的最终姿态。
+    - **内在旋转 (Intrinsic)**：绕物体自身的动态轴旋转。
+    - **外在旋转 (Extrinsic)**：绕固定的参考坐标轴旋转。
+    - **万向节锁 (Gimbal Lock)**：当第二次旋转为 $90^\circ$ 时，第一轴与第三轴重合，丢失一个自由度。
+    
+    以最常用的 **$Z-Y-X$ 顺规**（常用于航空航天的 Roll-Pitch-Yaw）为例，假设旋转角度分别为 $\phi$ (绕 $z$)、$\theta$ (绕 $y$)、$\psi$ (绕 $x$)：
+    单个轴的旋转矩阵为：
+    $$R_z(\phi) = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\ \sin\phi & \cos\phi & 0 \\ 0 & 0 & 1 \end{bmatrix}, \quad R_y(\theta) = \begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}, \quad R_x(\psi) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos\psi & -\sin\psi \\ 0 & \sin\psi & \cos\psi \end{bmatrix}$$
+    组合后的旋转矩阵 $R = R_z R_y R_x$：
+    $$R = \begin{bmatrix} c_\phi c_\theta & c_\phi s_\theta s_\psi - s_\phi c_\psi & c_\phi s_\theta c_\psi + s_\phi s_\psi \\ s_\phi c_\theta & s_\phi s_\theta s_\psi + c_\phi c_\psi & s_\phi s_\theta c_\psi - c_\phi s_\psi \\ -s_\theta & c_\theta s_\psi & c_\theta c_\psi \end{bmatrix}$$
+    (注：$c$ 代表 $\cos$，$s$ 代表 $\sin$)
 
-> [!NOTE] 四元数
-> 在使用欧拉角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入**四元数**来描述刚体的姿态。
-> 首先介绍一下四元数(Quaternions)，一个四元数$q$可以表示为一个实数和三个虚数单位$i$，$j$，$k$的线性组合：
-> $$q=a+bi+cj+dk$$
-> 其中$a$，$b$，$c$，$d$是实数，$a$为实部，$bi+cj+dk$为虚部。四元数的矩阵分别表示左乘矩阵表示$L(q)$和右乘矩阵表示$R(q)$：
-> $$ L(q) = 
-> \begin{pmatrix} 
-> a & -b & -c & -d \\ b & a & -d & c \\ c & d & a & -b \\d & -c & b & a
-> \end{pmatrix} 
-> \quad
-> R(q) = 
-> \begin{pmatrix} 
-> a & -b & -c & -d \\ b & a & d & -c \\ c & -d & a & b \\d & c & -b & a
-> \end{pmatrix}
-> $$
-> 如图所示，刚体在绕着过点$O$的旋转轴做定轴旋转运动，向量$\vec{n}$是旋转轴的方向向量，$\theta$是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：
-> $$\begin{align}q&=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}$$
-> ![[Fig 1-1-9.png]]
 
-> [!NOTE] 四元数的运算性质
-> 四元数满足的运算包括**加法，减法，乘法，共轭，范数和逆**：
-> - **加法**：如果 $q_1 = w_1 + x_1i + y_1j + z_1k$ 和 $q_2 = w_2 + x_2i + y_2j + z_2k$，那么它们的和是：$$ q_1 + q_2 = (w_1 + w_2) + (x_1 + x_2)i + (y_1 + y_2)j + (z_1 + z_2)k $$
-> - **减法**：如果 $q_1 = w_1 + x_1i + y_1j + z_1k$ 和 $q_2 = w_2 + x_2i + y_2j + z_2k$，那么它们的差是：$$ q_1 - q_2 = (w_1 - w_2) + (x_1 - x_2)i + (y_1 - y_2)j + (z_1 - z_2)k $$
-> - **乘法**：两个四元数${q_1}$和${q_2}$相乘分为左乘和右乘，左乘的形式如下：$${{q_1}{\cdot}{q_2}}=L({q_1}){\mathbf{q_2}}$$右乘的形式如下：$${{q_2}{\cdot}{q_1}}=R({q_1}){\mathbf{q_2}}$$四元数的乘法满足结合律$({q_1}{\cdot}{q_2}){\cdot}{q_3}={q_1}{\cdot}({q_2}{\cdot}{q_3})$和分配律$({q_1}+{q_2}){\cdot}{q_3}={q_1}{\cdot}{q_3}+{q_2}{\cdot}{q_3}$。
-> - **共轭**：四元数 $q = w + xi + yj + zk$ 的共轭为： $$ q^* = w - xi - yj - zk $$
-> - **范数**：四元数的范数是其大小的度量： $$ \|q\| = \sqrt{w^2 + x^2 + y^2 + z^2} $$ 范数的平方与共轭乘积的关系： $$ qq^* = w^2 + x^2 + y^2 + z^2 = \|q\|^2 $$
-> - **逆**：四元数的逆 $q^{-1}$ 的计算公式为： $$ q^{-1} = \frac{q^*}{\|q\|^2} $$
+!!! note "四元数"
+    在使用欧拉角描述刚体在空间的姿态的时候，难免会引入奇异值。为了解决描述空间姿态出现的奇异值问题，我们引入**四元数**来描述刚体的姿态。
+    首先介绍一下四元数(Quaternions)，一个四元数$q$可以表示为一个实数和三个虚数单位$i$，$j$，$k$的线性组合：
+    $$q=a+bi+cj+dk$$
+    其中$a$，$b$，$c$，$d$是实数，$a$为实部，$bi+cj+dk$为虚部。四元数的矩阵分别表示左乘矩阵表示$L(q)$和右乘矩阵表示$R(q)$：
+    $$ L(q) = 
+    \begin{pmatrix} 
+    a & -b & -c & -d \\ b & a & -d & c \\ c & d & a & -b \\d & -c & b & a
+    \end{pmatrix} 
+    \quad
+    R(q) = 
+    \begin{pmatrix} 
+    a & -b & -c & -d \\ b & a & d & -c \\ c & -d & a & b \\d & c & -b & a
+    \end{pmatrix}
+    $$
+    如图所示，刚体在绕着过点$O$的旋转轴做定轴旋转运动，向量$\vec{n}$是旋转轴的方向向量，$\theta$是刚体在这段时间内绕轴旋转的角度。我们可以使用下面的单位四元数来表述刚体的姿态：
+    $$\begin{align}q&=[cos(\frac{\theta}{2}),sin(\frac{\theta}{2}){\vec{n}}]\\&=cos(\frac{\theta}{2})+sin(\frac{\theta}{2}){{n}_{x}}{i}+sin(\frac{\theta}{2}){{n}_{y}}{j}+sin(\frac{\theta}{2}){{n}_{z}}{k}\end{align}$$
+    ![[Fig 1-1-9.png]]
 
-> [!NOTE] 欧拉角和四元数之间的相互转换
-> 1. 欧拉角 (Z-Y-X) $\rightarrow$ 四元数 设 $\phi, \theta, \psi$ 分别为 Roll, Pitch, Yaw，四元数 $q = [w, x, y, z]$： $$ \begin{cases} w = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ x = \sin\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} - \cos\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ y = \cos\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} \\ z = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} - \sin\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} \end{cases} $$ 
-> 2. 四元数 $\rightarrow$ 欧拉角 (Z-Y-X) $$ \begin{bmatrix} \phi \\ \theta \\ \psi \end{bmatrix} = \begin{bmatrix} \operatorname{atan2}(2(wx + yz), 1 - 2(x^2 + y^2)) \\ \arcsin(2(wy - zx)) \\ \operatorname{atan2}(2(wz + xy), 1 - 2(y^2 + z^2)) \end{bmatrix} $$
+
+!!! note "四元数的运算性质"
+    四元数满足的运算包括**加法，减法，乘法，共轭，范数和逆**：
+    - **加法**：如果 $q_1 = w_1 + x_1i + y_1j + z_1k$ 和 $q_2 = w_2 + x_2i + y_2j + z_2k$，那么它们的和是：$$ q_1 + q_2 = (w_1 + w_2) + (x_1 + x_2)i + (y_1 + y_2)j + (z_1 + z_2)k $$
+    - **减法**：如果 $q_1 = w_1 + x_1i + y_1j + z_1k$ 和 $q_2 = w_2 + x_2i + y_2j + z_2k$，那么它们的差是：$$ q_1 - q_2 = (w_1 - w_2) + (x_1 - x_2)i + (y_1 - y_2)j + (z_1 - z_2)k $$
+    - **乘法**：两个四元数${q_1}$和${q_2}$相乘分为左乘和右乘，左乘的形式如下：$${{q_1}{\cdot}{q_2}}=L({q_1}){\mathbf{q_2}}$$右乘的形式如下：$${{q_2}{\cdot}{q_1}}=R({q_1}){\mathbf{q_2}}$$四元数的乘法满足结合律$({q_1}{\cdot}{q_2}){\cdot}{q_3}={q_1}{\cdot}({q_2}{\cdot}{q_3})$和分配律$({q_1}+{q_2}){\cdot}{q_3}={q_1}{\cdot}{q_3}+{q_2}{\cdot}{q_3}$。
+    - **共轭**：四元数 $q = w + xi + yj + zk$ 的共轭为： $$ q^* = w - xi - yj - zk $$
+    - **范数**：四元数的范数是其大小的度量： $$ \|q\| = \sqrt{w^2 + x^2 + y^2 + z^2} $$ 范数的平方与共轭乘积的关系： $$ qq^* = w^2 + x^2 + y^2 + z^2 = \|q\|^2 $$
+    - **逆**：四元数的逆 $q^{-1}$ 的计算公式为： $$ q^{-1} = \frac{q^*}{\|q\|^2} $$
+
+
+!!! note "欧拉角和四元数之间的相互转换"
+    1. 欧拉角 (Z-Y-X) $\rightarrow$ 四元数 设 $\phi, \theta, \psi$ 分别为 Roll, Pitch, Yaw，四元数 $q = [w, x, y, z]$： $$ \begin{cases} w = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ x = \sin\frac{\phi}{2}\cos\frac{\theta}{2}\cos\frac{\psi}{2} - \cos\frac{\phi}{2}\sin\frac{\theta}{2}\sin\frac{\psi}{2} \\ y = \cos\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} + \sin\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} \\ z = \cos\frac{\phi}{2}\cos\frac{\theta}{2}\sin\frac{\psi}{2} - \sin\frac{\phi}{2}\sin\frac{\theta}{2}\cos\frac{\psi}{2} \end{cases} $$ 
+    2. 四元数 $\rightarrow$ 欧拉角 (Z-Y-X) $$ \begin{bmatrix} \phi \\ \theta \\ \psi \end{bmatrix} = \begin{bmatrix} \operatorname{atan2}(2(wx + yz), 1 - 2(x^2 + y^2)) \\ \arcsin(2(wy - zx)) \\ \operatorname{atan2}(2(wz + xy), 1 - 2(y^2 + z^2)) \end{bmatrix} $$
+
 
 ### (5)-关节空间速度
 我们定义关节空间速度是父连杆(Predecessor)在关节连接处的空间速度与子连杆(Successor)在关节连接处的空间速度之差：
@@ -555,8 +578,9 @@ $$\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q, t) \dot{q} + \sigma(q, t)}$$
 - $\boldsymbol{q}$和$\boldsymbol{\dot{q}}$是关节的转动角度和转动角度变化率。
 如果矩阵$\boldsymbol{S}$不随时间而改变，我们可以将关节的空间速度直接写为：
 $$\boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q) \dot{q}}$$
-> [!EXAMPLE] 以2-DOF平面机械臂来理解关节空间速度
-> 
+!!! example "以2-DOF平面机械臂来理解关节空间速度"
+    
+
 ### (6)-关节空间力
 我们让关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$，那么关节的空间力如下：
 $$
@@ -577,8 +601,9 @@ $$
 \end{align}
 $$
 
-> [!TIP] 
-> 因为在关节空间力两边同时乘以关节运动空间${\boldsymbol{S}}$之后，关节空间的约束力一项等于0，因此在后续的建模中，我们只考虑到关节空间的作用力，不考虑关节空间的约束力。
+!!! tip
+    因为在关节空间力两边同时乘以关节运动空间${\boldsymbol{S}}$之后，关节空间的约束力一项等于0，因此在后续的建模中，我们只考虑到关节空间的作用力，不考虑关节空间的约束力。
+
 
 ## 4.4-受约束的刚体动力学方程
 在一个受约束的刚体中，刚体$i$受到以下几个力：
@@ -605,11 +630,12 @@ $$其中$\boldsymbol{\hat{p}}=\boldsymbol{{\hat{v}\times^* \hat{I} \hat{v}}-{f_{
 如果连接图的拓扑结构是树结构，我们也可以称这个连接图为**连接树**。那么$G_t=G$。
 如果对于连接图$G$来说，$N_J{\gt}N_B$的情况下，连接图会有闭环，闭环的数量$N_L=N_J-N_B$。如果系统又运动环，那么就称为**闭环系统**，否则就是**开环系统**。
 
-> [!TIP] 如果多体系统的连接图$G$的边是有向的，代表什么？
-> - 刚体系统连接图$G$的边有向，在计算上代表从节点的一端到另外一端的顺序，那么在有向连接图$G$中，每条边的起点为父节点，终点为子节点。
-> - 如果刚体系统的连接图$G$是无向图，默认关节$i$从刚体$i$的父节点到刚体$i$
-> - 在运动学算法中的有向图$G$中，图$G$的边是从父节点指向子节点
-> - 在动力学算法中的有向图$G$中，图$G$的边是从子节点指向父节点。 
+!!! tip "如果多体系统的连接图$G$的边是有向的，代表什么？"
+    - 刚体系统连接图$G$的边有向，在计算上代表从节点的一端到另外一端的顺序，那么在有向连接图$G$中，每条边的起点为父节点，终点为子节点。
+    - 如果刚体系统的连接图$G$是无向图，默认关节$i$从刚体$i$的父节点到刚体$i$
+    - 在运动学算法中的有向图$G$中，图$G$的边是从父节点指向子节点
+    - 在动力学算法中的有向图$G$中，图$G$的边是从子节点指向父节点。 
+
 
 我们从$0$到$N_B$来编号刚体（其中编号$0$为基座），使用$1$到$N_J$来编号关节，编号规则如下：
 - 首先选择一个连接树$G_t$
@@ -619,8 +645,9 @@ $$其中$\boldsymbol{\hat{p}}=\boldsymbol{{\hat{v}\times^* \hat{I} \hat{v}}-{f_{
 - 使用任意顺序来给剩余的边来编号，从$N_B+1$到$N_J$
 - 确保每个刚体获得与其节点编号相同的编号，并且每个关节的编号与边的编号相对应
 
-> [!EXAMPLE] 刚体编号的例子
-> Contents
+!!! example "刚体编号的例子"
+    Contents
+
 
 每个关节$i$连接两个刚体，我们认定其中一个刚体作为父连杆，另外一个刚体是作为子连杆。关节本身是从父连杆连接到子连杆。
 - 定义关节和刚体变量的关系
@@ -846,244 +873,248 @@ $$
 
 # 8-刚体系统的逆动力学求解
 
-> [!TIP] 内容概要
-> 机器人的逆动力学，即**已知速度，加速度等信息求解力**。在这一章节中，我们主要介绍机器人求解逆动力学的**迭代牛顿-欧拉算法（Recurrence Newton-Euler Algorithm）**
+!!! tip "内容概要"
+    机器人的逆动力学，即**已知速度，加速度等信息求解力**。在这一章节中，我们主要介绍机器人求解逆动力学的**迭代牛顿-欧拉算法（Recurrence Newton-Euler Algorithm）**
+
 
 ## 8.1-固定基座系统的牛顿-欧拉法
 
-> [!EXAMPLE] 迭代牛顿-欧拉算法的伪代码
->
-> $$
-> \begin{array}{@{}l@{\hspace{5.5em}}l@{}}
-> \hline \\[-0.9em]
-> \begin{array}{l}
-> \underline{\text{Basic Equations:}} \\[0.5em]
-> \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
-> \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.7em]
-> \boldsymbol{v}_i
-> =
-> \boldsymbol{v}_{\lambda(i)}
-> +
-> \boldsymbol{S}_i \dot q_i \\[0.35em]
-> \boldsymbol{a}_i
-> =
-> \boldsymbol{a}_{\lambda(i)}
-> +
-> \boldsymbol{S}_i \ddot q_i
-> +
-> \dot{\boldsymbol{S}}_i \dot q_i \\[0.35em]
-> \boldsymbol{f}_i^B
-> =
-> \boldsymbol{I}_i \boldsymbol{a}_i
-> +
-> \boldsymbol{v}_i \times^{*}
-> \boldsymbol{I}_i \boldsymbol{v}_i \\[0.35em]
-> \boldsymbol{f}_i
-> =
-> \boldsymbol{f}_i^B
-> -
-> \boldsymbol{f}_i^x
-> +
-> \sum_{j \in \mu(i)}
-> \boldsymbol{f}_j \\[0.7em]
-> \tau_i
-> =
-> \boldsymbol{S}_i^T \boldsymbol{f}_i \\[1em]
-> \underline{\text{Equations in Body Coordinates:}} \\[0.5em]
-> \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
-> \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.7em]
-> \boldsymbol{v}_{J_i}
-> =
-> \boldsymbol{S}_i \dot q_i \\[0.35em]
-> \boldsymbol{c}_{J_i}
-> =
-> \dot{\boldsymbol{S}}_i \dot q_i \\[0.35em]
-> \boldsymbol{v}_i
-> =
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> \boldsymbol{v}_{\lambda(i)}
-> +
-> \boldsymbol{v}_{J_i} \\[0.35em]
-> \boldsymbol{a}_i
-> =
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> \boldsymbol{a}_{\lambda(i)}
-> +
-> \boldsymbol{S}_i \ddot q_i
-> +
-> \boldsymbol{c}_{J_i}
-> +
-> \boldsymbol{v}_i \times \boldsymbol{v}_{J_i} \\[0.35em]
-> \boldsymbol{f}_i^B
-> =
-> \boldsymbol{I}_i \boldsymbol{a}_i
-> +
-> \boldsymbol{v}_i \times^{*}
-> \boldsymbol{I}_i \boldsymbol{v}_i \\[0.35em]
-> \boldsymbol{f}_i
-> =
-> \boldsymbol{f}_i^B
-> -
-> {}^i\boldsymbol{X}_0^{*}
-> \boldsymbol{f}_i^x
-> +
-> \sum_{j \in \mu(i)}
-> {}^i\boldsymbol{X}_j^{*}
-> \boldsymbol{f}_j \\[0.7em]
-> \tau_i
-> =
-> \boldsymbol{S}_i^T \boldsymbol{f}_i
-> \end{array}
-> &
-> \begin{array}{l}
-> \underline{\text{Algorithm:}} \\[0.5em]
-> \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
-> \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.35em]
-> \mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.35em]
-> \quad
-> [\boldsymbol{X}_J,\boldsymbol{S}_i,\boldsymbol{v}_J,\boldsymbol{c}_J]
-> = \\[-0.1em]
-> \qquad\qquad
-> \operatorname{jcalc}
-> (
-> \operatorname{jtype}(i),
-> q_i,
-> \dot q_i
-> ) \\[0.35em]
-> \quad
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> =
-> \boldsymbol{X}_J
-> \boldsymbol{X}_T(i) \\[0.35em]
-> \quad
-> \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.35em]
-> \qquad
-> {}^i\boldsymbol{X}_0
-> =
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> {}^{\lambda(i)}\boldsymbol{X}_0 \\[0.35em]
-> \quad
-> \mathbf{end} \\[0.35em]
-> \quad
-> \boldsymbol{v}_i
-> =
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> \boldsymbol{v}_{\lambda(i)}
-> +
-> \boldsymbol{v}_J \\[0.35em]
-> \quad
-> \boldsymbol{a}_i
-> =
-> {}^i\boldsymbol{X}_{\lambda(i)}
-> \boldsymbol{a}_{\lambda(i)}
-> +
-> \boldsymbol{S}_i \ddot q_i \\[-0.1em]
-> \qquad\qquad
-> +
-> \boldsymbol{c}_J
-> +
-> \boldsymbol{v}_i \times \boldsymbol{v}_J \\[0.35em]
-> \quad
-> \boldsymbol{f}_i
-> =
-> \boldsymbol{I}_i \boldsymbol{a}_i
-> +
-> \boldsymbol{v}_i \times^{*}
-> \boldsymbol{I}_i \boldsymbol{v}_i
-> -
-> {}^i\boldsymbol{X}_0^{*}
-> \boldsymbol{f}_i^x \\[0.35em]
-> \mathbf{end} \\[0.5em]
-> \mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.35em]
-> \quad
-> \tau_i
-> =
-> \boldsymbol{S}_i^T
-> \boldsymbol{f}_i \\[0.35em]
-> \quad
-> \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.35em]
-> \qquad
-> \boldsymbol{f}_{\lambda(i)}
-> =
-> \boldsymbol{f}_{\lambda(i)}
-> +
-> {}^{\lambda(i)}\boldsymbol{X}_i^{*}
-> \boldsymbol{f}_i \\[0.35em]
-> \quad
-> \mathbf{end} \\[0.35em]
-> \mathbf{end}
-> \end{array}
-> \\[0.4em]
-> \hline
-> \end{array}
-> $$
+!!! example "迭代牛顿-欧拉算法的伪代码"
+    
+    $$
+    \begin{array}{@{}l@{\hspace{5.5em}}l@{}}
+    \hline \\[-0.9em]
+    \begin{array}{l}
+    \underline{\text{Basic Equations:}} \\[0.5em]
+    \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
+    \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.7em]
+    \boldsymbol{v}_i
+    =
+    \boldsymbol{v}_{\lambda(i)}
+    +
+    \boldsymbol{S}_i \dot q_i \\[0.35em]
+    \boldsymbol{a}_i
+    =
+    \boldsymbol{a}_{\lambda(i)}
+    +
+    \boldsymbol{S}_i \ddot q_i
+    +
+    \dot{\boldsymbol{S}}_i \dot q_i \\[0.35em]
+    \boldsymbol{f}_i^B
+    =
+    \boldsymbol{I}_i \boldsymbol{a}_i
+    +
+    \boldsymbol{v}_i \times^{*}
+    \boldsymbol{I}_i \boldsymbol{v}_i \\[0.35em]
+    \boldsymbol{f}_i
+    =
+    \boldsymbol{f}_i^B
+    -
+    \boldsymbol{f}_i^x
+    +
+    \sum_{j \in \mu(i)}
+    \boldsymbol{f}_j \\[0.7em]
+    \tau_i
+    =
+    \boldsymbol{S}_i^T \boldsymbol{f}_i \\[1em]
+    \underline{\text{Equations in Body Coordinates:}} \\[0.5em]
+    \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
+    \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.7em]
+    \boldsymbol{v}_{J_i}
+    =
+    \boldsymbol{S}_i \dot q_i \\[0.35em]
+    \boldsymbol{c}_{J_i}
+    =
+    \dot{\boldsymbol{S}}_i \dot q_i \\[0.35em]
+    \boldsymbol{v}_i
+    =
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    \boldsymbol{v}_{\lambda(i)}
+    +
+    \boldsymbol{v}_{J_i} \\[0.35em]
+    \boldsymbol{a}_i
+    =
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    \boldsymbol{a}_{\lambda(i)}
+    +
+    \boldsymbol{S}_i \ddot q_i
+    +
+    \boldsymbol{c}_{J_i}
+    +
+    \boldsymbol{v}_i \times \boldsymbol{v}_{J_i} \\[0.35em]
+    \boldsymbol{f}_i^B
+    =
+    \boldsymbol{I}_i \boldsymbol{a}_i
+    +
+    \boldsymbol{v}_i \times^{*}
+    \boldsymbol{I}_i \boldsymbol{v}_i \\[0.35em]
+    \boldsymbol{f}_i
+    =
+    \boldsymbol{f}_i^B
+    -
+    {}^i\boldsymbol{X}_0^{*}
+    \boldsymbol{f}_i^x
+    +
+    \sum_{j \in \mu(i)}
+    {}^i\boldsymbol{X}_j^{*}
+    \boldsymbol{f}_j \\[0.7em]
+    \tau_i
+    =
+    \boldsymbol{S}_i^T \boldsymbol{f}_i
+    \end{array}
+    &
+    \begin{array}{l}
+    \underline{\text{Algorithm:}} \\[0.5em]
+    \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
+    \boldsymbol{a}_0 = -\boldsymbol{a}_g \\[0.35em]
+    \mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.35em]
+    \quad
+    [\boldsymbol{X}_J,\boldsymbol{S}_i,\boldsymbol{v}_J,\boldsymbol{c}_J]
+    = \\[-0.1em]
+    \qquad\qquad
+    \operatorname{jcalc}
+    (
+    \operatorname{jtype}(i),
+    q_i,
+    \dot q_i
+    ) \\[0.35em]
+    \quad
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    =
+    \boldsymbol{X}_J
+    \boldsymbol{X}_T(i) \\[0.35em]
+    \quad
+    \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.35em]
+    \qquad
+    {}^i\boldsymbol{X}_0
+    =
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    {}^{\lambda(i)}\boldsymbol{X}_0 \\[0.35em]
+    \quad
+    \mathbf{end} \\[0.35em]
+    \quad
+    \boldsymbol{v}_i
+    =
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    \boldsymbol{v}_{\lambda(i)}
+    +
+    \boldsymbol{v}_J \\[0.35em]
+    \quad
+    \boldsymbol{a}_i
+    =
+    {}^i\boldsymbol{X}_{\lambda(i)}
+    \boldsymbol{a}_{\lambda(i)}
+    +
+    \boldsymbol{S}_i \ddot q_i \\[-0.1em]
+    \qquad\qquad
+    +
+    \boldsymbol{c}_J
+    +
+    \boldsymbol{v}_i \times \boldsymbol{v}_J \\[0.35em]
+    \quad
+    \boldsymbol{f}_i
+    =
+    \boldsymbol{I}_i \boldsymbol{a}_i
+    +
+    \boldsymbol{v}_i \times^{*}
+    \boldsymbol{I}_i \boldsymbol{v}_i
+    -
+    {}^i\boldsymbol{X}_0^{*}
+    \boldsymbol{f}_i^x \\[0.35em]
+    \mathbf{end} \\[0.5em]
+    \mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.35em]
+    \quad
+    \tau_i
+    =
+    \boldsymbol{S}_i^T
+    \boldsymbol{f}_i \\[0.35em]
+    \quad
+    \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.35em]
+    \qquad
+    \boldsymbol{f}_{\lambda(i)}
+    =
+    \boldsymbol{f}_{\lambda(i)}
+    +
+    {}^{\lambda(i)}\boldsymbol{X}_i^{*}
+    \boldsymbol{f}_i \\[0.35em]
+    \quad
+    \mathbf{end} \\[0.35em]
+    \mathbf{end}
+    \end{array}
+    \\[0.4em]
+    \hline
+    \end{array}
+    $$
+
 ## 8.2-浮动基座系统的牛顿-欧拉法
 
-> [!EXAMPLE] 迭代牛顿-欧拉算法的伪代码
-> $$
-> \begin{array}{@{}l@{\qquad\qquad}l@{}}
-> \hline \\[-8pt]
-> \begin{array}{l}
-> \underline{\text{Pass 1}} \\[6pt]
-> a_{0}^{r}=-{}^{0}a_{g} \\[8pt]
-> v_{Ji}=S_{i}\dot{q}_{i} \\[8pt]
-> v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{Ji} \\[8pt]
-> c_{i}=\dot{S}_{i}\dot{q}_{i}+v_{i}\times v_{Ji} \\[8pt]
-> a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}+c_{i}+S_{i}\ddot{q}_{i} \\[8pt]
-> p_{i}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}-{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[14pt]
->
-> \underline{\text{Pass 2}} \\[6pt]
-> I_{i}^{c}=I_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}I_{j}^{c}{}^{j}X_{i} \\[16pt]
-> p_{i}^{c}=p_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}p_{j}^{c} \\[16pt]
->
-> \underline{\text{Pass 3}} \\[6pt]
-> {}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[8pt]
-> {}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[8pt]
-> \tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right)
-> \end{array}
-> &
-> \begin{array}{l}
-> a_{0}^{r}=-{}^{0}a_{g} \\[2pt]
-> \textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
-> \quad [X_{J},S_{i},v_{J},c_{J}]
-> =\operatorname{jcalc}(\operatorname{jtype}(i),q_{i},\dot{q}_{i}) \\[2pt]
-> \quad {}^{i}X_{\lambda(i)}=X_{J}X_{T(i)} \\[2pt]
-> \quad \textbf{if } \lambda(i)\neq 0 \textbf{ then} \\[2pt]
-> \qquad {}^{i}X_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}X_{0} \\[2pt]
-> \quad \textbf{end} \\[2pt]
-> \quad v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{J} \\[2pt]
-> \quad a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}^{r}
-> +c_{J}+v_{i}\times v_{J}+S_{i}\ddot{q}_{i} \\[2pt]
-> \quad I_{i}^{c}=I_{i} \\[2pt]
-> \quad p_{i}^{c}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}
-> -{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[2pt]
-> \textbf{end} \\[2pt]
-> I_{0}^{c}=I_{0} \\[2pt]
-> p_{0}^{c}=I_{0}a_{0}^{r}+v_{0}\times^{*}I_{0}v_{0}-{}^{0}f_{0}^{x} \\[2pt]
-> \textbf{for } i=N_{B} \textbf{ to } 1 \textbf{ do} \\[2pt]
-> \quad I_{\lambda(i)}^{c}
-> =I_{\lambda(i)}^{c}
-> +{}^{\lambda(i)}X_{i}^{*}I_{i}^{c}{}^{i}X_{\lambda(i)} \\[2pt]
-> \quad p_{\lambda(i)}^{c}
-> =p_{\lambda(i)}^{c}
-> +{}^{\lambda(i)}X_{i}^{*}p_{i}^{c} \\[2pt]
-> \textbf{end} \\[2pt]
-> {}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[2pt]
-> \textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
-> \quad {}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[2pt]
-> \quad \tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right) \\[2pt]
-> \textbf{end}
-> \end{array}
-> \\[-2pt] \hline
-> \end{array}
-> $$
+!!! example "迭代牛顿-欧拉算法的伪代码"
+    $$
+    \begin{array}{@{}l@{\qquad\qquad}l@{}}
+    \hline \\[-8pt]
+    \begin{array}{l}
+    \underline{\text{Pass 1}} \\[6pt]
+    a_{0}^{r}=-{}^{0}a_{g} \\[8pt]
+    v_{Ji}=S_{i}\dot{q}_{i} \\[8pt]
+    v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{Ji} \\[8pt]
+    c_{i}=\dot{S}_{i}\dot{q}_{i}+v_{i}\times v_{Ji} \\[8pt]
+    a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}+c_{i}+S_{i}\ddot{q}_{i} \\[8pt]
+    p_{i}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}-{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[14pt]
+    
+    \underline{\text{Pass 2}} \\[6pt]
+    I_{i}^{c}=I_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}I_{j}^{c}{}^{j}X_{i} \\[16pt]
+    p_{i}^{c}=p_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}p_{j}^{c} \\[16pt]
+    
+    \underline{\text{Pass 3}} \\[6pt]
+    {}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[8pt]
+    {}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[8pt]
+    \tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right)
+    \end{array}
+    &
+    \begin{array}{l}
+    a_{0}^{r}=-{}^{0}a_{g} \\[2pt]
+    \textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
+    \quad [X_{J},S_{i},v_{J},c_{J}]
+    =\operatorname{jcalc}(\operatorname{jtype}(i),q_{i},\dot{q}_{i}) \\[2pt]
+    \quad {}^{i}X_{\lambda(i)}=X_{J}X_{T(i)} \\[2pt]
+    \quad \textbf{if } \lambda(i)\neq 0 \textbf{ then} \\[2pt]
+    \qquad {}^{i}X_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}X_{0} \\[2pt]
+    \quad \textbf{end} \\[2pt]
+    \quad v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{J} \\[2pt]
+    \quad a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}^{r}
+    +c_{J}+v_{i}\times v_{J}+S_{i}\ddot{q}_{i} \\[2pt]
+    \quad I_{i}^{c}=I_{i} \\[2pt]
+    \quad p_{i}^{c}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}
+    -{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[2pt]
+    \textbf{end} \\[2pt]
+    I_{0}^{c}=I_{0} \\[2pt]
+    p_{0}^{c}=I_{0}a_{0}^{r}+v_{0}\times^{*}I_{0}v_{0}-{}^{0}f_{0}^{x} \\[2pt]
+    \textbf{for } i=N_{B} \textbf{ to } 1 \textbf{ do} \\[2pt]
+    \quad I_{\lambda(i)}^{c}
+    =I_{\lambda(i)}^{c}
+    +{}^{\lambda(i)}X_{i}^{*}I_{i}^{c}{}^{i}X_{\lambda(i)} \\[2pt]
+    \quad p_{\lambda(i)}^{c}
+    =p_{\lambda(i)}^{c}
+    +{}^{\lambda(i)}X_{i}^{*}p_{i}^{c} \\[2pt]
+    \textbf{end} \\[2pt]
+    {}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[2pt]
+    \textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
+    \quad {}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[2pt]
+    \quad \tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right) \\[2pt]
+    \textbf{end}
+    \end{array}
+    \\[-2pt] \hline
+    \end{array}
+    $$
+
 
 # 9-刚体系统的正动力学求解
 
-> [!TIP] 内容概要
-> 机器人的正动力学，即为已知力求解加速度等信息。在这一章节中，我们主要介绍机器人的正动力学的两种算法：
-> - **惯量矩阵方法（Inertia Matrix Methods）**：复合刚体算法(CRBA)就是基于惯量矩阵方法的正动力学求解算法
-> - **传播法（Propagation Methods）**：(ABA)算法就是基于惯量矩阵方法的正动力学求解算法
+!!! tip "内容概要"
+    机器人的正动力学，即为已知力求解加速度等信息。在这一章节中，我们主要介绍机器人的正动力学的两种算法：
+    - **惯量矩阵方法（Inertia Matrix Methods）**：复合刚体算法(CRBA)就是基于惯量矩阵方法的正动力学求解算法
+    - **传播法（Propagation Methods）**：(ABA)算法就是基于惯量矩阵方法的正动力学求解算法
+
 ## 9.1-复合刚体算法(CRBA)求解正动力学
 首先，求解复合刚体动力学的方程，就是求解以下几个矩阵：
 - 偏置力矩阵$\mathbf{C}$
@@ -1104,151 +1135,152 @@ $$
 $$
 （过渡）
 因此，求解正动力学的重中之重，是求解惯性张量矩阵$\mathbf{H}$。接下来就要用**复合刚体算法**来求解矩阵$\mathbf{H}$。
-> [!EXAMPLE] 复合刚体算法的伪代码
->
-> $$
-> \begin{array}{@{}l@{\hspace{6em}}l@{}}
-> \hline \\[-0.8em]
-> \begin{array}{l}
-> \underline{\text{Basic Equations:}} \\[0.8em]
-> \boldsymbol{I}_i^c
-> =
-> \boldsymbol{I}_i
-> +
-> \displaystyle\sum_{j \in \mu(i)}
-> \boldsymbol{I}_j^c \\[1.2em]
->
-> \boldsymbol{H}_{ij}
-> =
-> \left\{
-> \begin{array}{ll}
-> \boldsymbol{S}_i^T
-> \boldsymbol{I}_i^c
-> \boldsymbol{S}_j
-> & \text{if } i \in \nu(j) \\[0.25em]
->
-> \boldsymbol{S}_i^T
-> \boldsymbol{I}_j^c
-> \boldsymbol{S}_j
-> & \text{if } j \in \nu(i) \\[0.25em]
->
-> \boldsymbol{0}
-> & \text{otherwise}
-> \end{array}
-> \right. \\[2.2em]
->
-> \underline{\text{Equations for Body-Coordinates}} \\[-0.1em]
-> \underline{\text{Algorithm:}} \\[1em]
->
-> \boldsymbol{I}_i^c
-> =
-> \boldsymbol{I}_i
-> +
-> \displaystyle\sum_{j \in \mu(i)}
-> {}^i\boldsymbol{X}_j^{*}
-> \boldsymbol{I}_j^c
-> {}^j\boldsymbol{X}_i \\[1.2em]
->
-> {}^{\lambda(j)}\boldsymbol{F}_i
-> =
-> {}^{\lambda(j)}\boldsymbol{X}_j^{*}
-> {}^j\boldsymbol{F}_i
-> \qquad
-> \left(
-> {}^i\boldsymbol{F}_i
-> =
-> \boldsymbol{I}_i^c
-> \boldsymbol{S}_i
-> \right) \\[1.2em]
->
-> \boldsymbol{H}_{ij}
-> =
-> \left\{
-> \begin{array}{ll}
-> {}^j\boldsymbol{F}_i^T
-> \boldsymbol{S}_j
-> & \text{if } i \in \nu(j) \\[0.25em]
->
-> \boldsymbol{H}_{ji}^T
-> & \text{if } j \in \nu(i) \\[0.25em]
->
-> \boldsymbol{0}
-> & \text{otherwise}
-> \end{array}
-> \right.
-> \end{array}
-> &
-> \begin{array}{l}
-> \underline{\text{Algorithm:}} \\[0.6em]
->
-> \boldsymbol{H} = \boldsymbol{0} \\[0.35em]
->
-> \mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.25em]
-> \qquad
-> \boldsymbol{I}_i^c
-> =
-> \boldsymbol{I}_i \\[0.25em]
-> \mathbf{end} \\[0.45em]
->
-> \mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.25em]
-> \qquad
-> \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.25em]
-> \qquad\qquad
-> \boldsymbol{I}_{\lambda(i)}^c
-> =
-> \boldsymbol{I}_{\lambda(i)}^c
-> +
-> {}^{\lambda(i)}\boldsymbol{X}_i^{*}
-> \boldsymbol{I}_i^c
-> {}^i\boldsymbol{X}_{\lambda(i)} \\[0.25em]
-> \qquad
-> \mathbf{end} \\[0.35em]
->
-> \qquad
-> \boldsymbol{F}
-> =
-> \boldsymbol{I}_i^c
-> \boldsymbol{S}_i \\[0.35em]
->
-> \qquad
-> \boldsymbol{H}_{ii}
-> =
-> \boldsymbol{S}_i^T
-> \boldsymbol{F} \\[0.35em]
->
-> \qquad
-> j = i \\[0.35em]
->
-> \qquad
-> \mathbf{while}\ \lambda(j) \neq 0\ \mathbf{do} \\[0.25em]
-> \qquad\qquad
-> \boldsymbol{F}
-> =
-> {}^{\lambda(j)}\boldsymbol{X}_j^{*}
-> \boldsymbol{F} \\[0.25em]
->
-> \qquad\qquad
-> j = \lambda(j) \\[0.25em]
->
-> \qquad\qquad
-> \boldsymbol{H}_{ij}
-> =
-> \boldsymbol{F}^T
-> \boldsymbol{S}_j \\[0.25em]
->
-> \qquad\qquad
-> \boldsymbol{H}_{ji}
-> =
-> \boldsymbol{H}_{ij}^T \\[0.25em]
->
-> \qquad
-> \mathbf{end} \\[0.25em]
->
-> \mathbf{end}
-> \end{array}
-> \\[0.4em]
-> \hline
-> \end{array}
-> $$
+!!! example "复合刚体算法的伪代码"
+    
+    $$
+    \begin{array}{@{}l@{\hspace{6em}}l@{}}
+    \hline \\[-0.8em]
+    \begin{array}{l}
+    \underline{\text{Basic Equations:}} \\[0.8em]
+    \boldsymbol{I}_i^c
+    =
+    \boldsymbol{I}_i
+    +
+    \displaystyle\sum_{j \in \mu(i)}
+    \boldsymbol{I}_j^c \\[1.2em]
+    
+    \boldsymbol{H}_{ij}
+    =
+    \left\{
+    \begin{array}{ll}
+    \boldsymbol{S}_i^T
+    \boldsymbol{I}_i^c
+    \boldsymbol{S}_j
+    & \text{if } i \in \nu(j) \\[0.25em]
+    
+    \boldsymbol{S}_i^T
+    \boldsymbol{I}_j^c
+    \boldsymbol{S}_j
+    & \text{if } j \in \nu(i) \\[0.25em]
+    
+    \boldsymbol{0}
+    & \text{otherwise}
+    \end{array}
+    \right. \\[2.2em]
+    
+    \underline{\text{Equations for Body-Coordinates}} \\[-0.1em]
+    \underline{\text{Algorithm:}} \\[1em]
+    
+    \boldsymbol{I}_i^c
+    =
+    \boldsymbol{I}_i
+    +
+    \displaystyle\sum_{j \in \mu(i)}
+    {}^i\boldsymbol{X}_j^{*}
+    \boldsymbol{I}_j^c
+    {}^j\boldsymbol{X}_i \\[1.2em]
+    
+    {}^{\lambda(j)}\boldsymbol{F}_i
+    =
+    {}^{\lambda(j)}\boldsymbol{X}_j^{*}
+    {}^j\boldsymbol{F}_i
+    \qquad
+    \left(
+    {}^i\boldsymbol{F}_i
+    =
+    \boldsymbol{I}_i^c
+    \boldsymbol{S}_i
+    \right) \\[1.2em]
+    
+    \boldsymbol{H}_{ij}
+    =
+    \left\{
+    \begin{array}{ll}
+    {}^j\boldsymbol{F}_i^T
+    \boldsymbol{S}_j
+    & \text{if } i \in \nu(j) \\[0.25em]
+    
+    \boldsymbol{H}_{ji}^T
+    & \text{if } j \in \nu(i) \\[0.25em]
+    
+    \boldsymbol{0}
+    & \text{otherwise}
+    \end{array}
+    \right.
+    \end{array}
+    &
+    \begin{array}{l}
+    \underline{\text{Algorithm:}} \\[0.6em]
+    
+    \boldsymbol{H} = \boldsymbol{0} \\[0.35em]
+    
+    \mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.25em]
+    \qquad
+    \boldsymbol{I}_i^c
+    =
+    \boldsymbol{I}_i \\[0.25em]
+    \mathbf{end} \\[0.45em]
+    
+    \mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.25em]
+    \qquad
+    \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.25em]
+    \qquad\qquad
+    \boldsymbol{I}_{\lambda(i)}^c
+    =
+    \boldsymbol{I}_{\lambda(i)}^c
+    +
+    {}^{\lambda(i)}\boldsymbol{X}_i^{*}
+    \boldsymbol{I}_i^c
+    {}^i\boldsymbol{X}_{\lambda(i)} \\[0.25em]
+    \qquad
+    \mathbf{end} \\[0.35em]
+    
+    \qquad
+    \boldsymbol{F}
+    =
+    \boldsymbol{I}_i^c
+    \boldsymbol{S}_i \\[0.35em]
+    
+    \qquad
+    \boldsymbol{H}_{ii}
+    =
+    \boldsymbol{S}_i^T
+    \boldsymbol{F} \\[0.35em]
+    
+    \qquad
+    j = i \\[0.35em]
+    
+    \qquad
+    \mathbf{while}\ \lambda(j) \neq 0\ \mathbf{do} \\[0.25em]
+    \qquad\qquad
+    \boldsymbol{F}
+    =
+    {}^{\lambda(j)}\boldsymbol{X}_j^{*}
+    \boldsymbol{F} \\[0.25em]
+    
+    \qquad\qquad
+    j = \lambda(j) \\[0.25em]
+    
+    \qquad\qquad
+    \boldsymbol{H}_{ij}
+    =
+    \boldsymbol{F}^T
+    \boldsymbol{S}_j \\[0.25em]
+    
+    \qquad\qquad
+    \boldsymbol{H}_{ji}
+    =
+    \boldsymbol{H}_{ij}^T \\[0.25em]
+    
+    \qquad
+    \mathbf{end} \\[0.25em]
+    
+    \mathbf{end}
+    \end{array}
+    \\[0.4em]
+    \hline
+    \end{array}
+    $$
+
 ## 9.2-铰接体算法(ABA)求解正动力学
 # 10-多刚体系统的混合动力学求解
