@@ -8,8 +8,6 @@
 
 - **[tags](tech-blog/tags.md)** — *技术博客*
 
-- **[Part 1-多刚体系统动力学的一般表达形式](robot/Rigid Body Dynamic Algorithms/Part 1-多刚体系统动力学的一般表达形式.md)** — *机器人*
-
 - **[Part 2-空间向量及其性质](robot/Rigid Body Dynamic Algorithms/Part 2-空间向量及其性质.md)** — *机器人*
 
 - **[Part 3-刚体运动学和刚体动力学](robot/Rigid Body Dynamic Algorithms/Part 3-刚体运动学和刚体动力学.md)** — *机器人*
@@ -21,5 +19,7 @@
 - **[Part 6-刚体系统的逆动力学求解](robot/Rigid Body Dynamic Algorithms/Part 6-刚体系统的逆动力学求解.md)** — *机器人*
 
 - **[Part 7-刚体系统的正动力学求解](robot/Rigid Body Dynamic Algorithms/Part 7-刚体系统的正动力学求解.md)** — *机器人*
+
+- **[Rigid Body Dynamic Algorithms](robot/Rigid Body Dynamic Algorithms/Rigid Body Dynamic Algorithms.md)** — *机器人*
 
 [查看更多 →](tech-blog/index.md)
