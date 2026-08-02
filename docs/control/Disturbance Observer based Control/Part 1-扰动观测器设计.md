@@ -4,6 +4,7 @@
 
 ## 3-非线性扰动观测器设计
 首先我们有非线性系统如下：
+
 $$
 \left\{
 {\begin{align}
@@ -12,18 +13,23 @@ $$
 \end{align}}
 \right.
 $$
+
 其中$x{\in}{\mathbb{R}^n}$是状态向量，$u{\in}{\mathbb{R}^m}$为控制输入，$d{\in}{\mathbb{R}^l}$为扰动，$y{\in}{\mathbb{R}^s}$为系统输出。$f(x),{g_1}(x),{g_2}(x),h(x)$都是只和$x$有关的非线性平滑函数，扰动我们是未知的。
 根据非线性系统的数学表达式，我们可以得到**基本扰动观测器**的形式如下：
+
 $$
 \dot{\hat{d}} = l(x)[\dot{x} - f(x) - g_1(x)u - g_2(x)\hat{d}]
 $$
+
 我们可以定义一个**增强扰动观测器**来估计慢变的扰动，这种类型的观测器定义如下：
+
 $$
 \begin{cases} 
 \dot{z} = -l(x)g_2(x)z - l(x)[g_2(x)p(x) + f(x) + g_1(x)u] \\ 
 \hat{d} = z + p(x) 
 \end{cases} 
 $$
+
 其中：
 - **$z$**: 观测器的内部状态变量。
 - **$\hat{d}$**: 扰动的估计值（Disturbance estimate）。

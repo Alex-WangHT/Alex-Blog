@@ -20,10 +20,13 @@
 前面提到的**MC-Based算法**提供了一个很简单的方式去理解在Model-Free的情况下如何求解Action-Value。
 但是MC-Based这种方法有一个致命的缺点，就是我从某一个键值对$({s},{a})$开始遍历一整个Episode之后才能返回一个Action-Value。这样大大降低了采样效率。
 假设我们根据策略$\pi$有以下的一个采样的Episode：
+
 $$
 {s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}
 $$
+
 我们可以像如下所示这样将上面的Episode分解成多个子Episode，每个子Episode可以看作是一个新的Episode。在走完第一个状态-动作对$(s_1,a_2)$之后，我们以下一个状态-动作对$(s_2,a_4)$为起点的Episode作为一个新的Episode来看待。这些Episode能够用来估计更多的Action-Value。这样我们能够更有效地利用整个Episode的样本。
+
 $$
 \begin{align}
 {s_1}{\xrightarrow[]{a_2}}{s_2}{\xrightarrow[]{a_4}}{s_1}{\xrightarrow[]{a_2}}{s_3}{\xrightarrow[]{a_3}}{s_6}{\xrightarrow[]{a_4}}{s_5}{\xrightarrow[]{a_3}}{\cdots}&{\quad}{\text{[original episode starting from}(s_1,a_2)]}\\

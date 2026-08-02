@@ -4,6 +4,7 @@
 
 ## 1-基于扰动观测器的非线性系统设计
 首先我们有SISO非线性系统如下：
+
 $$
 \left\{
 {\begin{align}
@@ -12,6 +13,7 @@ $$
 \end{align}}
 \right.
 $$
+
 其中$x{\in}{\mathbb{R}^n}$是状态向量，$u{\in}{\mathbb{R}}$为控制输入，$d{\in}{\mathbb{R}}$为扰动，$y{\in}{\mathbb{R}}$为系统输出。
 非线性系统的框图如下：
 
