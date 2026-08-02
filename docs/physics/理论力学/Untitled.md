@@ -35,6 +35,7 @@ $$
 $$
 \vec{\epsilon}=\dot{\vec{\omega}}={\ddot{\theta}}{\vec{p}}+{\dot{\theta}}{\dot{\vec{p}}}
 $$
+
 !!! tip "刚体的角速度在刚体有限转动的不同表示下的描述"
     - **旋转矩阵**：我们设旋转前刚体B的固连坐标系$\{B\}$的基向量为$\vec{x}$，$\vec{y}$，$\vec{z}$，在以固连坐标系原点$O_B$做很短时间定点运动后的基向量为$\dot{\vec{x}}$，$\dot{\vec{y}}$，$\dot{\vec{z}}$。我们可以得到：$$\left\{ \begin{align}&{\dot{\vec{x}}}={[\omega{\times}]}{\vec{x}}\\&{\dot{\vec{y}}}={[\omega{\times}]}{\vec{y}}\\&{\dot{\vec{z}}}={[\omega{\times}]}{\vec{z}}\end{align}\right.$$根据旋转矩阵的定义我们可以得到：$$\dot{R}={[\omega{\times}]}{R}$$根据旋转矩阵正交的性质$R{R^T}=I$我们可以得到：$${\dot{R}}{R^T}={[\omega{\times}]}$$
     - **欧拉角和卡尔丹角**
@@ -71,6 +72,7 @@ $$
 $$
 {^{O}}{\vec{a}}_{P}={^{O}}{\ddot{\vec{r}}}_{P}={^{O}}{\ddot{\vec{r}}}_{C}+{^{O}}{\vec{\epsilon}_{B}}{\times}{^{O}}{\vec{\rho_{P}}}+{^{O}}{\vec{\omega}_{B}}{\times}({^{O}}{\vec{\omega}_{B}}{\times}{^{O}}{\vec{\rho_{P}}})
 $$
+
 !!! tip "刚体各个运动类型的运动描述"
     我们已知刚体的运动类型包括平动，定轴转动，平面运动，定点运动和一般运动五类，其中：
     - 定轴运动是定点运动的特例

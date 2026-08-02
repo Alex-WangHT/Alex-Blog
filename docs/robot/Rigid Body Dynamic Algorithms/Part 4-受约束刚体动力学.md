@@ -389,6 +389,7 @@ $$
 $$
 \boldsymbol{v_{\mathrm{J}}} = \boldsymbol{S(q) \dot{q}}
 $$
+
 !!! example "以2-DOF平面机械臂来理解关节空间速度"
     
 
