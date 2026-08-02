@@ -1241,9 +1241,11 @@ $$
 <div class="admonition note">
 <p class="admonition-title">空间变换矩阵(Spatial Transformation Matrix)</p>
 <p>假设有两个坐标系 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 和 <span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 。<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系相对于 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系的几何关系由旋转矩阵 <span class="arithmatex">\(\mathbf{R} = {^A_B \mathbf{R}}\)</span> 和位置向量 <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> (即<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span>原点在<span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span>中的位置) 确定。
-<strong>空间变换矩阵 <span class="arithmatex">\({{^A_B}\mathbf{X}}\)</span></strong> 用于将空间矢量从<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系转换到 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系， 的定义如下：
-$<span class="arithmatex">\({{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} &amp; {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} &amp; \mathbf{R} \end{pmatrix}\)</span>$
-其中：
+<strong>空间变换矩阵 <span class="arithmatex">\({{^A_B}\mathbf{X}}\)</span></strong> 用于将空间矢量从<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系转换到 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系， 的定义如下：</p>
+<div class="arithmatex">\[
+{{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} &amp; {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} &amp; \mathbf{R} \end{pmatrix}
+\]</div>
+<p>其中：
 - <span class="arithmatex">\(\mathbf{R} = {^A_B\mathbf{ R}}\)</span> 是 <span class="arithmatex">\(3 \times 3\)</span> <strong>旋转矩阵</strong>。
 -  <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> 是 <span class="arithmatex">\(3 \times 1\)</span> <strong>位置向量</strong>
 - <span class="arithmatex">\([{p}]_{\times}\)</span> 是位置向量 <span class="arithmatex">\({p}\)</span> 对应的 <span class="arithmatex">\(3 \times 3\)</span> <strong>斜对称叉乘矩阵</strong>。</p>
