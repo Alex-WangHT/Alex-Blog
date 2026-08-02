@@ -997,8 +997,8 @@
   </a>
 
 
-<h1 id="1-2">1-2、刚体一般运动学方程</h1>
-<h4 id="1-">1-刚体定点运动的无限小量</h4>
+<h1 id="1-2">1-2、刚体一般运动学方程<a class="headerlink" href="#1-2" title="Permanent link">&para;</a></h1>
+<h4 id="1-">1-刚体定点运动的无限小量<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h4>
 <p>我们假设在1-1的第四部分描述的刚体旋转了一个很小的角度<span class="arithmatex">\(\Delta{\theta}{\to}{0}\)</span>，根据三角函数在原点附近的一阶泰勒展开<span class="arithmatex">\(cos({\Delta{\theta}}){\sim}{1}\)</span>和<span class="arithmatex">\(\sin({\Delta{\theta}}){\sim}{\Delta{\theta}}\)</span>，可以将罗德里格斯公式写成以下形式：
 $$
 {R}={I}+{\Delta{\theta}}{[p{\times}]}={I}+[{\omega}{\times}]
@@ -1012,7 +1012,7 @@ $$
 -{\Delta{\theta}}{p_y}&amp;{\Delta{\theta}}{p_x}&amp;0\
 \end{pmatrix}
 $$</p>
-<h4 id="2-">2-刚体定点运动的角速度和角加速度</h4>
+<h4 id="2-">2-刚体定点运动的角速度和角加速度<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h4>
 <p>我们假设在很短的时间<span class="arithmatex">\(\Delta{t}\)</span>内转动了一个很小的角度<span class="arithmatex">\(\Delta{\theta}\)</span>，即：
 $$
 {\lim_{\Delta{t}{\to}{0}}}{\frac{\Delta{\theta}}{\Delta{t}}}=\dot{\theta}
@@ -1040,7 +1040,7 @@ $$</p>
 - <strong>欧拉角和卡尔丹角</strong>
 - <strong>四元数</strong></p>
 </blockquote>
-<h4 id="3-">3-刚体定点运动的线速度和线加速度</h4>
+<h4 id="3-">3-刚体定点运动的线速度和线加速度<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h4>
 <p>在刚体绕着定点转动的时候，刚体上的某一点在惯性参考坐标系上的绕着转动前的向量<span class="arithmatex">\(\vec{r}\)</span>和转动后的向量<span class="arithmatex">\(\vec{r}^{'}\)</span>的关系如下：
 $$
 \vec{r}^{'}=R\vec{r}={\vec{r}}+{[\omega{\times}]}{\vec{r}}
@@ -1057,20 +1057,20 @@ $$
 $$
 \vec{a}=\ddot{\vec{r}}=\dot{\vec{\omega}}{\times}{\vec{r}}+{\vec{\omega}}{\times}{\dot{\vec{r}}}={\vec{\epsilon}}{\times}{\vec{r}}+{\vec{\omega}}{\times}({\vec{\omega}}{\times}{\vec{r}})
 $$</p>
-<h4 id="4-">4-刚体一般运动的描述</h4>
+<h4 id="4-">4-刚体一般运动的描述<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h4>
 <p>我们在理论力学里面有一个结论：<strong>刚体一般运动是由刚体平动和刚体绕某个点做定点运动合成得到的</strong>。那么根据这个结论，我们将刚体的一般运动分为刚体质心在空间的平动以及刚体绕着质心定点运动。
 刚体在空间相对于惯性参考坐标系<span class="arithmatex">\(\{O\}\)</span>进行一般运动如上图所示，其中坐标系<span class="arithmatex">\(\{B\}\)</span>是刚体的固连坐标系，<span class="arithmatex">\(O_{C}\)</span>是刚体的质心。刚体内一点P在参考坐标系<span class="arithmatex">\(\{O\}\)</span>的位置表示如下：
 $$
-{^{O}}{\vec{r}}<em>{P}={^{O}}{\vec{r}}</em>{C}+{^{O}}{R}{<em>{B}}{^{B}}{\vec{\rho</em>{P}}}
+{<sup O="O">{O}}{\vec{r}}_{P}={</sup>}}{\vec{r}<em P="P">{C}+{<sup B="B">{O}}{R}{_{B}}{</sup>{\vec{\rho}</em>
 $$
 我们对上面的式子进行求导，可以得到刚体内某一点的线速度：
 $$
-{^{O}}{\vec{v}}<em>{P}={^{O}}{\dot{\vec{r}}}</em>{P}={^{O}}{\dot{\vec{r}}}<em>{C}+{^{O}}{\vec{\omega}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}}
+{}}<sup O="O">{O}}{\vec{v}}_{P}={</sup>}}{\dot{\vec{r}}<em B="B">{P}={<sup O="O">{O}}{\dot{\vec{r}}}_{C}+{</sup>}}{\vec{\omega</em>
 $$
 对上面的式子再次求导，我们可以得到刚体内某一点的加速度：
 $$
-{^{O}}{\vec{a}}<em>{P}={^{O}}{\ddot{\vec{r}}}</em>{P}={^{O}}{\ddot{\vec{r}}}<em>{C}+{^{O}}{\vec{\epsilon}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}}+{^{O}}{\vec{\omega}<em>{B}}{\times}({^{O}}{\vec{\omega}</em>{B}}{\times}{^{O}}{\vec{\rho_{P}}})
-$$</p>
+{}}{\times}{^{O}}{\vec{\rho_{P}}<sup O="O">{O}}{\vec{a}}_{P}={</sup>}}{\ddot{\vec{r}}<em B="B">{P}={<sup O="O">{O}}{\ddot{\vec{r}}}_{C}+{</sup>}}{\vec{\epsilon</em>{}}{\times<sup O="O">{O}}{\vec{\rho_{P}}}+{</sup>}}{\vec{\omega<em P="P">{B}}{\times}({<sup O="O">{O}}{\vec{\omega}_{B}}{\times}{</sup>{\vec{\rho}</em>)
+$$}}</p>
 <blockquote>
 <p>[!TIP] 刚体各个运动类型的运动描述
 我们已知刚体的运动类型包括平动，定轴转动，平面运动，定点运动和一般运动五类，其中：
@@ -1078,21 +1078,21 @@ $$</p>
 - 平面运动是一般运动的特例
 - 平动是平面运动的特例</p>
 </blockquote>
-<h4 id="5-">5-多刚体的复合运动描述</h4>
+<h4 id="5-">5-多刚体的复合运动描述<a class="headerlink" href="#5-" title="Permanent link">&para;</a></h4>
 <p>【使用旋转矩阵的相关性质来证明角速度复合定理】
 【1.罗德里格斯推导角速度矩阵和旋转矩阵的关系】
 【2.罗德里格斯推导角速度矩阵与旋转矩阵的乘法】
 【3.用性质证明角速度合成定理】</p>
-<h1 id="_1">二、多体系统的动力学分析</h1>
-<h2 id="2-2">2-2、动力学普遍方程</h2>
-<h3 id="2-2-1">2-2-1、微分变分原理</h3>
-<h3 id="2-2-2-">2-2-2、达朗贝尔-拉格朗日原理</h3>
-<h3 id="2-2-3">2-2-3、若尔当原理</h3>
+<h1 id="_1">二、多体系统的动力学分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="2-2">2-2、动力学普遍方程<a class="headerlink" href="#2-2" title="Permanent link">&para;</a></h2>
+<h3 id="2-2-1">2-2-1、微分变分原理<a class="headerlink" href="#2-2-1" title="Permanent link">&para;</a></h3>
+<h3 id="2-2-2-">2-2-2、达朗贝尔-拉格朗日原理<a class="headerlink" href="#2-2-2-" title="Permanent link">&para;</a></h3>
+<h3 id="2-2-3">2-2-3、若尔当原理<a class="headerlink" href="#2-2-3" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>[!EXAMPLE] 使用若尔当定理来推导刚体定点运动的欧拉方程
 Contents</p>
 </blockquote>
-<h3 id="2-2-4">2-2-4、高斯原理</h3>
+<h3 id="2-2-4">2-2-4、高斯原理<a class="headerlink" href="#2-2-4" title="Permanent link">&para;</a></h3>
 
 
 

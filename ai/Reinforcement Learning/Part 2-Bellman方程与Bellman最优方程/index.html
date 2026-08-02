@@ -954,7 +954,7 @@
   </a>
 
 
-<h1 id="bellman-equation">二、贝尔曼方程(Bellman Equation)</h1>
+<h1 id="bellman-equation">二、贝尔曼方程(Bellman Equation)<a class="headerlink" href="#bellman-equation" title="Permanent link">&para;</a></h1>
 <p>首先我们的Agent面对的状态以及各个状态对应的不同动作及其回报如图所示：</p>
 <p>我们
 （为什么Return是非常重要的）</p>
@@ -993,43 +993,43 @@ $$
 $$
 \begin{align}
 {\mathbb{E}}[{G_{t+1}}|{S_{t}}={s}]
-&amp;={\sum_{{s^{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t}}={s},{S_{t+1}}={s'}]{\cdot}p({s^{'}}|{s})\
-&amp;={\sum_{{s^{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t+1}}={s'}]{\cdot}p({s^{'}}|{s})\
-&amp;={\sum_{{s^{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t+1}}={s'}]{\cdot}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{p({s^{'}}|{s},{a})}\
-&amp;={\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{p({s^{'}}|{s},{a})}\
+&amp;={\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t}}={s},{S_{t+1}}={s'}]{\cdot}p({s</sup>)\
+&amp;={\sum_{{s}}|{s<sup _="'">{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t+1}}={s'}]{\cdot}p({s</sup>)\
+&amp;={\sum_{{s}}|{s<sup _="'">{'}}{\in}{{S}}}}{\mathbb{E}}[{G_{t+1}}|{S_{t+1}}={s'}]{\cdot}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{p({s</sup>\
+&amp;={\sum_{{s}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
 \end{align}
 $$
 将第一项和第二项联立起来：
 $$
-v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\
+v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s})}{\cdot}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{p({s^{'}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
 $$
-上式结果就是<strong>贝尔曼方程</strong>的一般形式。</p>
+上式结果就是})}{\cdot}{p({s^{'}}|{s},{a})<strong>贝尔曼方程</strong>的一般形式。</p>
 <blockquote>
 <p>[!NOTE] Bellman Equation
 $$
-v_{\pi}({s})={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\
-$$</p>
+v_{\pi}({s})={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
+$$})}{\cdot}{p({s^{'}}|{s},{a})</p>
 </blockquote>
 <p>我们设Agent在当前的环境中有一系列的State：
 $<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)\)</span>$
 我们将每个状态的State Value写作<span class="arithmatex">\({v_{\pi}}({s_i})(i=1,2,3,\dots)\)</span>。然后我们将Bellman等式写作如下形式：
 $$
 \begin{align}
-v_{\pi}({s}<em>{i})
-&amp;={r</em>{\pi}}({s}<em>{i})+{\gamma}{\sum</em>{{s_k}{\in}{{S}}}}{p({{s}<em>{k}}|{s}</em>{i})}{\cdot}{v_{\pi}({s_k})}
+v_{\pi}({s}<em _pi="\pi">{i})
+&amp;={r</em>}}({s<em _s_k="{s_k">{i})+{\gamma}{\sum</em>}{\in}{{S}}}}{p({{s<em i="i">{k}}|{s}</em>
 \end{align}
 $$
 其中：
 $$
 \begin{align}
-{r_{\pi}}(s_i)={\sum_{a{\in}{A{s_{i}}}}}{\pi}{(a|{s}<em>{i})}{\cdot}{\sum</em>{r{\in}{{R}}}}p(r|{s_i},a){\cdot}{r}\
-{p({{s}<em>{k}}|{s}</em>{i})}={\sum_{a{\in}{A{s_{i}}}}}{\pi}{(a|{s}<em>{i})}{\cdot}{p({{s}</em>{k}}|{{s}<em>{i}},{a})}\
+{r_{\pi}}(s_i)={\sum_{a{\in}{A{s_{i}}}}}{\pi}{(a|{s}})}{\cdot}{v_{\pi}({s_k})<em r_in="r{\in">{i})}{\cdot}{\sum</em>\
+{p({{s}}{{R}}}}p(r|{s_i},a){\cdot}{r<em i="i">{k}}|{s}</em>})}={\sum_{a{\in}{A{s_{i}}}}}{\pi}{(a|{s<em k="k">{i})}{\cdot}{p({{s}</em>}}|{{s<em _pi="\pi">{i}},{a})}\
 \end{align}
 $$
 然后我们定义State Value矩阵<span class="arithmatex">\(v_{\pi}\)</span>，回报期望矩阵<span class="arithmatex">\(r_{\pi}\)</span>和状态转移概率矩阵<span class="arithmatex">\(P_{\pi}\)</span>：
 $$
 \begin{matrix}
-v</em>{\pi}={
+v</em>={
 \begin{pmatrix}
 {v_{\pi}}({s_1})\
 {v_{\pi}}({s_2})\
@@ -1067,8 +1067,8 @@ $$</p>
 </p>
 </blockquote>
 <p>因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：
-- <strong>矩阵求解</strong>：这是State Value的Closed form解，我们已知状态转移矩阵<span class="arithmatex">\(P\)</span>，每个状态的回报期望值矩阵<span class="arithmatex">\(R_{\pi}\)</span>和折扣系数<span class="arithmatex">\({\gamma}\)</span>。我们可以通过矩阵求逆的形式求解：$<span class="arithmatex">\({v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}\)</span><span class="arithmatex">\(这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
-- **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值\)</span>{v_{0}}<span class="arithmatex">\(，使用下面的迭代方式直到第\)</span>n<span class="arithmatex">\(步求出最终的状态值矩阵：\)</span><span class="arithmatex">\({v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(我们可以证明为什么能够迭代法能够在\)</span>n<span class="arithmatex">\(步之后实现满足误差范围的\)</span>v_{\pi}<span class="arithmatex">\(，首先我们令：\)</span><span class="arithmatex">\({\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(代入上面的迭代式子，我们可以得到：\)</span><span class="arithmatex">\(\begin{align}{{\delta}_{k+1}}&amp;={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&amp;={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&amp;={\gamma}{P}{{\delta}_{k}}\end{align}\)</span><span class="arithmatex">\(然后我们从\)</span>k=0<span class="arithmatex">\(开始迭代，我们最终得到：\)</span><span class="arithmatex">\({{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}\)</span><span class="arithmatex">\(那么随着迭代次数\)</span>k<span class="arithmatex">\(的不断增大，\)</span>\delta<span class="arithmatex">\(也逐渐趋近于0。因此迭代方法能够实现对任意初始值\)</span>v_0<span class="arithmatex">\(，只要迭代次数\)</span>k<span class="arithmatex">\(足够多，结果一定收敛到\)</span>v_{\pi}$。</p>
+- <strong>矩阵求解</strong>：这是State Value的Closed form解，我们已知状态转移矩阵<span class="arithmatex">\(P\)</span>，每个状态的回报期望值矩阵<span class="arithmatex">\(R_{\pi}\)</span>和折扣系数<span class="arithmatex">\({\gamma}\)</span>。我们可以通过矩阵求逆的形式求解：$<span class="arithmatex">\({v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}\)</span><span class="arithmatex" v__0="v_{0">\(这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
+- **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值\)</span>}<span class="arithmatex">\(，使用下面的迭代方式直到第\)</span>n<span class="arithmatex">\(步求出最终的状态值矩阵：\)</span><span class="arithmatex">\({v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(我们可以证明为什么能够迭代法能够在\)</span>n<span class="arithmatex">\(步之后实现满足误差范围的\)</span>v_{\pi}<span class="arithmatex">\(，首先我们令：\)</span><span class="arithmatex">\({\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(代入上面的迭代式子，我们可以得到：\)</span><span class="arithmatex">\(\begin{align}{{\delta}_{k+1}}&amp;={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&amp;={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&amp;={\gamma}{P}{{\delta}_{k}}\end{align}\)</span><span class="arithmatex">\(然后我们从\)</span>k=0<span class="arithmatex">\(开始迭代，我们最终得到：\)</span><span class="arithmatex">\({{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}\)</span><span class="arithmatex">\(那么随着迭代次数\)</span>k<span class="arithmatex">\(的不断增大，\)</span>\delta<span class="arithmatex">\(也逐渐趋近于0。因此迭代方法能够实现对任意初始值\)</span>v_0<span class="arithmatex">\(，只要迭代次数\)</span>k<span class="arithmatex">\(足够多，结果一定收敛到\)</span>v_{\pi}$。</p>
 <blockquote>
 <p>[!TIP] State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比
 从算法复杂度的角度来评判当前的算法复杂度
@@ -1081,21 +1081,21 @@ $$</p>
 $$
 \begin{align}
 v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})})\
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s})}{\cdot}{p({s^{'}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>)\
 &amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}_{\pi}}{({s},{a})}
 \end{align}
 $$
-上式右侧的第二项我们称之为<strong>Action Value</strong>：</p>
+上式右侧的第二项我们称之为})}{\cdot}{p({s^{'}}|{s},{a})<strong>Action Value</strong>：</p>
 <blockquote>
 <p>[!NOTE] Action Value
 $$
 \begin{align}
-{{q}<em>{\pi}}{({s},{a})}
+{{q}<em r_in="r{\in">{\pi}}{({s},{a})}
 &amp;={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\
-&amp;={\sum</em>{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}
+&amp;={\sum</em>{\sum_{{s}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>
 \end{align}
-$$</p>
+$$})}{\cdot}{p({s^{'}}|{s},{a})</p>
 <p>[!TIP] Action Value和State Value的求解关系
 - 根据Action Value求解State Value
 - 根据State Value求解Action Value</p>
@@ -1108,18 +1108,18 @@ $$
 \begin{matrix}
 q_{\pi}={
 \begin{pmatrix}
-[{q_{\pi}}]<em>{({s,a_1})}\
-[{q</em>{\pi}}]<em>{({s,a_2})}\
+[{q_{\pi}}]<em _pi="\pi">{({s,a_1})}\
+[{q</em>]}<em _pi="\pi">{({s,a_2})}\
 {\vdots}\
-[{q</em>{\pi}}]<em>{({s,a_m})}\
+[{q</em>]}<em _s_a_1="({s,a_1">{({s,a_m})}\
 \end{pmatrix}
 }{\quad}
 {\tilde{r}}={
 \begin{pmatrix}
-[{\tilde{r}}]</em>{({s,a_1})}\
-[{\tilde{r}}]<em>{({s,a_2})}\
+[{\tilde{r}}]</em>\
+[{\tilde{r}}]})<em _s_a_m="({s,a_m">{({s,a_2})}\
 {\vdots}\
-[{\tilde{r}}]</em>{({s,a_m})}\
+[{\tilde{r}}]</em>\
 \end{pmatrix}
 }{\quad}
 P={
@@ -1142,42 +1142,42 @@ $$
 $$
 {q_{\pi}}={\tilde{r}}+{\gamma}{P}{\Pi}{q_{\pi}}
 $$
-这也就是贝尔曼方程的Action Value方式，对于此表达我们依然可以用Closed-Form方法和Iteration-Form方法求解，求解的方法本质上和State-Value的方法是一致的。</p>
+这也就是贝尔曼方程的Action Value方式，对于此表达我们依然可以用Closed-Form方法和Iteration-Form方法求解，求解的方法本质上和State-Value的方法是一致的。})</p>
 <blockquote>
 <p>[!TIP] Action Value和State Value的对比
 - 根据Action Value求解State Value
 - 根据State Value求解Action Value</p>
 </blockquote>
-<h1 id="bellman-optimal-equation">三、贝尔曼优化方程(Bellman Optimal Equation)</h1>
+<h1 id="bellman-optimal-equation">三、贝尔曼优化方程(Bellman Optimal Equation)<a class="headerlink" href="#bellman-optimal-equation" title="Permanent link">&para;</a></h1>
 <p>（Examples,我们为什么使用State Value？原因是State Value是能够评价哪个可能的Policy更好。）</p>
-<h2 id="3-1">3-1.最优状态值和最优策略</h2>
+<h2 id="3-1">3-1.最优状态值和最优策略<a class="headerlink" href="#3-1" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>[!NOTE] Optimal State Value和Optimal Policy
 对于在任意状态中的State:<span class="arithmatex">\(s{\in}{\{S\}}\)</span>来说，任意可能Policy的集合为<span class="arithmatex">\({\mathbb{\Pi}}\)</span>。我们可以有如下的定义：
 对于<span class="arithmatex">\({\forall}{\pi}{\in}{\mathbb{\Pi}}\)</span>，总是存在一个策略<span class="arithmatex">\({\pi}^{*}\)</span>使得<span class="arithmatex">\({{v}_{{\pi}^{*}}(s)}{\geq}{{v}_{\pi}(s)}\)</span>。我们称<span class="arithmatex">\({{v}_{{\pi}^{*}}(s)}\)</span>为<strong>Optimal State Value(最优状态值)</strong>，对应的<span class="arithmatex">\({\pi}^{*}\)</span>就是<strong>Optimal Policy(最优策略)</strong>。</p>
 </blockquote>
-<h2 id="3-2">3-2.贝尔曼最优方程的两种表达形式</h2>
-<h3 id="3-2-1">3-2-1.元素形式的贝尔曼最优方程</h3>
+<h2 id="3-2">3-2.贝尔曼最优方程的两种表达形式<a class="headerlink" href="#3-2" title="Permanent link">&para;</a></h2>
+<h3 id="3-2-1">3-2-1.元素形式的贝尔曼最优方程<a class="headerlink" href="#3-2-1" title="Permanent link">&para;</a></h3>
 <p>那么在一个未知的环境中，我们的问题就从所有的量都已知来求解State Value，变成了在任意状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>中所有可能的Policy中找到Policy来使得State Value达到最优。从本质上来讲这就是求解一个最优化问题。
 首先我们回顾一下贝尔曼方程：
 $$
 \begin{align}
 v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{{S}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})})\
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}<em>{\pi}}{({s},{a})}
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s})}{\cdot}{p({s^{'}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>)\
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}})}{\cdot}{p({s^{'}}|{s},{a})<em a_in="a{\in">{\pi}}{({s},{a})}
 \end{align}
 $$
 我们是已知在状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>中的策略<span class="arithmatex">\({\pi}\)</span>，进而求解策略<span class="arithmatex">\({\pi}\)</span>对应的State Value：<span class="arithmatex">\(v_{\pi}(s)\)</span>。那么我们在前面的定义中提到找到State Value的最优解的前提就是寻找到最优的Policy。因此我们将贝尔曼方程改写成下面的<strong>贝尔曼最优方程</strong>的元素形式：
 $$
 \begin{align}
 v({s})
-&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}<em>{\pi}}{({s},{a})}\
-&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s^{'}}{\in}{{S}}}}{p({s^{'}}|{s},{a})}{\cdot}{v(s^{'})})\
-&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}([r]<em>{(s,a)}+{\gamma}{\sum</em>{{s^{'}}{\in}{{S}}}}{p({s^{'}}|{s},{a})}{\cdot}{v(s^{'})})\
+&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q<em a_in="a{\in">{\pi}}{({s},{a})}\
+&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>{\sum_{{s}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma<sup _="'">{'}}{\in}{{S}}}}{p({s</sup>)\
+&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}([r]}}|{s},{a})}{\cdot}{v(s^{'})<em>{(s,a)}+{\gamma}{\sum</em>{{s<sup _="'">{'}}{\in}{{S}}}}{p({s</sup>)\
 \end{align}
 $$
-那么在元素形式中，我们有两个未知数<span class="arithmatex">\(v(s)\)</span>和<span class="arithmatex">\(\pi\)</span>，但是我们还需要求解State Value:<span class="arithmatex">\(v(s)\)</span>的最大值。那么我们首先就需要从Policy:<span class="arithmatex">\({\pi}\)</span>来入手求解元素形式的贝尔曼方程。
+那么在元素形式中，我们有两个未知数}}|{s},{a})}{\cdot}{v(s^{'})<span class="arithmatex">\(v(s)\)</span>和<span class="arithmatex">\(\pi\)</span>，但是我们还需要求解State Value:<span class="arithmatex">\(v(s)\)</span>的最大值。那么我们首先就需要从Policy:<span class="arithmatex">\({\pi}\)</span>来入手求解元素形式的贝尔曼方程。
 首先我们看贝尔曼最优方程的元素形式，我们发现我们有策略:<span class="arithmatex">\(\pi\)</span>和State Value:<span class="arithmatex">\(v({s})\)</span>两个未知的变量。但是我们只求解其中一个变量<span class="arithmatex">\(v({s})\)</span>的最大值。</p>
 <blockquote>
 <p>[!EXAMPLE] 求解最大值
@@ -1191,15 +1191,15 @@ $<span class="arithmatex">\({\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}\)</span>$
 $$
 \begin{align}
 v({s})
-&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}<em>{\pi}}{({s},{a})}\
-&amp;={\underset{{{a}{\in}{A{s}}}}{\max}}([r]</em>{(s,{{a}^{<em>}})}+{\gamma}{\sum_{{s^{'}}{\in}{{S}}}}{p({s^{'}}|{s},{{a}^{</em>}})}{\cdot}{v(s^{'})})\
+&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}<em _s_a="(s,{{a">{\pi}}{({s},{a})}\
+&amp;={\underset{{{a}{\in}{A{s}}}}{\max}}([r]</em><sup _="'">{*}})}+{\gamma}{\sum_{{s</sup>{p({s}}{\in}{{S}}}<sup>{'}}|{s},{{a}</sup>{<em>}})}{\cdot}{v(s^{'})})\
 \end{align}
 $$
-那么对于元素形式的贝尔曼最优方程的实际意义，就是对于任意状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，我们要在该状态对应的Action Space:<span class="arithmatex">\(a{\in}{\mathcal{A}}\{{s}\}\)</span>中寻找能够使得Action Value:<span class="arithmatex">\({{q}_{\pi}}{({s},{a})}\)</span>最大的动作<span class="arithmatex">\({a}^{*}\)</span>并且执行。我们无需进行复杂的规划，<strong>最优策略<span class="arithmatex">\({\pi}^{*}({s})\)</span>仅需要进行一步贪婪搜索（Greedy Search）</strong>。
+那么对于元素形式的贝尔曼最优方程的实际意义，就是对于任意状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，我们要在该状态对应的Action Space:<span class="arithmatex">\(a{\in}{\mathcal{A}}\{{s}\}\)</span>中寻找能够使得Action Value:<span class="arithmatex">\({{q}_{\pi}}{({s},{a})}\)</span>最大的动作<span class="arithmatex">\({a}^{*}\)</span>并且执行。我们无需进行复杂的规划，</em><em>最优策略<span class="arithmatex">\({\pi}^{*}({s})\)</span>仅需要进行一步贪婪搜索（Greedy Search）</em><em>。
 $$
-{a}^{*}={\arg}{\underset{{{a}{\in}{\mathcal{A}{s}}}}{\max}}{q_{\pi}(s,a)}
+{a}^{</em>}={\arg}{\underset{{{a}{\in}{\mathcal{A}{s}}}}{\max}}{q_{\pi}(s,a)}
 $$</p>
-<h3 id="3-2-2">3-2-2.矩阵形式的贝尔曼最优方程</h3>
+<h3 id="3-2-2">3-2-2.矩阵形式的贝尔曼最优方程<a class="headerlink" href="#3-2-2" title="Permanent link">&para;</a></h3>
 <p>我们将贝尔曼方程的矩阵形式改写为贝尔曼最优方程的矩阵形式，那么我们可以得到：
 $$
 {v}={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P_{\pi}}{v})
@@ -1212,8 +1212,8 @@ $$
 - 如何求解这个最优解？
 - 贝尔曼最优方程的最优解是怎么和最优策略结合起来的?</p>
 </blockquote>
-<h2 id="3-3bellman">3-3.Bellman最优方程的一些性质</h2>
-<h3 id="3-3-1bellman">3-3-1.Bellman最优方程存在唯一的最优解</h3>
+<h2 id="3-3bellman">3-3.Bellman最优方程的一些性质<a class="headerlink" href="#3-3bellman" title="Permanent link">&para;</a></h2>
+<h3 id="3-3-1bellman">3-3-1.Bellman最优方程存在唯一的最优解<a class="headerlink" href="#3-3-1bellman" title="Permanent link">&para;</a></h3>
 <p>首先来介绍<strong>不动点和收缩映射的定义</strong>以及<strong>收缩映射定理</strong>：</p>
 <blockquote>
 <p>[!NOTE] 不动点和收缩映射的定义
@@ -1227,11 +1227,11 @@ $$
 </blockquote>
 <p>接下来我们来证明<strong>Bellman最优方程存在唯一的最优解</strong>：
 - 首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：$<span class="arithmatex">\(v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})\)</span><span class="arithmatex">\(因此我们的这个形式自然满足**不动点方程**的形式。
-- 我们任意设定两个Optimal State Value:\)</span>v_1<span class="arithmatex">\(和\)</span>v_2<span class="arithmatex">\(。对应的Optimal Policy分别是\)</span>{\pi}^{<em>}_{1}<span class="arithmatex">\(和\)</span>{\pi}^{</em>}<em>{2}<span class="arithmatex">\(。对应的贝尔曼最优方程可以写成如下的形式：\)</span><span class="arithmatex">\(\begin{align}f(v_{1})={r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}{\geq}{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}\\f(v_{2})={r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_2}{\geq}{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_2}\end{align}\)</span><span class="arithmatex">\(那么我们先写出\)</span>{f(v</em>{1})-f(v_{2})}<span class="arithmatex">\(的形式：\)</span><span class="arithmatex">\(\begin{align}{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\leq}{{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{1}}}-{\gamma}{P_{\pi^{*}_{1}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\\{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\geq}{{{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\end{align}\)</span><span class="arithmatex">\(我们因此也就得到了：\)</span><span class="arithmatex">\({\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{f(v_{1})-f(v_{2})}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\)</span><span class="arithmatex">\(接下来我们定义一个最大值：\)</span><span class="arithmatex">\(z={\max}{\{}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}|{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\}\)</span><span class="arithmatex">\(那么上面的不等式我们也可以写为：\)</span><span class="arithmatex">\({-z}{\leq}{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{(f(v_{1})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}{\leq}{z}\)</span><span class="arithmatex">\(我们可以得出如下结论：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\|}z{\|}_{\infty}\)</span><span class="arithmatex">\(接下来我们需要证明存在一个\)</span>{\gamma}{\in}{[0,1)}<span class="arithmatex">\(使得\)</span>|z|{\leq}{\gamma}|(v_1-v_2)|<span class="arithmatex">\(。对\)</span>z<span class="arithmatex">\(中的各个元素来说，都有\)</span><span class="arithmatex">\([z]_{i}={\max}{\{}{({\gamma}{p}^{T}(v_1-v_2)|{\gamma}{q}^{T}(v_1-v_2))}{\}}{\leq}[{{\gamma}{(v_1-v_2)}}]_{i}\)</span><span class="arithmatex">\(那么整体的\)</span>|z|<em>{\infty}{\leq}{\gamma}|(v_1-v_2)|</em>{\infty}<span class="arithmatex">\(，联立可得：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>$贝尔曼最优方程的<strong>收缩映射</strong>性质得证。
+- 我们任意设定两个Optimal State Value:\)</span>v_1<span class="arithmatex">\(和\)</span>v_2<span _pi="\pi" class="arithmatex">\(。对应的Optimal Policy分别是\)</span><sup>{*}_{1}<span _pi="\pi" class="arithmatex">\(和\)</span></sup>{<em>}<em 1="1">{2}<span class="arithmatex">\(。对应的贝尔曼最优方程可以写成如下的形式：\)</span><span class="arithmatex">\(\begin{align}f(v_{1})={r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}{\geq}{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}\\f(v_{2})={r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_2}{\geq}{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_2}\end{align}\)</span><span class="arithmatex">\(那么我们先写出\)</span>{f(v</em>})-f(v_{2})<span class="arithmatex">\(的形式：\)</span><span class="arithmatex">\(\begin{align}{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\leq}{{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{1}}}-{\gamma}{P_{\pi^{*}_{1}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\\{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\geq}{{{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\end{align}\)</span><span class="arithmatex">\(我们因此也就得到了：\)</span><span class="arithmatex">\({\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{f(v_{1})-f(v_{2})}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\)</span><span class="arithmatex">\(接下来我们定义一个最大值：\)</span><span class="arithmatex">\(z={\max}{\{}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}|{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\}\)</span><span class="arithmatex">\(那么上面的不等式我们也可以写为：\)</span><span class="arithmatex">\({-z}{\leq}{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{(f(v_{1})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}{\leq}{z}\)</span><span class="arithmatex">\(我们可以得出如下结论：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\|}z{\|}_{\infty}\)</span><span _gamma="\gamma" class="arithmatex">\(接下来我们需要证明存在一个\)</span>}{\in}{[0,1)<span class="arithmatex">\(使得\)</span>|z|{\leq}{\gamma}|(v_1-v_2)|<span class="arithmatex">\(。对\)</span>z<span class="arithmatex">\(中的各个元素来说，都有\)</span><span class="arithmatex">\([z]_{i}={\max}{\{}{({\gamma}{p}^{T}(v_1-v_2)|{\gamma}{q}^{T}(v_1-v_2))}{\}}{\leq}[{{\gamma}{(v_1-v_2)}}]_{i}\)</span><span class="arithmatex">\(那么整体的\)</span>|z|<em _infty="\infty">{\infty}{\leq}{\gamma}|(v_1-v_2)|</em><span class="arithmatex">\(，联立可得：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>$贝尔曼最优方程的</em><em>收缩映射</em><em>性质得证。
 - 根据
-因此，<strong>贝尔曼最优方程本身就具有唯一的最优解</strong>，问题得证。并且我们可以通过迭代算法来求解贝尔曼最优方程的最优解。
-对于求解最优解，我们有两种方式来求解：<strong>价值迭代</strong>和<strong>策略迭代</strong>。</p>
-<h3 id="3-3-2">3-3-2.最优策略的贝尔曼优化方程的结果对应最优状态值</h3>
+因此，</em><em>贝尔曼最优方程本身就具有唯一的最优解</em><em>，问题得证。并且我们可以通过迭代算法来求解贝尔曼最优方程的最优解。
+对于求解最优解，我们有两种方式来求解：</em><em>价值迭代</em><em>和</em><em>策略迭代</em>*。</p>
+<h3 id="3-3-2">3-3-2.最优策略的贝尔曼优化方程的结果对应最优状态值<a class="headerlink" href="#3-3-2" title="Permanent link">&para;</a></h3>
 <p>我们已经证明了贝尔曼最优方程是能够通过收缩映射定理能够求最优解的，那么我们需要证明一件事情，那就是<strong>Optimal State Value和Optimal Policy</strong>是否是一一对应的，也就是说我们的最优策略是否一定对应最优解。</p>
 
 

@@ -978,14 +978,14 @@
   </a>
 
 
-<h1 id="slam">SLAM 中的概率运动模型</h1>
+<h1 id="slam">SLAM 中的概率运动模型<a class="headerlink" href="#slam" title="Permanent link">&para;</a></h1>
 <p>在基于粒子滤波的 SLAM 算法（如 FastSLAM）中，准确的<strong>运动模型</strong>是采样有效粒子的关键。</p>
-<h2 id="_1">里程计运动模型</h2>
+<h2 id="_1">里程计运动模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>给定机器人上一时刻位姿 <span class="arithmatex">\(x_{t-1} = [x, y, \theta]^T\)</span> 和里程计读数 <span class="arithmatex">\(u_t = [\delta_{rot1}, \delta_{trans}, \delta_{rot2}]\)</span>，预测当前位姿：</p>
 <div class="arithmatex">\[\hat{x}_t = x_{t-1} + \delta_{trans} \cos(\theta + \delta_{rot1})\]</div>
 <div class="arithmatex">\[\hat{y}_t = y_{t-1} + \delta_{trans} \sin(\theta + \delta_{rot1})\]</div>
 <div class="arithmatex">\[\hat{\theta}_t = \theta_{t-1} + \delta_{rot1} + \delta_{rot2}\]</div>
-<h2 id="_2">概率采样</h2>
+<h2 id="_2">概率采样<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>由于里程计存在噪声，真实位姿服从以预测值为中心的高斯分布：</p>
 <div class="arithmatex">\[x_t \sim \mathcal{N}(\hat{x}_t, \Sigma)\]</div>
 <p>其中协方差 <span class="arithmatex">\(\Sigma\)</span> 通常取对角矩阵，各分量与运动距离成正比。</p>

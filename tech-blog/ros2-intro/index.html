@@ -985,16 +985,16 @@
   </a>
 
 
-<h1 id="ros2">ROS2 入门笔记：从节点到话题</h1>
+<h1 id="ros2">ROS2 入门笔记：从节点到话题<a class="headerlink" href="#ros2" title="Permanent link">&para;</a></h1>
 <p>ROS2（Robot Operating System 2）是目前机器人开发中最广泛使用的中间件框架。本文记录一些核心概念和常用命令。</p>
-<h2 id="_1">核心概念</h2>
+<h2 id="_1">核心概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Node（节点）</strong>：ROS2 中最小的计算单元</li>
 <li><strong>Topic（话题）</strong>：节点间发布/订阅消息的通道</li>
 <li><strong>Service（服务）</strong>：请求/响应式的同步通信</li>
 <li><strong>Action（动作）</strong>：适合长时间任务的异步通信</li>
 </ul>
-<h2 id="_2">常用命令</h2>
+<h2 id="_2">常用命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 查看话题列表</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1004,7 +1004,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 发布测试消息</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/chatter<span class="w"> </span>std_msgs/String<span class="w"> </span><span class="s2">&quot;data: Hello&quot;</span>
 </code></pre></div>
-<h2 id="_3">节点示例</h2>
+<h2 id="_3">节点示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
