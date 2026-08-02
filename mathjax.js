@@ -20,12 +20,12 @@ window.MathJax = {
     }
   },
   startup: {
-    pageReady() {
-      // 将 arithmatex 遗留的 math/tex script 标签转换为 MathJax 3 格式
+    ready() {
+      // 在 MathJax 渲染前，将 arithmatex 遗留的 math/tex 脚本转换为 MathJax 3 格式
       document.querySelectorAll('script[type^="math/tex"]').forEach(script => {
         script.type = script.type.replace('math/tex', 'text/tex');
       });
-      return MathJax.startup.defaultPageReady();
+      MathJax.startup.defaultReady();
     }
   }
 };
