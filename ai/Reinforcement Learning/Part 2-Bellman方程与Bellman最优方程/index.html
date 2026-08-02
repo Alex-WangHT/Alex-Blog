@@ -2680,46 +2680,45 @@ x_{k+1}=f({x_{k}}){\quad}k{\in}{\mathbb{Z}}
 $$
 当<span class="arithmatex">\(k{\rightarrow}{\infty}\)</span>的时候<span class="arithmatex">\(x_k{\rightarrow}x^{*}\)</span></p>
 </div>
-<p>接下来我们来证明<strong>Bellman最优方程存在唯一的最优解</strong>：
-- 首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：
-$$
-v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})
-$$
-因此我们的这个形式自然满足<strong>不动点方程</strong>的形式。</p>
-<ul>
-<li>我们任意设定两个Optimal State Value:<span class="arithmatex">\(v_1\)</span>和<span class="arithmatex">\(v_2\)</span>。对应的Optimal Policy分别是<span class="arithmatex">\({\pi}^{*}_{1}\)</span>和<span class="arithmatex">\({\pi}^{*}_{2}\)</span>。对应的贝尔曼最优方程可以写成如下的形式：</li>
-</ul>
-<div class="arithmatex">\[
-\begin{align}
-f(v_{1})={r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}{\geq}{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}\\f(v_{2})={r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_2}{\geq}{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_2}
-\end{align}
-\]</div>
-<p>那么我们先写出<span class="arithmatex">\({f(v_{1})-f(v_{2})}\)</span>的形式：</p>
-<div class="arithmatex">\[
-\begin{align}
-{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\leq}{{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{1}}}-{\gamma}{P_{\pi^{*}_{1}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\\{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\geq}{{{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}
-\end{align}
-\]</div>
-<p>我们因此也就得到了：</p>
-<div class="arithmatex">\[
-{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{f(v_{1})-f(v_{2})}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}
-\]</div>
-<p>接下来我们定义一个最大值：</p>
-<div class="arithmatex">\[
-z={\max}{\{}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}|{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\}
-\]</div>
-<p>那么上面的不等式我们也可以写为：</p>
-<div class="arithmatex">\[
-{-z}{\leq}{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{(f(v_{1})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}{\leq}{z}\]</div>
-<p>我们可以得出如下结论：</p>
-<div class="arithmatex">\[
-{\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\|}z{\|}_{\infty}
-\]</div>
-<p>接下来我们需要证明存在一个<span class="arithmatex">\({\gamma}{\in}{[0,1)}\)</span>使得<span class="arithmatex">\(\|z\|{\leq}{\gamma}\|(v_1-v_2)\|\)</span>。对<span class="arithmatex">\(z\)</span>中的各个元素来说，都有</p>
-<div class="arithmatex">\[
-[z]_{i}={\max}{\{}{({\gamma}{p}^{T}(v_1-v_2)|{\gamma}{q}^{T}(v_1-v_2))}{\}}{\leq}[{{\gamma}{(v_1-v_2)}}]_{i}
-\]</div>
-<p>那么整体的<span class="arithmatex">\(\|z\|_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>，联立可得：$<span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>$贝尔曼最优方程的<strong>收缩映射</strong>性质得证。
+<p>接下来我们来证明<strong>Bellman最优方程存在唯一的最优解</strong>：</p>
+<p>???  note "证明：Bellman最优方程存在唯一的最优解"
+    首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：
+    $$
+    v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})
+    $$
+    因此我们的这个形式自然满足<strong>不动点方程</strong>的形式。
+    - 我们任意设定两个Optimal State Value:<span class="arithmatex">\(v_1\)</span>和<span class="arithmatex">\(v_2\)</span>。对应的Optimal Policy分别是<span class="arithmatex">\({\pi}^{*}_{1}\)</span>和<span class="arithmatex">\({\pi}^{*}_{2}\)</span>。对应的贝尔曼最优方程可以写成如下的形式：
+    $$
+    \begin{align}
+    f(v_{1})={r_{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em>{1}}}{v_1}{\geq}{r</em>{\pi<sup>{*}<em>{2}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em 2="2">{2}}}{v_1}\f(v</em>)={r_{\pi<sup>{*}<em>{2}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em>{2}}}{v_2}{\geq}{r</em>{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em 1="1">{1}}}{v_2}
+    \end{align}
+    $$
+    那么我们先写出<span class="arithmatex">\({f(v_{1})-f(v_{2})}\)</span>的形式：
+    $$
+    \begin{align}
+    {f(v</em>={{{r_{\pi})-f(v_{2})<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em>{1}}}{v_1}}-{r</em>{\pi<sup>{*}<em>{2}}}-{\gamma}{P</em>{\pi</sup>{</em>}<em>{2}}}{v_2}}{\leq}{{{r</em>{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em>{1}}}{v_1}}-{r</em>{\pi<sup>{*}<em>{1}}}-{\gamma}{P</em>{\pi</sup>{</em>}<em _pi="{\pi">{1}}}{v_2}}={\gamma}{P</em><sup>{*}<em 1="1">{1}}}{(v_1-v_2)}\{f(v</em>={{{r_{\pi})-f(v_{2})</sup>{<em>}<em>{1}}}+{\gamma}{P</em>{\pi<sup>{*}<em>{1}}}{v_1}}-{r</em>{\pi</sup>{</em>}<em>{2}}}-{\gamma}{P</em>{\pi<sup>{*}<em>{2}}}{v_2}}{\geq}{{{r</em>{\pi</sup>{<em>}<em>{2}}}+{\gamma}{P</em>{\pi<sup>{*}<em>{2}}}{v_1}}-{r</em>{\pi</sup>{</em>}<em>{2}}}-{\gamma}{P</em>{\pi<sup>{*}<em _pi="{\pi">{2}}}{v_2}}={\gamma}{P</em></sup>{<em>}<em _pi="{\pi">{2}}}{(v_1-v_2)}
+    \end{align}
+    $$
+    我们因此也就得到了：
+    $$
+    {\gamma}{P</em><sup>{*}<em 1="1">{2}}}{(v_1-v_2)}{\leq}{f(v</em>})-f(v_{2})}{\leq}{\gamma}{P_{{\pi</sup>{</em>}<em _pi="{\pi">{1}}}{(v_1-v_2)}
+    $$
+    接下来我们定义一个最大值：
+    $$
+    z={\max}{{}{\gamma}{P</em><sup>{*}<em _pi="{\pi">{1}}}{(v_1-v_2)}|{\gamma}{P</em></sup>{<em>}<em _pi="{\pi">{2}}}{(v_1-v_2)}}
+    $$
+    那么上面的不等式我们也可以写为：
+    $$
+    {-z}{\leq}{\gamma}{P</em><sup>{*}<em 1="1">{2}}}{(v_1-v_2)}{\leq}{(f(v</em>})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi</sup>{</em>}<em _infty="\infty">{1}}}{(v_1-v_2)}{\leq}{z}$$
+    我们可以得出如下结论：
+    $$
+    {|}f(v_1)-f(v_2){|}</em>}{\leq}{|}z{|<em i="i">{\infty}
+    $$
+    接下来我们需要证明存在一个<span class="arithmatex">\({\gamma}{\in}{[0,1)}\)</span>使得<span class="arithmatex">\(\|z\|{\leq}{\gamma}\|(v_1-v_2)\|\)</span>。对<span class="arithmatex">\(z\)</span>中的各个元素来说，都有
+    $$
+    [z]</em>}={\max}{{}{({\gamma}{p<sup T="T">{T}(v_1-v_2)|{\gamma}{q}</sup>
+    $$
+    那么整体的}(v_1-v_2))}{}}{\leq}[{{\gamma}{(v_1-v_2)}}]_{i<span class="arithmatex">\(\|z\|_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>，联立可得：$<span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>$贝尔曼最优方程的<strong>收缩映射</strong>性质得证。
 - 根据
 因此，<strong>贝尔曼最优方程本身就具有唯一的最优解</strong>，问题得证。并且我们可以通过迭代算法来求解贝尔曼最优方程的最优解。
 对于求解最优解，我们有两种方式来求解：<strong>价值迭代</strong>和<strong>策略迭代</strong>。</p>
