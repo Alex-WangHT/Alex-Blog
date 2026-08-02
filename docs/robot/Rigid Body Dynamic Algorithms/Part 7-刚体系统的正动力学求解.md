@@ -27,7 +27,7 @@ $$
 （过渡）
 因此，求解正动力学的重中之重，是求解惯性张量矩阵$\mathbf{H}$。接下来就要用**复合刚体算法**来求解矩阵$\mathbf{H}$。
 !!! example "复合刚体算法的伪代码"
-    
+
     $$
     \begin{array}{@{}l@{\hspace{6em}}l@{}}
     \hline \\[-0.8em]
@@ -39,7 +39,6 @@ $$
     +
     \displaystyle\sum_{j \in \mu(i)}
     \boldsymbol{I}_j^c \\[1.2em]
-    
     \boldsymbol{H}_{ij}
     =
     \left\{
@@ -53,15 +52,12 @@ $$
     \boldsymbol{I}_j^c
     \boldsymbol{S}_j
     & \text{if } j \in \nu(i) \\[0.25em]
-    
     \boldsymbol{0}
     & \text{otherwise}
     \end{array}
     \right. \\[2.2em]
-    
     \underline{\text{Equations for Body-Coordinates}} \\[-0.1em]
     \underline{\text{Algorithm:}} \\[1em]
-    
     \boldsymbol{I}_i^c
     =
     \boldsymbol{I}_i
@@ -70,7 +66,6 @@ $$
     {}^i\boldsymbol{X}_j^{*}
     \boldsymbol{I}_j^c
     {}^j\boldsymbol{X}_i \\[1.2em]
-    
     {}^{\lambda(j)}\boldsymbol{F}_i
     =
     {}^{\lambda(j)}\boldsymbol{X}_j^{*}
@@ -82,7 +77,6 @@ $$
     \boldsymbol{I}_i^c
     \boldsymbol{S}_i
     \right) \\[1.2em]
-    
     \boldsymbol{H}_{ij}
     =
     \left\{
@@ -90,10 +84,8 @@ $$
     {}^j\boldsymbol{F}_i^T
     \boldsymbol{S}_j
     & \text{if } i \in \nu(j) \\[0.25em]
-    
     \boldsymbol{H}_{ji}^T
     & \text{if } j \in \nu(i) \\[0.25em]
-    
     \boldsymbol{0}
     & \text{otherwise}
     \end{array}
@@ -102,16 +94,13 @@ $$
     &
     \begin{array}{l}
     \underline{\text{Algorithm:}} \\[0.6em]
-    
     \boldsymbol{H} = \boldsymbol{0} \\[0.35em]
-    
     \mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.25em]
     \qquad
     \boldsymbol{I}_i^c
     =
     \boldsymbol{I}_i \\[0.25em]
     \mathbf{end} \\[0.45em]
-    
     \mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.25em]
     \qquad
     \mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.25em]
@@ -125,19 +114,16 @@ $$
     {}^i\boldsymbol{X}_{\lambda(i)} \\[0.25em]
     \qquad
     \mathbf{end} \\[0.35em]
-    
     \qquad
     \boldsymbol{F}
     =
     \boldsymbol{I}_i^c
     \boldsymbol{S}_i \\[0.35em]
-    
     \qquad
     \boldsymbol{H}_{ii}
     =
     \boldsymbol{S}_i^T
     \boldsymbol{F} \\[0.35em]
-    
     \qquad
     j = i \\[0.35em]
     

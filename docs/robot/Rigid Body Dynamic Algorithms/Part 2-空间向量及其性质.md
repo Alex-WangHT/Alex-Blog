@@ -281,7 +281,7 @@ $$
     $$
     {{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}
     $$
-    
+
     其中：
     - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
     -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
