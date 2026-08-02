@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/Part%201-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
       
+      
+      
+      
+        
+      
+      
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -19,15 +25,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -39,11 +47,10 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -58,9 +65,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -85,11 +89,12 @@
     <a href="../../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -108,46 +113,59 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
@@ -155,24 +173,25 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     Alex-WangHT/Alex-Blog
@@ -191,133 +210,192 @@
           
             
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
-
-
+  
+  
+    
+    
+      
+  
   
   
   
     
+    
+      <li class="md-tabs__item">
+        <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  技术博客
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
-        技术博客
-      </a>
-    </li>
-  
-
-  
-
-      
-        
-  
+        </a>
+      </li>
+    
   
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../robot/" class="md-tabs__link">
-        机器人
-      </a>
-    </li>
+    
   
 
       
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../robot/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  机器人
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
-        人工智能
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../control/" class="md-tabs__link">
-        控制理论
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../../computer/index.md" class="md-tabs__link">
-      计算机
-    </a>
-  </li>
-
-      
-        
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../../electronics/index.md" class="md-tabs__link">
-      电子设计
-    </a>
-  </li>
-
-      
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
   
   
+    
+  
+  人工智能
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../math/" class="md-tabs__link">
-        数学知识
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  控制理论
 
+        </a>
+      </li>
+    
+  
 
+      
+        
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../physics/" class="md-tabs__link">
-        物理知识
-      </a>
-    </li>
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  电子设计
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数学知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../physics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  物理知识
+
+        </a>
+      </li>
+    
   
 
       
@@ -337,6 +415,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -345,7 +424,7 @@
     <a href="../../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Alex Blog
@@ -355,7 +434,7 @@
       <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     Alex-WangHT/Alex-Blog
@@ -367,551 +446,1011 @@
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
-      
-      
-      
+        
         
           
         
-      
-      
-        <label class="md-nav__link" for="__nav_1">
-          技术博客
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="技术博客" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
-          技术博客
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
           
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技术博客
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    技术博客
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
-      
+    
+    
       
       
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        <label class="md-nav__link" for="__nav_1_1">
-          标签分类
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="标签分类" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          标签分类
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    标签分类
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    标签分类
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
-        #Python
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #Python
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
-        #ROS2
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #ROS2
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
-        #SLAM
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #SLAM
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
-        #机器人
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #机器人
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
-        #概率论
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #概率论
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../robot/">机器人</a>
           
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="机器人" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          机器人
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../robot/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器人
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器人
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../robot/Rigid%20Body%20Dynamic%20Algorithms/" class="md-nav__link">
-        Rigid Body Dynamic Algorithms
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rigid Body Dynamic Algorithms
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../robot/Robotics%20Vision%20and%20Control/" class="md-nav__link">
-        Robotics Vision and Control
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics Vision and Control
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">人工智能</a>
           
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="人工智能" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          人工智能
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Reinforcement Learning
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/">控制理论</a>
           
-            <label for="__nav_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="控制理论" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          控制理论
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../control/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制理论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
-        Disturbance Observer based Control
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disturbance Observer based Control
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../control/Morden%20Control%20Systems/" class="md-nav__link">
-        Morden Control Systems
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morden Control Systems
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
           
-        </ul>
-      </nav>
-    </li>
-  
-
+        
+      
+    
+    
     
       
       
+        
       
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../computer/index.md" class="md-nav__link">
-        计算机
-      </a>
-    </li>
-  
-
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../electronics/index.md" class="md-nav__link">
-        电子设计
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
-      
-      
-      
+        
         
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
-          
+          </div>
         
-          
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../math/">数学知识</a>
-          
-            <label for="__nav_7">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="数学知识" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          数学知识
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电子设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学知识
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学知识
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../math/Information%20Theory/" class="md-nav__link">
-        Information Theory
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Theory
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../physics/">物理知识</a>
           
-            <label for="__nav_8">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="物理知识" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          物理知识
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理知识
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    物理知识
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
-        理论力学
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    理论力学
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -944,14 +1483,14 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/Part 1-强化学习基础.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+
+  
+  
 
 
 <h1 id="_1">强化学习的大体知识架构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
@@ -978,13 +1517,13 @@
 <tr>
 <td style="text-align: left;">Chapter 5</td>
 <td style="text-align: left;"><strong>Model-Free 细分 1：</strong> <strong>蒙特卡洛 (Monte Carlo)</strong></td>
-<td style="text-align: left;"><strong>REINFORCE</strong> (作为策略梯度)，<strong>MC Control</strong> (如 <span class="arithmatex">\(\epsilon\)</span>-greedy MC)</td>
+<td style="text-align: left;"><strong>REINFORCE</strong> (作为策略梯度)，<strong>MC Control</strong> (如 $\epsilon$-greedy MC)</td>
 <td style="text-align: left;">使用<strong>完整的回报</strong>（整个回合结束后的累计奖励）来更新价值或策略。<strong>高方差，无偏差</strong>。</td>
 </tr>
 <tr>
 <td style="text-align: left;">Chapter 7</td>
 <td style="text-align: left;"><strong>Model-Free 细分 2：</strong> <strong>时序差分 (Temporal-Difference, TD)</strong></td>
-<td style="text-align: left;"><strong>TD(0)</strong>，<strong>TD(<span class="arithmatex">\(\lambda\)</span>)</strong>，<strong>SARSA(<span class="arithmatex">\(\lambda\)</span>)</strong>，<strong>Q-Learning</strong> (作为 TD 的应用)</td>
+<td style="text-align: left;"><strong>TD(0)</strong>，<strong>TD($\lambda$)</strong>，<strong>SARSA($\lambda$)</strong>，<strong>Q-Learning</strong> (作为 TD 的应用)</td>
 <td style="text-align: left;">使用<strong>自举 (Bootstrapping)</strong> 思想，用估计的未来价值来更新当前价值。<strong>低方差，有偏差</strong>。</td>
 </tr>
 <tr>
@@ -997,7 +1536,7 @@
 <td style="text-align: left;">Chapter 9</td>
 <td style="text-align: left;"><strong>Model-Free 细分 4：</strong> <strong>Policy-Based (基于策略)</strong></td>
 <td style="text-align: left;"><strong>策略梯度 (PG)</strong>，<strong>REINFORCE</strong>，<strong>GPRO</strong></td>
-<td style="text-align: left;"><strong>直接优化</strong>策略 <span class="arithmatex">\(\pi(a\|s)\)</span> 的参数。通常是 <strong>On-Policy</strong>，方差较大。</td>
+<td style="text-align: left;"><strong>直接优化</strong>策略 $\pi(a|s)$ 的参数。通常是 <strong>On-Policy</strong>，方差较大。</td>
 </tr>
 <tr>
 <td style="text-align: left;">Chapter 10</td>
@@ -1013,88 +1552,107 @@
 - <strong>Actor-Critic</strong> 是<strong>架构</strong>，它结合了 <strong>Policy-Based</strong> 的 Actor 和 <strong>Value-Based</strong> 的 Critic。</p>
 <h1 id="_3">一、强化学习基本名词<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <h2 id="11-agent">1.1-Agent<a class="headerlink" href="#11-agent" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Agent
-<strong>Agent(智能体)</strong>是在环境中通过感知(perception)获取状态、通过决策(policy)选择动作、并通过执行(action)影响环境，进而获得奖励(reward)的实体。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Agent</p>
+<p><strong>Agent(智能体)</strong>是在环境中通过感知(perception)获取状态、通过决策(policy)选择动作、并通过执行(action)影响环境，进而获得奖励(reward)的实体。</p>
+</div>
 <h2 id="12-state-and-state-space">1.2-State and State Space<a class="headerlink" href="#12-state-and-state-space" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] State
-<strong>State(状态)</strong>指Agent在环境中能够观测并且量化的变量的集合。</p>
-<p>[!NOTE] State Space
-<strong>State Space(状态空间)</strong>指的是在环境中所有<span class="arithmatex">\(n\)</span>个状态<span class="arithmatex">\(s_i(i=1,2,\dots,n)\)</span>的集合，状态空间的表达式：
-$<span class="arithmatex">\({\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}\)</span>$</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">State</p>
+<p><strong>State(状态)</strong>指Agent在环境中能够观测并且量化的变量的集合。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">State Space</p>
+<p><strong>State Space(状态空间)</strong>指的是在环境中所有$n$个状态$s_i(i=1,2,\dots,n)$的集合，状态空间的表达式：
+$${\mathcal{S}}={{s}<em i="1">{i}}</em>$$}^{n</p>
+</div>
 <h2 id="13-action-and-action-space">1.3-Action and Action Space<a class="headerlink" href="#13-action-and-action-space" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Action
-<strong>Action(动作)</strong>指Agent在特定状态<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>可以执行的任意Action，这个过程我们一般用<span class="arithmatex">\(a\)</span>来表示，一般来说任意的State<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}\)</span>有多个Action:
-$<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$</p>
-<p>[!NOTE] Action Space
-对于在状态空间中的任意状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>来说，在这个状态能够执行的所有的Acton：
-$<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$
-的集合定义为状态<span class="arithmatex">\(s_i\)</span>的<strong>Action Space(动作空间)</strong>：
-$<span class="arithmatex">\(\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}\)</span>$</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Action</p>
+<p><strong>Action(动作)</strong>指Agent在特定状态${s_i}{\in}{\mathcal{S}}$可以执行的任意Action，这个过程我们一般用$a$来表示，一般来说任意的State${s_i}{\in}{\mathcal{S}}$有多个Action:
+$$a_k{\quad}(k=1,2,\dots)$$</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Action Space</p>
+<p>对于在状态空间中的任意状态$s_i{\in}{\mathcal{S}}$来说，在这个状态能够执行的所有的Acton：
+$$a_k{\quad}(k=1,2,\dots)$$
+的集合定义为状态$s_i$的<strong>Action Space(动作空间)</strong>：
+$${{\mathcal{A}}(s_i)}={a_1,a_2,\dots,a_m}$$</p>
+</div>
 <h2 id="14-state-transition">1.4-State transition<a class="headerlink" href="#14-state-transition" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] State transition
-<strong>State transition(状态转移)</strong>指的是状态集合<span class="arithmatex">\(\{S\}\)</span>中的状态<span class="arithmatex">\(s_i\)</span>通过动作集合<span class="arithmatex">\(\{A(s_i)\}\)</span>中的某个动作<span class="arithmatex">\(a_k\)</span>转移到另外的状态<span class="arithmatex">\(s_j\)</span>的过程：
+<div class="admonition note">
+<p class="admonition-title">State transition</p>
+<p><strong>State transition(状态转移)</strong>指的是状态集合${S}$中的状态$s_i$通过动作集合${A(s_i)}$中的某个动作$a_k$转移到另外的状态$s_j$的过程：
 $$
 {s_i}{\xrightarrow{a_k}}{s_j}
 $$</p>
-</blockquote>
+</div>
 <h2 id="15-policy">1.5-Policy<a class="headerlink" href="#15-policy" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Policy
-<strong>Policy(策略)</strong> 代表着在环境中的任意给定状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>下，采取动作<span class="arithmatex">\(a_k{\in}{\{{\mathcal{A}}(s_i)\}}\)</span>的可能性。Policy可以用以下的形式来表达：
-- <strong>函数形式：</strong> 将策略<span class="arithmatex">\({\pi}\)</span>看作一种函数，函数的输入变量为状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，输出变量为在当前需要采取的动作<span class="arithmatex">\({a}{\in}{\mathcal{A}}\{s\}\)</span>，该函数表达如下：$<span class="arithmatex">\({a}={\pi}({s})\)</span><span class="arithmatex">\(这种形式可以用于离散或者连续的状态集合\)</span>\mathcal{S}<span _mathcal_A="\mathcal{A" class="arithmatex">\(，以及离散或者连续的动作集合\)</span>}<span class="arithmatex">\(。
-- **条件概率形式：** 在当前状态\)</span>s{\in}{\mathcal{S}}<span class="arithmatex">\(的情况下，执行动作\)</span>a_k{\in}{{{\mathcal{A}}(s_i)}}<span _pi="\pi" class="arithmatex">\(的概率\)</span>)$。这种形式大多数情况下用于离散的动作序列。}({a_k}|{s</p>
-</blockquote>
-<p>强化学习的主要目标，是为了<strong>学习到全局最优的策略<span class="arithmatex">\({\pi}^{*}\)</span></strong>，我们有<strong>Value-Based</strong>和<strong>Policy-Based</strong>两个方式去学习最优策略<span class="arithmatex">\({\pi}^{*}\)</span>。</p>
-<blockquote>
-<p>[!NOTE] Value-Based方法和Policy-Based方法
-- <strong>Value-Based方法</strong>：
-  - 核心思想：首先学习价值函数（Value Function）
-  - 最优策略是通过<strong>Greedy策略</strong>，也就是在当前的状态下选择能够带来最高价值的动作来间接确定。
-- <strong>Policy-Based方法</strong>：
-  - 核心思想：直接学习和优化策略函数<span class="arithmatex">\({\pi}({s})\)</span>和<span class="arithmatex">\({\pi}({a}|{s})\)</span>，使之能最大化期望回报。
-  - 例如：Policy Gradient，Actor-Critic策略。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Policy</p>
+<p><strong>Policy(策略)</strong> 代表着在环境中的任意给定状态${s}{\in}{\mathcal{S}}$下，采取动作$a_k{\in}{{{\mathcal{A}}(s_i)}}$的可能性。Policy可以用以下的形式来表达：
+- <strong>函数形式：</strong> 将策略${\pi}$看作一种函数，函数的输入变量为状态$s{\in}{\mathcal{S}}$，输出变量为在当前需要采取的动作${a}{\in}{\mathcal{A}}{s}$，该函数表达如下：$${a}={\pi}({s})$$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以及离散或者连续的动作集合${\mathcal{A}}$。
+- <strong>条件概率形式：</strong> 在当前状态$s{\in}{\mathcal{S}}$的情况下，执行动作$a_k{\in}{{{\mathcal{A}}(s_i)}}$的概率${\pi}({a_k}|{s})$。这种形式大多数情况下用于离散的动作序列。</p>
+</div>
+<p>强化学习的主要目标，是为了*<em>学习到全局最优的策略${\pi}<sup>{<em>}$</em><em>，我们有</em><em>Value-Based</em><em>和</em><em>Policy-Based</em>*两个方式去学习最优策略${\pi}</sup>{</em>}$。</p>
+<div class="admonition note">
+<p class="admonition-title">Value-Based方法和Policy-Based方法</p>
+<ul>
+<li><strong>Value-Based方法</strong>：<ul>
+<li>核心思想：首先学习价值函数（Value Function）</li>
+<li>最优策略是通过<strong>Greedy策略</strong>，也就是在当前的状态下选择能够带来最高价值的动作来间接确定。</li>
+</ul>
+</li>
+<li><strong>Policy-Based方法</strong>：<ul>
+<li>核心思想：直接学习和优化策略函数${\pi}({s})$和${\pi}({a}|{s})$，使之能最大化期望回报。</li>
+<li>例如：Policy Gradient，Actor-Critic策略。</li>
+</ul>
+</li>
+</ul>
+</div>
 <h2 id="16-reward">1.6-Reward<a class="headerlink" href="#16-reward" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Reward
-<strong>Reward(奖励)</strong>代表着Agent在某个状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>下，通过执行动作<span class="arithmatex">\(a_i{\in}{{\mathcal{A}}(s_i)}\)</span>转移到其他状态<span class="arithmatex">\(s’{\in}{\mathcal{S}}\)</span>获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Reward</p>
+<p><strong>Reward(奖励)</strong>代表着Agent在某个状态$s{\in}{\mathcal{S}}$下，通过执行动作$a_i{\in}{{\mathcal{A}}(s_i)}$转移到其他状态$s’{\in}{\mathcal{S}}$获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。</p>
+</div>
 <p>在现实生活中，环境是随机的。因此在相同状态执行相同动作，获得的回报也不一定相同，因此，获得回报是个概率性时间
-（在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态<span class="arithmatex">\(s\)</span>，执行动作<span class="arithmatex">\(a\)</span>的时候，获取收益<span class="arithmatex">\(r\)</span>的概率可以表示为<span class="arithmatex">\(p(r|s,a)\)</span>。）</p>
+（在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态$s$，执行动作$a$的时候，获取收益$r$的概率可以表示为$p(r|s,a)$。）</p>
 <h2 id="17-trajectoryepisode">1.7-Trajectory和Episode<a class="headerlink" href="#17-trajectoryepisode" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Trajectory
-<strong>Trajectory(轨迹)</strong>是在固定策略 <span class="arithmatex">\(\pi\)</span> 与环境转移概率 <span class="arithmatex">\(P(s′|s,a)\)</span> 下，Agent 依次产生的一段状态-动作-奖励链：
+<div class="admonition note">
+<p class="admonition-title">Trajectory</p>
+<p><strong>Trajectory(轨迹)</strong>是在固定策略 $\pi$ 与环境转移概率 $P(s′|s,a)$ 下，Agent 依次产生的一段状态-动作-奖励链：
 $$
 {s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}
 $$</p>
-</blockquote>
+</div>
 <h2 id="18-return">1.8-Return<a class="headerlink" href="#18-return" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Return
-<strong>Return(回报)</strong>是Agent从当前时间<span class="arithmatex">\(t\)</span>所在的状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>开始，在任意一条可能的Trajectory上从<span class="arithmatex">\(t+1\)</span>时刻开始获得的所有未来奖励的总和。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Return</p>
+<p><strong>Return(回报)</strong>是Agent从当前时间$t$所在的状态$s_i{\in}{\mathcal{S}}$开始，在任意一条可能的Trajectory上从$t+1$时刻开始获得的所有未来奖励的总和。</p>
+</div>
 <p>（直接Return相加只适用于有限步数的，我们更多地使用无限步数的Return，那么所有的Return是无限的，就区分不出来哪个策略是好的或者坏的，我们需要使用一种衰减来让Agent实现策略是可以分辨出好坏的，那么对于没有结束的过程的Return，我们使用Discount Return来实现可量化的Return评估）</p>
-<blockquote>
-<p>[!NOTE] Discount Return
-<strong>Discount Return(折扣回报)</strong></p>
-<p>[!question] 为什么在强化学习里面用的最多的是Discount Return
-Contents</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Discount Return</p>
+<p><strong>Discount Return(折扣回报)</strong></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">为什么在强化学习里面用的最多的是Discount Return</p>
+<p>Contents</p>
+</div>
 <h2 id="19-markov-decision-processes">1.9-Markov Decision Processes<a class="headerlink" href="#19-markov-decision-processes" title="Permanent link">&para;</a></h2>
 <p>（<strong>未来总回报的价值</strong>只取决于智能体<strong>当前所处的状态</strong>，与过去的历史轨迹无关，这正是MDP的核心马尔可夫性质。因此，智能体为了最大化未来的回报，只需要根据<strong>当前状态</strong>来做出最优决策，从而极大地简化了复杂的学习问题。）
 （从我们的Trajectory Chain我们可以发现我们得到的是一系列的）</p>
-<blockquote>
-<p>[!NOTE] Markov decision processes(重点理解)
-<strong>Markov decision processes(马尔科夫决策过程)</strong>指的是Agent未来的State只与当前时间<span class="arithmatex">\(t\)</span>的State和从<span class="arithmatex">\(t+1\)</span>时刻开始的未来状态有关，与从<span class="arithmatex">\(t-1\)</span>之前的历史状态无关。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Markov decision processes(重点理解)</p>
+<p><strong>Markov decision processes(马尔科夫决策过程)</strong>指的是Agent未来的State只与当前时间$t$的State和从$t+1$时刻开始的未来状态有关，与从$t-1$之前的历史状态无关。</p>
+</div>
+
+
+
+
+
+
+
 
 
 
@@ -1105,6 +1663,7 @@ Contents</p>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -1132,10 +1691,14 @@ Contents</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       

@@ -10,8 +10,14 @@
       
         <link rel="canonical" href="https://alex-wanght.github.io/Alex-Blog/ai/Reinforcement%20Learning/Part%202-Bellman%E6%96%B9%E7%A8%8B%E4%B8%8EBellman%E6%9C%80%E4%BC%98%E6%96%B9%E7%A8%8B/">
       
+      
+      
+      
+        
+      
+      
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -19,15 +25,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -39,11 +47,10 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -58,9 +65,6 @@
     
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -85,11 +89,12 @@
     <a href="../../.." title="Alex Blog" class="md-header__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -108,46 +113,59 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
@@ -155,24 +173,25 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
         <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     Alex-WangHT/Alex-Blog
@@ -191,133 +210,192 @@
           
             
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
-
-
+  
+  
+    
+    
+      
+  
   
   
   
     
+    
+      <li class="md-tabs__item">
+        <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  技术博客
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../tech-blog/tags/Python/" class="md-tabs__link">
-        技术博客
-      </a>
-    </li>
-  
-
-  
-
-      
-        
-  
+        </a>
+      </li>
+    
   
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../robot/" class="md-tabs__link">
-        机器人
-      </a>
-    </li>
+    
   
 
       
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../robot/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  机器人
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
-        人工智能
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../control/" class="md-tabs__link">
-        控制理论
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../../computer/index.md" class="md-tabs__link">
-      计算机
-    </a>
-  </li>
-
-      
-        
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../../electronics/index.md" class="md-tabs__link">
-      电子设计
-    </a>
-  </li>
-
-      
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
   
   
+    
+  
+  人工智能
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../math/" class="md-tabs__link">
-        数学知识
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../control/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  控制理论
 
+        </a>
+      </li>
+    
+  
 
+      
+        
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../physics/" class="md-tabs__link">
-        物理知识
-      </a>
-    </li>
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../electronics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  电子设计
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数学知识
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../physics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  物理知识
+
+        </a>
+      </li>
+    
   
 
       
@@ -337,6 +415,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -345,7 +424,7 @@
     <a href="../../.." title="Alex Blog" class="md-nav__button md-logo" aria-label="Alex Blog" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Alex Blog
@@ -355,7 +434,7 @@
       <a href="https://github.com/Alex-WangHT/Alex-Blog" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     Alex-WangHT/Alex-Blog
@@ -367,551 +446,1011 @@
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
-      
-      
-      
+        
         
           
         
-      
-      
-        <label class="md-nav__link" for="__nav_1">
-          技术博客
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="技术博客" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
-          技术博客
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
           
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技术博客
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    技术博客
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
-      
+    
+    
       
       
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        <label class="md-nav__link" for="__nav_1_1">
-          标签分类
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="标签分类" data-md-level="2">
-        <label class="md-nav__title" for="__nav_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          标签分类
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    标签分类
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    标签分类
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/Python/" class="md-nav__link">
-        #Python
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #Python
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/ROS2/" class="md-nav__link">
-        #ROS2
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #ROS2
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/SLAM/" class="md-nav__link">
-        #SLAM
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #SLAM
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
-        #机器人
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #机器人
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../tech-blog/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="md-nav__link">
-        #概率论
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    #概率论
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../robot/">机器人</a>
           
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="机器人" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          机器人
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../robot/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器人
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器人
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../robot/Rigid%20Body%20Dynamic%20Algorithms/" class="md-nav__link">
-        Rigid Body Dynamic Algorithms
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rigid Body Dynamic Algorithms
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../robot/Robotics%20Vision%20and%20Control/" class="md-nav__link">
-        Robotics Vision and Control
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robotics Vision and Control
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">人工智能</a>
           
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="人工智能" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          人工智能
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Reinforcement Learning
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/">控制理论</a>
           
-            <label for="__nav_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="控制理论" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          控制理论
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../control/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    控制理论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    控制理论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../control/Disturbance%20Observer%20based%20Control/" class="md-nav__link">
-        Disturbance Observer based Control
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disturbance Observer based Control
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../control/Morden%20Control%20Systems/" class="md-nav__link">
-        Morden Control Systems
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Morden Control Systems
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
           
-        </ul>
-      </nav>
-    </li>
-  
-
+        
+      
+    
+    
     
       
       
+        
       
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../computer/index.md" class="md-nav__link">
-        计算机
-      </a>
-    </li>
-  
-
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../electronics/index.md" class="md-nav__link">
-        电子设计
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
-      
-      
-      
+        
         
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
-          
+          </div>
         
-          
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../math/">数学知识</a>
-          
-            <label for="__nav_7">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="数学知识" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          数学知识
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+  
+    计算机
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../electronics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电子设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    电子设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学知识
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学知识
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../math/Information%20Theory/" class="md-nav__link">
-        Information Theory
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Theory
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../physics/">物理知识</a>
           
-            <label for="__nav_8">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
           
-        </div>
-      
-      <nav class="md-nav" aria-label="物理知识" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          物理知识
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理知识
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    物理知识
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../physics/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
-        理论力学
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    理论力学
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -944,30 +1483,30 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
-  <a href="https://github.com/Alex-WangHT/Alex-Blog/edit/master/docs/ai/Reinforcement Learning/Part 2-Bellman方程与Bellman最优方程.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+
+  
+  
 
 
 <h1 id="bellman-equation">二、贝尔曼方程(Bellman Equation)<a class="headerlink" href="#bellman-equation" title="Permanent link">&para;</a></h1>
 <p>首先我们的Agent面对的状态以及各个状态对应的不同动作及其回报如图所示：</p>
 <p>我们
 （为什么Return是非常重要的）</p>
-<blockquote>
-<p>[!NOTE] State Value
-我们有如下形式的Trajectory：
-$<span class="arithmatex">\({S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}\)</span>$
+<div class="admonition note">
+<p class="admonition-title">State Value</p>
+<p>我们有如下形式的Trajectory：
+$${S}<em t_1="t+1">{t}{\xrightarrow{{a{\in}{{A{(S_t})}}}}}{{R}</em>}},{{S<em t_1="t+1">{t+1}}{\xrightarrow{{a{\in}{{A{(S</em>}})}}}}}{{R<em t_2="t+2">{t+2}},{{S}</em>$$
 我们计算这个策略对应轨迹的Return：
-$<span class="arithmatex">\(G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}\)</span>$
-由于在当前策略<span class="arithmatex">\(s_t\)</span>执行的下一步动作不确定
-我们定义在时间<span class="arithmatex">\(t\)</span>上，状态<span class="arithmatex">\({s}{\in}{\{S\}}\)</span>的Return期望就是<strong>State Value</strong>：
-$<span class="arithmatex">\({{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}\)</span>$</p>
-</blockquote>
+$$G_t={R_{t+1}}+{\gamma}{R_{t+2}}+{\gamma^{2}}{R_{t+3}}+{\cdots}$$
+由于在当前策略$s_t$执行的下一步动作不确定
+我们定义在时间$t$上，状态${s}{\in}{{S}}$的Return期望就是}}{\cdots<strong>State Value</strong>：
+$${{v}_{\pi}}(s)={\mathbb{E}}{[{G_t}{|}{S_t=s}]}$$</p>
+</div>
 <p>首先我们将Return的公式写作如下形式：
 $$
 {G_t}={R_{t+1}}+{\gamma}{G_{t+1}}
@@ -980,8 +1519,8 @@ $$
 &amp;={\mathbb{E}}[{R_{t+1}}|{S_t}={s}]+{\gamma}{\mathbb{E}}[{G_{t+1}}|{S_{t}}={s}]
 \end{align}
 $$
-那么在当前时间<span class="arithmatex">\(t\)</span>下，我们的State Value可以写成两种形式，分别是在当前时刻<span class="arithmatex">\(t\)</span>下在任意状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，<span class="arithmatex">\(t+1\)</span>时刻获得的Return的数学期望<span class="arithmatex">\({\mathbb{E}}[{R_{t+1}}|{S_t}={s}]\)</span>和下一时刻<span class="arithmatex">\(t+1\)</span>能够获得的数学期望两个部分。
-首先是等式的第一项，也就是在当前状态<span class="arithmatex">\(S_t\)</span>的时候，我们执行动作获得回报的期望值：
+那么在当前时间$t$下，我们的State Value可以写成两种形式，分别是在当前时刻$t$下在任意状态$s{\in}{\mathcal{S}}$，$t+1$时刻获得的Return的数学期望${\mathbb{E}}[{R_{t+1}}|{S_t}={s}]$和下一时刻$t+1$能够获得的数学期望两个部分。
+首先是等式的第一项，也就是在当前状态$S_t$的时候，我们执行动作获得回报的期望值：
 $$
 \begin{align}
 {\mathbb{E}}[{R_{t+1}}|{S_t}={s}]
@@ -989,7 +1528,7 @@ $$
 &amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}
 \end{align}
 $$
-然后是等式的第二项，也就是当前Agent在<span class="arithmatex">\(t\)</span>时刻的状态<span class="arithmatex">\(S_t\)</span>的时候，下一时刻<span class="arithmatex">\(t+1\)</span>能够得到的State Value的期望值：
+然后是等式的第二项，也就是当前Agent在$t$时刻的状态$S_t$的时候，下一时刻$t+1$能够得到的State Value的期望值：
 $$
 \begin{align}
 {\mathbb{E}}[{G_{t+1}}|{S_{t}}={s}]
@@ -1004,15 +1543,15 @@ $$
 v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s})}{\cdot}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{p({s^{'}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
 $$
 上式结果就是})}{\cdot}{p({s^{'}}|{s},{a})<strong>贝尔曼方程</strong>的一般形式。</p>
-<blockquote>
-<p>[!NOTE] Bellman Equation
-$$
+<div class="admonition note">
+<p class="admonition-title">Bellman Equation</p>
+<p>$$
 v_{\pi}({s})={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
 $$})}{\cdot}{p({s^{'}}|{s},{a})</p>
-</blockquote>
+</div>
 <p>我们设Agent在当前的环境中有一系列的State：
-$<span class="arithmatex">\({s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)\)</span>$
-我们将每个状态的State Value写作<span class="arithmatex">\({v_{\pi}}({s_i})(i=1,2,3,\dots)\)</span>。然后我们将Bellman等式写作如下形式：
+$${s_i}{\in}{\mathcal{S}}{\quad}(i=1,2,3,\dots,n)$$
+我们将每个状态的State Value写作${v_{\pi}}({s_i})(i=1,2,3,\dots)$。然后我们将Bellman等式写作如下形式：
 $$
 \begin{align}
 v_{\pi}({s}<em _pi="\pi">{i})
@@ -1026,10 +1565,10 @@ $$
 {p({{s}}{{R}}}}p(r|{s_i},a){\cdot}{r<em i="i">{k}}|{s}</em>})}={\sum_{a{\in}{A{s_{i}}}}}{\pi}{(a|{s<em k="k">{i})}{\cdot}{p({{s}</em>}}|{{s<em _pi="\pi">{i}},{a})}\
 \end{align}
 $$
-然后我们定义State Value矩阵<span class="arithmatex">\(v_{\pi}\)</span>，回报期望矩阵<span class="arithmatex">\(r_{\pi}\)</span>和状态转移概率矩阵<span class="arithmatex">\(P_{\pi}\)</span>：
+然后我们定义State Value矩阵$v</em>$：
 $$
 \begin{matrix}
-v</em>={
+v_{\pi}={
 \begin{pmatrix}
 {v_{\pi}}({s_1})\
 {v_{\pi}}({s_2})\
@@ -1061,20 +1600,19 @@ $$
 通过移项之后就得到了更容易计算的形式：
 $$
 (I-{\gamma}{P}){v_{\pi}}={r_{\pi}}
-$$</p>
-<blockquote>
-<p>[!question] 我们为什么要求解State Value？
-</p>
-</blockquote>
+$$}$，回报期望矩阵$r_{\pi}$和状态转移概率矩阵$P_{\pi</p>
+<div class="admonition question">
+<p class="admonition-title">我们为什么要求解State Value？</p>
+</div>
 <p>因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：
-- <strong>矩阵求解</strong>：这是State Value的Closed form解，我们已知状态转移矩阵<span class="arithmatex">\(P\)</span>，每个状态的回报期望值矩阵<span class="arithmatex">\(R_{\pi}\)</span>和折扣系数<span class="arithmatex">\({\gamma}\)</span>。我们可以通过矩阵求逆的形式求解：$<span class="arithmatex">\({v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}\)</span><span class="arithmatex" v__0="v_{0">\(这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
-- **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值\)</span>}<span class="arithmatex">\(，使用下面的迭代方式直到第\)</span>n<span class="arithmatex">\(步求出最终的状态值矩阵：\)</span><span class="arithmatex">\({v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(我们可以证明为什么能够迭代法能够在\)</span>n<span class="arithmatex">\(步之后实现满足误差范围的\)</span>v_{\pi}<span class="arithmatex">\(，首先我们令：\)</span><span class="arithmatex">\({\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)\)</span><span class="arithmatex">\(代入上面的迭代式子，我们可以得到：\)</span><span class="arithmatex">\(\begin{align}{{\delta}_{k+1}}&amp;={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&amp;={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&amp;={\gamma}{P}{{\delta}_{k}}\end{align}\)</span><span class="arithmatex">\(然后我们从\)</span>k=0<span class="arithmatex">\(开始迭代，我们最终得到：\)</span><span class="arithmatex">\({{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}\)</span><span class="arithmatex">\(那么随着迭代次数\)</span>k<span class="arithmatex">\(的不断增大，\)</span>\delta<span class="arithmatex">\(也逐渐趋近于0。因此迭代方法能够实现对任意初始值\)</span>v_0<span class="arithmatex">\(，只要迭代次数\)</span>k<span class="arithmatex">\(足够多，结果一定收敛到\)</span>v_{\pi}$。</p>
-<blockquote>
-<p>[!TIP] State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比
-从算法复杂度的角度来评判当前的算法复杂度
-- 使用Close Form求解State Value：我们假设有<span class="arithmatex">\(n\)</span>个状态，我们矩阵求逆的算法复杂度是<span class="arithmatex">\({O}({n^3})\)</span>。
-- 使用Iteration Form来求解State Value：我们假设有<span class="arithmatex">\(n\)</span>个状态，我们使用迭代方法求解矩阵的算法复杂度仅仅是<span class="arithmatex">\(O({n^2})\)</span></p>
-</blockquote>
+- <strong>矩阵求解</strong>：这是State Value的Closed form解，我们已知状态转移矩阵$P$，每个状态的回报期望值矩阵$R_{\pi}$和折扣系数${\gamma}$。我们可以通过矩阵求逆的形式求解：$${v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}$$这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
+- <strong>迭代求解</strong>：迭代求解是先预设一个State Value矩阵的初始值${v_{0}}$，使用下面的迭代方式直到第$n$步求出最终的状态值矩阵：$${v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)$$我们可以证明为什么能够迭代法能够在$n$步之后实现满足误差范围的$v_{\pi}$，首先我们令：$${\delta}<em k="k">{k}=v</em>}-v_{\pi}{\quad}(k=0,1,2,\dots,n)$$代入上面的迭代式子，我们可以得到：$$\begin{align}{{\delta<em>{k+1}}&amp;={r</em>\pi}+{\gamma}{P}({{\delta}<em _pi="\pi">{k}}+{v</em>}})-{v_{\pi}}\&amp;={r_\pi}+{\gamma}{P}{{\delta<em _pi="\pi">{k}}-(I-{\gamma}{P}){{v}</em>}}\&amp;={\gamma}{P}{{\delta<em k_1="k+1">{k}}\end{align}$$然后我们从$k=0$开始迭代，我们最终得到：$${{\delta}</em>}}=({\gamma}{P})^{k+1}{{\delta<em _pi="\pi">{0}}$$那么随着迭代次数$k$的不断增大，$\delta$也逐渐趋近于0。因此迭代方法能够实现对任意初始值$v_0$，只要迭代次数$k$足够多，结果一定收敛到$v</em>$。</p>
+<div class="admonition tip">
+<p class="admonition-title">State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比</p>
+<p>从算法复杂度的角度来评判当前的算法复杂度
+- 使用Close Form求解State Value：我们假设有$n$个状态，我们矩阵求逆的算法复杂度是${O}({n^3})$。
+- 使用Iteration Form来求解State Value：我们假设有$n$个状态，我们使用迭代方法求解矩阵的算法复杂度仅仅是$O({n^2})$</p>
+</div>
 <p>（Action Value：我们选择最优的序列，看那个Action Value能达到最优解）
 我们在前面主要对State Value进行讨论，因为在强化学习中，State Value是至关重要的。
 我们回到前面推到的贝尔曼方程，我们将Policy项提取出来：
@@ -1087,23 +1625,29 @@ v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
 \end{align}
 $$
 上式右侧的第二项我们称之为})}{\cdot}{p({s^{'}}|{s},{a})<strong>Action Value</strong>：</p>
-<blockquote>
-<p>[!NOTE] Action Value
-$$
+<div class="admonition note">
+<p class="admonition-title">Action Value</p>
+<p>$$
 \begin{align}
 {{q}<em r_in="r{\in">{\pi}}{({s},{a})}
 &amp;={\mathbb{E}}{[{G_t}{|}{S_t=s},{A_t=a}]}\
 &amp;={\sum</em>{\sum_{{s}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>
 \end{align}
 $$})}{\cdot}{p({s^{'}}|{s},{a})</p>
-<p>[!TIP] Action Value和State Value的求解关系
-- 根据Action Value求解State Value
-- 根据State Value求解Action Value</p>
-<p>[!WARNING] 求解Action Value的出错点
-Contents</p>
-</blockquote>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Action Value和State Value的求解关系</p>
+<ul>
+<li>根据Action Value求解State Value</li>
+<li>根据State Value求解Action Value</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">求解Action Value的出错点</p>
+<p>Contents</p>
+</div>
 <p>(写成缩写的形式)
-首先我们根据Action Value的公式我们可以定义当处于状态<span class="arithmatex">\(S_t=s\)</span>的时候，所有动作的Action Value矩阵<span class="arithmatex">\(q_{\pi}\)</span>，当执行动作<span class="arithmatex">\(A_t=a{\in}A(s)\)</span>的时候获取的收益矩阵<span class="arithmatex">\({\tilde{r}}\)</span>，概率转移矩阵<span class="arithmatex">\(P\)</span>和Policy矩阵<span class="arithmatex">\({\pi}\)</span>如下：
+首先我们根据Action Value的公式我们可以定义当处于状态$S_t=s$的时候，所有动作的Action Value矩阵$q_{\pi}$，当执行动作$A_t=a{\in}A(s)$的时候获取的收益矩阵${\tilde{r}}$，概率转移矩阵$P$和Policy矩阵${\pi}$如下：
 $$
 \begin{matrix}
 q_{\pi}={
@@ -1143,51 +1687,53 @@ $$
 {q_{\pi}}={\tilde{r}}+{\gamma}{P}{\Pi}{q_{\pi}}
 $$
 这也就是贝尔曼方程的Action Value方式，对于此表达我们依然可以用Closed-Form方法和Iteration-Form方法求解，求解的方法本质上和State-Value的方法是一致的。})</p>
-<blockquote>
-<p>[!TIP] Action Value和State Value的对比
-- 根据Action Value求解State Value
-- 根据State Value求解Action Value</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Action Value和State Value的对比</p>
+<ul>
+<li>根据Action Value求解State Value</li>
+<li>根据State Value求解Action Value</li>
+</ul>
+</div>
 <h1 id="bellman-optimal-equation">三、贝尔曼优化方程(Bellman Optimal Equation)<a class="headerlink" href="#bellman-optimal-equation" title="Permanent link">&para;</a></h1>
 <p>（Examples,我们为什么使用State Value？原因是State Value是能够评价哪个可能的Policy更好。）</p>
 <h2 id="3-1">3-1.最优状态值和最优策略<a class="headerlink" href="#3-1" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>[!NOTE] Optimal State Value和Optimal Policy
-对于在任意状态中的State:<span class="arithmatex">\(s{\in}{\{S\}}\)</span>来说，任意可能Policy的集合为<span class="arithmatex">\({\mathbb{\Pi}}\)</span>。我们可以有如下的定义：
-对于<span class="arithmatex">\({\forall}{\pi}{\in}{\mathbb{\Pi}}\)</span>，总是存在一个策略<span class="arithmatex">\({\pi}^{*}\)</span>使得<span class="arithmatex">\({{v}_{{\pi}^{*}}(s)}{\geq}{{v}_{\pi}(s)}\)</span>。我们称<span class="arithmatex">\({{v}_{{\pi}^{*}}(s)}\)</span>为<strong>Optimal State Value(最优状态值)</strong>，对应的<span class="arithmatex">\({\pi}^{*}\)</span>就是<strong>Optimal Policy(最优策略)</strong>。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Optimal State Value和Optimal Policy</p>
+<p>对于在任意状态中的State:$s{\in}{{S}}$来说，任意可能Policy的集合为${\mathbb{\Pi}}$。我们可以有如下的定义：
+对于${\forall}{\pi}{\in}{\mathbb{\Pi}}$，总是存在一个策略${\pi}<sup>{*}$使得${{v}_{{\pi}</sup>{<em>}}(s)}{\geq}{{v}<em _pi="{\pi">{\pi}(s)}$。我们称${{v}</em>^{</em>}}(s)}$为<strong>Optimal State Value(最优状态值)</strong>，对应的${\pi}^{<em>}$就是</em><em>Optimal Policy(最优策略)</em>*。</p>
+</div>
 <h2 id="3-2">3-2.贝尔曼最优方程的两种表达形式<a class="headerlink" href="#3-2" title="Permanent link">&para;</a></h2>
 <h3 id="3-2-1">3-2-1.元素形式的贝尔曼最优方程<a class="headerlink" href="#3-2-1" title="Permanent link">&para;</a></h3>
-<p>那么在一个未知的环境中，我们的问题就从所有的量都已知来求解State Value，变成了在任意状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>中所有可能的Policy中找到Policy来使得State Value达到最优。从本质上来讲这就是求解一个最优化问题。
+<p>那么在一个未知的环境中，我们的问题就从所有的量都已知来求解State Value，变成了在任意状态${s}{\in}{\mathcal{S}}$中所有可能的Policy中找到Policy来使得State Value达到最优。从本质上来讲这就是求解一个最优化问题。
 首先我们回顾一下贝尔曼方程：
 $$
 \begin{align}
 v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
 &amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A{s}}}}{\pi}(a|s){\cdot}{\sum_{{s<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>\
 &amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{{s})}{\cdot}{p({s^{'}}|{s},{a})<sup _="'">{'}}{\in}{{S}}}}{v_{\pi}(s</sup>)\
-&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}})}{\cdot}{p({s^{'}}|{s},{a})<em a_in="a{\in">{\pi}}{({s},{a})}
+&amp;={\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}})}{\cdot}{p({s^{'}}|{s},{a})<em _pi="\pi">{\pi}}{({s},{a})}
 \end{align}
 $$
-我们是已知在状态<span class="arithmatex">\({s}{\in}{\mathcal{S}}\)</span>中的策略<span class="arithmatex">\({\pi}\)</span>，进而求解策略<span class="arithmatex">\({\pi}\)</span>对应的State Value：<span class="arithmatex">\(v_{\pi}(s)\)</span>。那么我们在前面的定义中提到找到State Value的最优解的前提就是寻找到最优的Policy。因此我们将贝尔曼方程改写成下面的<strong>贝尔曼最优方程</strong>的元素形式：
+我们是已知在状态${s}{\in}{\mathcal{S}}$中的策略${\pi}$，进而求解策略${\pi}$对应的State Value：$v</em>(s)$。那么我们在前面的定义中提到找到State Value的最优解的前提就是寻找到最优的Policy。因此我们将贝尔曼方程改写成下面的<strong>贝尔曼最优方程</strong>的元素形式：
 $$
 \begin{align}
 v({s})
-&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q<em a_in="a{\in">{\pi}}{({s},{a})}\
+&amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}{{q}<em a_in="a{\in">{\pi}}{({s},{a})}\
 &amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum</em>{\sum_{{s}{A{s}}}}{\pi}{(a|s)}{\cdot}({\sum_{r{\in}{{R}}}}p(r|s,a){\cdot}{r}+{\gamma<sup _="'">{'}}{\in}{{S}}}}{p({s</sup>)\
 &amp;={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}{\sum_{a{\in}{A{s}}}}{\pi}{(a|s)}{\cdot}([r]}}|{s},{a})}{\cdot}{v(s^{'})<em>{(s,a)}+{\gamma}{\sum</em>{{s<sup _="'">{'}}{\in}{{S}}}}{p({s</sup>)\
 \end{align}
 $$
-那么在元素形式中，我们有两个未知数}}|{s},{a})}{\cdot}{v(s^{'})<span class="arithmatex">\(v(s)\)</span>和<span class="arithmatex">\(\pi\)</span>，但是我们还需要求解State Value:<span class="arithmatex">\(v(s)\)</span>的最大值。那么我们首先就需要从Policy:<span class="arithmatex">\({\pi}\)</span>来入手求解元素形式的贝尔曼方程。
-首先我们看贝尔曼最优方程的元素形式，我们发现我们有策略:<span class="arithmatex">\(\pi\)</span>和State Value:<span class="arithmatex">\(v({s})\)</span>两个未知的变量。但是我们只求解其中一个变量<span class="arithmatex">\(v({s})\)</span>的最大值。</p>
-<blockquote>
-<p>[!EXAMPLE] 求解最大值
-我们假设有两组数列，其中有一组数列<span class="arithmatex">\(q_k=\{{q_1},{q_2},{q_3},{\dots},{q_k}\}\)</span>我们仅仅知道里面有最大值。另外一组数列<span class="arithmatex">\(c_k=\{{c_1},{c_2},{c_3},{\dots},{c_k}\}\)</span>是未知的，我们只知道数列<span class="arithmatex">\(c_k\)</span>的数列和：
-$<span class="arithmatex">\({\sum_{i=1}^{k}}c_i=1\)</span>$
-那么我们需要求解当数列<span class="arithmatex">\(c_k\)</span>满足什么条件的时候能够让下面的式子取得最大值：
-$<span class="arithmatex">\({\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}\)</span>$
-我们只需要知道数列<span class="arithmatex">\(q_k\)</span>的最大值<span class="arithmatex">\(q_m\)</span>，然后我们让对应的<span class="arithmatex">\(c_m=1\)</span>，其余项为0，那么我们的最大值就是<span class="arithmatex">\({c_m}{\cdot}{q_m}\)</span></p>
-</blockquote>
-<p>那么对于贝尔曼最优方程的元素形式来说，我们只需要找到在任意状态<span class="arithmatex">\(s{\in}{\{S\}}\)</span>对应的动作<span class="arithmatex">\(a{\in}{A\{s\}}\)</span>中找到能够让<span class="arithmatex">\({{q}_{\pi}}{({s},{a})}\)</span>取得最大值的<span class="arithmatex">\({{q}_{\pi}}{({s},{{a}^{*}})}\)</span>对应的动作<span class="arithmatex">\(a^{*}\)</span>，并且让这个最大值对应策略<span class="arithmatex">\({\pi}{({a}^{*}|s)}=1\)</span>，其余项等于0，于是我们就可以得到<span class="arithmatex">\(v({s})\)</span>的最大值如下：
+那么在元素形式中，我们有两个未知数$v(s)$和$\pi$，但是我们还需要求解State Value:$v(s)$的最大值。那么我们首先就需要从Policy:${\pi}$来入手求解元素形式的贝尔曼方程。
+首先我们看贝尔曼最优方程的元素形式，我们发现我们有策略:$\pi$和State Value:$v({s})$两个未知的变量。但是我们只求解其中一个变量$v({s})$的最大值。}}|{s},{a})}{\cdot}{v(s^{'})</p>
+<div class="admonition example">
+<p class="admonition-title">求解最大值</p>
+<p>我们假设有两组数列，其中有一组数列$q_k={{q_1},{q_2},{q_3},{\dots},{q_k}}$我们仅仅知道里面有最大值。另外一组数列$c_k={{c_1},{c_2},{c_3},{\dots},{c_k}}$是未知的，我们只知道数列$c_k$的数列和：
+$${\sum_{i=1}^{k}}c_i=1$$
+那么我们需要求解当数列$c_k$满足什么条件的时候能够让下面的式子取得最大值：
+$${\sum_{i=1}^{k}}{c_i}{\cdot}{q_i}$$
+我们只需要知道数列$q_k$的最大值$q_m$，然后我们让对应的$c_m=1$，其余项为0，那么我们的最大值就是${c_m}{\cdot}{q_m}$</p>
+</div>
+<p>那么对于贝尔曼最优方程的元素形式来说，我们只需要找到在任意状态$s{\in}{{S}}$对应的动作$a{\in}{A{s}}$中找到能够让${{q}<em _pi="\pi">{\pi}}{({s},{a})}$取得最大值的${{q}</em>}}{({s},{{a<sup>{*}})}$对应的动作$a</sup>{<em>}$，并且让这个最大值对应策略${\pi}{({a}^{</em>}|s)}=1$，其余项等于0，于是我们就可以得到$v({s})$的最大值如下：
 $$
 \begin{align}
 v({s})
@@ -1195,7 +1741,7 @@ v({s})
 &amp;={\underset{{{a}{\in}{A{s}}}}{\max}}([r]</em><sup _="'">{*}})}+{\gamma}{\sum_{{s</sup>{p({s}}{\in}{{S}}}<sup>{'}}|{s},{{a}</sup>{<em>}})}{\cdot}{v(s^{'})})\
 \end{align}
 $$
-那么对于元素形式的贝尔曼最优方程的实际意义，就是对于任意状态<span class="arithmatex">\(s{\in}{\mathcal{S}}\)</span>，我们要在该状态对应的Action Space:<span class="arithmatex">\(a{\in}{\mathcal{A}}\{{s}\}\)</span>中寻找能够使得Action Value:<span class="arithmatex">\({{q}_{\pi}}{({s},{a})}\)</span>最大的动作<span class="arithmatex">\({a}^{*}\)</span>并且执行。我们无需进行复杂的规划，</em><em>最优策略<span class="arithmatex">\({\pi}^{*}({s})\)</span>仅需要进行一步贪婪搜索（Greedy Search）</em><em>。
+那么对于元素形式的贝尔曼最优方程的实际意义，就是对于任意状态$s{\in}{\mathcal{S}}$，我们要在该状态对应的Action Space:$a{\in}{\mathcal{A}}{{s}}$中寻找能够使得Action Value:${{q}_{\pi}}{({s},{a})}$最大的动作${a}<sup>{<em>}$并且执行。我们无需进行复杂的规划，</em>*最优策略${\pi}</sup>{</em>}({s})$仅需要进行一步贪婪搜索（Greedy Search）*<em>。
 $$
 {a}^{</em>}={\arg}{\underset{{{a}{\in}{\mathcal{A}{s}}}}{\max}}{q_{\pi}(s,a)}
 $$</p>
@@ -1205,29 +1751,35 @@ $$
 {v}={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P_{\pi}}{v})
 $$
 矩阵形式的贝尔曼方程的意义就是为了证明贝尔曼方程是否具有唯一的最值。</p>
-<blockquote>
-<p>[!question] 接下来要讨论什么问题？
-- 是否存在最优解？
-- 这个最优解是否是唯一的？
-- 如何求解这个最优解？
-- 贝尔曼最优方程的最优解是怎么和最优策略结合起来的?</p>
-</blockquote>
+<div class="admonition question">
+<p class="admonition-title">接下来要讨论什么问题？</p>
+<ul>
+<li>是否存在最优解？</li>
+<li>这个最优解是否是唯一的？</li>
+<li>如何求解这个最优解？</li>
+<li>贝尔曼最优方程的最优解是怎么和最优策略结合起来的?</li>
+</ul>
+</div>
 <h2 id="3-3bellman">3-3.Bellman最优方程的一些性质<a class="headerlink" href="#3-3bellman" title="Permanent link">&para;</a></h2>
 <h3 id="3-3-1bellman">3-3-1.Bellman最优方程存在唯一的最优解<a class="headerlink" href="#3-3-1bellman" title="Permanent link">&para;</a></h3>
 <p>首先来介绍<strong>不动点和收缩映射的定义</strong>以及<strong>收缩映射定理</strong>：</p>
-<blockquote>
-<p>[!NOTE] 不动点和收缩映射的定义
-- <strong>不动点</strong>：对变量<span class="arithmatex">\(x{\in}{\mathbb{R}^{n}}\)</span>和函数<span class="arithmatex">\(f(x){\in}{\mathbb{R}^{n}}\)</span>来说，如果我们满足以下关系$<span class="arithmatex">\(x^{*}=f(x^{*})\)</span><span class="arithmatex">\(那么\)</span>x^{<em>}$称为函数的</em><em>不动点</em><em>，这个方程也叫做不动点方程。
-- </em><em>收缩映射</em><em>：一个映射 <span class="arithmatex">\(f: \mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> 被称为</em><em>收缩映射</em>*，如果存在一个常数 <span class="arithmatex">\(L \in [0, 1)\)</span>，使得对于任意两个点 <span class="arithmatex">\(x, y \in \mathbb{R}^n\)</span>，都有： $$ |f(x) - f(y)| \le L|x - y| $$ 其中，<span class="arithmatex">\(\|\cdot\|\)</span> 表示欧几里得范数（距离）。</p>
-<p>[!NOTE] 收缩映射定理
-对于任意一个具有<span class="arithmatex">\(x=f(x)\)</span>形式的方程来说，其中<span class="arithmatex">\({x}{\in}{\mathbb{R}^{n}}\)</span>，<span class="arithmatex">\(f:{\mathbb{R}^{n}}{\rightarrow}{\mathbb{R}^{n}}\)</span>，如果<span class="arithmatex">\(f\)</span>是收缩映射，那么遵守以下的性质：
-- <strong>存在性</strong>：有且仅有一个不动点<span class="arithmatex">\({x}^{*}\)</span>满足<span class="arithmatex">\({{x}^{*}}=f({{x}^{*}})\)</span>
-- <strong>唯一性</strong>：不动点<span class="arithmatex">\({x}^{*}\)</span>是唯一的
-- <strong>算法</strong>：设定一个初始的点<span class="arithmatex">\({x}_{0}\)</span>，我们使用以下方式来进行迭代：$<span class="arithmatex">\(x_{k+1}=f({x_{k}}){\quad}k{\in}{\mathbb{Z}}\)</span><span class="arithmatex">\(当\)</span>k{\rightarrow}{\infty}<span class="arithmatex">\(的时候\)</span>x_k{\rightarrow}x^{*}$</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">不动点和收缩映射的定义</p>
+<ul>
+<li><strong>不动点</strong>：对变量$x{\in}{\mathbb{R}<sup n="n">{n}}$和函数$f(x){\in}{\mathbb{R}</sup>$来说，如果我们满足以下关系$$x}<sup>{*}=f(x</sup>{<em>})$$那么$x^{</em>}$称为函数的<strong>不动点</strong>，这个方程也叫做不动点方程。</li>
+<li><strong>收缩映射</strong>：一个映射 $f: \mathbb{R}^n \rightarrow \mathbb{R}^n$ 被称为<strong>收缩映射</strong>，如果存在一个常数 $L \in [0, 1)$，使得对于任意两个点 $x, y \in \mathbb{R}^n$，都有： $$ |f(x) - f(y)| \le L|x - y| $$ 其中，$|\cdot|$ 表示欧几里得范数（距离）。</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">收缩映射定理</p>
+<p>对于任意一个具有$x=f(x)$形式的方程来说，其中${x}{\in}{\mathbb{R}<sup n="n">{n}}$，$f:{\mathbb{R}</sup>$，如果$f$是收缩映射，那么遵守以下的性质：
+- }}{\rightarrow}{\mathbb{R}^{n}<strong>存在性</strong>：有且仅有一个不动点${x}<sup>{*}$满足${{x}</sup>{<em>}}=f({{x}^{</em>}})$
+- <strong>唯一性</strong>：不动点${x}^{<em>}$是唯一的
+- </em><em>算法</em><em>：设定一个初始的点${x}<em k_1="k+1">{0}$，我们使用以下方式来进行迭代：$$x</em>x^{}=f({x_{k}}){\quad}k{\in}{\mathbb{Z}}$$当$k{\rightarrow}{\infty}$的时候$x_k{\rightarrow</em>}$</p>
+</div>
 <p>接下来我们来证明<strong>Bellman最优方程存在唯一的最优解</strong>：
-- 首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：$<span class="arithmatex">\(v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})\)</span><span class="arithmatex">\(因此我们的这个形式自然满足**不动点方程**的形式。
-- 我们任意设定两个Optimal State Value:\)</span>v_1<span class="arithmatex">\(和\)</span>v_2<span _pi="\pi" class="arithmatex">\(。对应的Optimal Policy分别是\)</span><sup>{*}_{1}<span _pi="\pi" class="arithmatex">\(和\)</span></sup>{<em>}<em 1="1">{2}<span class="arithmatex">\(。对应的贝尔曼最优方程可以写成如下的形式：\)</span><span class="arithmatex">\(\begin{align}f(v_{1})={r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}{\geq}{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}\\f(v_{2})={r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_2}{\geq}{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_2}\end{align}\)</span><span class="arithmatex">\(那么我们先写出\)</span>{f(v</em>})-f(v_{2})<span class="arithmatex">\(的形式：\)</span><span class="arithmatex">\(\begin{align}{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\leq}{{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{1}}}-{\gamma}{P_{\pi^{*}_{1}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\\{f(v_{1})-f(v_{2})}={{{r_{\pi^{*}_{1}}}+{\gamma}{P_{\pi^{*}_{1}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}{\geq}{{{r_{\pi^{*}_{2}}}+{\gamma}{P_{\pi^{*}_{2}}}{v_1}}-{r_{\pi^{*}_{2}}}-{\gamma}{P_{\pi^{*}_{2}}}{v_2}}={\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\end{align}\)</span><span class="arithmatex">\(我们因此也就得到了：\)</span><span class="arithmatex">\({\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{f(v_{1})-f(v_{2})}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}\)</span><span class="arithmatex">\(接下来我们定义一个最大值：\)</span><span class="arithmatex">\(z={\max}{\{}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}|{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}\}\)</span><span class="arithmatex">\(那么上面的不等式我们也可以写为：\)</span><span class="arithmatex">\({-z}{\leq}{\gamma}{P_{{\pi}^{*}_{2}}}{(v_1-v_2)}{\leq}{(f(v_{1})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi}^{*}_{1}}}{(v_1-v_2)}{\leq}{z}\)</span><span class="arithmatex">\(我们可以得出如下结论：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\|}z{\|}_{\infty}\)</span><span _gamma="\gamma" class="arithmatex">\(接下来我们需要证明存在一个\)</span>}{\in}{[0,1)<span class="arithmatex">\(使得\)</span>|z|{\leq}{\gamma}|(v_1-v_2)|<span class="arithmatex">\(。对\)</span>z<span class="arithmatex">\(中的各个元素来说，都有\)</span><span class="arithmatex">\([z]_{i}={\max}{\{}{({\gamma}{p}^{T}(v_1-v_2)|{\gamma}{q}^{T}(v_1-v_2))}{\}}{\leq}[{{\gamma}{(v_1-v_2)}}]_{i}\)</span><span class="arithmatex">\(那么整体的\)</span>|z|<em _infty="\infty">{\infty}{\leq}{\gamma}|(v_1-v_2)|</em><span class="arithmatex">\(，联立可得：\)</span><span class="arithmatex">\({\|}f(v_1)-f(v_2){\|}_{\infty}{\leq}{\gamma}\|(v_1-v_2)\|_{\infty}\)</span>$贝尔曼最优方程的</em><em>收缩映射</em><em>性质得证。
+- 首先，由于我们在最初就定义了以下形式的贝尔曼优化方程：$$v=f(v)={\underset{{\pi}{\in}{\mathbb{\Pi}}}{\max}}({r_{\pi}}+{\gamma}{P}{v})$$因此我们的这个形式自然满足<strong>不动点方程</strong>的形式。
+- 我们任意设定两个Optimal State Value:$v_1$和$v_2$。对应的Optimal Policy分别是${\pi}<sup>{*}_{1}$和${\pi}</sup>{<em>}<em 1="1">{2}$。对应的贝尔曼最优方程可以写成如下的形式：$$\begin{align}f(v</em>)={r_{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em>{1}}}{v_1}{\geq}{r</em>{\pi<sup>{*}<em>{2}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em 2="2">{2}}}{v_1}\f(v</em>)={r_{\pi<sup>{*}<em>{2}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em>{2}}}{v_2}{\geq}{r</em>{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{<em>}<em 1="1">{1}}}{v_2}\end{align}$$那么我们先写出${f(v</em>={{{r_{\pi})-f(v_{2})}$的形式：$$\begin{align}{f(v_{1})-f(v_{2})<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em>{1}}}{v_1}}-{r</em>{\pi<sup>{*}<em>{2}}}-{\gamma}{P</em>{\pi</sup>{<em>}<em>{2}}}{v_2}}{\leq}{{{r</em>{\pi<sup>{*}<em>{1}}}+{\gamma}{P</em>{\pi</sup>{</em>}<em>{1}}}{v_1}}-{r</em>{\pi<sup>{*}<em>{1}}}-{\gamma}{P</em>{\pi</sup>{<em>}<em _pi="{\pi">{1}}}{v_2}}={\gamma}{P</em><sup>{*}<em 1="1">{1}}}{(v_1-v_2)}\{f(v</em>={{{r_{\pi})-f(v_{2})</sup>{</em>}<em>{1}}}+{\gamma}{P</em>{\pi<sup>{*}<em>{1}}}{v_1}}-{r</em>{\pi</sup>{<em>}<em>{2}}}-{\gamma}{P</em>{\pi<sup>{*}<em>{2}}}{v_2}}{\geq}{{{r</em>{\pi</sup>{</em>}<em>{2}}}+{\gamma}{P</em>{\pi<sup>{*}<em>{2}}}{v_1}}-{r</em>{\pi</sup>{<em>}<em>{2}}}-{\gamma}{P</em>{\pi<sup>{*}<em _pi="{\pi">{2}}}{v_2}}={\gamma}{P</em></sup>{</em>}<em _pi="{\pi">{2}}}{(v_1-v_2)}\end{align}$$我们因此也就得到了：$${\gamma}{P</em><sup>{*}<em 1="1">{2}}}{(v_1-v_2)}{\leq}{f(v</em>})-f(v_{2})}{\leq}{\gamma}{P_{{\pi</sup>{<em>}<em _pi="{\pi">{1}}}{(v_1-v_2)}$$接下来我们定义一个最大值：$$z={\max}{{}{\gamma}{P</em><sup>{*}<em _pi="{\pi">{1}}}{(v_1-v_2)}|{\gamma}{P</em></sup>{</em>}<em _pi="{\pi">{2}}}{(v_1-v_2)}}$$那么上面的不等式我们也可以写为：$${-z}{\leq}{\gamma}{P</em><sup>{*}<em 1="1">{2}}}{(v_1-v_2)}{\leq}{(f(v</em>})-f(v_{2}))}{\leq}{\gamma}{P_{{\pi</sup>{<em>}<em _infty="\infty">{1}}}{(v_1-v_2)}{\leq}{z}$$我们可以得出如下结论：$${|}f(v_1)-f(v_2){|}</em>}{\leq}{|}z{|<em i="i">{\infty}$$接下来我们需要证明存在一个${\gamma}{\in}{[0,1)}$使得$|z|{\leq}{\gamma}|(v_1-v_2)|$。对$z$中的各个元素来说，都有$$[z]</em>}={\max}{{}{({\gamma}{p<sup T="T">{T}(v_1-v_2)|{\gamma}{q}</sup>]}(v_1-v_2))}{}}{\leq}[{{\gamma}{(v_1-v_2)}<em _infty="\infty">{i}$$那么整体的$|z|</em>|(v_1-v_2)|}{\leq}{\gamma<em _infty="\infty">{\infty}$，联立可得：$${|}f(v_1)-f(v_2){|}</em>$$贝尔曼最优方程的}{\leq}{\gamma}|(v_1-v_2)|_{\infty</em><em>收缩映射</em><em>性质得证。
 - 根据
 因此，</em><em>贝尔曼最优方程本身就具有唯一的最优解</em><em>，问题得证。并且我们可以通过迭代算法来求解贝尔曼最优方程的最优解。
 对于求解最优解，我们有两种方式来求解：</em><em>价值迭代</em><em>和</em><em>策略迭代</em>*。</p>
@@ -1238,11 +1790,19 @@ $$
 
 
 
+
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -1270,10 +1830,14 @@ $$
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
