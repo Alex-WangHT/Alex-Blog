@@ -1,4 +1,3 @@
 # Welcome to Alex Blog
 
---8<-- "_includes/latest_posts.md"
-
+--8<-- "latest_posts.md"
