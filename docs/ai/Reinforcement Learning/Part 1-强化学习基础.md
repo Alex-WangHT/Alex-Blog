@@ -1,6 +1,6 @@
 # 强化学习的大体知识架构
 
-![[./img/Fig 1-1.png]]
+![Fig 1-1](img/Fig 1-1.png)
 
 强化学习，起始于**Bellman Equation**，也就是大名鼎鼎的**贝尔曼方程**。
 # 每个章节对应的相关强化学习算法
@@ -28,6 +28,7 @@
 > **Agent(智能体)**是在环境中通过感知(perception)获取状态、通过决策(policy)选择动作、并通过执行(action)影响环境，进而获得奖励(reward)的实体。
 
 ## 1.2-State and State Space
+
 > [!NOTE] State
 > **State(状态)**指Agent在环境中能够观测并且量化的变量的集合。
 
@@ -37,6 +38,7 @@
 > $${\mathcal{S}}=\{{s}_{i}\}_{i=1}^{n}$$
 
 ## 1.3-Action and Action Space
+
 > [!NOTE] Action
 > **Action(动作)**指Agent在特定状态${s_i}{\in}{\mathcal{S}}$可以执行的任意Action，这个过程我们一般用$a$来表示，一般来说任意的State${s_i}{\in}{\mathcal{S}}$有多个Action:
 > $$a_k{\quad}(k=1,2,\dots)$$
@@ -48,6 +50,7 @@
 > $$\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}$$
 
 ## 1.4-State transition
+
 > [!NOTE] State transition
 > **State transition(状态转移)**指的是状态集合$\{S\}$中的状态$s_i$通过动作集合$\{A(s_i)\}$中的某个动作$a_k$转移到另外的状态$s_j$的过程：
 > $$
@@ -55,6 +58,7 @@
 > $$
 
 ## 1.5-Policy
+
 > [!NOTE] Policy
 > **Policy(策略)** 代表着在环境中的任意给定状态${s}{\in}{\mathcal{S}}$下，采取动作$a_k{\in}{\{{\mathcal{A}}(s_i)\}}$的可能性。Policy可以用以下的形式来表达：
 > - **函数形式：** 将策略${\pi}$看作一种函数，函数的输入变量为状态$s{\in}{\mathcal{S}}$，输出变量为在当前需要采取的动作${a}{\in}{\mathcal{A}}\{s\}$，该函数表达如下：$${a}={\pi}({s})$$这种形式可以用于离散或者连续的状态集合$\mathcal{S}$，以及离散或者连续的动作集合${\mathcal{A}}$。
@@ -71,12 +75,14 @@
 > 	- 例如：Policy Gradient，Actor-Critic策略。
 
 ## 1.6-Reward
+
 > [!NOTE] Reward
 > **Reward(奖励)**代表着Agent在某个状态$s{\in}{\mathcal{S}}$下，通过执行动作$a_i{\in}{{\mathcal{A}}(s_i)}$转移到其他状态$s’{\in}{\mathcal{S}}$获得的奖励。这个奖励是可以根据训练目标来人为设定的标量。
 
 在现实生活中，环境是随机的。因此在相同状态执行相同动作，获得的回报也不一定相同，因此，获得回报是个概率性时间
 （在现实非理想的环境中，在相同状态，执行相同动作也不一定会收获这个概率，因此，我们在状态$s$，执行动作$a$的时候，获取收益$r$的概率可以表示为$p(r|s,a)$。）
 ## 1.7-Trajectory和Episode
+
 > [!NOTE] Trajectory
 > **Trajectory(轨迹)**是在固定策略 $\pi$ 与环境转移概率 $P(s′|s,a)$ 下，Agent 依次产生的一段状态-动作-奖励链：
 > $$
@@ -84,19 +90,25 @@
 > $$
 
 ## 1.8-Return
+
 > [!NOTE] Return
 > **Return(回报)**是Agent从当前时间$t$所在的状态$s_i{\in}{\mathcal{S}}$开始，在任意一条可能的Trajectory上从$t+1$时刻开始获得的所有未来奖励的总和。
 
 （直接Return相加只适用于有限步数的，我们更多地使用无限步数的Return，那么所有的Return是无限的，就区分不出来哪个策略是好的或者坏的，我们需要使用一种衰减来让Agent实现策略是可以分辨出好坏的，那么对于没有结束的过程的Return，我们使用Discount Return来实现可量化的Return评估）
 
+
 > [!NOTE] Discount Return
 > **Discount Return(折扣回报)**
+
 
 > [!question] 为什么在强化学习里面用的最多的是Discount Return
 > Contents
 
+
 ## 1.9-Markov Decision Processes
+
 （**未来总回报的价值**只取决于智能体**当前所处的状态**，与过去的历史轨迹无关，这正是MDP的核心马尔可夫性质。因此，智能体为了最大化未来的回报，只需要根据**当前状态**来做出最优决策，从而极大地简化了复杂的学习问题。）
 （从我们的Trajectory Chain我们可以发现我们得到的是一系列的）
+
 > [!NOTE] Markov decision processes(重点理解)
 > **Markov decision processes(马尔科夫决策过程)**指的是Agent未来的State只与当前时间$t$的State和从$t+1$时刻开始的未来状态有关，与从$t-1$之前的历史状态无关。

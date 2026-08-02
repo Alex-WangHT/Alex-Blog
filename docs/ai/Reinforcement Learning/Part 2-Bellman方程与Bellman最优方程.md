@@ -4,6 +4,7 @@
 
 我们
 （为什么Return是非常重要的）
+
 > [!NOTE] State Value
 > 我们有如下形式的Trajectory：
 > $${S}_{t}{\xrightarrow{{a{\in}{\{A{(S_t})\}}}}}{{R}_{t+1}},{{S}_{t+1}}{\xrightarrow{{a{\in}{\{A{(S_{t+1}})\}}}}}{{R}_{t+2}},{{S}_{t+2}}{\cdots}$$
@@ -49,6 +50,7 @@ $$
 v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
 $$
 上式结果就是**贝尔曼方程**的一般形式。
+
 > [!NOTE] Bellman Equation
 > $$
 > v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
@@ -106,6 +108,7 @@ $$
 $$
 (I-{\gamma}{P}){v_{\pi}}={r_{\pi}}
 $$
+
 > [!question] 我们为什么要求解State Value？
 > 
 
@@ -130,6 +133,7 @@ v_{\pi}({s})={\mathbb{E}}[{G_t}|{S_t}={s}]
 \end{align}
 $$
 上式右侧的第二项我们称之为**Action Value**：
+
 > [!NOTE] Action Value
 > $$
 > \begin{align}
@@ -191,6 +195,7 @@ $$
 > [!TIP] Action Value和State Value的对比
 > - 根据Action Value求解State Value
 > - 根据State Value求解Action Value
+
 # 三、贝尔曼优化方程(Bellman Optimal Equation)
 
 （Examples,我们为什么使用State Value？原因是State Value是能够评价哪个可能的Policy更好。）
@@ -199,6 +204,7 @@ $$
 > [!NOTE] Optimal State Value和Optimal Policy
 > 对于在任意状态中的State:$s{\in}{\{S\}}$来说，任意可能Policy的集合为${\mathbb{\Pi}}$。我们可以有如下的定义：
 > 对于${\forall}{\pi}{\in}{\mathbb{\Pi}}$，总是存在一个策略${\pi}^{*}$使得${{v}_{{\pi}^{*}}(s)}{\geq}{{v}_{\pi}(s)}$。我们称${{v}_{{\pi}^{*}}(s)}$为**Optimal State Value(最优状态值)**，对应的${\pi}^{*}$就是**Optimal Policy(最优策略)**。
+
 ## 3-2.贝尔曼最优方程的两种表达形式
 ### 3-2-1.元素形式的贝尔曼最优方程
 那么在一个未知的环境中，我们的问题就从所有的量都已知来求解State Value，变成了在任意状态${s}{\in}{\mathcal{S}}$中所有可能的Policy中找到Policy来使得State Value达到最优。从本质上来讲这就是求解一个最优化问题。

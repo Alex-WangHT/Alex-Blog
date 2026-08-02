@@ -11,10 +11,12 @@
 6. 生成 _includes/latest_posts.md（首页最新文章列表）
 7. 复制根目录 mathjax.js 到 docs/javascripts/
 8. 自动更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）
+9. 转换 Obsidian ![[...]] WikiLink 图片嵌入为标准 Markdown
 
 使用方式：
     python scripts/generate_blog_index.py
 """
+import re
 import shutil
 import yaml
 from pathlib import Path
@@ -37,6 +39,69 @@ CATEGORIES = {
     'physics': '物理知识',
 }
 
+
+# ── Obsidian WikiLink 转换 ───────────────────────────────────────
+
+WIKILINK_IMG_RE = re.compile(r'!\[\[([^\]]+)\]\]')
+
+
+def _resolve_wikilink(md_file: Path, link: str):
+    """
+    把 Obsidian 的 ![[...]] 链接解析为相对于 md_file 的图片路径。
+    返回标准 Markdown 图片语法，找不到则返回 None。
+    """
+    raw = link.lstrip('./')
+
+    # 1) 直接路径（如 img/Fig.png）
+    candidate = md_file.parent / raw
+    if candidate.exists() and candidate.is_file():
+        rel = candidate.relative_to(md_file.parent).as_posix()
+        return f'![{candidate.stem}]({rel})'
+
+    # 2) 同级 img/ 目录中查找（Obsidian 常见做法）
+    name = Path(raw).name
+    candidate = md_file.parent / 'img' / name
+    if candidate.exists() and candidate.is_file():
+        return f'![{name}](img/{name})'
+
+    return None
+
+
+def convert_wikilinks_in_file(md_file: Path):
+    """把单个 .md 文件中的 ![[...]] 转换为标准 Markdown 图片语法。"""
+    content = md_file.read_text(encoding='utf-8')
+    original = content
+
+    def replacer(m: re.Match) -> str:
+        link = m.group(1).strip()
+        resolved = _resolve_wikilink(md_file, link)
+        if resolved:
+            return resolved
+        print(f"⚠️  图片未找到: {md_file} -> ![[{link}]]")
+        return m.group(0)
+
+    content = WIKILINK_IMG_RE.sub(replacer, content)
+
+    if content != original:
+        md_file.write_text(content, encoding='utf-8')
+        return True
+    return False
+
+
+def convert_all_wikilinks():
+    """扫描 docs/ 下所有 .md，转换 Obsidian WikiLink 图片嵌入。"""
+    converted = 0
+    for md_file in DOCS_DIR.rglob('*.md'):
+        if md_file.name == 'index.md':
+            continue
+        if 'tags' in md_file.relative_to(DOCS_DIR).parts:
+            continue
+        if convert_wikilinks_in_file(md_file):
+            converted += 1
+    return converted
+
+
+# ── 原有函数 ─────────────────────────────────────────────────────
 
 def parse_front_matter(content: str):
     """从 markdown 内容中提取 YAML front matter"""
@@ -85,7 +150,6 @@ def generate_subdir_index(subdir_path: Path, articles_in_subdir):
     """为单个子目录生成 index.md"""
     subdir_name = subdir_path.name
     lines = [f'# {subdir_name}', '', '## 文章列表', '']
-
     for art in sorted(articles_in_subdir, key=lambda x: x['date'] or '0000-00-00', reverse=True):
         date_str = f" ({art['date']})" if art['date'] else ''
         rel_path = Path(art['path']).name
@@ -93,7 +157,6 @@ def generate_subdir_index(subdir_path: Path, articles_in_subdir):
         if art['description']:
             lines.append(f"  > {art['description']}")
         lines.append('')
-
     return '\n'.join(lines)
 
 
@@ -103,16 +166,13 @@ def generate_all_subdir_indices(articles):
     for art in articles:
         path = Path(art['path'])
         if len(path.parts) > 2:
-            subdir = path.parent
-            subdirs[subdir].append(art)
-
+            subdirs[path.parent].append(art)
     for subdir, arts in subdirs.items():
         subdir_path = DOCS_DIR / subdir
         if subdir_path.exists():
             (subdir_path / 'index.md').write_text(
                 generate_subdir_index(subdir_path, arts), encoding='utf-8'
             )
-
     return len(subdirs)
 
 
@@ -132,7 +192,6 @@ def generate_category_index(cat_dir, cat_name, articles):
     """生成分类 index.md：按子目录分组，每个子目录/文件作为 H2 标题"""
     cat_articles = [a for a in articles if a['category_dir'] == cat_dir]
     lines = [f'# {cat_name}', '']
-
     if not cat_articles:
         lines.append('> 暂无文章，敬请期待。')
         return '\n'.join(lines)
@@ -159,7 +218,6 @@ def generate_category_index(cat_dir, cat_name, articles):
             if art['description']:
                 lines.append(f"  > {art['description']}")
             lines.append('')
-
     return '\n'.join(lines)
 
 
@@ -227,13 +285,11 @@ def update_mkdocs_nav(all_tags, articles):
     """更新 mkdocs.yml 中的 nav 配置（左侧栏展开显示子目录和文件）"""
     content = MKDOCS_FILE.read_text(encoding='utf-8')
 
-    # 技术博客标签分类 nav
     tech_blog_nav = "  - 技术博客:\n"
     tech_blog_nav += "    - 标签分类:\n"
     for tag in sorted(all_tags, key=str.lower):
         tech_blog_nav += f'      - "#{tag}": tech-blog/tags/{tag}.md\n'
 
-    # 其他分类 nav（展开显示子目录和文件）
     other_nav = ""
     for cat_dir, cat_name in CATEGORIES.items():
         if cat_dir == 'tech-blog':
@@ -246,7 +302,6 @@ def update_mkdocs_nav(all_tags, articles):
         other_nav += f"  - {cat_name}:\n"
         other_nav += f"    - {cat_name}: {cat_dir}/index.md\n"
 
-        # 根目录下的 .md 文件
         for md_file in sorted(cat_path.glob('*.md')):
             if md_file.name == 'index.md':
                 continue
@@ -256,11 +311,8 @@ def update_mkdocs_nav(all_tags, articles):
             rel_path = md_file.relative_to(DOCS_DIR).as_posix()
             other_nav += f'    - {title}: {rel_path}\n'
 
-        # 子目录（只要有 .md 文件就加入 nav）
         for subdir in sorted(cat_path.iterdir()):
-            if not subdir.is_dir():
-                continue
-            if subdir.name in ('tags', 'img'):
+            if not subdir.is_dir() or subdir.name in ('tags', 'img'):
                 continue
             if list(subdir.rglob('*.md')):
                 other_nav += f'    - {subdir.name}: {cat_dir}/{subdir.name}/index.md\n'
@@ -287,6 +339,9 @@ def copy_mathjax_config():
 
 
 def main():
+    # 0. 转换 Obsidian WikiLink 图片嵌入为标准 Markdown
+    wikilink_count = convert_all_wikilinks()
+
     articles = scan_articles()
 
     # 1. 为每个分类生成 index.md
@@ -317,6 +372,7 @@ def main():
     # 7. 更新 mkdocs.yml nav（展开子目录）
     update_mkdocs_nav(all_tags, articles)
 
+    print(f"✅ WikiLink 转换: {wikilink_count} 个文件")
     print(f"✅ 扫描到 {len(articles)} 篇文章")
     print(f"✅ 生成分类主页: {len(CATEGORIES)} 个")
     print(f"✅ 生成子目录索引: {subdir_count} 个")
