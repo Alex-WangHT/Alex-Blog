@@ -43,7 +43,8 @@ $$
 上式结果就是**贝尔曼方程**的一般形式。
 
 !!! note "Bellman Equation"
-    $$v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\$$
+    $$v_{\pi}({s})={\sum_{a{\in}{A\{s\}}}}{\pi}{(a|s)}{\cdot}{\sum_{r{\in}{\{R\}}}}p(r|s,a){\cdot}{r}+{\gamma}{\sum_{a{\in}{A\{s\}}}}{\pi}(a|s){\cdot}{\sum_{{s^{'}}{\in}{\{S\}}}}{v_{\pi}(s^{'})}{\cdot}{p({s^{'}}|{s},{a})}\\
+    $$
 
 
 我们设Agent在当前的环境中有一系列的State：
@@ -111,35 +112,33 @@ $$
 $$
 
 !!! question "我们为什么要求解State Value？"
-    因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：
+	
 
-    - **矩阵求解**：这是State Value的Closed form解，我们已知状态转移矩阵$P$，每个状态的回报期望值矩阵$R_{\pi}$和折扣系数${\gamma}$。我们可以通过矩阵求逆的形式求解：
+
+
+因为State Value对于我们做强化学习评估Policy效果非常重要，因此我们求解各个状态对应的State Value有以下两种方式：
+
+- **矩阵求解**：这是State Value的Closed form解，我们已知状态转移矩阵$P$，每个状态的回报期望值矩阵$R_{\pi}$和折扣系数${\gamma}$。我们可以通过矩阵求逆的形式求解：
     $$
     {v_{\pi}}={(I-{\gamma}{P_{\pi}})}^{-1}{r_{\pi}}
     s$$
     这种方式可以一次性求解所有状态的State Value并且显得更直观一些，但是这种方式的局限性在于状态过多导致矩阵维数过大，求解的复杂度增大。
-    - **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值${v_{0}}$，使用下面的迭代方式直到第$n$步求出最终的状态值矩阵：
+- **迭代求解**：迭代求解是先预设一个State Value矩阵的初始值${v_{0}}$，使用下面的迭代方式直到第$n$步求出最终的状态值矩阵：
     $$
     {v_{k+1}}={r_\pi}+{\gamma}{P_{\pi}}{v_k}{\quad}(k=0,1,2,\dots,n)
     $$
     我们可以证明为什么能够迭代法能够在$n$步之后实现满足误差范围的$v_{\pi}$，首先我们令：
-
     $$
     {\delta}_{k}=v_{k}-v_{\pi}{\quad}(k=0,1,2,\dots,n)
     $$
-    
     代入上面的迭代式子，我们可以得到：
-    
     $$
     \begin{align}{{\delta}_{k+1}}&={r_\pi}+{\gamma}{P}({{\delta}_{k}}+{v_{\pi}})-{v_{\pi}}\\&={r_\pi}+{\gamma}{P}{{\delta}_{k}}-(I-{\gamma}{P}){{v}_{\pi}}\\&={\gamma}{P}{{\delta}_{k}}\end{align}
     $$
-
     然后我们从$k=0$开始迭代，我们最终得到：
-    
     $$
     {{\delta}_{k+1}}=({\gamma}{P})^{k+1}{{\delta}_{0}}
     $$
-    
     那么随着迭代次数$k$的不断增大，$\delta$也逐渐趋近于0。因此迭代方法能够实现对任意初始值$v_0$，只要迭代次数$k$足够多，结果一定收敛到$v_{\pi}$。
 
 !!! tip "State Value的Close Form Solution和Iteration Form Solution的算法复杂度对比"
