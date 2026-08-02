@@ -8,20 +8,20 @@
   `#SLAM` `#概率论` `#机器人`
   > 推导移动机器人里程计运动模型的概率形式，为粒子滤波做准备。
 
+- **[Part 2-空间向量及其性质](robot/Rigid Body Dynamic Algorithms/Part 2-空间向量及其性质.md)** — *机器人*
+
+- **[Part 3-刚体运动学和刚体动力学](robot/Rigid Body Dynamic Algorithms/Part 3-刚体运动学和刚体动力学.md)** — *机器人*
+
+- **[Part 4-受约束刚体动力学](robot/Rigid Body Dynamic Algorithms/Part 4-受约束刚体动力学.md)** — *机器人*
+
+- **[Part 5-多刚体系统建模](robot/Rigid Body Dynamic Algorithms/Part 5-多刚体系统建模.md)** — *机器人*
+
+- **[Part 6-刚体系统的逆动力学求解](robot/Rigid Body Dynamic Algorithms/Part 6-刚体系统的逆动力学求解.md)** — *机器人*
+
+- **[Part 7-刚体系统的正动力学求解](robot/Rigid Body Dynamic Algorithms/Part 7-刚体系统的正动力学求解.md)** — *机器人*
+
 - **[Rigid Body Dynamic Algorithms](robot/Rigid Body Dynamic Algorithms/Rigid Body Dynamic Algorithms.md)** — *机器人*
 
 - **[Robotics Vision and Control读书笔记](robot/Robotics Vision and Control/Robotics Vision and Control读书笔记.md)** — *机器人*
-
-- **[Part 1-强化学习基础](ai/Reinforcement Learning/Part 1-强化学习基础.md)** — *人工智能*
-
-- **[Part 2-Bellman方程与Bellman最优方程](ai/Reinforcement Learning/Part 2-Bellman方程与Bellman最优方程.md)** — *人工智能*
-
-- **[Part 3-数值迭代和策略迭代](ai/Reinforcement Learning/Part 3-数值迭代和策略迭代.md)** — *人工智能*
-
-- **[Part 4-蒙特卡罗方法](ai/Reinforcement Learning/Part 4-蒙特卡罗方法.md)** — *人工智能*
-
-- **[Part 5-时序差分方法](ai/Reinforcement Learning/Part 5-时序差分方法.md)** — *人工智能*
-
-- **[Part 6-值函数方法](ai/Reinforcement Learning/Part 6-值函数方法.md)** — *人工智能*
 
 [查看更多 →](tech-blog/index.md)
