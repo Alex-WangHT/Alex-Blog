@@ -10,3 +10,9 @@ docs/javascripts/mathjax.js
 # 编辑器配置（本地环境，不入库）
 .obsidian/
 .vscode/
+
+# Python 缓存
+__pycache__/
+
+# blog 插件构建期自动生成的落地页
+/docs/tech-blog/index.md
