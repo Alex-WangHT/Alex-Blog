@@ -27,10 +27,16 @@
 
 !!! note "Action Space"
     对于在状态空间中的任意状态$s_i{\in}{\mathcal{S}}$来说，在这个状态能够执行的所有的Acton：
-    $$a_k{\quad}(k=1,2,\dots)$$
+    
+    $$
+    a_k{\quad}(k=1,2,\dots)
+    $$
+    
     的集合定义为状态$s_i$的**Action Space(动作空间)**：
 
-    $$\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}$$
+    $$
+    \{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}
+    $$
 
 
 ## 4-State transition
@@ -38,7 +44,9 @@
 !!! note "State transition"
     **State transition(状态转移)**指的是状态集合$\{S\}$中的状态$s_i$通过动作集合$\{A(s_i)\}$中的某个动作$a_k$转移到另外的状态$s_j$的过程：
 
-    $${s_i}{\xrightarrow{a_k}}{s_j}$$
+    $$
+    {s_i}{\xrightarrow{a_k}}{s_j}
+    $$
 
 
 ## 5-Policy
@@ -78,7 +86,10 @@
 
 !!! note "Trajectory"
     **Trajectory(轨迹)**是在固定策略 $\pi$ 与环境转移概率 $P(s′|s,a)$ 下，Agent 依次产生的一段状态-动作-奖励链：
-    $${s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}$$
+    
+    $$
+    {s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}
+    $$
 
 
 ## 8-Return

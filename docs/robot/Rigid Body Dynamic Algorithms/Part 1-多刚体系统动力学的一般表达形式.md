@@ -7,8 +7,13 @@
 
 !!! note "刚体系统的运动方程表达"
     刚体系统的运动方程可以写成以下的**标准形式**：
-    $${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}$$
+    
+    $$
+    {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}
+    $$
+    
     其中：
+    
     - ${\mathbf{q}}$，${\mathbf{\dot{q}}}$，${\mathbf{\ddot{q}}}$代表刚体的位置，速度和加速度变量的矢量。
     - ${\boldsymbol{\tau}}$是作用力的矢量。
     - ${\mathbf{H}(\mathbf{q})}$是惯量项矩阵。

@@ -9,7 +9,7 @@
 
 !!! example "迭代牛顿-欧拉算法的伪代码"
     
-    $$
+    ```math
     \begin{array}{@{}l@{\hspace{5.5em}}l@{}}
     \hline \\[-0.9em]
     \begin{array}{l}
@@ -172,13 +172,13 @@
     \\[0.4em]
     \hline
     \end{array}
-    $$
+    ```
 
 ## 8.2-浮动基座系统的牛顿-欧拉法
 
 !!! example "迭代牛顿-欧拉算法的伪代码"
 
-    $$
+    ```math
     \begin{array}{@{}l@{\qquad\qquad}l@{}}
     \hline \\[-8pt]
     \begin{array}{l}
@@ -234,4 +234,4 @@
     \end{array}
     \\[-2pt] \hline
     \end{array}
-    $$
+    ```

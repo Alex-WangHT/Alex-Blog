@@ -11,25 +11,31 @@
 - 偏置力矩阵$\mathbf{C}$
 - 惯性张量矩阵$\mathbf{H}$
 首先，在Chapter-8中，我们计算的逆动力学如下：
+
 $$
 \begin{align}
 \tau&=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{\ddot{q}},\mathbf{f^x})
 \end{align}
 $$
+
 当$,\mathbf{\ddot{q}}=0$的时候，我们有：
+
 $$
 \mathbf{C}=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
 $$
+
 也就是说对于偏置力矩阵$\mathbf{C}$来说，只需要调用求解逆动力学的方式就能得到，然后我们就可以得到：
+
 $$
 {\mathbf{H}}{\mathbf{\ddot{q}}}=\mathbf{\tau}-ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
 $$
+
 （过渡）
 因此，求解正动力学的重中之重，是求解惯性张量矩阵$\mathbf{H}$。接下来就要用**复合刚体算法**来求解矩阵$\mathbf{H}$。
 
 !!! example "复合刚体算法的伪代码"
 
-    $$
+    ```math
     \begin{array}{@{}l@{\hspace{6em}}l@{}}
     \hline \\[-0.8em]
     \begin{array}{l}
@@ -158,6 +164,6 @@ $$
     \\[0.4em]
     \hline
     \end{array}
-    $$
+    ```
 
 ## 9.2-铰接体算法(ABA)求解正动力学

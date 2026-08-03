@@ -180,9 +180,15 @@ $$
 \boldsymbol{k}
 \end{bmatrix}
 $$
+
 其中
 
-- **显式约束**：我们有约束方程如下：$${\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}$$其中$\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0$，并且带加速度项的约束如下：
+- **显式约束**：我们有约束方程如下：
+$$
+{\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
+$$
+
+其中$\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0$，并且带加速度项的约束如下：
 
 $$
 {{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}
@@ -250,7 +256,10 @@ $$
 
 !!! note "矢量子空间"
     假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
-    $${\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}$$
+    
+    $$
+    {\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}
+    $$
     
 
 
@@ -265,8 +274,19 @@ $$
 
 !!! note "矢量子空间在关节动力学的应用"
     - **空间运动学**：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间$S$的定义如下：
-    	- 对隐式约束来说，关节运动的子空间$\boldsymbol{S}$就是隐式约束的Jacobians矩阵$\boldsymbol{K}$的零空间：$$\boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}$$
-    	- 对显式约束来说，关节运动的子空间$\boldsymbol{S}$就是显式约束的Jacobians矩阵$\boldsymbol{G}$的列空间：$$\boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}$$
+
+    	- 对隐式约束来说，关节运动的子空间$\boldsymbol{S}$就是隐式约束的Jacobians矩阵$\boldsymbol{K}$的零空间：
+        
+        $$
+        \boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}
+        $$
+    	
+        - 对显式约束来说，关节运动的子空间$\boldsymbol{S}$就是显式约束的Jacobians矩阵$\boldsymbol{G}$的列空间：
+        
+        $$
+        \boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}
+        $$
+        
     	- 如果矩阵$\boldsymbol{K}_1$和$\boldsymbol{K}_2$表示同一个约束，那么$null(\boldsymbol{K}_1)=null(\boldsymbol{K}_2)=\boldsymbol{S}$。同理，如果矩阵$\boldsymbol{G}_1$和$\boldsymbol{G}_2$表示同一个约束，那么$range(\boldsymbol{G}_1)=range(\boldsymbol{G}_2)=\boldsymbol{S}$。
     - **空间动力学**：我们定义关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$
 
