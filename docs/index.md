@@ -3,76 +3,37 @@
   <p style="font-size:1.15rem;color:var(--md-default-fg-color--light);max-width:600px;margin:0 auto 1.5rem;">
     记录与分享在机器人、人工智能、控制理论、计算机等领域的学习笔记与思考。
   </p>
-  <a href="tech-blog/" class="md-button md-button--primary" style="margin-right:.5rem;">
-    浏览技术博客
-  </a>
-  <a href="https://github.com/Alex-WangHT/Alex-Blog" class="md-button">
-    GitHub 仓库
-  </a>
+  <div style="display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;">
+    <a href="https://github.com/Alex-WangHT" target="_blank" class="md-button md-button--primary">
+      <span style="display:inline-flex;align-items:center;gap:.35rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub 主页
+      </span>
+    </a>
+    <a href="https://linktr.ee/your-linktree" target="_blank" class="md-button">
+      <span style="display:inline-flex;align-items:center;gap:.35rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.55 2.5a2.07 2.07 0 00-1.73.9L8.2 8.2 6.08 6.08a2.5 2.5 0 00-3.54 3.54l3.9 3.9c.48.48 1.13.74 1.8.74h.68l3.9 3.9a2.5 2.5 0 003.54-3.54l-2.12-2.12 3.78-5.8a2.07 2.07 0 00-1.73-3.1h-.03.03H13.55zm-.57 2h.57c.05 0 .1.03.13.08l-3.78 5.8 2.12 2.12a2.5 2.5 0 01-3.54 3.54l-3.9-3.9H4.26a.83.83 0 01-.83-.32l-3.9-3.9a.83.83 0 01.3-1.36.83.83 0 011.24.18l2.83 2.83 3.78-5.8a.83.83 0 01.7-.37h.06zm7.78 4.58a2.5 2.5 0 00-3.54 0l-1.3 1.3 1.77 1.77 1.3-1.3a.83.83 0 011.18 1.18l-1.3 1.3 1.77 1.77 1.3-1.3a2.5 2.5 0 000-3.54l-.18-.18z"/></svg>
+        Linktree
+      </span>
+    </a>
+  </div>
 </div>
 
-<div style="max-width:900px;margin:0 auto;padding:1rem;">
+<div style="max-width:800px;margin:0 auto;padding:1rem;">
 
-  <h2 style="text-align:center;margin-top:2rem;">知识领域</h2>
+  <h2 style="text-align:center;margin-top:2.5rem;">最新推文</h2>
 
-  <div class="home-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem;">
-
-    <a href="robot/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">🤖</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">机器人</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">刚体动力学、机器人视觉与控制</p>
-    </a>
-
-    <a href="ai/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">🧠</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">人工智能</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">强化学习基础与算法</p>
-    </a>
-
-    <a href="control/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">⚙️</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">控制理论</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">扰动观测器、现代控制系统</p>
-    </a>
-
-    <a href="computer/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">💻</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">计算机</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">计算机基础与编程</p>
-    </a>
-
-    <a href="electronics/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">🔌</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">电子设计</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">电子电路与硬件设计</p>
-    </a>
-
-    <a href="math/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">📐</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">数学知识</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">信息论、概率与推断</p>
-    </a>
-
-    <a href="physics/" class="home-card" style="display:block;padding:1.5rem;border-radius:.5rem;border:1px solid var(--md-default-fg-color--lightest);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 2px 4px rgba(0,0,0,.05);">
-      <div style="font-size:2rem;margin-bottom:.5rem;">⚛️</div>
-      <h3 style="margin:0 0 .3rem;font-size:1.1rem;">物理知识</h3>
-      <p style="margin:0;font-size:.9rem;color:var(--md-default-fg-color--light);">理论力学</p>
-    </a>
-
-  </div>
+  <!-- LATEST_POSTS -->
 
 </div>
 
 <style>
-  .home-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,.1) !important;
-  }
-  [data-md-color-scheme="slate"] .home-card {
-    border-color: var(--md-default-fg-color--lightest) !important;
+  .post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,.08) !important;
     background: var(--md-code-bg-color);
   }
-  [data-md-color-scheme="slate"] .home-card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,.25) !important;
+  [data-md-color-scheme="slate"] .post-item:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,.18) !important;
   }
 </style>

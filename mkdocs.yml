@@ -74,9 +74,10 @@ plugins:
       archive: true
       pagination_per_page: 10
 
-# 构建期虚拟生成分类/子目录落地页（重定向到第一篇文章），不写入 docs/
+# 构建期 hooks
 hooks:
   - scripts/hook_section_landing.py
+  - scripts/hook_latest_posts.py
 
 # 导航菜单
 nav:
