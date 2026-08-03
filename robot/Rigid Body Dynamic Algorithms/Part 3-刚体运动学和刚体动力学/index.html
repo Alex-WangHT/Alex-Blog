@@ -2721,9 +2721,11 @@ v_O
 \]</div>
 <p>但在机器人学中，为了方便递归计算（如 RNEA 算法），通常使用<strong>体坐标系下的加速度</strong>。</p>
 <h3 id="2-_1">(2)- 空间加速度的组成<a class="headerlink" href="#2-_1" title="Permanent link">&para;</a></h3>
-<p>对于一个在空间中运动的连杆，其加速度通常由两部分组成：
-1. <strong>主动加速度</strong>：由关节驱动产生的加速度。
-2. <strong>偏置加速度 (Bias Acceleration)</strong>：由于旋转产生的向心加速度和科氏加速度（Coriolis acceleration）。</p>
+<p>对于一个在空间中运动的连杆，其加速度通常由两部分组成：</p>
+<ol>
+<li><strong>主动加速度</strong>：由关节驱动产生的加速度。</li>
+<li><strong>偏置加速度 (Bias Acceleration)</strong>：由于旋转产生的向心加速度和科氏加速度（Coriolis acceleration）。</li>
+</ol>
 <p>在空间算子表示法中，连杆 <span class="arithmatex">\(i\)</span> 的加速度传递方程为：</p>
 <div class="arithmatex">\[
 {}^i \hat{a} = {}^i X_{i-1} {}^{i-1} \hat{a} + \mathbf{S}_i \ddot{q}_i + \hat{v}_i \times \mathbf{S}_i \dot{q}_i

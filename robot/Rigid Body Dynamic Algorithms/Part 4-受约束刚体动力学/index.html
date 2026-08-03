@@ -2975,24 +2975,28 @@ $$</li>
 {\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
 \]</div>
 <p>其中<span class="arithmatex">\(\boldsymbol{\tau_c} = \mathbf{K}^T \boldsymbol{\lambda}\)</span>，并且带加速度项的约束如下：$<span class="arithmatex">\(\mathbf{K} \dot{\boldsymbol{q}} = {\boldsymbol{k}}\)</span>$那么我们将约束联立可得如下动力学方程，该动力学方程即为在<strong>隐式约束形式的动力学方程</strong>：</p>
-<p>$$
+<div class="arithmatex">\[
 \begin{bmatrix}
-\boldsymbol{H} &amp; \boldsymbol{K}^{\mathrm{T}} \
+\boldsymbol{H} &amp; \boldsymbol{K}^{\mathrm{T}} \\
 \boldsymbol{K} &amp; 0
 \end{bmatrix}
 \begin{bmatrix}
-\ddot{\boldsymbol{q}} \
+\ddot{\boldsymbol{q}} \\
 -\boldsymbol{\lambda}
 \end{bmatrix} =
 \begin{bmatrix}
-\boldsymbol{\tau} - \boldsymbol{C} \
+\boldsymbol{\tau} - \boldsymbol{C} \\
 \boldsymbol{k}
 \end{bmatrix}
-$$
-其中</p>
+\]</div>
+<p>其中</p>
 <ul>
-<li><strong>显式约束</strong>：我们有约束方程如下：$<span class="arithmatex">\({\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}\)</span><span class="arithmatex">\(其中\)</span>\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0$，并且带加速度项的约束如下：</li>
+<li><strong>显式约束</strong>：我们有约束方程如下：
+$$
+{\mathbf{H}(\mathbf{q})}{\mathbf{\ddot{q}}}+{\mathbf{C}(\mathbf{q},\mathbf{\dot{q}})}={\boldsymbol{\tau}}+{\boldsymbol{\tau_c}}
+$$</li>
 </ul>
+<p>其中<span class="arithmatex">\(\mathbf{G}^{T}{\boldsymbol{\tau_c}}=0\)</span>，并且带加速度项的约束如下：</p>
 <div class="arithmatex">\[
 {{\boldsymbol{\ddot{q}}}={\boldsymbol{G}(\boldsymbol{y}) }\boldsymbol{\ddot{y}}}+{\boldsymbol{g}}
 \]</div>
@@ -3047,8 +3051,10 @@ $$
 <h3 id="1-_2">(1)-矢量子空间的相关知识概念<a class="headerlink" href="#1-_2" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">矢量子空间</p>
-<p>假设我们有一个<span class="arithmatex">\(n\)</span>维的矢量空间<span class="arithmatex">\(V\)</span>，我们定义一个<span class="arithmatex">\(m\)</span>维的子空间<span class="arithmatex">\({S}{\subseteq}{V}\)</span>，那么该子空间<span class="arithmatex">\(S\)</span>的定义如下：
-$<span class="arithmatex">\({\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}\)</span>$</p>
+<p>假设我们有一个<span class="arithmatex">\(n\)</span>维的矢量空间<span class="arithmatex">\(V\)</span>，我们定义一个<span class="arithmatex">\(m\)</span>维的子空间<span class="arithmatex">\({S}{\subseteq}{V}\)</span>，那么该子空间<span class="arithmatex">\(S\)</span>的定义如下：</p>
+<div class="arithmatex">\[
+{\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}
+\]</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">向量分解</p>
@@ -3062,13 +3068,27 @@ $<span class="arithmatex">\({\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mat
 <div class="admonition note">
 <p class="admonition-title">矢量子空间在关节动力学的应用</p>
 <ul>
-<li><strong>空间运动学</strong>：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间<span class="arithmatex">\(S\)</span>的定义如下：<ul>
-<li>对隐式约束来说，关节运动的子空间<span class="arithmatex">\(\boldsymbol{S}\)</span>就是隐式约束的Jacobians矩阵<span class="arithmatex">\(\boldsymbol{K}\)</span>的零空间：$<span class="arithmatex">\(\boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}\)</span>$</li>
-<li>对显式约束来说，关节运动的子空间<span class="arithmatex">\(\boldsymbol{S}\)</span>就是显式约束的Jacobians矩阵<span class="arithmatex">\(\boldsymbol{G}\)</span>的列空间：$<span class="arithmatex">\(\boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}\)</span>$</li>
+<li>
+<p><strong>空间运动学</strong>：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间<span class="arithmatex">\(S\)</span>的定义如下：</p>
+<ul>
+<li>对隐式约束来说，关节运动的子空间<span class="arithmatex">\(\boldsymbol{S}\)</span>就是隐式约束的Jacobians矩阵<span class="arithmatex">\(\boldsymbol{K}\)</span>的零空间：</li>
+</ul>
+<div class="arithmatex">\[
+\boldsymbol{S}=null(\boldsymbol{K}){\subseteq}{M^6}
+\]</div>
+<ul>
+<li>对显式约束来说，关节运动的子空间<span class="arithmatex">\(\boldsymbol{S}\)</span>就是显式约束的Jacobians矩阵<span class="arithmatex">\(\boldsymbol{G}\)</span>的列空间：</li>
+</ul>
+<div class="arithmatex">\[
+\boldsymbol{S}=range(\boldsymbol{G}){\subseteq}{M^6}
+\]</div>
+<ul>
 <li>如果矩阵<span class="arithmatex">\(\boldsymbol{K}_1\)</span>和<span class="arithmatex">\(\boldsymbol{K}_2\)</span>表示同一个约束，那么<span class="arithmatex">\(null(\boldsymbol{K}_1)=null(\boldsymbol{K}_2)=\boldsymbol{S}\)</span>。同理，如果矩阵<span class="arithmatex">\(\boldsymbol{G}_1\)</span>和<span class="arithmatex">\(\boldsymbol{G}_2\)</span>表示同一个约束，那么<span class="arithmatex">\(range(\boldsymbol{G}_1)=range(\boldsymbol{G}_2)=\boldsymbol{S}\)</span>。</li>
 </ul>
 </li>
-<li><strong>空间动力学</strong>：我们定义关节的空间约束力所在的子空间<span class="arithmatex">\(\boldsymbol{T}={\boldsymbol{S}}^{\perp}\)</span>，并且定义关节的空间驱动力<span class="arithmatex">\(\boldsymbol{T}_a\)</span>满足<span class="arithmatex">\({\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}\)</span></li>
+<li>
+<p><strong>空间动力学</strong>：我们定义关节的空间约束力所在的子空间<span class="arithmatex">\(\boldsymbol{T}={\boldsymbol{S}}^{\perp}\)</span>，并且定义关节的空间驱动力<span class="arithmatex">\(\boldsymbol{T}_a\)</span>满足<span class="arithmatex">\({\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}\)</span></p>
+</li>
 </ul>
 </div>
 <h3 id="3-_1">(3)-常见关节类型及其子空间<a class="headerlink" href="#3-_1" title="Permanent link">&para;</a></h3>

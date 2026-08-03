@@ -2658,7 +2658,7 @@
 \]</div>
 </div>
 <h2 id="24-">2.4-坐标变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
-<p>首先我们可以回顾一下空间坐标变换的表示——齐次矩阵**。
+<p>首先我们可以回顾一下空间坐标变换的表示——<strong>齐次矩阵</strong>。
 我们有两个坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>和<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>如下：</p>
 <p>其中<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点坐标<span class="arithmatex">\(O_B\)</span>在坐标系<span class="arithmatex">\(Frame\{{\mathcal{W}}\}\)</span>中的位置表示我们可以表示为<span class="arithmatex">\({^W}{\vec{r}}{_{BORG}}\)</span>。如果我们表达空间中某一个点<span class="arithmatex">\(P\)</span>的坐标，我们用<span class="arithmatex">\({^B}{\vec{r}}{_{P}}\)</span>表示点<span class="arithmatex">\(P\)</span>相对于<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的位置，我们用<span class="arithmatex">\({^W_B}{R}\)</span>表示坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的旋转矩阵，那么我们用齐次坐标表示的矩阵转换如下：</p>
 <div class="arithmatex">\[
@@ -2724,10 +2724,10 @@
 \]</div>
 <p>首先讨论以下坐标系的两种特殊情况：<strong>仅平移的情况</strong>和<strong>仅旋转的情况</strong>：
 - <strong>仅平移的情况</strong>：<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>沿着从坐标系原点<span class="arithmatex">\(O_B\)</span>为起点的向量<span class="arithmatex">\(\vec{r}\)</span>平移，平移后坐标系是<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>。首先我们在坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>中表示刚体内任意一点<span class="arithmatex">\(P\)</span>的位置：</p>
-<p>$$
-{<sup>B}{\vec{v}}{_P}={</sup>B}{m}{<em BP="BP">O}+{<sup>B}{m}{\times}{</sup>B}{\vec{r}</em>
-$$
-然后我们在坐标系}<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>中表示该刚体内任意一点<span class="arithmatex">\(P\)</span>的位置：</p>
+<div class="arithmatex">\[
+{^B}{\vec{v}}{_P}={^B}{m}{_O}+{^B}{m}{\times}{^B}{\vec{r}_{BP}}
+\]</div>
+<p>然后我们在坐标系<span class="arithmatex">\(Frame\{{\mathcal{C}}\}\)</span>中表示该刚体内任意一点<span class="arithmatex">\(P\)</span>的位置：</p>
 <div class="arithmatex">\[
 {^C}{\vec{v}}{_P}={^C}{m}{_O}+{^C}{m}{\times}{^C}{\vec{r}_{CP}}
 \]</div>

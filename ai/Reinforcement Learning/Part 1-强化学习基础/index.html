@@ -2639,16 +2639,22 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Action Space</p>
-<p>对于在状态空间中的任意状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>来说，在这个状态能够执行的所有的Acton：
-$<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$
-的集合定义为状态<span class="arithmatex">\(s_i\)</span>的<strong>Action Space(动作空间)</strong>：</p>
-<div class="arithmatex">\[\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}\]</div>
+<p>对于在状态空间中的任意状态<span class="arithmatex">\(s_i{\in}{\mathcal{S}}\)</span>来说，在这个状态能够执行的所有的Acton：</p>
+<div class="arithmatex">\[
+a_k{\quad}(k=1,2,\dots)
+\]</div>
+<p>的集合定义为状态<span class="arithmatex">\(s_i\)</span>的<strong>Action Space(动作空间)</strong>：</p>
+<div class="arithmatex">\[
+\{{\mathcal{A}}(s_i)\}=\{a_1,a_2,\dots,a_m\}
+\]</div>
 </div>
 <h2 id="4-state-transition">4-State transition<a class="headerlink" href="#4-state-transition" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">State transition</p>
 <p><strong>State transition(状态转移)</strong>指的是状态集合<span class="arithmatex">\(\{S\}\)</span>中的状态<span class="arithmatex">\(s_i\)</span>通过动作集合<span class="arithmatex">\(\{A(s_i)\}\)</span>中的某个动作<span class="arithmatex">\(a_k\)</span>转移到另外的状态<span class="arithmatex">\(s_j\)</span>的过程：</p>
-<div class="arithmatex">\[{s_i}{\xrightarrow{a_k}}{s_j}\]</div>
+<div class="arithmatex">\[
+{s_i}{\xrightarrow{a_k}}{s_j}
+\]</div>
 </div>
 <h2 id="5-policy">5-Policy<a class="headerlink" href="#5-policy" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
@@ -2689,8 +2695,10 @@ $<span class="arithmatex">\(a_k{\quad}(k=1,2,\dots)\)</span>$
 <h2 id="7-trajectoryepisode">7-Trajectory和Episode<a class="headerlink" href="#7-trajectoryepisode" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Trajectory</p>
-<p><strong>Trajectory(轨迹)</strong>是在固定策略 <span class="arithmatex">\(\pi\)</span> 与环境转移概率 <span class="arithmatex">\(P(s′|s,a)\)</span> 下，Agent 依次产生的一段状态-动作-奖励链：
-$<span class="arithmatex">\({s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}\)</span>$</p>
+<p><strong>Trajectory(轨迹)</strong>是在固定策略 <span class="arithmatex">\(\pi\)</span> 与环境转移概率 <span class="arithmatex">\(P(s′|s,a)\)</span> 下，Agent 依次产生的一段状态-动作-奖励链：</p>
+<div class="arithmatex">\[
+{s_i}{\xrightarrow[r=r_k]{a_k}}{s_{i+1}}{\xrightarrow[r=r_m]{a_m}}{\dots}
+\]</div>
 </div>
 <h2 id="8-return">8-Return<a class="headerlink" href="#8-return" title="Permanent link">&para;</a></h2>
 <div class="admonition note">

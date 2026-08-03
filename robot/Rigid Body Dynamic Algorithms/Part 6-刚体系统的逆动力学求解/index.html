@@ -2477,7 +2477,8 @@
 <h2 id="81-">8.1-固定基座系统的牛顿-欧拉法<a class="headerlink" href="#81-" title="Permanent link">&para;</a></h2>
 <div class="admonition example">
 <p class="admonition-title">迭代牛顿-欧拉算法的伪代码</p>
-<div class="arithmatex">\[
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 \begin{array}{@{}l@{\hspace{5.5em}}l@{}}
 \hline \\[-0.9em]
 \begin{array}{l}
@@ -2558,7 +2559,7 @@
 =
 \boldsymbol{S}_i^T \boldsymbol{f}_i
 \end{array}
-&amp;
+&
 \begin{array}{l}
 \underline{\text{Algorithm:}} \\[0.5em]
 \boldsymbol{v}_0 = \boldsymbol{0} \\[0.35em]
@@ -2640,66 +2641,71 @@ q_i,
 \\[0.4em]
 \hline
 \end{array}
-\]</div>
+</script>
+</div>
 </div>
 <h2 id="82-">8.2-浮动基座系统的牛顿-欧拉法<a class="headerlink" href="#82-" title="Permanent link">&para;</a></h2>
 <div class="admonition example">
 <p class="admonition-title">迭代牛顿-欧拉算法的伪代码</p>
-<p>$$
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 \begin{array}{@{}l@{\qquad\qquad}l@{}}
-\hline \[-8pt]
+\hline \\[-8pt]
 \begin{array}{l}
-\underline{\text{Pass 1}} \[6pt]
-a_{0}<sup 0="0">{r}=-{}</sup> \[8pt]
-v_{Ji}=S_{i}\dot{q}}a_{g<em i="i">{i} \[8pt]
-v</em> \[8pt]
-c_{i}=\dot{S}}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{Ji<em i="i">{i}\dot{q}</em> \[8pt]
-a_{i}}+v_{i}\times v_{Ji<sup i="i">{r}={}</sup>}X_{\lambda(i)}a_{\lambda(i)}+c_{i}+S_{i}\ddot{q<em i="i">{i} \[8pt]
-p</em>}=I_{i}a_{i<sup>{r}+v_{i}\times</sup>{<em>}I_{i}v_{i}-{}<sup>{i}X_{0}</sup>{</em>}{}<sup x="x">{0}f_{i}</sup> \[14pt]</p>
-<p>\underline{\text{Pass 2}} \[6pt]
-I_{i}<sup i="i">{c}=I_{i}+\displaystyle\sum_{j\in\mu(i)}{}</sup>}X_{j<sup c="c">{*}I_{j}</sup> \[16pt]
-p_{i}}{}^{j}X_{i<sup i="i">{c}=p_{i}+\displaystyle\sum_{j\in\mu(i)}{}</sup>}X_{j<sup c="c">{*}p_{j}</sup> \[16pt]</p>
-<p>\underline{\text{Pass 3}} \[6pt]
-{}<sup c="c">{0}a_{0}=-(I_{0}</sup>)<sup c="c">{-1}p_{0}</sup> \[8pt]
-{}<sup i="i">{i}a_{0}={}</sup> \[8pt]
-\tau_{i}=S_{i}}X_{\lambda(i)}{}^{\lambda(i)}a_{0<sup c="c">{T}\left(I_{i}</sup>}{<sup c="c">{i}a_{0}+p_{i}</sup>\right)
+\underline{\text{Pass 1}} \\[6pt]
+a_{0}^{r}=-{}^{0}a_{g} \\[8pt]
+v_{Ji}=S_{i}\dot{q}_{i} \\[8pt]
+v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{Ji} \\[8pt]
+c_{i}=\dot{S}_{i}\dot{q}_{i}+v_{i}\times v_{Ji} \\[8pt]
+a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}+c_{i}+S_{i}\ddot{q}_{i} \\[8pt]
+p_{i}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}-{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[14pt]
+
+\underline{\text{Pass 2}} \\[6pt]
+I_{i}^{c}=I_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}I_{j}^{c}{}^{j}X_{i} \\[16pt]
+p_{i}^{c}=p_{i}+\displaystyle\sum_{j\in\mu(i)}{}^{i}X_{j}^{*}p_{j}^{c} \\[16pt]
+
+\underline{\text{Pass 3}} \\[6pt]
+{}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[8pt]
+{}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[8pt]
+\tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right)
 \end{array}
-&amp;
+&
 \begin{array}{l}
-a_{0}<sup 0="0">{r}=-{}</sup> \[2pt]
-\textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \[2pt]
+a_{0}^{r}=-{}^{0}a_{g} \\[2pt]
+\textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
 \quad [X_{J},S_{i},v_{J},c_{J}]
-=\operatorname{jcalc}(\operatorname{jtype}(i),q_{i},\dot{q}}a_{g<em _lambda_i_="\lambda(i)">{i}) \[2pt]
-\quad {}^{i}X</em> \[2pt]
-\quad \textbf{if } \lambda(i)\neq 0 \textbf{ then} \[2pt]
-\qquad {}}=X_{J}X_{T(i)<sup i="i">{i}X_{0}={}</sup> \[2pt]
-\quad \textbf{end} \[2pt]
-\quad v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{J} \[2pt]
-\quad a_{i}}X_{\lambda(i)}{}^{\lambda(i)}X_{0<sup i="i">{r}={}</sup>
-+c_{J}+v_{i}\times v_{J}+S_{i}\ddot{q}}X_{\lambda(i)}a_{\lambda(i)}^{r<em i="i">{i} \[2pt]
-\quad I</em> \[2pt]
-\quad p_{i}}^{c}=I_{i<sup r="r">{c}=I_{i}a_{i}</sup>\times^{}+v_{i<em>}I_{i}v_{i}
--{}<sup>{i}X_{0}</sup>{</em>}{}<sup x="x">{0}f_{i}</sup> \[2pt]
-\textbf{end} \[2pt]
-I_{0}^{c}=I_{0} \[2pt]
-p_{0}<sup r="r">{c}=I_{0}a_{0}</sup>\times}+v_{0<sup 0="0">{*}I_{0}v_{0}-{}</sup> \[2pt]
-\textbf{for } i=N_{B} \textbf{ to } 1 \textbf{ do} \[2pt]
+=\operatorname{jcalc}(\operatorname{jtype}(i),q_{i},\dot{q}_{i}) \\[2pt]
+\quad {}^{i}X_{\lambda(i)}=X_{J}X_{T(i)} \\[2pt]
+\quad \textbf{if } \lambda(i)\neq 0 \textbf{ then} \\[2pt]
+\qquad {}^{i}X_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}X_{0} \\[2pt]
+\quad \textbf{end} \\[2pt]
+\quad v_{i}={}^{i}X_{\lambda(i)}v_{\lambda(i)}+v_{J} \\[2pt]
+\quad a_{i}^{r}={}^{i}X_{\lambda(i)}a_{\lambda(i)}^{r}
++c_{J}+v_{i}\times v_{J}+S_{i}\ddot{q}_{i} \\[2pt]
+\quad I_{i}^{c}=I_{i} \\[2pt]
+\quad p_{i}^{c}=I_{i}a_{i}^{r}+v_{i}\times^{*}I_{i}v_{i}
+-{}^{i}X_{0}^{*}{}^{0}f_{i}^{x} \\[2pt]
+\textbf{end} \\[2pt]
+I_{0}^{c}=I_{0} \\[2pt]
+p_{0}^{c}=I_{0}a_{0}^{r}+v_{0}\times^{*}I_{0}v_{0}-{}^{0}f_{0}^{x} \\[2pt]
+\textbf{for } i=N_{B} \textbf{ to } 1 \textbf{ do} \\[2pt]
 \quad I_{\lambda(i)}^{c}
 =I_{\lambda(i)}^{c}
-+{}}f_{0}^{x<sup>{\lambda(i)}X_{i}</sup>{<em>}I_{i}<sup i="i">{c}{}</sup> \[2pt]
++{}^{\lambda(i)}X_{i}^{*}I_{i}^{c}{}^{i}X_{\lambda(i)} \\[2pt]
 \quad p_{\lambda(i)}^{c}
 =p_{\lambda(i)}^{c}
-+{}}X_{\lambda(i)<sup>{\lambda(i)}X_{i}</sup>{</em>}p_{i}^{c} \[2pt]
-\textbf{end} \[2pt]
-{}<sup c="c">{0}a_{0}=-(I_{0}</sup>)<sup c="c">{-1}p_{0}</sup> \[2pt]
-\textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \[2pt]
-\quad {}<sup i="i">{i}a_{0}={}</sup> \[2pt]
-\quad \tau_{i}=S_{i}}X_{\lambda(i)}{}^{\lambda(i)}a_{0<sup c="c">{T}\left(I_{i}</sup>}{<sup c="c">{i}a_{0}+p_{i}</sup>\right) \[2pt]
++{}^{\lambda(i)}X_{i}^{*}p_{i}^{c} \\[2pt]
+\textbf{end} \\[2pt]
+{}^{0}a_{0}=-(I_{0}^{c})^{-1}p_{0}^{c} \\[2pt]
+\textbf{for } i=1 \textbf{ to } N_{B} \textbf{ do} \\[2pt]
+\quad {}^{i}a_{0}={}^{i}X_{\lambda(i)}{}^{\lambda(i)}a_{0} \\[2pt]
+\quad \tau_{i}=S_{i}^{T}\left(I_{i}^{c}{}^{i}a_{0}+p_{i}^{c}\right) \\[2pt]
 \textbf{end}
 \end{array}
-\[-2pt] \hline
+\\[-2pt] \hline
 \end{array}
-$$</p>
+</script>
+</div>
 </div>
 
 

@@ -2813,7 +2813,13 @@
 <p>首先我们可以用<strong>父连杆表格和子连杆表格</strong>来表示连接图<span class="arithmatex">\(G\)</span>中关节和刚体之间的连接关系：列出父连杆表格<span class="arithmatex">\(p(i)\)</span>和子连杆表格<span class="arithmatex">\(s(i)\)</span>，其中<span class="arithmatex">\(i\)</span>为关节编号。
 然后我们从父连杆表格<span class="arithmatex">\(p(i)\)</span>和子连杆表格<span class="arithmatex">\(s(i)\)</span>中可以提取出来以下的量：</p>
 <ul>
-<li><strong>父母表格</strong>：根据父连杆表格<span class="arithmatex">\(p(i)\)</span>和子连杆表格<span class="arithmatex">\(s(i)\)</span>来推导出父节点列表<span class="arithmatex">\(\lambda(i)\)</span>:$<span class="arithmatex">\(\lambda(i)={\min}(p(i),s(i)){\quad}{(1{\leq}i{\leq}N_B)}\)</span><span class="arithmatex">\(如果\)</span>i=s(i)<span class="arithmatex">\(，那么我们认定在连接树中式前向传播的，如果\)</span>i=p(i)<span class="arithmatex">\(，那么关节\)</span>i$是反向传播的。</li>
+<li><strong>父母表格</strong>：根据父连杆表格<span class="arithmatex">\(p(i)\)</span>和子连杆表格<span class="arithmatex">\(s(i)\)</span>来推导出父节点列表<span class="arithmatex">\(\lambda(i)\)</span>:</li>
+</ul>
+<div class="arithmatex">\[
+\lambda(i)={\min}(p(i),s(i)){\quad}{(1{\leq}i{\leq}N_B)}
+\]</div>
+<p>如果<span class="arithmatex">\(i=s(i)\)</span>，那么我们认定在连接树中式前向传播的，如果<span class="arithmatex">\(i=p(i)\)</span>，那么关节<span class="arithmatex">\(i\)</span>是反向传播的。</p>
+<ul>
 <li><strong>刚体<span class="arithmatex">\(i\)</span>路径集合<span class="arithmatex">\({\kappa}(i)\)</span></strong>：除了基座(<span class="arithmatex">\(i=0\)</span>)，<span class="arithmatex">\({\kappa}(i)\)</span>是连接树<span class="arithmatex">\(G_t\)</span>里从基座到刚体<span class="arithmatex">\(i\)</span>的路径上所有的节点的集合。</li>
 <li><strong>刚体<span class="arithmatex">\(i\)</span>的子刚体集合<span class="arithmatex">\({\mu}(i)\)</span></strong>：刚体<span class="arithmatex">\(i\)</span>的子刚体节点集合</li>
 <li><strong>刚体<span class="arithmatex">\(i\)</span>的子树节点集合<span class="arithmatex">\({\nu}(i)\)</span></strong>：以刚体<span class="arithmatex">\(i\)</span>为根节点的子树的所有节点的集合</li>

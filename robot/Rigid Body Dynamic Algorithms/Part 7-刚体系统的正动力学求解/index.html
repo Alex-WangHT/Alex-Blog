@@ -2480,147 +2480,156 @@
 <p>首先，求解复合刚体动力学的方程，就是求解以下几个矩阵：
 - 偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>
 - 惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>
-首先，在Chapter-8中，我们计算的逆动力学如下：
-$$
+首先，在Chapter-8中，我们计算的逆动力学如下：</p>
+<div class="arithmatex">\[
 \begin{align}
 \tau&amp;=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{\ddot{q}},\mathbf{f^x})
 \end{align}
-$$
-当<span class="arithmatex">\(,\mathbf{\ddot{q}}=0\)</span>的时候，我们有：
-$$
+\]</div>
+<p>当<span class="arithmatex">\(,\mathbf{\ddot{q}}=0\)</span>的时候，我们有：</p>
+<div class="arithmatex">\[
 \mathbf{C}=ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
-$$
-也就是说对于偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>来说，只需要调用求解逆动力学的方式就能得到，然后我们就可以得到：
-$$
+\]</div>
+<p>也就是说对于偏置力矩阵<span class="arithmatex">\(\mathbf{C}\)</span>来说，只需要调用求解逆动力学的方式就能得到，然后我们就可以得到：</p>
+<div class="arithmatex">\[
 {\mathbf{H}}{\mathbf{\ddot{q}}}=\mathbf{\tau}-ID({model},\mathbf{q},\mathbf{\dot{q}},\mathbf{0},\mathbf{f^x})
-$$
-（过渡）
+\]</div>
+<p>（过渡）
 因此，求解正动力学的重中之重，是求解惯性张量矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。接下来就要用<strong>复合刚体算法</strong>来求解矩阵<span class="arithmatex">\(\mathbf{H}\)</span>。</p>
 <div class="admonition example">
 <p class="admonition-title">复合刚体算法的伪代码</p>
-<p>$$
+<div class="arithmatex">
+<script type="math/tex; mode=display">
 \begin{array}{@{}l@{\hspace{6em}}l@{}}
-\hline \[-0.8em]
+\hline \\[-0.8em]
 \begin{array}{l}
-\underline{\text{Basic Equations:}} \[0.8em]
-\boldsymbol{I}<em _in="\in" _mu_i_="\mu(i)" j="j">i^c
+\underline{\text{Basic Equations:}} \\[0.8em]
+\boldsymbol{I}_i^c
 =
 \boldsymbol{I}_i
 +
-\displaystyle\sum</em>
-\boldsymbol{I}<em ij="ij">j^c \[1.2em]
-\boldsymbol{H}</em>
+\displaystyle\sum_{j \in \mu(i)}
+\boldsymbol{I}_j^c \\[1.2em]
+\boldsymbol{H}_{ij}
 =
-\left{
+\left\{
 \begin{array}{ll}
 \boldsymbol{S}_i^T
 \boldsymbol{I}_i^c
 \boldsymbol{S}_j
-&amp; \text{if } i \in \nu(j) \[0.25em]</p>
-<p>\boldsymbol{S}<em _in="\in" _mu_i_="\mu(i)" j="j">i^T
+& \text{if } i \in \nu(j) \\[0.25em]
+
+\boldsymbol{S}_i^T
 \boldsymbol{I}_j^c
 \boldsymbol{S}_j
-&amp; \text{if } j \in \nu(i) \[0.25em]
+& \text{if } j \in \nu(i) \\[0.25em]
 \boldsymbol{0}
-&amp; \text{otherwise}
+& \text{otherwise}
 \end{array}
-\right. \[2.2em]
-\underline{\text{Equations for Body-Coordinates}} \[-0.1em]
-\underline{\text{Algorithm:}} \[1em]
+\right. \\[2.2em]
+\underline{\text{Equations for Body-Coordinates}} \\[-0.1em]
+\underline{\text{Algorithm:}} \\[1em]
 \boldsymbol{I}_i^c
 =
 \boldsymbol{I}_i
 +
-\displaystyle\sum</em>
-{}<sup>i\boldsymbol{X}_j</sup>{<em>}
+\displaystyle\sum_{j \in \mu(i)}
+{}^i\boldsymbol{X}_j^{*}
 \boldsymbol{I}_j^c
-{}^j\boldsymbol{X}_i \[1.2em]
+{}^j\boldsymbol{X}_i \\[1.2em]
 {}^{\lambda(j)}\boldsymbol{F}_i
 =
-{}<sup>{\lambda(j)}\boldsymbol{X}_j</sup>{</em>}
-{}^j\boldsymbol{F}<em ij="ij">i
+{}^{\lambda(j)}\boldsymbol{X}_j^{*}
+{}^j\boldsymbol{F}_i
 \qquad
 \left(
 {}^i\boldsymbol{F}_i
 =
 \boldsymbol{I}_i^c
 \boldsymbol{S}_i
-\right) \[1.2em]
-\boldsymbol{H}</em>
+\right) \\[1.2em]
+\boldsymbol{H}_{ij}
 =
-\left{
+\left\{
 \begin{array}{ll}
-{}<sup>j\boldsymbol{F}_i</sup>T
-\boldsymbol{S}<em ji="ji">j
-&amp; \text{if } i \in \nu(j) \[0.25em]
-\boldsymbol{H}</em>^T
-&amp; \text{if } j \in \nu(i) \[0.25em]
+{}^j\boldsymbol{F}_i^T
+\boldsymbol{S}_j
+& \text{if } i \in \nu(j) \\[0.25em]
+\boldsymbol{H}_{ji}^T
+& \text{if } j \in \nu(i) \\[0.25em]
 \boldsymbol{0}
-&amp; \text{otherwise}
+& \text{otherwise}
 \end{array}
 \right.
 \end{array}
-&amp;
+&
 \begin{array}{l}
-\underline{\text{Algorithm:}} \[0.6em]
-\boldsymbol{H} = \boldsymbol{0} \[0.35em]
-\mathbf{for} i = 1 \mathbf{to} N_B \mathbf{do} \[0.25em]
+\underline{\text{Algorithm:}} \\[0.6em]
+\boldsymbol{H} = \boldsymbol{0} \\[0.35em]
+\mathbf{for}\ i = 1\ \mathbf{to}\ N_B\ \mathbf{do} \\[0.25em]
 \qquad
-\boldsymbol{I}<em _lambda_i_="\lambda(i)">i^c
-=
-\boldsymbol{I}_i \[0.25em]
-\mathbf{end} \[0.45em]
-\mathbf{for} i = N_B \mathbf{to} 1 \mathbf{do} \[0.25em]
-\qquad
-\mathbf{if} \lambda(i) \neq 0 \mathbf{then} \[0.25em]
-\qquad\qquad
-\boldsymbol{I}</em>^c
-=
-\boldsymbol{I}<em _lambda_i_="\lambda(i)">{\lambda(i)}^c
-+
-{}<sup _="*">{\lambda(i)}\boldsymbol{X}_i</sup>
 \boldsymbol{I}_i^c
-{}^i\boldsymbol{X}</em> \[0.25em]
+=
+\boldsymbol{I}_i \\[0.25em]
+\mathbf{end} \\[0.45em]
+\mathbf{for}\ i = N_B\ \mathbf{to}\ 1\ \mathbf{do} \\[0.25em]
 \qquad
-\mathbf{end} \[0.35em]
+\mathbf{if}\ \lambda(i) \neq 0\ \mathbf{then} \\[0.25em]
+\qquad\qquad
+\boldsymbol{I}_{\lambda(i)}^c
+=
+\boldsymbol{I}_{\lambda(i)}^c
++
+{}^{\lambda(i)}\boldsymbol{X}_i^{*}
+\boldsymbol{I}_i^c
+{}^i\boldsymbol{X}_{\lambda(i)} \\[0.25em]
+\qquad
+\mathbf{end} \\[0.35em]
 \qquad
 \boldsymbol{F}
 =
-\boldsymbol{I}<em ii="ii">i^c
-\boldsymbol{S}_i \[0.35em]
+\boldsymbol{I}_i^c
+\boldsymbol{S}_i \\[0.35em]
 \qquad
-\boldsymbol{H}</em>
+\boldsymbol{H}_{ii}
 =
 \boldsymbol{S}_i^T
-\boldsymbol{F} \[0.35em]
+\boldsymbol{F} \\[0.35em]
 \qquad
-j = i \[0.35em]</p>
-<p>\qquad
-\mathbf{while} \lambda(j) \neq 0 \mathbf{do} \[0.25em]
+j = i \\[0.35em]
+
+\qquad
+\mathbf{while}\ \lambda(j) \neq 0\ \mathbf{do} \\[0.25em]
 \qquad\qquad
 \boldsymbol{F}
 =
-{}<sup _="*">{\lambda(j)}\boldsymbol{X}_j</sup>
-\boldsymbol{F} \[0.25em]</p>
-<p>\qquad\qquad
-j = \lambda(j) \[0.25em]</p>
-<p>\qquad\qquad
+{}^{\lambda(j)}\boldsymbol{X}_j^{*}
+\boldsymbol{F} \\[0.25em]
+
+\qquad\qquad
+j = \lambda(j) \\[0.25em]
+
+\qquad\qquad
 \boldsymbol{H}_{ij}
 =
 \boldsymbol{F}^T
-\boldsymbol{S}_j \[0.25em]</p>
-<p>\qquad\qquad
-\boldsymbol{H}<em ij="ij">{ji}
+\boldsymbol{S}_j \\[0.25em]
+
+\qquad\qquad
+\boldsymbol{H}_{ji}
 =
-\boldsymbol{H}</em>^T \[0.25em]</p>
-<p>\qquad
-\mathbf{end} \[0.25em]</p>
-<p>\mathbf{end}
+\boldsymbol{H}_{ij}^T \\[0.25em]
+
+\qquad
+\mathbf{end} \\[0.25em]
+
+\mathbf{end}
 \end{array}
-\[0.4em]
+\\[0.4em]
 \hline
 \end{array}
-$$</p>
+</script>
+</div>
 </div>
 <h2 id="92-aba">9.2-铰接体算法(ABA)求解正动力学<a class="headerlink" href="#92-aba" title="Permanent link">&para;</a></h2>
 
