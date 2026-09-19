@@ -362,49 +362,387 @@ $$
 
 
 
-## 2.4-空间坐标的空间变换
+## 2.4-空间坐标变换
 
+### (1).从旋量的换原点性质出发
 
-这样，我们就得到了**空间变换矩阵**：
+在 2.1 中，我们将旋量写成
 
-!!! note "空间变换矩阵(Spatial Transformation Matrix)"
-    假设有两个坐标系 $Frame{\{\mathcal{A}\}}$ 和 $Frame{\{\mathcal{B}\}}$ 。$Frame{\{\mathcal{B}\}}$ 坐标系相对于 $Frame{\{\mathcal{A}\}}$ 坐标系的几何关系由旋转矩阵 $\mathbf{R} = {^A_B \mathbf{R}}$ 和位置向量 ${p} = {^A\vec{p}_{BORG}}$ (即$Frame{\{\mathcal{B}\}}$原点在$Frame{\{\mathcal{A}\}}$中的位置) 确定。
-    **空间变换矩阵 ${{^A_B}\mathbf{X}}$** 用于将空间矢量从$Frame{\{\mathcal{B}\}}$ 坐标系转换到 $Frame{\{\mathcal{A}\}}$ 坐标系， 的定义如下：
+$$
+S=
+\begin{pmatrix}
+s\\
+s_O
+\end{pmatrix}
+=
+\begin{pmatrix}
+s\\
+r\times s+hs
+\end{pmatrix}.
+$$
+
+旋量的主部 $s$ 与坐标原点的选择无关，而副部 $s_O$ 会随坐标原点改变。设如图所示的坐标系 $Frame\{\mathcal A\}$ 和 $Frame\{\mathcal B\}$ 的原点分别为 $O_A$、$O_B$，并定义
+
+$$
+p={}^{A}r_{O_AO_B},
+$$
+
+即 $p$ 是从 $O_A$ 指向 $O_B$ 的位置向量，并用 $Frame\{\mathcal A\}$ 表示。若暂时不考虑坐标轴旋转，则轴线上同一点相对于两个原点的位置满足
+
+$$
+r_A=p+r_B.
+$$
+
+因此，根据 2.1 中旋量副部的定义，
+
+$$
+\begin{aligned}
+s_{O_A}
+&=r_A\times s+hs\\
+&=(p+r_B)\times s+hs\\
+&=p\times s+s_{O_B}.
+\end{aligned}
+$$
+
+这说明，改变参考点时，旋量的主部保持不变，副部增加 $p\times s$。空间运动向量本身就是一个运动旋量，因此同样满足这个规律：
+
+$$
+\begin{pmatrix}
+s\\
+s_{O_A}
+\end{pmatrix}
+=
+\begin{pmatrix}
+I&0\\
+[p]_{\times}&I
+\end{pmatrix}
+\begin{pmatrix}
+s\\
+s_{O_B}
+\end{pmatrix},
+$$
+
+其中 $[p]_{\times}$ 是叉乘矩阵，满足 $[p]_{\times}x=p\times x$。
+
+### (2).空间运动向量的坐标变换
+
+再考虑坐标轴方向不同的情况。令
+
+$$
+R={}^{A}_{B}R
+$$
+
+表示将三维向量的 $B$ 坐标转换为 $A$ 坐标的旋转矩阵。设空间运动向量在两个坐标系中的 Plücker 坐标分别为
+
+$$
+{}^{A}\hat m=
+\begin{pmatrix}
+{}^{A}m\\
+{}^{A}m_{O_A}
+\end{pmatrix},
+\qquad
+{}^{B}\hat m=
+\begin{pmatrix}
+{}^{B}m\\
+{}^{B}m_{O_B}
+\end{pmatrix}.
+$$
+
+主部只需旋转，而副部既要旋转又要换原点：
+
+$$
+\begin{aligned}
+{}^{A}m&=R\,{}^{B}m,\\
+{}^{A}m_{O_A}&=R\,{}^{B}m_{O_B}+[p]_{\times}R\,{}^{B}m.
+\end{aligned}
+$$
+
+于是得到 Featherstone 记号下的**空间运动变换矩阵**：
+
+$$
+{}^{A}_{B}X=
+\begin{pmatrix}
+R&0\\
+[p]_{\times}R&R
+\end{pmatrix},
+\qquad
+{}^{A}\hat m={}^{A}_{B}X\,{}^{B}\hat m.
+$$
+
+对空间速度向量 $\hat v=(\omega,v_O)$，这个变换就是
+
+$$
+\begin{aligned}
+{}^{A}\omega&=R\,{}^{B}\omega,\\
+{}^{A}v_{O_A}&=R\,{}^{B}v_{O_B}+p\times{}^{A}\omega.
+\end{aligned}
+$$
+
+第二式正是刚体速度场在不同参考点处的关系。
+
+### (3).空间力向量的对偶变换
+
+空间力向量写成
+
+$$
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}.
+$$
+
+合力 $f$ 与原点无关，而力矩随原点改变。由力矩的移轴公式，
+
+$$
+n_{O_A}=n_{O_B}+p\times f.
+$$
+
+因此空间力向量的变换矩阵为
+
+$$
+{}^{A}_{B}X^{*}=
+\begin{pmatrix}
+R&[p]_{\times}R\\
+0&R
+\end{pmatrix},
+\qquad
+{}^{A}\hat f={}^{A}_{B}X^{*}\,{}^{B}\hat f.
+$$
+
+运动变换和力变换并不是同一个矩阵，而是满足
+
+$$
+{}^{A}_{B}X^{*}=\left({}^{A}_{B}X\right)^{-T}.
+$$
+
+这个逆转置关系保证了同一物理系统的功率不随坐标系改变。
+
+!!! note "空间变换矩阵的基本性质"
+
+    设还有第三个坐标系 $Frame\{\mathcal C\}$，则空间变换满足：
 
     $$
-    {{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} & {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} & \mathbf{R} \end{pmatrix}
+    {}^{A}_{C}X={}^{A}_{B}X\,{}^{B}_{C}X,
     $$
 
-    其中：
-    - $\mathbf{R} = {^A_B\mathbf{ R}}$ 是 $3 \times 3$ **旋转矩阵**。
-    -  ${p} = {^A\vec{p}_{BORG}}$ 是 $3 \times 1$ **位置向量**
-    - $[{p}]_{\times}$ 是位置向量 ${p}$ 对应的 $3 \times 3$ **斜对称叉乘矩阵**。
+    $$
+    \left({}^{A}_{B}X\right)^{-1}={}^{B}_{A}X,
+    $$
 
+    $$
+    {}^{A}_{C}X^{*}={}^{A}_{B}X^{*}\,{}^{B}_{C}X^{*}.
+    $$
 
-!!! note "空间变换矩阵的性质"
-    Contents
-
-
-!!! note "空间变换矩阵的对偶形式"
-    Contents
+    与齐次变换矩阵不同，$X$ 作用于空间运动向量，$X^{*}$ 作用于空间力向量；二者不能混用。
 
 ## 2.5-空间向量的标量积
 
-!!! note "空间向量的标量积"
-    基于空间矢量我们定义标量积，这个标量积的其中一个参数为**空间速度向量**，另外一个参数是**空间力向量**。两者相乘的结果是一个**表示能量，功率或者类似的物理量**。
-    我们给定一个空间速度向量${\mathbf{m}}{\in}{{M}^{6}}$和一个空间力向量${\mathbf{f}}{\in}{{F}^{6}}$，我们将这两个向量进行点乘运算，点乘运算可以表示为${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$，**这两者等价**。
+空间运动向量空间 $M^6$ 与空间力向量空间 $F^6$ 互为对偶空间。设
 
+$$
+\hat m=
+\begin{pmatrix}
+\omega\\
+v_O
+\end{pmatrix}
+\in M^6,
+\qquad
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}
+\in F^6,
+$$
 
-!!! warning "空间向量的标量积的物理含义"
-    - 空间向量的标量积只有${\mathbf{m}}{\cdot}{\mathbf{f}}$或者${\mathbf{f}}{\cdot}{\mathbf{m}}$才具有物理含义，这个运算表示的是刚体运动的功率，能量等类似物理量。
-    - 运算${\mathbf{f}}{\cdot}{\mathbf{f}}$或者${\mathbf{m}}{\cdot}{\mathbf{m}}$没有任何物理含义。
+则二者的空间标量积定义为
+
+$$
+\hat m\cdot\hat f
+=
+\omega\cdot n_O+v_O\cdot f
+=
+\hat m^{T}\hat f.
+$$
+
+当 $\hat m$ 是刚体的空间速度、$\hat f$ 是作用在刚体上的空间力时，第一项是力矩产生的功率，第二项是合力产生的功率，因此
+
+$$
+\mathcal P=\hat v\cdot\hat f
+=\omega\cdot n_O+v_O\cdot f.
+$$
+
+利用 2.4 中的对偶变换关系，可以直接验证标量积与坐标系无关：
+
+$$
+\begin{aligned}
+{}^{A}\hat m\cdot{}^{A}\hat f
+&=\left({}^{A}_{B}X\,{}^{B}\hat m\right)^T
+\left({}^{A}_{B}X^{*}\,{}^{B}\hat f\right)\\
+&={}^{B}\hat m^T
+\left({}^{A}_{B}X\right)^T
+\left({}^{A}_{B}X\right)^{-T}
+{}^{B}\hat f\\
+&={}^{B}\hat m\cdot{}^{B}\hat f.
+\end{aligned}
+$$
+
+这也解释了为什么空间力必须使用 $X^{*}=X^{-T}$ 进行变换。
+
+!!! warning "不能把 Plücker 坐标当作普通六维欧氏向量"
+
+    $\hat m^T\hat m$ 或 $\hat f^T\hat f$ 虽然可以在某一组坐标中计算，但其数值通常会随坐标原点改变，因此不是空间向量的坐标不变量。具有明确几何和物理意义的是 $M^6$ 与 $F^6$ 之间的对偶配对 $\hat m\cdot\hat f$。
 
 ## 2.6-空间向量叉乘
 
-!!! note "空间向量的叉乘"
-    Contents
+空间向量的叉乘不是普通三维叉乘的简单扩展。而是分为两种运算：运动向量作用于运动向量的 $\times$，以及运动向量作用于力向量的 $\times^{*}$。
+
+设
+
+$$
+\hat v=
+\begin{pmatrix}
+\omega\\
+v_O
+\end{pmatrix},
+\qquad
+\hat m=
+\begin{pmatrix}
+\eta\\
+u_O
+\end{pmatrix}
+\in M^6.
+$$
+
+运动向量叉乘定义为
+
+$$
+\hat v\times\hat m
+=
+\begin{pmatrix}
+\omega\times\eta\\
+v_O\times\eta+\omega\times u_O
+\end{pmatrix}.
+$$
+
+将叉乘写成矩阵形式，得到 Featherstone 算法中常用的运动叉乘算子
+
+$$
+\operatorname{crm}(\hat v)
+=
+\begin{pmatrix}
+[\omega]_{\times}&0\\
+[v_O]_{\times}&[\omega]_{\times}
+\end{pmatrix},
+\qquad
+\hat v\times\hat m=\operatorname{crm}(\hat v)\hat m.
+$$
+
+若
+
+$$
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}
+\in F^6,
+$$
+
+则运动向量对力向量的叉乘定义为
+
+$$
+\hat v\times^{*}\hat f
+=
+\begin{pmatrix}
+\omega\times n_O+v_O\times f\\
+\omega\times f
+\end{pmatrix}.
+$$
+
+对应的力叉乘算子为
+
+$$
+\operatorname{crf}(\hat v)
+=
+\begin{pmatrix}
+[\omega]_{\times}&[v_O]_{\times}\\
+0&[\omega]_{\times}
+\end{pmatrix},
+\qquad
+\hat v\times^{*}\hat f=\operatorname{crf}(\hat v)\hat f.
+$$
+
+两个算子满足重要的对偶关系
+
+$$
+\operatorname{crf}(\hat v)
+=-\operatorname{crm}(\hat v)^T.
+$$
+
+因此，对任意 $\hat m\in M^6$ 和 $\hat f\in F^6$，有
+
+$$
+(\hat v\times\hat m)\cdot\hat f
++\hat m\cdot(\hat v\times^{*}\hat f)=0.
+$$
+
+此外，运动叉乘满足
+
+$$
+\hat v\times\hat v=0,
+$$
+
+并且与坐标变换相容：先做叉乘再变换，与先变换两个向量再做叉乘，结果相同。
 
 ## 2.7-空间向量求导
 
-!!! note "空间向量的求导"
-    Contents
+空间向量的导数仍然是空间向量，但在运动坐标系中求导时，不能只对六个坐标分量逐项求导，因为用于表示空间向量的 Plücker 基也在运动。
+
+设 $Frame\{\mathcal A\}$ 相对于惯性系的空间速度为 ${}^{A}\hat v_A$，某个运动向量 $\hat m$ 在该坐标系中的坐标为 ${}^{A}\hat m$。它的惯性导数在 $Frame\{\mathcal A\}$ 中表示为
+
+$$
+{}^{A}\left(\frac{d\hat m}{dt}\right)
+=
+\frac{d}{dt}\left({}^{A}\hat m\right)
++{}^{A}\hat v_A\times{}^{A}\hat m.
+$$
+
+对空间力向量，则有
+
+$$
+{}^{A}\left(\frac{d\hat f}{dt}\right)
+=
+\frac{d}{dt}\left({}^{A}\hat f\right)
++{}^{A}\hat v_A\times^{*}{}^{A}\hat f.
+$$
+
+等式右边第一项只是六个坐标分量的逐项导数，第二项补偿坐标原点和坐标轴运动造成的基变化。
+
+若一个空间向量固定在刚体上，则它在刚体系中的坐标保持不变。此时
+
+$$
+\frac{d}{dt}\left({}^{A}\hat m\right)=0,
+\qquad
+{}^{A}\left(\frac{d\hat m}{dt}\right)
+={}^{A}\hat v_A\times{}^{A}\hat m,
+$$
+
+而固定在刚体上的空间力向量满足
+
+$$
+{}^{A}\left(\frac{d\hat f}{dt}\right)
+={}^{A}\hat v_A\times^{*}{}^{A}\hat f.
+$$
+
+空间标量积仍满足普通的乘积求导法则：
+
+$$
+\frac{d}{dt}(\hat m\cdot\hat f)
+=
+\frac{d\hat m}{dt}\cdot\hat f
++\hat m\cdot\frac{d\hat f}{dt}.
+$$
+
+这是因为 2.6 中两个叉乘算子的附加项在标量积中恰好相消。
