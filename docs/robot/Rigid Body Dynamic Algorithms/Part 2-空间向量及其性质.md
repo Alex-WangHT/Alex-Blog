@@ -319,71 +319,40 @@ $$
 
 !!! example "多旋翼中的空间力向量"
 
-    以多旋翼飞行器的单个旋翼为例。设机体系原点为 $O$，旋翼中心为 $P$，其位置向量为
+    以多旋翼飞行器的单个旋翼为例。设机体系原点为 $P$，旋翼中心为 $O$，并定义
 
     $$
-    \mathbf r_{OP}=\overrightarrow{OP}.
+    \mathbf r_{PO}=\overrightarrow{PO}.
     $$
 
-    旋翼沿自身轴线产生推力
+    旋翼沿自身轴线产生推力 $\mathbf f$，同时由于气动阻力产生绕旋翼轴线的反扭矩 $\mathbf n_O$。因此，该旋翼关于机体系原点 $P$ 的合力矩为
 
     $$
-    \mathbf f,
-    $$
-
-    同时由于气动阻力产生绕旋翼轴线的反扭矩
-
-    $$
-    \mathbf n_P.
-    $$
-
-    因此，该旋翼关于机体系原点 $O$ 的合力矩为
-
-    $$
-    \mathbf n_O
+    \mathbf n_P
     =
-    \mathbf r_{OP}\times\mathbf f
+    \mathbf r_{PO}\times\mathbf f
     +
-    \mathbf n_P.
+    \mathbf n_O.
     $$
 
-    于是该旋翼对机体产生的空间力向量可写为
+    于是，以机体系原点 $P$ 为参考点，该旋翼产生的空间力向量为
 
     $$
     \boxed{
-    \mathbf W_O=
+    \mathbf W_P=
     \begin{bmatrix}
-    \mathbf n_O\\
+    \mathbf n_P\\
     \mathbf f
     \end{bmatrix}
     =
     \begin{bmatrix}
-    \mathbf r_{OP}\times\mathbf f+\mathbf n_P\\
+    \mathbf r_{PO}\times\mathbf f+\mathbf n_O\\
     \mathbf f
     \end{bmatrix}
     }.
     $$
 
-    其中，$\mathbf r_{OP}\times\mathbf f$ 为推力相对于机体系原点产生的力矩，
-    $\mathbf n_P$ 为旋翼自身产生的轴向反扭矩，$\mathbf f$ 为旋翼推力。
-
-    若 $\mathbf n_P$ 与 $\mathbf f$ 平行，可令
-
-    $$
-    \mathbf n_P=h\mathbf f,
-    $$
-
-    则
-
-    $$
-    \mathbf W_O=
-    \begin{bmatrix}
-    \mathbf r_{OP}\times\mathbf f+h\mathbf f\\
-    \mathbf f
-    \end{bmatrix},
-    $$
-
-    与力旋量的标准形式一致。因此，空间力向量描述的是旋翼对刚体产生的完整力系，而不仅仅是推力本身。
+    其中，$\mathbf r_{PO}\times\mathbf f$ 为推力相对于机体系原点产生的力矩，$\mathbf n_O$ 为旋翼自身产生的轴向反扭矩。
 
 
 
