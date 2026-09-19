@@ -296,9 +296,9 @@ $$
 
     为有限旋距运动旋量。证毕。
 
-## 2.2-空间力向量
+## 2.3-空间力向量
 
-在前面我们设定了**空间速度向量**，接下来我们在空间坐标系$Frame\{{\mathcal{B}}\}$上表示刚体$B$受到的力和力矩。我们假设有一个力$f$施加在刚体上，并且力$f$的方向沿着从刚体到坐标系$Frame\{{\mathcal{B}}\}$的原点$O_B$的方向。与此同时刚体$B$还受到过点$O$的力矩$n_O$的作用，那么对刚体上的任意一点$P$来说，表示其力矩如下：
+在前面我们介绍了**空间速度向量**，接下来我们在空间坐标系$Frame\{{\mathcal{B}}\}$上表示刚体$B$受到的力和力矩。我们假设有一个力$f$施加在刚体上，并且力$f$的方向沿着从刚体到坐标系$Frame\{{\mathcal{B}}\}$的原点$O_B$的方向。与此同时刚体$B$还受到过点$O$的力矩$n_O$的作用，那么对刚体上的任意一点$P$来说，表示其力矩如下：
 
 $$
 {\vec{n}}_{P}={\vec{n}}_{O}+{\vec{f}}{\times}{\vec{OP}}
@@ -317,8 +317,75 @@ $$
 
 这里就是刚体刚体$B$的**空间力向量**。
 
-!!! note "空间力向量"
-    Contents
+!!! example "多旋翼中的空间力向量"
+
+    以多旋翼飞行器的单个旋翼为例。设机体系原点为 $O$，旋翼中心为 $P$，其位置向量为
+
+    $$
+    \mathbf r_{OP}=\overrightarrow{OP}.
+    $$
+
+    旋翼沿自身轴线产生推力
+
+    $$
+    \mathbf f,
+    $$
+
+    同时由于气动阻力产生绕旋翼轴线的反扭矩
+
+    $$
+    \mathbf n_P.
+    $$
+
+    因此，该旋翼关于机体系原点 $O$ 的合力矩为
+
+    $$
+    \mathbf n_O
+    =
+    \mathbf r_{OP}\times\mathbf f
+    +
+    \mathbf n_P.
+    $$
+
+    于是该旋翼对机体产生的空间力向量可写为
+
+    $$
+    \boxed{
+    \mathbf W_O=
+    \begin{bmatrix}
+    \mathbf n_O\\
+    \mathbf f
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \mathbf r_{OP}\times\mathbf f+\mathbf n_P\\
+    \mathbf f
+    \end{bmatrix}
+    }.
+    $$
+
+    其中，$\mathbf r_{OP}\times\mathbf f$ 为推力相对于机体系原点产生的力矩，
+    $\mathbf n_P$ 为旋翼自身产生的轴向反扭矩，$\mathbf f$ 为旋翼推力。
+
+    若 $\mathbf n_P$ 与 $\mathbf f$ 平行，可令
+
+    $$
+    \mathbf n_P=h\mathbf f,
+    $$
+
+    则
+
+    $$
+    \mathbf W_O=
+    \begin{bmatrix}
+    \mathbf r_{OP}\times\mathbf f+h\mathbf f\\
+    \mathbf f
+    \end{bmatrix},
+    $$
+
+    与力旋量的标准形式一致。因此，空间力向量描述的是旋翼对刚体产生的完整力系，而不仅仅是推力本身。
+
+
 
 ## 2.4-空间坐标的空间变换
 
