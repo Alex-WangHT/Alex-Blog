@@ -166,138 +166,111 @@ v_O
 $$
 
 我们称 $\hat v$ 为刚体 $B$ 的**空间速度向量**。
-
 !!! note "证明：空间速度向量为旋量"
 
-    设空间速度向量为
+    如图所示，$\{W\}$ 为地面惯性参考坐标系，刚体 $B$ 在空间中运动，其固连坐标系原点为 $O_B$。
+    $O_B$ 在 $\{W\}$ 中的位置向量记为 $\mathbf r$，其平动速度和刚体角速度分别为
+    $\mathbf v_O$ 和 $\boldsymbol{\omega}_O$，二者均附着于 $O_B$。
+
+    定义空间速度向量
 
     $$
-    \mathbf V=
+    \mathbf V_O=
     \begin{bmatrix}
-    \boldsymbol{\omega}\\
-    \mathbf v
-    \end{bmatrix},
-    \qquad
-    \boldsymbol{\omega}\neq 0.
+    \boldsymbol{\omega}_O\\
+    \mathbf v_O
+    \end{bmatrix}.
     $$
 
-    证明其满足旋量形式
+    当 $\boldsymbol{\omega}_O\neq 0$ 时，将 $\mathbf v_O$ 分解为平行和垂直于
+    $\boldsymbol{\omega}_O$ 的两部分：
 
     $$
-    \mathbf v
+    \mathbf v_O
     =
-    \mathbf r\times\boldsymbol{\omega}
-    +
-    h\boldsymbol{\omega}.
-    $$
-
-    首先将 $\mathbf v$ 分解为平行和垂直于 $\boldsymbol{\omega}$ 的两部分：
-
-    $$
-    \mathbf v
-    =
-    \mathbf v_\perp+h\boldsymbol{\omega},
+    \mathbf v_\perp+h\boldsymbol{\omega}_O,
     \qquad
     h=
-    \frac{\boldsymbol{\omega}^T\mathbf v}
-    {\|\boldsymbol{\omega}\|^2}.
+    \frac{\boldsymbol{\omega}_O^T\mathbf v_O}
+    {\|\boldsymbol{\omega}_O\|^2}.
+    $$
+
+    为使垂直分量满足旋量形式，设存在仅由
+    $\boldsymbol{\omega}_O,\mathbf v_O$ 构造的向量
+
+    $$
+    \boldsymbol{\rho}
+    =
+    k(\boldsymbol{\omega}_O\times\mathbf v_O),
+    $$
+
+    并要求
+
+    $$
+    \boldsymbol{\rho}\times\boldsymbol{\omega}_O
+    =
+    \mathbf v_\perp.
+    $$
+
+    由向量三重积，
+
+    $$
+    \boldsymbol{\rho}\times\boldsymbol{\omega}_O
+    =
+    k\left[
+    \|\boldsymbol{\omega}_O\|^2\mathbf v_O
+    -
+    (\boldsymbol{\omega}_O^T\mathbf v_O)\boldsymbol{\omega}_O
+    \right].
+    $$
+
+    与 $\mathbf v_\perp$ 比较得
+
+    $$
+    k=\frac{1}{\|\boldsymbol{\omega}_O\|^2},
+    \qquad
+    \boldsymbol{\rho}
+    =
+    \frac{\boldsymbol{\omega}_O\times\mathbf v_O}
+    {\|\boldsymbol{\omega}_O\|^2}.
     $$
 
     因而
 
     $$
-    \mathbf v_\perp
-    =
-    \mathbf v-h\boldsymbol{\omega}.
-    $$
-
-    为使
-
-    $$
-    \mathbf r\times\boldsymbol{\omega}
-    =
-    \mathbf v_\perp,
-    $$
-
-    设 $\mathbf r$ 可由 $\boldsymbol{\omega}$ 和 $\mathbf v$ 构造为
-
-    $$
-    \mathbf r
-    =
-    k(\boldsymbol{\omega}\times\mathbf v).
-    $$
-
-    则
-
-    $$
-    \mathbf r\times\boldsymbol{\omega}
-    =
-    k\left[
-    \|\boldsymbol{\omega}\|^2\mathbf v
-    -
-    (\boldsymbol{\omega}^T\mathbf v)\boldsymbol{\omega}
-    \right].
-    $$
-
-    与
-
-    $$
-    \mathbf v_\perp
-    =
-    \frac{1}{\|\boldsymbol{\omega}\|^2}
-    \left[
-    \|\boldsymbol{\omega}\|^2\mathbf v
-    -
-    (\boldsymbol{\omega}^T\mathbf v)\boldsymbol{\omega}
-    \right]
-    $$
-
-    比较可得
-
-    $$
-    k=\frac{1}{\|\boldsymbol{\omega}\|^2},
-    \qquad
-    \mathbf r=
-    \frac{\boldsymbol{\omega}\times\mathbf v}
-    {\|\boldsymbol{\omega}\|^2}.
-    $$
-
-    因此
-
-    $$
     \boxed{
-    \mathbf v
+    \mathbf v_O
     =
-    \mathbf r\times\boldsymbol{\omega}
+    \boldsymbol{\rho}\times\boldsymbol{\omega}_O
     +
-    h\boldsymbol{\omega}
-    },
+    h\boldsymbol{\omega}_O
+    }.
     $$
 
-    故
+    这正是有限旋距旋量的标准形式，故
 
     $$
     \boxed{
-    \mathbf V=
+    \mathbf V_O=
     \begin{bmatrix}
-    \boldsymbol{\omega}\\
-    \mathbf v
+    \boldsymbol{\omega}_O\\
+    \mathbf v_O
     \end{bmatrix}
     }
     $$
 
-    满足旋量的标准形式，即为空间运动旋量。
+    为空间运动旋量。
 
-    又由于对任意 $\lambda$，
+    又由于
 
     $$
-    (\mathbf r+\lambda\boldsymbol{\omega})
-    \times\boldsymbol{\omega}
+    (\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O)
+    \times\boldsymbol{\omega}_O
     =
-    \mathbf r\times\boldsymbol{\omega},
+    \boldsymbol{\rho}\times\boldsymbol{\omega}_O,
     $$
 
-    因此 $\mathbf r+\lambda\boldsymbol{\omega}$ 表示同一条旋量轴。
+    故 $\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O$ 表示同一条旋量轴。
 
 ## 2.2-空间力向量
 
