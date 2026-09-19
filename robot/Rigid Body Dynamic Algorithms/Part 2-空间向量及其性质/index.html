@@ -2798,110 +2798,89 @@ v_O
 <p>我们称 <span class="arithmatex">\(\hat v\)</span> 为刚体 <span class="arithmatex">\(B\)</span> 的<strong>空间速度向量</strong>。</p>
 <div class="admonition note">
 <p class="admonition-title">证明：空间速度向量为旋量</p>
-<p>设空间速度向量为</p>
+<p>如图所示，<span class="arithmatex">\(\{W\}\)</span> 为地面惯性参考坐标系，刚体 <span class="arithmatex">\(B\)</span> 在空间中运动，其固连坐标系原点为 <span class="arithmatex">\(O_B\)</span>。
+<span class="arithmatex">\(O_B\)</span> 在 <span class="arithmatex">\(\{W\}\)</span> 中的位置向量记为 <span class="arithmatex">\(\mathbf r\)</span>，其平动速度和刚体角速度分别为
+<span class="arithmatex">\(\mathbf v_O\)</span> 和 <span class="arithmatex">\(\boldsymbol{\omega}_O\)</span>，二者均附着于 <span class="arithmatex">\(O_B\)</span>。</p>
+<p>定义空间速度向量</p>
 <div class="arithmatex">\[
-\mathbf V=
+\mathbf V_O=
 \begin{bmatrix}
-\boldsymbol{\omega}\\
-\mathbf v
-\end{bmatrix},
-\qquad
-\boldsymbol{\omega}\neq 0.
+\boldsymbol{\omega}_O\\
+\mathbf v_O
+\end{bmatrix}.
 \]</div>
-<p>证明其满足旋量形式</p>
+<p>当 <span class="arithmatex">\(\boldsymbol{\omega}_O\neq 0\)</span> 时，将 <span class="arithmatex">\(\mathbf v_O\)</span> 分解为平行和垂直于
+<span class="arithmatex">\(\boldsymbol{\omega}_O\)</span> 的两部分：</p>
 <div class="arithmatex">\[
-\mathbf v
+\mathbf v_O
 =
-\mathbf r\times\boldsymbol{\omega}
-+
-h\boldsymbol{\omega}.
-\]</div>
-<p>首先将 <span class="arithmatex">\(\mathbf v\)</span> 分解为平行和垂直于 <span class="arithmatex">\(\boldsymbol{\omega}\)</span> 的两部分：</p>
-<div class="arithmatex">\[
-\mathbf v
-=
-\mathbf v_\perp+h\boldsymbol{\omega},
+\mathbf v_\perp+h\boldsymbol{\omega}_O,
 \qquad
 h=
-\frac{\boldsymbol{\omega}^T\mathbf v}
-{\|\boldsymbol{\omega}\|^2}.
+\frac{\boldsymbol{\omega}_O^T\mathbf v_O}
+{\|\boldsymbol{\omega}_O\|^2}.
+\]</div>
+<p>为使垂直分量满足旋量形式，设存在仅由
+<span class="arithmatex">\(\boldsymbol{\omega}_O,\mathbf v_O\)</span> 构造的向量</p>
+<div class="arithmatex">\[
+\boldsymbol{\rho}
+=
+k(\boldsymbol{\omega}_O\times\mathbf v_O),
+\]</div>
+<p>并要求</p>
+<div class="arithmatex">\[
+\boldsymbol{\rho}\times\boldsymbol{\omega}_O
+=
+\mathbf v_\perp.
+\]</div>
+<p>由向量三重积，</p>
+<div class="arithmatex">\[
+\boldsymbol{\rho}\times\boldsymbol{\omega}_O
+=
+k\left[
+\|\boldsymbol{\omega}_O\|^2\mathbf v_O
+-
+(\boldsymbol{\omega}_O^T\mathbf v_O)\boldsymbol{\omega}_O
+\right].
+\]</div>
+<p>与 <span class="arithmatex">\(\mathbf v_\perp\)</span> 比较得</p>
+<div class="arithmatex">\[
+k=\frac{1}{\|\boldsymbol{\omega}_O\|^2},
+\qquad
+\boldsymbol{\rho}
+=
+\frac{\boldsymbol{\omega}_O\times\mathbf v_O}
+{\|\boldsymbol{\omega}_O\|^2}.
 \]</div>
 <p>因而</p>
 <div class="arithmatex">\[
-\mathbf v_\perp
-=
-\mathbf v-h\boldsymbol{\omega}.
-\]</div>
-<p>为使</p>
-<div class="arithmatex">\[
-\mathbf r\times\boldsymbol{\omega}
-=
-\mathbf v_\perp,
-\]</div>
-<p>设 <span class="arithmatex">\(\mathbf r\)</span> 可由 <span class="arithmatex">\(\boldsymbol{\omega}\)</span> 和 <span class="arithmatex">\(\mathbf v\)</span> 构造为</p>
-<div class="arithmatex">\[
-\mathbf r
-=
-k(\boldsymbol{\omega}\times\mathbf v).
-\]</div>
-<p>则</p>
-<div class="arithmatex">\[
-\mathbf r\times\boldsymbol{\omega}
-=
-k\left[
-\|\boldsymbol{\omega}\|^2\mathbf v
--
-(\boldsymbol{\omega}^T\mathbf v)\boldsymbol{\omega}
-\right].
-\]</div>
-<p>与</p>
-<div class="arithmatex">\[
-\mathbf v_\perp
-=
-\frac{1}{\|\boldsymbol{\omega}\|^2}
-\left[
-\|\boldsymbol{\omega}\|^2\mathbf v
--
-(\boldsymbol{\omega}^T\mathbf v)\boldsymbol{\omega}
-\right]
-\]</div>
-<p>比较可得</p>
-<div class="arithmatex">\[
-k=\frac{1}{\|\boldsymbol{\omega}\|^2},
-\qquad
-\mathbf r=
-\frac{\boldsymbol{\omega}\times\mathbf v}
-{\|\boldsymbol{\omega}\|^2}.
-\]</div>
-<p>因此</p>
-<div class="arithmatex">\[
 \boxed{
-\mathbf v
+\mathbf v_O
 =
-\mathbf r\times\boldsymbol{\omega}
+\boldsymbol{\rho}\times\boldsymbol{\omega}_O
 +
-h\boldsymbol{\omega}
-},
+h\boldsymbol{\omega}_O
+}.
 \]</div>
-<p>故</p>
+<p>这正是有限旋距旋量的标准形式，故</p>
 <div class="arithmatex">\[
 \boxed{
-\mathbf V=
+\mathbf V_O=
 \begin{bmatrix}
-\boldsymbol{\omega}\\
-\mathbf v
+\boldsymbol{\omega}_O\\
+\mathbf v_O
 \end{bmatrix}
 }
 \]</div>
-<p>满足旋量的标准形式，即为空间运动旋量。</p>
-<p>又由于对任意 <span class="arithmatex">\(\lambda\)</span>，</p>
+<p>为空间运动旋量。</p>
+<p>又由于</p>
 <div class="arithmatex">\[
-(\mathbf r+\lambda\boldsymbol{\omega})
-\times\boldsymbol{\omega}
+(\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O)
+\times\boldsymbol{\omega}_O
 =
-\mathbf r\times\boldsymbol{\omega},
+\boldsymbol{\rho}\times\boldsymbol{\omega}_O,
 \]</div>
-<p>因此 <span class="arithmatex">\(\mathbf r+\lambda\boldsymbol{\omega}\)</span> 表示同一条旋量轴。</p>
+<p>故 <span class="arithmatex">\(\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O\)</span> 表示同一条旋量轴。</p>
 </div>
 <h2 id="22-_1">2.2-空间力向量<a class="headerlink" href="#22-_1" title="Permanent link">&para;</a></h2>
 <p>在前面我们设定了<strong>空间速度向量</strong>，接下来我们在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>上表示刚体<span class="arithmatex">\(B\)</span>受到的力和力矩。我们假设有一个力<span class="arithmatex">\(f\)</span>施加在刚体上，并且力<span class="arithmatex">\(f\)</span>的方向沿着从刚体到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点<span class="arithmatex">\(O_B\)</span>的方向。与此同时刚体<span class="arithmatex">\(B\)</span>还受到过点<span class="arithmatex">\(O\)</span>的力矩<span class="arithmatex">\(n_O\)</span>的作用，那么对刚体上的任意一点<span class="arithmatex">\(P\)</span>来说，表示其力矩如下：</p>
