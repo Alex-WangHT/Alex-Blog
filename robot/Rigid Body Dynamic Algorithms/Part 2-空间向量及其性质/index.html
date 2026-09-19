@@ -1061,10 +1061,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-_1" class="md-nav__link">
+  <a href="#23-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2-空间力向量
+        2.3-空间力向量
       
     </span>
   </a>
@@ -2599,10 +2599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-_1" class="md-nav__link">
+  <a href="#23-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2-空间力向量
+        2.3-空间力向量
       
     </span>
   </a>
@@ -2899,8 +2899,8 @@ h\boldsymbol{\omega}_O
 \]</div>
 <p>为有限旋距运动旋量。证毕。</p>
 </div>
-<h2 id="22-_1">2.2-空间力向量<a class="headerlink" href="#22-_1" title="Permanent link">&para;</a></h2>
-<p>在前面我们设定了<strong>空间速度向量</strong>，接下来我们在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>上表示刚体<span class="arithmatex">\(B\)</span>受到的力和力矩。我们假设有一个力<span class="arithmatex">\(f\)</span>施加在刚体上，并且力<span class="arithmatex">\(f\)</span>的方向沿着从刚体到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点<span class="arithmatex">\(O_B\)</span>的方向。与此同时刚体<span class="arithmatex">\(B\)</span>还受到过点<span class="arithmatex">\(O\)</span>的力矩<span class="arithmatex">\(n_O\)</span>的作用，那么对刚体上的任意一点<span class="arithmatex">\(P\)</span>来说，表示其力矩如下：</p>
+<h2 id="23-">2.3-空间力向量<a class="headerlink" href="#23-" title="Permanent link">&para;</a></h2>
+<p>在前面我们介绍了<strong>空间速度向量</strong>，接下来我们在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>上表示刚体<span class="arithmatex">\(B\)</span>受到的力和力矩。我们假设有一个力<span class="arithmatex">\(f\)</span>施加在刚体上，并且力<span class="arithmatex">\(f\)</span>的方向沿着从刚体到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点<span class="arithmatex">\(O_B\)</span>的方向。与此同时刚体<span class="arithmatex">\(B\)</span>还受到过点<span class="arithmatex">\(O\)</span>的力矩<span class="arithmatex">\(n_O\)</span>的作用，那么对刚体上的任意一点<span class="arithmatex">\(P\)</span>来说，表示其力矩如下：</p>
 <div class="arithmatex">\[
 {\vec{n}}_{P}={\vec{n}}_{O}+{\vec{f}}{\times}{\vec{OP}}
 \]</div>
@@ -2914,9 +2914,58 @@ h\boldsymbol{\omega}_O
 {\in}{\mathbb{R}^{6}}
 \]</div>
 <p>这里就是刚体刚体<span class="arithmatex">\(B\)</span>的<strong>空间力向量</strong>。</p>
-<div class="admonition note">
-<p class="admonition-title">空间力向量</p>
-<p>Contents</p>
+<div class="admonition example">
+<p class="admonition-title">多旋翼中的空间力向量</p>
+<p>以多旋翼飞行器的单个旋翼为例。设机体系原点为 <span class="arithmatex">\(O\)</span>，旋翼中心为 <span class="arithmatex">\(P\)</span>，其位置向量为</p>
+<div class="arithmatex">\[
+\mathbf r_{OP}=\overrightarrow{OP}.
+\]</div>
+<p>旋翼沿自身轴线产生推力</p>
+<div class="arithmatex">\[
+\mathbf f,
+\]</div>
+<p>同时由于气动阻力产生绕旋翼轴线的反扭矩</p>
+<div class="arithmatex">\[
+\mathbf n_P.
+\]</div>
+<p>因此，该旋翼关于机体系原点 <span class="arithmatex">\(O\)</span> 的合力矩为</p>
+<div class="arithmatex">\[
+\mathbf n_O
+=
+\mathbf r_{OP}\times\mathbf f
++
+\mathbf n_P.
+\]</div>
+<p>于是该旋翼对机体产生的空间力向量可写为</p>
+<div class="arithmatex">\[
+\boxed{
+\mathbf W_O=
+\begin{bmatrix}
+\mathbf n_O\\
+\mathbf f
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbf r_{OP}\times\mathbf f+\mathbf n_P\\
+\mathbf f
+\end{bmatrix}
+}.
+\]</div>
+<p>其中，<span class="arithmatex">\(\mathbf r_{OP}\times\mathbf f\)</span> 为推力相对于机体系原点产生的力矩，
+<span class="arithmatex">\(\mathbf n_P\)</span> 为旋翼自身产生的轴向反扭矩，<span class="arithmatex">\(\mathbf f\)</span> 为旋翼推力。</p>
+<p>若 <span class="arithmatex">\(\mathbf n_P\)</span> 与 <span class="arithmatex">\(\mathbf f\)</span> 平行，可令</p>
+<div class="arithmatex">\[
+\mathbf n_P=h\mathbf f,
+\]</div>
+<p>则</p>
+<div class="arithmatex">\[
+\mathbf W_O=
+\begin{bmatrix}
+\mathbf r_{OP}\times\mathbf f+h\mathbf f\\
+\mathbf f
+\end{bmatrix},
+\]</div>
+<p>与力旋量的标准形式一致。因此，空间力向量描述的是旋翼对刚体产生的完整力系，而不仅仅是推力本身。</p>
 </div>
 <h2 id="24-">2.4-空间坐标的空间变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
 <p>这样，我们就得到了<strong>空间变换矩阵</strong>：</p>
