@@ -2916,56 +2916,34 @@ h\boldsymbol{\omega}_O
 <p>这里就是刚体刚体<span class="arithmatex">\(B\)</span>的<strong>空间力向量</strong>。</p>
 <div class="admonition example">
 <p class="admonition-title">多旋翼中的空间力向量</p>
-<p>以多旋翼飞行器的单个旋翼为例。设机体系原点为 <span class="arithmatex">\(O\)</span>，旋翼中心为 <span class="arithmatex">\(P\)</span>，其位置向量为</p>
+<p>以多旋翼飞行器的单个旋翼为例。设机体系原点为 <span class="arithmatex">\(P\)</span>，旋翼中心为 <span class="arithmatex">\(O\)</span>，并定义</p>
 <div class="arithmatex">\[
-\mathbf r_{OP}=\overrightarrow{OP}.
+\mathbf r_{PO}=\overrightarrow{PO}.
 \]</div>
-<p>旋翼沿自身轴线产生推力</p>
+<p>旋翼沿自身轴线产生推力 <span class="arithmatex">\(\mathbf f\)</span>，同时由于气动阻力产生绕旋翼轴线的反扭矩 <span class="arithmatex">\(\mathbf n_O\)</span>。因此，该旋翼关于机体系原点 <span class="arithmatex">\(P\)</span> 的合力矩为</p>
 <div class="arithmatex">\[
-\mathbf f,
-\]</div>
-<p>同时由于气动阻力产生绕旋翼轴线的反扭矩</p>
-<div class="arithmatex">\[
-\mathbf n_P.
-\]</div>
-<p>因此，该旋翼关于机体系原点 <span class="arithmatex">\(O\)</span> 的合力矩为</p>
-<div class="arithmatex">\[
-\mathbf n_O
+\mathbf n_P
 =
-\mathbf r_{OP}\times\mathbf f
+\mathbf r_{PO}\times\mathbf f
 +
-\mathbf n_P.
+\mathbf n_O.
 \]</div>
-<p>于是该旋翼对机体产生的空间力向量可写为</p>
+<p>于是，以机体系原点 <span class="arithmatex">\(P\)</span> 为参考点，该旋翼产生的空间力向量为</p>
 <div class="arithmatex">\[
 \boxed{
-\mathbf W_O=
+\mathbf W_P=
 \begin{bmatrix}
-\mathbf n_O\\
+\mathbf n_P\\
 \mathbf f
 \end{bmatrix}
 =
 \begin{bmatrix}
-\mathbf r_{OP}\times\mathbf f+\mathbf n_P\\
+\mathbf r_{PO}\times\mathbf f+\mathbf n_O\\
 \mathbf f
 \end{bmatrix}
 }.
 \]</div>
-<p>其中，<span class="arithmatex">\(\mathbf r_{OP}\times\mathbf f\)</span> 为推力相对于机体系原点产生的力矩，
-<span class="arithmatex">\(\mathbf n_P\)</span> 为旋翼自身产生的轴向反扭矩，<span class="arithmatex">\(\mathbf f\)</span> 为旋翼推力。</p>
-<p>若 <span class="arithmatex">\(\mathbf n_P\)</span> 与 <span class="arithmatex">\(\mathbf f\)</span> 平行，可令</p>
-<div class="arithmatex">\[
-\mathbf n_P=h\mathbf f,
-\]</div>
-<p>则</p>
-<div class="arithmatex">\[
-\mathbf W_O=
-\begin{bmatrix}
-\mathbf r_{OP}\times\mathbf f+h\mathbf f\\
-\mathbf f
-\end{bmatrix},
-\]</div>
-<p>与力旋量的标准形式一致。因此，空间力向量描述的是旋翼对刚体产生的完整力系，而不仅仅是推力本身。</p>
+<p>其中，<span class="arithmatex">\(\mathbf r_{PO}\times\mathbf f\)</span> 为推力相对于机体系原点产生的力矩，<span class="arithmatex">\(\mathbf n_O\)</span> 为旋翼自身产生的轴向反扭矩。</p>
 </div>
 <h2 id="24-">2.4-空间坐标的空间变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
 <p>这样，我们就得到了<strong>空间变换矩阵</strong>：</p>
