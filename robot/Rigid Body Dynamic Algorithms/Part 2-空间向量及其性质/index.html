@@ -2795,28 +2795,24 @@ v_O
 \end{pmatrix}
 \in\mathbb{R}^6.
 \]</div>
-<p>我们称 <span class="arithmatex">\(\hat v\)</span> 为刚体 <span class="arithmatex">\(B\)</span> 的<strong>空间速度向量</strong>。!!! note "命题：空间速度向量为旋量"</p>
-<div class="highlight"><pre><span></span><code>如图所示，$\{W\}$ 为地面惯性参考坐标系，刚体 $B$ 在空间中运动，其固连坐标系原点为 $O_B$。
-$O_B$ 在 $\{W\}$ 中的位置向量为 $\mathbf r$，其平动速度和刚体角速度分别为
-$\mathbf v_O$ 和 $\boldsymbol{\omega}_O$，二者均附着于 $O_B$。
-
-定义空间速度向量
-
-$$
+<p>我们称 <span class="arithmatex">\(\hat v\)</span> 为刚体 <span class="arithmatex">\(B\)</span> 的<strong>空间速度向量</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">命题：空间速度向量为旋量</p>
+<p>如图所示，<span class="arithmatex">\(\{W\}\)</span> 为地面惯性参考坐标系，刚体 <span class="arithmatex">\(B\)</span> 在空间中运动，其固连坐标系原点为 <span class="arithmatex">\(O_B\)</span>。
+<span class="arithmatex">\(O_B\)</span> 在 <span class="arithmatex">\(\{W\}\)</span> 中的位置向量为 <span class="arithmatex">\(\mathbf r\)</span>，其平动速度和刚体角速度分别为
+<span class="arithmatex">\(\mathbf v_O\)</span> 和 <span class="arithmatex">\(\boldsymbol{\omega}_O\)</span>，二者均附着于 <span class="arithmatex">\(O_B\)</span>。</p>
+<p>定义空间速度向量</p>
+<div class="arithmatex">\[
 \mathbf V_O=
 \begin{bmatrix}
 \boldsymbol{\omega}_O\\
 \mathbf v_O
 \end{bmatrix}.
-$$
-
-求证：当 $\boldsymbol{\omega}_O\neq 0$ 时，$\mathbf V_O$ 为有限旋距运动旋量。
-
-**证明**
-
-将 $\mathbf v_O$ 分解为平行和垂直于 $\boldsymbol{\omega}_O$ 的两部分：
-
-$$
+\]</div>
+<p>求证：当 <span class="arithmatex">\(\boldsymbol{\omega}_O\neq 0\)</span> 时，<span class="arithmatex">\(\mathbf V_O\)</span> 为有限旋距运动旋量。</p>
+<p><strong>证明</strong></p>
+<p>将 <span class="arithmatex">\(\mathbf v_O\)</span> 分解为平行和垂直于 <span class="arithmatex">\(\boldsymbol{\omega}_O\)</span> 的两部分：</p>
+<div class="arithmatex">\[
 \mathbf v_O
 =
 \mathbf v_\perp
@@ -2826,38 +2822,30 @@ h\boldsymbol{\omega}_O,
 h=
 \frac{\boldsymbol{\omega}_O^T\mathbf v_O}
 {\|\boldsymbol{\omega}_O\|^2}.
-$$
-
-因而
-
-$$
+\]</div>
+<p>因而</p>
+<div class="arithmatex">\[
 \mathbf v_\perp
 =
 \mathbf v_O
 -
 h\boldsymbol{\omega}_O.
-$$
-
-若 $\mathbf V_O$ 为旋量，则应存在某一位置向量 $\boldsymbol{\rho}$，使
-
-$$
+\]</div>
+<p>若 <span class="arithmatex">\(\mathbf V_O\)</span> 为旋量，则应存在某一位置向量 <span class="arithmatex">\(\boldsymbol{\rho}\)</span>，使</p>
+<div class="arithmatex">\[
 \mathbf v_\perp
 =
 \boldsymbol{\rho}\times\boldsymbol{\omega}_O.
-$$
-
-由于 $\boldsymbol{\rho}$ 仅由
-$\boldsymbol{\omega}_O$ 和 $\mathbf v_O$ 构造，设
-
-$$
+\]</div>
+<p>由于 <span class="arithmatex">\(\boldsymbol{\rho}\)</span> 仅由
+<span class="arithmatex">\(\boldsymbol{\omega}_O\)</span> 和 <span class="arithmatex">\(\mathbf v_O\)</span> 构造，设</p>
+<div class="arithmatex">\[
 \boldsymbol{\rho}
 =
 k(\boldsymbol{\omega}_O\times\mathbf v_O).
-$$
-
-则由向量三重积，
-
-$$
+\]</div>
+<p>则由向量三重积，</p>
+<div class="arithmatex">\[
 \boldsymbol{\rho}\times\boldsymbol{\omega}_O
 =
 k\left[
@@ -2865,11 +2853,9 @@ k\left[
 -
 (\boldsymbol{\omega}_O^T\mathbf v_O)\boldsymbol{\omega}_O
 \right].
-$$
-
-而
-
-$$
+\]</div>
+<p>而</p>
+<div class="arithmatex">\[
 \mathbf v_\perp
 =
 \frac{1}{\|\boldsymbol{\omega}_O\|^2}
@@ -2878,11 +2864,9 @@ $$
 -
 (\boldsymbol{\omega}_O^T\mathbf v_O)\boldsymbol{\omega}_O
 \right].
-$$
-
-比较得
-
-$$
+\]</div>
+<p>比较得</p>
+<div class="arithmatex">\[
 k=
 \frac{1}{\|\boldsymbol{\omega}_O\|^2},
 \qquad
@@ -2890,11 +2874,9 @@ k=
 =
 \frac{\boldsymbol{\omega}_O\times\mathbf v_O}
 {\|\boldsymbol{\omega}_O\|^2}.
-$$
-
-因此
-
-$$
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
 \boxed{
 \mathbf v_O
 =
@@ -2902,11 +2884,9 @@ $$
 +
 h\boldsymbol{\omega}_O
 }.
-$$
-
-这正是有限旋距旋量的标准形式，故
-
-$$
+\]</div>
+<p>这正是有限旋距旋量的标准形式，故</p>
+<div class="arithmatex">\[
 \boxed{
 \mathbf V_O=
 \begin{bmatrix}
@@ -2914,10 +2894,9 @@ $$
 \mathbf v_O
 \end{bmatrix}
 }
-$$
-
-为有限旋距运动旋量。证毕。
-</code></pre></div>
+\]</div>
+<p>为有限旋距运动旋量。证毕。</p>
+</div>
 <h2 id="22-_1">2.2-空间力向量<a class="headerlink" href="#22-_1" title="Permanent link">&para;</a></h2>
 <p>在前面我们设定了<strong>空间速度向量</strong>，接下来我们在空间坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>上表示刚体<span class="arithmatex">\(B\)</span>受到的力和力矩。我们假设有一个力<span class="arithmatex">\(f\)</span>施加在刚体上，并且力<span class="arithmatex">\(f\)</span>的方向沿着从刚体到坐标系<span class="arithmatex">\(Frame\{{\mathcal{B}}\}\)</span>的原点<span class="arithmatex">\(O_B\)</span>的方向。与此同时刚体<span class="arithmatex">\(B\)</span>还受到过点<span class="arithmatex">\(O\)</span>的力矩<span class="arithmatex">\(n_O\)</span>的作用，那么对刚体上的任意一点<span class="arithmatex">\(P\)</span>来说，表示其力矩如下：</p>
 <div class="arithmatex">\[
