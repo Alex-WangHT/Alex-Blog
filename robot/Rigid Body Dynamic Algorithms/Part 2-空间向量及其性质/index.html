@@ -2681,24 +2681,26 @@
 因此，仅用一个三维方向向量并不能完整描述一条空间直线。</p>
 <p><img alt="图 2-1" src="../img/Fig2-1.png" /></p>
 <p>设空间中一条直线经过点 <span class="arithmatex">\(P\)</span>，其位置向量为 <span class="arithmatex">\(r\in\mathbb{R}^3\)</span>，
-直线的方向向量为<span class="arithmatex">\(l\in\mathbb{R}^3, l\neq 0\)</span>，定义向量
-$<span class="arithmatex">\(l_0=r\times l\)</span>$
-其中，<span class="arithmatex">\(l_0\)</span> 称为直线 <span class="arithmatex">\(l\)</span> 关于坐标原点的<strong>矩向量</strong>（moment vector）。
-于是，可以将空间直线表示为一个六维向量
-$$
+直线的方向向量为<span class="arithmatex">\(l\in\mathbb{R}^3, l\neq 0\)</span>，定义向量</p>
+<div class="arithmatex">\[
+l_0=r\times l
+\]</div>
+<p>其中，<span class="arithmatex">\(l_0\)</span> 称为直线 <span class="arithmatex">\(l\)</span> 关于坐标原点的<strong>矩向量</strong>（moment vector）。
+于是，可以将空间直线表示为一个六维向量</p>
+<div class="arithmatex">\[
 L=
 \begin{pmatrix}
-l\
+l\\
 l_0
 \end{pmatrix}
 =
 \begin{pmatrix}
-l\
+l\\
 r\times l
 \end{pmatrix}
 \in\mathbb{R}^6.
-$$
-我们将其称为直线的<strong>线矢量</strong>。</p>
+\]</div>
+<p>我们将其称为直线的<strong>线矢量</strong>。</p>
 <h3 id="2plucker">(2).Plücker 坐标<a class="headerlink" href="#2plucker" title="Permanent link">&para;</a></h3>
 <p>对于空间直线的线矢量</p>
 <div class="arithmatex">\[
@@ -2738,15 +2740,15 @@ l\cdot l_0=0.
 \]</div>
 <p>二者表示同一条空间直线。因此，Plücker 坐标本质上是五维射影空间 <span class="arithmatex">\(\mathbb{P}^5\)</span> 中满足上述约束的齐次坐标。</p>
 <h3 id="3klein">(3).Klein 型<a class="headerlink" href="#3klein" title="Permanent link">&para;</a></h3>
-<p>设线矢量 <span class="arithmatex">\(L_1\)</span>、<span class="arithmatex">\(L_2\)</span> 为六维向量空间 <span class="arithmatex">\(\mathbb{R}^6\)</span> 中的元素，<span class="arithmatex">\(l_1\)</span>、<span class="arithmatex">\(l_2\)</span> 与 <span class="arithmatex">\(l_{10}\)</span>、<span class="arithmatex">\(l_{20}\)</span> 分别表示两个线矢量的姿态向量和对坐标原点的矢矩，则对于三维空间中的任意线矢量 <span class="arithmatex">\(L_1\)</span>、<span class="arithmatex">\(L_2\)</span>，Klein 型可表示为
-$$
+<p>设线矢量 <span class="arithmatex">\(L_1\)</span>、<span class="arithmatex">\(L_2\)</span> 为六维向量空间 <span class="arithmatex">\(\mathbb{R}^6\)</span> 中的元素，<span class="arithmatex">\(l_1\)</span>、<span class="arithmatex">\(l_2\)</span> 与 <span class="arithmatex">\(l_{10}\)</span>、<span class="arithmatex">\(l_{20}\)</span> 分别表示两个线矢量的姿态向量和对坐标原点的矢矩，则对于三维空间中的任意线矢量 <span class="arithmatex">\(L_1\)</span>、<span class="arithmatex">\(L_2\)</span>，Klein 型可表示为</p>
+<div class="arithmatex">\[
 Kl(L_1,L_2)=l_1\cdot l_{20}+l_2\cdot l_{10}
-$$
-对于三维空间中的任意线矢量 <span class="arithmatex">\(L\)</span>，Klein 型对应的二次型为
-$$
+\]</div>
+<p>对于三维空间中的任意线矢量 <span class="arithmatex">\(L\)</span>，Klein 型对应的二次型为</p>
+<div class="arithmatex">\[
 Kl(L,L)=2l\cdot l_0=0
-$$
-该式即为由 Klein 型的二次型定义的线矢量的<strong>自互易特性</strong>。同时，可将上述视为五维射影空间中的二阶约束，因此该式同时定义了五维射影空间中的<strong>超二次曲面</strong>，又称为 <strong>Klein 二次曲面</strong></p>
+\]</div>
+<p>该式即为由 Klein 型的二次型定义的线矢量的<strong>自互易特性</strong>。同时，可将上述视为五维射影空间中的二阶约束，因此该式同时定义了五维射影空间中的<strong>超二次曲面</strong>，又称为 <strong>Klein 二次曲面</strong></p>
 <h3 id="4">(4).旋量<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>在线矢量的基础上引入<strong>旋距</strong>（pitch），即可得到旋量。设旋量 <span class="arithmatex">\(S\in\mathbb{R}^6\)</span> 表示为</p>
 <div class="arithmatex">\[
@@ -2777,7 +2779,7 @@ s_P=s_0+r_{PO}\times s
 <p>其中，<span class="arithmatex">\(r_{PO}\)</span> 为从新原点 <span class="arithmatex">\(P\)</span> 指向原原点 <span class="arithmatex">\(O\)</span> 的位置向量。由此可知，旋量的副部随坐标原点变化，而旋距 <span class="arithmatex">\(h\)</span> 保持不变。</p>
 <h2 id="22-">2.2-空间速度向量<a class="headerlink" href="#22-" title="Permanent link">&para;</a></h2>
 <p>自由空间内有一个刚体<span class="arithmatex">\(B\)</span>，该刚体做空间内自由刚体运动。我们根据刚体运动的性质，将其分解为以速度<span class="arithmatex">\(v_O\)</span>平动和绕着某个轴做转动和绕着过刚体的一个旋转轴<span class="arithmatex">\(l_{\omega}\)</span>做旋转，该旋转轴相对于刚体的位置固定，并且随着刚体一起平动。我们在该刚体轴中找到一个点<span class="arithmatex">\(O_B\)</span>作为刚体固连坐标系的原点，并且将速度矢量<span class="arithmatex">\(v_O\)</span>和角速度矢量<span class="arithmatex">\(\omega_O\)</span>固定在一点<span class="arithmatex">\(O_B\)</span>上。如图所示：</p>
-<p><img alt="图 2-3" src="img/Fig2-3.png" /></p>
+<p><img alt="图 2-3" src="../img/fig2-3.png" /></p>
 <p>到这里，我们已经用两个量描述了刚体 <span class="arithmatex">\(B\)</span> 的瞬时运动：参考点 <span class="arithmatex">\(O_B\)</span> 的线速度 <span class="arithmatex">\(v_O\)</span>，描述刚体的平移；角速度 <span class="arithmatex">\(\omega_O\)</span>，描述刚体的转动。</p>
 <p>更重要的是，这两个量合在一起就足以确定刚体上任意一点的瞬时速度。对于刚体上的任意一点 <span class="arithmatex">\(P\)</span>，都有</p>
 <div class="arithmatex">\[
