@@ -13,6 +13,8 @@ docs/javascripts/mathjax.js
 
 # Python 缓存
 __pycache__/
+.venv/
+.tools/
 
 # blog 插件构建期自动生成的落地页
 /docs/tech-blog/index.md
