@@ -165,11 +165,10 @@ v_O
 \in\mathbb{R}^6.
 $$
 
-我们称 $\hat v$ 为刚体 $B$ 的**空间速度向量**。
-!!! note "证明：空间速度向量为旋量"
+我们称 $\hat v$ 为刚体 $B$ 的**空间速度向量**。!!! note "命题：空间速度向量为旋量"
 
     如图所示，$\{W\}$ 为地面惯性参考坐标系，刚体 $B$ 在空间中运动，其固连坐标系原点为 $O_B$。
-    $O_B$ 在 $\{W\}$ 中的位置向量记为 $\mathbf r$，其平动速度和刚体角速度分别为
+    $O_B$ 在 $\{W\}$ 中的位置向量为 $\mathbf r$，其平动速度和刚体角速度分别为
     $\mathbf v_O$ 和 $\boldsymbol{\omega}_O$，二者均附着于 $O_B$。
 
     定义空间速度向量
@@ -182,37 +181,52 @@ $$
     \end{bmatrix}.
     $$
 
-    当 $\boldsymbol{\omega}_O\neq 0$ 时，将 $\mathbf v_O$ 分解为平行和垂直于
-    $\boldsymbol{\omega}_O$ 的两部分：
+    求证：当 $\boldsymbol{\omega}_O\neq 0$ 时，$\mathbf V_O$ 为有限旋距运动旋量。
+
+    **证明**
+
+    将 $\mathbf v_O$ 分解为平行和垂直于 $\boldsymbol{\omega}_O$ 的两部分：
 
     $$
     \mathbf v_O
     =
-    \mathbf v_\perp+h\boldsymbol{\omega}_O,
+    \mathbf v_\perp
+    +
+    h\boldsymbol{\omega}_O,
     \qquad
     h=
     \frac{\boldsymbol{\omega}_O^T\mathbf v_O}
     {\|\boldsymbol{\omega}_O\|^2}.
     $$
 
-    为使垂直分量满足旋量形式，设存在仅由
-    $\boldsymbol{\omega}_O,\mathbf v_O$ 构造的向量
+    因而
+
+    $$
+    \mathbf v_\perp
+    =
+    \mathbf v_O
+    -
+    h\boldsymbol{\omega}_O.
+    $$
+
+    若 $\mathbf V_O$ 为旋量，则应存在某一位置向量 $\boldsymbol{\rho}$，使
+
+    $$
+    \mathbf v_\perp
+    =
+    \boldsymbol{\rho}\times\boldsymbol{\omega}_O.
+    $$
+
+    由于 $\boldsymbol{\rho}$ 仅由
+    $\boldsymbol{\omega}_O$ 和 $\mathbf v_O$ 构造，设
 
     $$
     \boldsymbol{\rho}
     =
-    k(\boldsymbol{\omega}_O\times\mathbf v_O),
+    k(\boldsymbol{\omega}_O\times\mathbf v_O).
     $$
 
-    并要求
-
-    $$
-    \boldsymbol{\rho}\times\boldsymbol{\omega}_O
-    =
-    \mathbf v_\perp.
-    $$
-
-    由向量三重积，
+    则由向量三重积，
 
     $$
     \boldsymbol{\rho}\times\boldsymbol{\omega}_O
@@ -224,10 +238,24 @@ $$
     \right].
     $$
 
-    与 $\mathbf v_\perp$ 比较得
+    而
 
     $$
-    k=\frac{1}{\|\boldsymbol{\omega}_O\|^2},
+    \mathbf v_\perp
+    =
+    \frac{1}{\|\boldsymbol{\omega}_O\|^2}
+    \left[
+    \|\boldsymbol{\omega}_O\|^2\mathbf v_O
+    -
+    (\boldsymbol{\omega}_O^T\mathbf v_O)\boldsymbol{\omega}_O
+    \right].
+    $$
+
+    比较得
+
+    $$
+    k=
+    \frac{1}{\|\boldsymbol{\omega}_O\|^2},
     \qquad
     \boldsymbol{\rho}
     =
@@ -235,7 +263,7 @@ $$
     {\|\boldsymbol{\omega}_O\|^2}.
     $$
 
-    因而
+    因此
 
     $$
     \boxed{
@@ -259,18 +287,7 @@ $$
     }
     $$
 
-    为空间运动旋量。
-
-    又由于
-
-    $$
-    (\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O)
-    \times\boldsymbol{\omega}_O
-    =
-    \boldsymbol{\rho}\times\boldsymbol{\omega}_O,
-    $$
-
-    故 $\boldsymbol{\rho}+\lambda\boldsymbol{\omega}_O$ 表示同一条旋量轴。
+    为有限旋距运动旋量。证毕。
 
 ## 2.2-空间力向量
 
