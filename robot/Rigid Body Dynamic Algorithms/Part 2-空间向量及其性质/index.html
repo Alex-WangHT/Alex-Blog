@@ -1075,10 +1075,49 @@
   <a href="#24-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4-空间坐标的空间变换
+        2.4-空间坐标变换
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.4-空间坐标变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1).从旋量的换原点性质出发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2).空间运动向量的坐标变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (3).空间力向量的对偶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2613,10 +2652,49 @@
   <a href="#24-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.4-空间坐标的空间变换
+        2.4-空间坐标变换
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.4-空间坐标变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (1).从旋量的换原点性质出发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (2).空间运动向量的坐标变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (3).空间力向量的对偶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2947,51 +3025,307 @@ h\boldsymbol{\omega}_O
 \]</div>
 <p>其中，<span class="arithmatex">\(\mathbf r_{PO}\times\mathbf f\)</span> 为推力相对于机体系原点产生的力矩，<span class="arithmatex">\(\mathbf n_O\)</span> 为旋翼自身产生的轴向反扭矩。</p>
 </div>
-<h2 id="24-">2.4-空间坐标的空间变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
-<p>这样，我们就得到了<strong>空间变换矩阵</strong>：</p>
-<div class="admonition note">
-<p class="admonition-title">空间变换矩阵(Spatial Transformation Matrix)</p>
-<p>假设有两个坐标系 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 和 <span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 。<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系相对于 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系的几何关系由旋转矩阵 <span class="arithmatex">\(\mathbf{R} = {^A_B \mathbf{R}}\)</span> 和位置向量 <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> (即<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span>原点在<span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span>中的位置) 确定。
-<strong>空间变换矩阵 <span class="arithmatex">\({{^A_B}\mathbf{X}}\)</span></strong> 用于将空间矢量从<span class="arithmatex">\(Frame{\{\mathcal{B}\}}\)</span> 坐标系转换到 <span class="arithmatex">\(Frame{\{\mathcal{A}\}}\)</span> 坐标系， 的定义如下：</p>
+<h2 id="24-">2.4-空间坐标变换<a class="headerlink" href="#24-" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">(1).从旋量的换原点性质出发<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>在 2.1 中，我们将旋量写成</p>
 <div class="arithmatex">\[
-{{^A_B}\mathbf{X}} = \begin{pmatrix} \mathbf{R} &amp; {\mathbf{0}}_{3{\times}3} \\ [{p}]_{\times} \mathbf{R} &amp; \mathbf{R} \end{pmatrix}
+S=
+\begin{pmatrix}
+s\\
+s_O
+\end{pmatrix}
+=
+\begin{pmatrix}
+s\\
+r\times s+hs
+\end{pmatrix}.
 \]</div>
-<p>其中：
-- <span class="arithmatex">\(\mathbf{R} = {^A_B\mathbf{ R}}\)</span> 是 <span class="arithmatex">\(3 \times 3\)</span> <strong>旋转矩阵</strong>。
--  <span class="arithmatex">\({p} = {^A\vec{p}_{BORG}}\)</span> 是 <span class="arithmatex">\(3 \times 1\)</span> <strong>位置向量</strong>
-- <span class="arithmatex">\([{p}]_{\times}\)</span> 是位置向量 <span class="arithmatex">\({p}\)</span> 对应的 <span class="arithmatex">\(3 \times 3\)</span> <strong>斜对称叉乘矩阵</strong>。</p>
-</div>
+<p>旋量的主部 <span class="arithmatex">\(s\)</span> 与坐标原点的选择无关，而副部 <span class="arithmatex">\(s_O\)</span> 会随坐标原点改变。设如图所示的坐标系 <span class="arithmatex">\(Frame\{\mathcal A\}\)</span> 和 <span class="arithmatex">\(Frame\{\mathcal B\}\)</span> 的原点分别为 <span class="arithmatex">\(O_A\)</span>、<span class="arithmatex">\(O_B\)</span>，并定义</p>
+<div class="arithmatex">\[
+p={}^{A}r_{O_AO_B},
+\]</div>
+<p>即 <span class="arithmatex">\(p\)</span> 是从 <span class="arithmatex">\(O_A\)</span> 指向 <span class="arithmatex">\(O_B\)</span> 的位置向量，并用 <span class="arithmatex">\(Frame\{\mathcal A\}\)</span> 表示。若暂时不考虑坐标轴旋转，则轴线上同一点相对于两个原点的位置满足</p>
+<div class="arithmatex">\[
+r_A=p+r_B.
+\]</div>
+<p>因此，根据 2.1 中旋量副部的定义，</p>
+<div class="arithmatex">\[
+\begin{aligned}
+s_{O_A}
+&amp;=r_A\times s+hs\\
+&amp;=(p+r_B)\times s+hs\\
+&amp;=p\times s+s_{O_B}.
+\end{aligned}
+\]</div>
+<p>这说明，改变参考点时，旋量的主部保持不变，副部增加 <span class="arithmatex">\(p\times s\)</span>。空间运动向量本身就是一个运动旋量，因此同样满足这个规律：</p>
+<div class="arithmatex">\[
+\begin{pmatrix}
+s\\
+s_{O_A}
+\end{pmatrix}
+=
+\begin{pmatrix}
+I&amp;0\\
+[p]_{\times}&amp;I
+\end{pmatrix}
+\begin{pmatrix}
+s\\
+s_{O_B}
+\end{pmatrix},
+\]</div>
+<p>其中 <span class="arithmatex">\([p]_{\times}\)</span> 是叉乘矩阵，满足 <span class="arithmatex">\([p]_{\times}x=p\times x\)</span>。</p>
+<h3 id="2">(2).空间运动向量的坐标变换<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>再考虑坐标轴方向不同的情况。令</p>
+<div class="arithmatex">\[
+R={}^{A}_{B}R
+\]</div>
+<p>表示将三维向量的 <span class="arithmatex">\(B\)</span> 坐标转换为 <span class="arithmatex">\(A\)</span> 坐标的旋转矩阵。设空间运动向量在两个坐标系中的 Plücker 坐标分别为</p>
+<div class="arithmatex">\[
+{}^{A}\hat m=
+\begin{pmatrix}
+{}^{A}m\\
+{}^{A}m_{O_A}
+\end{pmatrix},
+\qquad
+{}^{B}\hat m=
+\begin{pmatrix}
+{}^{B}m\\
+{}^{B}m_{O_B}
+\end{pmatrix}.
+\]</div>
+<p>主部只需旋转，而副部既要旋转又要换原点：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+{}^{A}m&amp;=R\,{}^{B}m,\\
+{}^{A}m_{O_A}&amp;=R\,{}^{B}m_{O_B}+[p]_{\times}R\,{}^{B}m.
+\end{aligned}
+\]</div>
+<p>于是得到 Featherstone 记号下的<strong>空间运动变换矩阵</strong>：</p>
+<div class="arithmatex">\[
+{}^{A}_{B}X=
+\begin{pmatrix}
+R&amp;0\\
+[p]_{\times}R&amp;R
+\end{pmatrix},
+\qquad
+{}^{A}\hat m={}^{A}_{B}X\,{}^{B}\hat m.
+\]</div>
+<p>对空间速度向量 <span class="arithmatex">\(\hat v=(\omega,v_O)\)</span>，这个变换就是</p>
+<div class="arithmatex">\[
+\begin{aligned}
+{}^{A}\omega&amp;=R\,{}^{B}\omega,\\
+{}^{A}v_{O_A}&amp;=R\,{}^{B}v_{O_B}+p\times{}^{A}\omega.
+\end{aligned}
+\]</div>
+<p>第二式正是刚体速度场在不同参考点处的关系。</p>
+<h3 id="3">(3).空间力向量的对偶变换<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>空间力向量写成</p>
+<div class="arithmatex">\[
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}.
+\]</div>
+<p>合力 <span class="arithmatex">\(f\)</span> 与原点无关，而力矩随原点改变。由力矩的移轴公式，</p>
+<div class="arithmatex">\[
+n_{O_A}=n_{O_B}+p\times f.
+\]</div>
+<p>因此空间力向量的变换矩阵为</p>
+<div class="arithmatex">\[
+{}^{A}_{B}X^{*}=
+\begin{pmatrix}
+R&amp;[p]_{\times}R\\
+0&amp;R
+\end{pmatrix},
+\qquad
+{}^{A}\hat f={}^{A}_{B}X^{*}\,{}^{B}\hat f.
+\]</div>
+<p>运动变换和力变换并不是同一个矩阵，而是满足</p>
+<div class="arithmatex">\[
+{}^{A}_{B}X^{*}=\left({}^{A}_{B}X\right)^{-T}.
+\]</div>
+<p>这个逆转置关系保证了同一物理系统的功率不随坐标系改变。</p>
 <div class="admonition note">
-<p class="admonition-title">空间变换矩阵的性质</p>
-<p>Contents</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">空间变换矩阵的对偶形式</p>
-<p>Contents</p>
+<p class="admonition-title">空间变换矩阵的基本性质</p>
+<p>设还有第三个坐标系 <span class="arithmatex">\(Frame\{\mathcal C\}\)</span>，则空间变换满足：</p>
+<div class="arithmatex">\[
+{}^{A}_{C}X={}^{A}_{B}X\,{}^{B}_{C}X,
+\]</div>
+<div class="arithmatex">\[
+\left({}^{A}_{B}X\right)^{-1}={}^{B}_{A}X,
+\]</div>
+<div class="arithmatex">\[
+{}^{A}_{C}X^{*}={}^{A}_{B}X^{*}\,{}^{B}_{C}X^{*}.
+\]</div>
+<p>与齐次变换矩阵不同，<span class="arithmatex">\(X\)</span> 作用于空间运动向量，<span class="arithmatex">\(X^{*}\)</span> 作用于空间力向量；二者不能混用。</p>
 </div>
 <h2 id="25-">2.5-空间向量的标量积<a class="headerlink" href="#25-" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">空间向量的标量积</p>
-<p>基于空间矢量我们定义标量积，这个标量积的其中一个参数为<strong>空间速度向量</strong>，另外一个参数是<strong>空间力向量</strong>。两者相乘的结果是一个<strong>表示能量，功率或者类似的物理量</strong>。
-我们给定一个空间速度向量<span class="arithmatex">\({\mathbf{m}}{\in}{{M}^{6}}\)</span>和一个空间力向量<span class="arithmatex">\({\mathbf{f}}{\in}{{F}^{6}}\)</span>，我们将这两个向量进行点乘运算，点乘运算可以表示为<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{m}}\)</span>，<strong>这两者等价</strong>。</p>
-</div>
+<p>空间运动向量空间 <span class="arithmatex">\(M^6\)</span> 与空间力向量空间 <span class="arithmatex">\(F^6\)</span> 互为对偶空间。设</p>
+<div class="arithmatex">\[
+\hat m=
+\begin{pmatrix}
+\omega\\
+v_O
+\end{pmatrix}
+\in M^6,
+\qquad
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}
+\in F^6,
+\]</div>
+<p>则二者的空间标量积定义为</p>
+<div class="arithmatex">\[
+\hat m\cdot\hat f
+=
+\omega\cdot n_O+v_O\cdot f
+=
+\hat m^{T}\hat f.
+\]</div>
+<p>当 <span class="arithmatex">\(\hat m\)</span> 是刚体的空间速度、<span class="arithmatex">\(\hat f\)</span> 是作用在刚体上的空间力时，第一项是力矩产生的功率，第二项是合力产生的功率，因此</p>
+<div class="arithmatex">\[
+\mathcal P=\hat v\cdot\hat f
+=\omega\cdot n_O+v_O\cdot f.
+\]</div>
+<p>利用 2.4 中的对偶变换关系，可以直接验证标量积与坐标系无关：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+{}^{A}\hat m\cdot{}^{A}\hat f
+&amp;=\left({}^{A}_{B}X\,{}^{B}\hat m\right)^T
+\left({}^{A}_{B}X^{*}\,{}^{B}\hat f\right)\\
+&amp;={}^{B}\hat m^T
+\left({}^{A}_{B}X\right)^T
+\left({}^{A}_{B}X\right)^{-T}
+{}^{B}\hat f\\
+&amp;={}^{B}\hat m\cdot{}^{B}\hat f.
+\end{aligned}
+\]</div>
+<p>这也解释了为什么空间力必须使用 <span class="arithmatex">\(X^{*}=X^{-T}\)</span> 进行变换。</p>
 <div class="admonition warning">
-<p class="admonition-title">空间向量的标量积的物理含义</p>
-<ul>
-<li>空间向量的标量积只有<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{m}}\)</span>才具有物理含义，这个运算表示的是刚体运动的功率，能量等类似物理量。</li>
-<li>运算<span class="arithmatex">\({\mathbf{f}}{\cdot}{\mathbf{f}}\)</span>或者<span class="arithmatex">\({\mathbf{m}}{\cdot}{\mathbf{m}}\)</span>没有任何物理含义。</li>
-</ul>
+<p class="admonition-title">不能把 Plücker 坐标当作普通六维欧氏向量</p>
+<p><span class="arithmatex">\(\hat m^T\hat m\)</span> 或 <span class="arithmatex">\(\hat f^T\hat f\)</span> 虽然可以在某一组坐标中计算，但其数值通常会随坐标原点改变，因此不是空间向量的坐标不变量。具有明确几何和物理意义的是 <span class="arithmatex">\(M^6\)</span> 与 <span class="arithmatex">\(F^6\)</span> 之间的对偶配对 <span class="arithmatex">\(\hat m\cdot\hat f\)</span>。</p>
 </div>
 <h2 id="26-">2.6-空间向量叉乘<a class="headerlink" href="#26-" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">空间向量的叉乘</p>
-<p>Contents</p>
-</div>
+<p>空间向量的叉乘不是普通三维叉乘的简单扩展。而是分为两种运算：运动向量作用于运动向量的 <span class="arithmatex">\(\times\)</span>，以及运动向量作用于力向量的 <span class="arithmatex">\(\times^{*}\)</span>。</p>
+<p>设</p>
+<div class="arithmatex">\[
+\hat v=
+\begin{pmatrix}
+\omega\\
+v_O
+\end{pmatrix},
+\qquad
+\hat m=
+\begin{pmatrix}
+\eta\\
+u_O
+\end{pmatrix}
+\in M^6.
+\]</div>
+<p>运动向量叉乘定义为</p>
+<div class="arithmatex">\[
+\hat v\times\hat m
+=
+\begin{pmatrix}
+\omega\times\eta\\
+v_O\times\eta+\omega\times u_O
+\end{pmatrix}.
+\]</div>
+<p>将叉乘写成矩阵形式，得到 Featherstone 算法中常用的运动叉乘算子</p>
+<div class="arithmatex">\[
+\operatorname{crm}(\hat v)
+=
+\begin{pmatrix}
+[\omega]_{\times}&amp;0\\
+[v_O]_{\times}&amp;[\omega]_{\times}
+\end{pmatrix},
+\qquad
+\hat v\times\hat m=\operatorname{crm}(\hat v)\hat m.
+\]</div>
+<p>若</p>
+<div class="arithmatex">\[
+\hat f=
+\begin{pmatrix}
+n_O\\
+f
+\end{pmatrix}
+\in F^6,
+\]</div>
+<p>则运动向量对力向量的叉乘定义为</p>
+<div class="arithmatex">\[
+\hat v\times^{*}\hat f
+=
+\begin{pmatrix}
+\omega\times n_O+v_O\times f\\
+\omega\times f
+\end{pmatrix}.
+\]</div>
+<p>对应的力叉乘算子为</p>
+<div class="arithmatex">\[
+\operatorname{crf}(\hat v)
+=
+\begin{pmatrix}
+[\omega]_{\times}&amp;[v_O]_{\times}\\
+0&amp;[\omega]_{\times}
+\end{pmatrix},
+\qquad
+\hat v\times^{*}\hat f=\operatorname{crf}(\hat v)\hat f.
+\]</div>
+<p>两个算子满足重要的对偶关系</p>
+<div class="arithmatex">\[
+\operatorname{crf}(\hat v)
+=-\operatorname{crm}(\hat v)^T.
+\]</div>
+<p>因此，对任意 <span class="arithmatex">\(\hat m\in M^6\)</span> 和 <span class="arithmatex">\(\hat f\in F^6\)</span>，有</p>
+<div class="arithmatex">\[
+(\hat v\times\hat m)\cdot\hat f
++\hat m\cdot(\hat v\times^{*}\hat f)=0.
+\]</div>
+<p>此外，运动叉乘满足</p>
+<div class="arithmatex">\[
+\hat v\times\hat v=0,
+\]</div>
+<p>并且与坐标变换相容：先做叉乘再变换，与先变换两个向量再做叉乘，结果相同。</p>
 <h2 id="27-">2.7-空间向量求导<a class="headerlink" href="#27-" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">空间向量的求导</p>
-<p>Contents</p>
-</div>
+<p>空间向量的导数仍然是空间向量，但在运动坐标系中求导时，不能只对六个坐标分量逐项求导，因为用于表示空间向量的 Plücker 基也在运动。</p>
+<p>设 <span class="arithmatex">\(Frame\{\mathcal A\}\)</span> 相对于惯性系的空间速度为 <span class="arithmatex">\({}^{A}\hat v_A\)</span>，某个运动向量 <span class="arithmatex">\(\hat m\)</span> 在该坐标系中的坐标为 <span class="arithmatex">\({}^{A}\hat m\)</span>。它的惯性导数在 <span class="arithmatex">\(Frame\{\mathcal A\}\)</span> 中表示为</p>
+<div class="arithmatex">\[
+{}^{A}\left(\frac{d\hat m}{dt}\right)
+=
+\frac{d}{dt}\left({}^{A}\hat m\right)
++{}^{A}\hat v_A\times{}^{A}\hat m.
+\]</div>
+<p>对空间力向量，则有</p>
+<div class="arithmatex">\[
+{}^{A}\left(\frac{d\hat f}{dt}\right)
+=
+\frac{d}{dt}\left({}^{A}\hat f\right)
++{}^{A}\hat v_A\times^{*}{}^{A}\hat f.
+\]</div>
+<p>等式右边第一项只是六个坐标分量的逐项导数，第二项补偿坐标原点和坐标轴运动造成的基变化。</p>
+<p>若一个空间向量固定在刚体上，则它在刚体系中的坐标保持不变。此时</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\left({}^{A}\hat m\right)=0,
+\qquad
+{}^{A}\left(\frac{d\hat m}{dt}\right)
+={}^{A}\hat v_A\times{}^{A}\hat m,
+\]</div>
+<p>而固定在刚体上的空间力向量满足</p>
+<div class="arithmatex">\[
+{}^{A}\left(\frac{d\hat f}{dt}\right)
+={}^{A}\hat v_A\times^{*}{}^{A}\hat f.
+\]</div>
+<p>空间标量积仍满足普通的乘积求导法则：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}(\hat m\cdot\hat f)
+=
+\frac{d\hat m}{dt}\cdot\hat f
++\hat m\cdot\frac{d\hat f}{dt}.
+\]</div>
+<p>这是因为 2.6 中两个叉乘算子的附加项在标量积中恰好相消。</p>
 
 
 
