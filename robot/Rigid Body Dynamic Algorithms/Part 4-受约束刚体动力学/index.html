@@ -2880,8 +2880,7 @@ $$</li>
 <li><strong>例子</strong>： <ul>
 <li>单摆的悬点正在做周期性上下振动（悬点位置 <span class="arithmatex">\(y_0 = A \sin(\omega t)\)</span>）。 </li>
 <li>质点在一段长度随时间不断增长的绳索上运动。 </li>
-<li>小球在旋转的直杆上滑动。
-我们可以将不同的约束按照<strong>限制范围</strong>，<strong>坐标依赖</strong>和<strong>时间依赖</strong>三点来划分：</li>
+<li>小球在旋转的直杆上滑动。</li>
 </ul>
 </li>
 </ul>
@@ -2889,6 +2888,7 @@ $$</li>
 </ul>
 </li>
 </ul>
+<p>我们可以将不同的约束按照<strong>限制范围</strong>，<strong>坐标依赖</strong>和<strong>时间依赖</strong>三点来划分：</p>
 <table>
 <thead>
 <tr>
@@ -2940,8 +2940,10 @@ $$</li>
 \sum_{i=1}^{n} \mathbf{R}_i \cdot \delta \mathbf{v}_i = \sum_{i=1}^{n} (\mathbf{F}_i - m_i \dot{\mathbf{v}}_i) \cdot \delta \mathbf{v}_i = 0
 \]</div>
 </div>
-<p>我们设约束力为<span class="arithmatex">\(\boldsymbol{\tau_c}\)</span>，那么我们根据若尔当变分原理可以得到约束力的功率<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0\)</span>。我们分别使用显式约束和隐式约束来表示约束力<span class="arithmatex">\({\boldsymbol{\tau_c}}\)</span>：
-- <strong>显式约束</strong>：我们根据等式<span class="arithmatex">\(\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}\)</span>以及矢量点乘的交换性质<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0\)</span>可以得到：</p>
+<p>我们设约束力为<span class="arithmatex">\(\boldsymbol{\tau_c}\)</span>，那么我们根据若尔当变分原理可以得到约束力的功率<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0\)</span>。我们分别使用显式约束和隐式约束来表示约束力<span class="arithmatex">\({\boldsymbol{\tau_c}}\)</span>：</p>
+<ul>
+<li><strong>显式约束</strong>：我们根据等式<span class="arithmatex">\(\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}\)</span>以及矢量点乘的交换性质<span class="arithmatex">\({\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0\)</span>可以得到：</li>
+</ul>
 <div class="arithmatex">\[
 {\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}={\boldsymbol{\dot{q}}}^{T}{\boldsymbol{\tau_c}}=\dot{\boldsymbol{y}}^{T}\mathbf{G}(\boldsymbol{y})^{T}{\boldsymbol{\tau_c}}=0 
 \]</div>
