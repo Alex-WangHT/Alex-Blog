@@ -82,6 +82,7 @@ $$
 			* 单摆的悬点正在做周期性上下振动（悬点位置 $y_0 = A \sin(\omega t)$）。 
 			* 质点在一段长度随时间不断增长的绳索上运动。 
 			* 小球在旋转的直杆上滑动。
+            
 我们可以将不同的约束按照**限制范围**，**坐标依赖**和**时间依赖**三点来划分：
 
 | 维度       | 对立类型 A             | 对立类型 B                 |
@@ -121,6 +122,7 @@ $$
 
 
 我们设约束力为$\boldsymbol{\tau_c}$，那么我们根据若尔当变分原理可以得到约束力的功率${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}=0$。我们分别使用显式约束和隐式约束来表示约束力${\boldsymbol{\tau_c}}$：
+
 - **显式约束**：我们根据等式$\dot{\boldsymbol{q}} = \mathbf{G}(\boldsymbol{y}) \dot{\boldsymbol{y}}$以及矢量点乘的交换性质${\boldsymbol{\tau_c}}{\cdot}{\boldsymbol{\dot{q}}}={\boldsymbol{\dot{q}}}{\cdot}{\boldsymbol{\tau_c}}=0$可以得到：
 
 $$
