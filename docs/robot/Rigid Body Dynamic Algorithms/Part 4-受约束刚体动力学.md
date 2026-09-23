@@ -1,6 +1,152 @@
 
 # 4-带约束的刚体动力学
-## 4.1-刚体的运动约束
+## 4.1-矢量子空间的相关知识概念
+
+矢量子空间可以用来描述运动约束，因为它直接刻画了系统允许的运动方向。在给定位形下，对于前面介绍的齐次速度约束，隐式形式 $\mathbf{K}\dot{\boldsymbol{q}}=\mathbf{0}$ 与显式形式 $\dot{\boldsymbol{q}}=\mathbf{G}\dot{\boldsymbol{y}}$ 所描述的允许运动子空间分别为：
+
+$$
+S=\operatorname{null}(\mathbf{K}),\qquad S=\operatorname{range}(\mathbf{G}).
+$$
+
+这里 $\operatorname{null}$ 表示矩阵的零空间，$\operatorname{range}$ 表示矩阵的值域（列空间）。如果两组矩阵描述同一个约束，那么必有 $\operatorname{null}(\mathbf{K}_1)=\operatorname{null}(\mathbf{K}_2)=S$，或者 $\operatorname{range}(\mathbf{G}_1)=\operatorname{range}(\mathbf{G}_2)=S$。因此，**约束的本质由子空间决定，表示它的矩阵并不唯一**。
+
+### (1)-子空间、张成、基与维数
+
+!!! note "矢量子空间"
+    设 $V$ 是一个实矢量空间。如果非空子集 $S\subseteq V$ 对**矢量加法和标量乘法封闭**，那么 $S$ 本身也是矢量空间，称为 $V$ 的子空间。也就是说：
+
+    $$
+    \mathbf{u},\mathbf{v}\in S,\quad a,b\in\mathbb{R}
+    \quad\Longrightarrow\quad a\mathbf{u}+b\mathbf{v}\in S.
+    $$
+
+    子空间一定包含零矢量；只包含零矢量的集合 $\{\mathbf{0}\}$ 也是子空间，称为零子空间。
+
+!!! note "张成与基"
+    对任意子集 $Y\subseteq V$，$\operatorname{span}(Y)$ 表示 $Y$ 中矢量的所有**有限线性组合**构成的集合。若 $Y=\{\mathbf{y}_1,\ldots,\mathbf{y}_r\}$，则：
+
+    $$
+    \operatorname{span}(Y)=\left\{\sum_{i=1}^{r}\alpha_i\mathbf{y}_i\;\middle|\;\alpha_i\in\mathbb{R}\right\}.
+    $$
+
+    $\operatorname{span}(Y)$ 总是子空间，也是包含 $Y$ 的最小子空间。因此，$Y$ 本身是子空间的充要条件为 $Y=\operatorname{span}(Y)$。
+
+    如果 $\mathcal{S}=\{\mathbf{s}_1,\ldots,\mathbf{s}_m\}$ 中的矢量**线性无关**，并且能够张成子空间 $S$，那么 $\mathcal{S}$ 就是 $S$ 的一组基，且：
+
+    $$
+    S=\operatorname{span}(\mathcal{S}),\qquad \dim(S)=|\mathcal{S}|=m.
+    $$
+
+    注意，$\mathcal{S}$ 是由基矢量组成的集合，而 $S$ 包含这些基矢量的所有线性组合，二者不能混为一谈。
+
+若 $\dim(V)=n$、$\dim(S)=m$，则 $0\leq m\leq n$。当 $m=0$ 时，$S=\{\mathbf{0}\}$；当 $m=n$ 时，$S=V$；当 $0<m<n$ 时，实矢量空间 $V$ 中存在无穷多个不同的 $m$ 维子空间。
+
+这里用 $S\subseteq V$ 表示子空间关系，用 $S\subsetneq V$ 表示真子空间，此时 $\dim(S)<\dim(V)$。一般的子集关系也使用包含符号，需根据上下文判断是否同时满足子空间条件。
+
+### (2)-子空间的矩阵表示
+
+!!! note "基矩阵与坐标"
+    设 $S$ 是 $n$ 维空间 $V$ 的一个 $m$ 维子空间，$\mathcal{S}=\{\mathbf{s}_1,\ldots,\mathbf{s}_m\}$ 是它的一组基。将这些基矢量在 $V$ 的某组基下的坐标按列排列，得到 $n\times m$ 的基矩阵：
+
+    $$
+    \mathbf{S}=\begin{bmatrix}\mathbf{s}_1&\cdots&\mathbf{s}_m\end{bmatrix},\qquad
+    \operatorname{range}(\mathbf{S})=S,\qquad \operatorname{rank}(\mathbf{S})=m.
+    $$
+
+    任意 $\mathbf{v}\in S$ 都可以唯一写成：
+
+    $$
+    \mathbf{v}=\sum_{i=1}^{m}\mathbf{s}_i\alpha_i=\mathbf{S}\boldsymbol{\alpha},\qquad
+    \boldsymbol{\alpha}=\begin{bmatrix}\alpha_1&\cdots&\alpha_m\end{bmatrix}^{\mathrm{T}}.
+    $$
+
+    其中 $\boldsymbol{\alpha}$ 是 $\mathbf{v}$ 在子空间这组基下的坐标。**矩阵 $\mathbf{S}$ 同时指定了一个子空间和该子空间的一组基**。
+
+!!! note "同一子空间的不同基"
+    如果 $\mathbf{S}'$ 是同一子空间的另一组基矩阵，则存在可逆矩阵 $\mathbf{A}\in\mathbb{R}^{m\times m}$，使得：
+
+    $$
+    \mathbf{S}'=\mathbf{S}\mathbf{A},\qquad
+    \operatorname{range}(\mathbf{S}')=\operatorname{range}(\mathbf{S})=S.
+    $$
+
+    对同一个矢量，$\mathbf{v}=\mathbf{S}\boldsymbol{\alpha}=\mathbf{S}'\boldsymbol{\alpha}'$，因此 $\boldsymbol{\alpha}=\mathbf{A}\boldsymbol{\alpha}'$。也就是说，$\mathbf{A}$ 将新基下的坐标转换为原基下的坐标。
+
+    从独立参数的数量来看，一个 $m$ 维子空间在 $n$ 维实矢量空间中的位置局部需要 $m(n-m)$ 个参数描述；在子空间内选择一组基还需要 $m^2$ 个参数，两者之和为基矩阵所含的 $nm$ 个参数。
+
+### (3)-向量分解与直和
+
+!!! note "向量分解的存在性与唯一性"
+    给定 $\mathbf{v}\in V$ 以及两个子空间 $S_1,S_2\subseteq V$，我们希望把它分解为：
+
+    $$
+    \mathbf{v}=\mathbf{v}_1+\mathbf{v}_2,\qquad \mathbf{v}_1\in S_1,\quad \mathbf{v}_2\in S_2.
+    $$
+
+    这样的分解存在，当且仅当 $\mathbf{v}\in S_1+S_2=\operatorname{span}(S_1\cup S_2)$。在分解存在的前提下，分解唯一，当且仅当 $S_1\cap S_2=\{\mathbf{0}\}$。
+
+    若希望 $V$ 中**每一个矢量都能且只能有一种这样的分解**，则在有限维情形下需要满足：
+
+    $$
+    S_1\cap S_2=\{\mathbf{0}\},\qquad \dim(S_1)+\dim(S_2)=\dim(V).
+    $$
+
+    此时称 $V$ 是 $S_1$ 与 $S_2$ 的**直和**，记作：
+
+    $$
+    V=S_1\oplus S_2.
+    $$
+
+    直和要求分解唯一，并不要求两个子空间相互正交。
+
+!!! note "使用基矩阵计算分量"
+    若 $V=S_1\oplus S_2$，且 $\mathbf{S}_1$、$\mathbf{S}_2$ 分别是两个子空间的基矩阵，则：
+
+    $$
+    \mathbf{v}=\mathbf{S}_1\boldsymbol{\alpha}_1+\mathbf{S}_2\boldsymbol{\alpha}_2
+    =\begin{bmatrix}\mathbf{S}_1&\mathbf{S}_2\end{bmatrix}
+    \begin{bmatrix}\boldsymbol{\alpha}_1\\\boldsymbol{\alpha}_2\end{bmatrix}.
+    $$
+
+    拼接矩阵 $\begin{bmatrix}\mathbf{S}_1&\mathbf{S}_2\end{bmatrix}$ 的列构成 $V$ 的一组基，因此它是可逆方阵。于是：
+
+    $$
+    \begin{bmatrix}\boldsymbol{\alpha}_1\\\boldsymbol{\alpha}_2\end{bmatrix}
+    =\begin{bmatrix}\mathbf{S}_1&\mathbf{S}_2\end{bmatrix}^{-1}\mathbf{v},\qquad
+    \mathbf{v}_1=\mathbf{S}_1\boldsymbol{\alpha}_1,\quad
+    \mathbf{v}_2=\mathbf{S}_2\boldsymbol{\alpha}_2.
+    $$
+
+### (4)-正交与正交补
+
+!!! note "向量空间的正交补"
+    在欧氏空间 $E^n$ 中，如果两个矢量满足 $\mathbf{u}\cdot\mathbf{v}=0$，就称它们正交。若集合 $Y_1$ 中的每一个矢量都与集合 $Y_2$ 中的每一个矢量正交，则称两个集合正交，记为 $Y_1\perp Y_2$。
+
+    对任意子集 $Y\subseteq E^n$，与 $Y$ 中所有矢量正交的矢量构成它的**正交补**：
+
+    $$
+    Y^{\perp}=\left\{\mathbf{v}\in E^n\;\middle|\;\mathbf{v}\cdot\mathbf{y}=0,\ \forall\mathbf{y}\in Y\right\}.
+    $$
+
+    无论 $Y$ 本身是不是子空间，$Y^{\perp}$ 总是子空间。对于子空间 $S\subseteq E^n$，有：
+
+    $$
+    S\cap S^{\perp}=\{\mathbf{0}\},\qquad
+    \dim(S)+\dim(S^{\perp})=n,\qquad E^n=S\oplus S^{\perp}.
+    $$
+
+    因此，每一个欧氏矢量都能唯一分解为属于 $S$ 和 $S^{\perp}$ 的两个正交分量。在正交归一坐标下，若 $\mathbf{S}$ 是 $S$ 的基矩阵，则 $S^{\perp}=\operatorname{null}(\mathbf{S}^{\mathrm{T}})$。
+
+!!! note "空间运动矢量与空间力矢量的对偶关系"
+    上面的正交性建立在欧氏内积上。对于一般矢量空间，需要先明确所使用的内积或对偶配对。在刚体动力学中，空间运动矢量属于 $M^6$，空间力矢量属于其对偶空间 $F^6=(M^6)^*$，二者通过标量积给出功率：
+
+    $$
+    \mathbf{f}\cdot\mathbf{v}=\mathbf{f}^{\mathrm{T}}\mathbf{v}.
+    $$
+
+    因此，对运动子空间 $S\subseteq M^6$，后文所说的约束力子空间 $T=S^{\perp}\subseteq F^6$，是指所有对 $S$ 中任意运动矢量都满足 $\mathbf{f}\cdot\mathbf{v}=0$ 的力矢量所构成的空间，严格说是 $S$ 在对偶空间中的零化子。这里描述的是力与运动之间的零功率配对，不能直接理解为同一个欧氏空间中两个普通矢量的几何垂直。
+
+## 4.2-刚体的运动约束
 ### (1)-刚体运动约束的显式表达和隐式表达
 刚体的运动约束的表达可以分为**显式**和**隐式**：
 
@@ -92,7 +238,7 @@ $$
 | **时间依赖** | **稳定约束** (不随时间变)   | **不稳定约束** (随时间变)       |
 
 
-## 4.2-带约束的刚体动力学
+## 4.3-带约束的刚体动力学
 ### (1)-带约束力的刚体动力学方程
 
 !!! note "带约束的刚体系统的动力学方程表达"
@@ -253,26 +399,8 @@ $$
 {{\boldsymbol{u}}={\boldsymbol{G}^{\mathrm{T}}}{\boldsymbol{\tau}}}{\quad}\boldsymbol{H_G} = \boldsymbol{G^{\mathrm{T}}HG} {\quad} \boldsymbol{C_G} = \boldsymbol{G^{\mathrm{T}}(C + Hg)}
 $$
 
-## 4.3-刚体的关节约束
-### (1)-矢量子空间的相关知识概念
-
-!!! note "矢量子空间"
-    假设我们有一个$n$维的矢量空间$V$，我们定义一个$m$维的子空间${S}{\subseteq}{V}$，那么该子空间$S$的定义如下：
-    
-    $$
-    {\mathcal{S}}={\{{\mathbf{s}_1},{\mathbf{s}_2},{\mathbf{s}_3},{\dots},{\mathbf{s}_m}\}}
-    $$
-    
-
-
-!!! note "向量分解"
-    Contents
-
-
-!!! note "向量空间的正交补"
-    Contents
-
-### (2)-运动子空间和约束力子空间
+## 4.4-刚体的关节约束
+### (1)-运动子空间和约束力子空间
 
 !!! note "矢量子空间在关节动力学的应用"
     - **空间运动学**：我们已知空间约束的两种形式：显式约束和隐式约束，那么对于这两种约束来说，关节运动的子空间$S$的定义如下：
@@ -293,7 +421,7 @@ $$
     - **空间动力学**：我们定义关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$
 
 
-### (3)-常见关节类型及其子空间
+### (2)-常见关节类型及其子空间
 常见的关节类型以及其对应的变换矩阵，关节位移向量，运动子空间矩阵和约束力子空间矩阵如下：
 
 | 关节类型 (Joint Type)      | 关节变换矩阵 $\mathbf{E}$       | 关节位移向量 $\mathbf{r}$                                                     | 运动子空间矩阵 ($\mathbf{S}$)                                                                                     | 约束力子空间矩阵 ($\mathbf{T}$)                                                                                                                                    |
@@ -310,7 +438,7 @@ $$
 
 * $c_1 = \cos(q_1)$, $s_1 = \sin(q_1)$
 * $^{s}X_{p} = \text{rot}(\mathbf{E}) \text{xlt}(\mathbf{r})$
-### (4)-球形关节的位姿描述方式
+### (3)-球形关节的位姿描述方式
 球形关节具有定点旋转的三个自由度，我们一般用**欧拉角**和**四元数**来表示球形关节的位置：
 
 !!! note "欧拉角"
@@ -393,7 +521,7 @@ $$
     $$
 
 
-### (5)-关节空间速度
+### (4)-关节空间速度
 我们定义关节空间速度是父连杆(Predecessor)在关节连接处的空间速度与子连杆(Successor)在关节连接处的空间速度之差：
 $$
 \boldsymbol{v_{\mathrm{J}}} = \boldsymbol{v_s - v_p}
@@ -415,7 +543,7 @@ $$
 !!! example "以2-DOF平面机械臂来理解关节空间速度"
     
 
-### (6)-关节空间力
+### (5)-关节空间力
 我们让关节的空间约束力所在的子空间$\boldsymbol{T}={\boldsymbol{S}}^{\perp}$，并且定义关节的空间驱动力$\boldsymbol{T}_a$满足${\boldsymbol{T}}{\oplus}{\boldsymbol{T}_a}={F^{6}}$，那么关节的空间力如下：
 
 $$
@@ -444,7 +572,7 @@ $$
     因为在关节空间力两边同时乘以关节运动空间${\boldsymbol{S}}$之后，关节空间的约束力一项等于0，因此在后续的建模中，我们只考虑到关节空间的作用力，不考虑关节空间的约束力。
 
 
-## 4.4-受约束的刚体动力学方程
+## 4.5-受约束的刚体动力学方程
 在一个受约束的刚体中，刚体$i$受到以下几个力：
 
 - 父关节对当前连杆的作用力${\boldsymbol{f}_{Bi}}$
