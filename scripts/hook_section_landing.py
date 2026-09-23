@@ -13,8 +13,8 @@ from urllib.parse import quote
 
 from mkdocs.structure.files import File
 
-# 不生成落地页的顶层目录（tech-blog 由 blog 插件托管，javascripts 是资源目录）
-EXCLUDE_TOP_LEVEL = {'tech-blog', 'javascripts'}
+# 不生成落地页的顶层目录（tech-blog 由 blog 插件托管，其余为资源目录）
+EXCLUDE_TOP_LEVEL = {'tech-blog', 'javascripts', 'stylesheets'}
 # 任何层级都不视为内容目录的名字
 EXCLUDE_DIR_NAMES = {'img', 'tags'}
 
